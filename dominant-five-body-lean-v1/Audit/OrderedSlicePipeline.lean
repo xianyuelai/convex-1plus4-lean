@@ -1,0 +1,15 @@
+import DominantFiveBody.NestedSliceConnection
+
+#print axioms DominantFiveBody.orderedSliceContinuationRoot_actual_data
+#print axioms DominantFiveBody.orderedSlice_localContinuationUniqueness
+#print axioms DominantFiveBody.orientedIsometry_polar_shift
+#print axioms DominantFiveBody.orderedPolarSlice_contDiff
+#print axioms DominantFiveBody.orderedPolarSlice_physical_eq_rotation
+#print axioms DominantFiveBody.polarStrictConvex_orderedSemicircle
+#print axioms DominantFiveBody.orderedPolarSlice_endpoint
+#print axioms DominantFiveBody.orderedPolarSlice_normalized
+#print axioms DominantFiveBody.orderedPolarSlice_root_of_normalized
+#print axioms DominantFiveBody.orderedPolarSlice_nondegenerate_of_normalized
+#print axioms DominantFiveBody.nestedOrderedSlice_contDiff
+#print axioms DominantFiveBody.NestedCapturedBranches.orderedSlice_endpoint
+#print axioms DominantFiveBody.NestedCapturedBranches.toOrderedSliceCapturedBranches

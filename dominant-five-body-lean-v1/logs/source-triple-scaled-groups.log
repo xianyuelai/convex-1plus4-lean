@@ -1,0 +1,91 @@
+DominantFiveBody/CollisionTripleScaledGroups.lean:63:4: error: No goals to be solved
+DominantFiveBody/CollisionTripleScaledGroups.lean:67:4: error: No goals to be solved
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+DominantFiveBody/CollisionTripleScaledGroups.lean:121:4: error: unsolved goals
+case e'_3
+eps : ℕ → ℝ
+mu : ℕ → MassRatio
+q : ℕ → SatelliteConfiguration
+heps : Tendsto eps atTop (𝓝 0)
+hm : ∀ (n : ℕ), PositiveRatio (mu n)
+hroot : ∀ (n : ℕ) (i : Satellite), vectorResidual (eps n) (mu n) (q n) i = 0
+hcf : ∀ (n : ℕ), RelativeCollisionFree (q n)
+q0 : SatelliteConfiguration
+hqt : Tendsto q atTop (𝓝 q0)
+p : Satellite
+c : Plane
+hc : ‖c‖ = 1
+hcenter : ∀ i ∈ Finset.univ.erase p, q0 i = c
+hsep : q0 p ≠ c
+d : ℕ → ℝ
+hd : ∀ (n : ℕ), 0 < d n
+hdiam : ∀ (n : ℕ), ∀ i ∈ Finset.univ.erase p, ∀ j ∈ Finset.univ.erase p, satelliteDistance (q n) i j ≤ d n
+ref : Satellite
+z : Satellite → Plane
+hzt : ∀ i ∈ Finset.univ.erase p, Tendsto (fun n => (d n)⁻¹ • (q n i - q n ref)) atTop (𝓝 (z i))
+S T : Finset Satellite
+hS : S ⊆ Finset.univ.erase p
+hT : T ⊆ Finset.univ.erase p
+a b : Satellite
+ha : a ∈ S
+hb : b ∈ T
+hclassS : ∀ i ∈ Finset.univ.erase p, i ∈ S ↔ z i = z a
+hclassT : ∀ i ∈ Finset.univ.erase p, i ∈ T ↔ z i = z b
+v : Plane
+hv : ‖v‖ = 1
+E : Finset Satellite := Finset.univ.erase p
+hSnon : S.Nonempty
+hTnon : T.Nonempty
+hEa : a ∈ E
+hEb : b ∈ E
+hclassesS : ∀ i ∈ S, ∀ j ∈ E \ S, z i ≠ z j
+hclassesT : ∀ i ∈ T, ∀ j ∈ E \ T, z i ≠ z j
+etaS : ℝ
+hetaS : 0 < etaS
+hcrossS : ∀ᶠ (n : ℕ) in atTop, ∀ i ∈ S, ∀ j ∈ E \ S, etaS * d n ≤ satelliteDistance (q n) j i
+etaT : ℝ
+hetaT : 0 < etaT
+hcrossT : ∀ᶠ (n : ℕ) in atTop, ∀ i ∈ T, ∀ j ∈ E \ T, etaT * d n ≤ satelliteDistance (q n) j i
+eta : ℝ := min etaS etaT
+heta : 0 < eta
+hnearS : Sᶜ.erase p = E \ S
+hnearT : Tᶜ.erase p = E \ T
+hpS : p ∉ S
+hpT : p ∉ T
+K : ℝ
+hK : 0 < K
+hfar :
+  ∀ᶠ (n : ℕ) in atTop,
+    ∀ i ∈ E, |inner ℝ (newtonTargetField (q n p) (q n i) - newtonTargetField (q n p) (q n a)) v| ≤ K * d n
+C : ℝ
+hC : 0 < C
+hcube : ∀ᶠ (n : ℕ) in atTop, (∑ i ∈ Finset.univ.erase p, mu n i) / d n ^ 3 ≤ C
+hscaledS : ∀ i ∈ S, Tendsto (fun n => (d n)⁻¹ • (q n i - q n a)) atTop (𝓝 0)
+hscaledT : ∀ i ∈ T, Tendsto (fun n => (d n)⁻¹ • (q n i - q n b)) atTop (𝓝 0)
+hlimits : ∀ i ∈ S ∪ T, Tendsto (fun n => q n i) atTop (𝓝 c)
+hlim : Tendsto (fun n => inner ℝ (primaryRadialField (q n a) - primaryRadialField (q n b)) v / d n) atTop (𝓝 0)
+B : ℕ → ℝ :=
+  fun n => -(satelliteGroupExteriorProjection (mu n) (q n) S v - satelliteGroupExteriorProjection (mu n) (q n) T v)
+R : ℕ → ℝ := fun n => inner ℝ (primaryRadialField (q n a) - primaryRadialField (q n b)) v - eps n * B n
+Cforce : ℝ
+hforce :
+  ∀ᶠ (n : ℕ) in atTop,
+    |(satelliteGroupExteriorProjection (mu n) (q n) S v - satelliteGroupExteriorProjection (mu n) (q n) T v) / d n| ≤
+      Cforce
+hBb : IsBoundedUnder (fun x1 x2 => x1 ≤ x2) atTop (norm ∘ fun n => B n / d n)
+hzero : Tendsto (eps • fun n => B n / d n) atTop (𝓝 0)
+n : ℕ
+⊢ inner ℝ (primaryRadialField (q n a) - primaryRadialField (q n b)) v * (d n)⁻¹ - eps n * B n * (d n)⁻¹ =
+    inner ℝ (primaryRadialField (q n a) - primaryRadialField (q n b)) v * (d n)⁻¹ - (eps * fun n => B n * (d n)⁻¹) n
+DominantFiveBody/CollisionTripleScaledGroups.lean:121:41: error: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

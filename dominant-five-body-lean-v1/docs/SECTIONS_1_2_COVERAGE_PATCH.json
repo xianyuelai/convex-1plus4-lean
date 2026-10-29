@@ -1,0 +1,1502 @@
+{
+  "schema_version": 2,
+  "source_tex_sha256": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+  "scope": "Introduction and Section 2; source-reviewed exact claims and independent original-derivation checks.",
+  "audit_file": "Audit/SectionsOneTwo.lean",
+  "assertions": [
+    {
+      "id": "prose:58",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          58,
+          60
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:58-60",
+      "exact_claim": "We study strictly convex central configurations of the planar Newtonian five-body problem with one dominant mass and four satellites of arbitrary positive masses. We prove that a single positive bound on the total satellite-to-primary mass ratio guarantees existence and uniqueness for every prescribed directed order of the five bodies on the convex hull, up to translations, rotations and positive scaling. The bound is independent of all satellite mass ratios, including ratios arbitrarily close to the boundary of the mass simplex. The constrained Hessian is nondegenerate on the six-dimensional shape space. We first prove uniqueness and nondegeneracy for the convex coorbital limit by an angular Hessian estimate. We then classify the possible collision limits as the satellite mass ratios vary and construct regularized local continuations for pairs, triples and pairs within triples. An exact factorization of the signed areas preserves strict convexity on independent parameter neighborhoods. These continuations connect every sufficiently small-mass configuration to the unique coorbital configuration and yield the common bound.",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "thm:main",
+        "thm:coorbital",
+        "prop:connection",
+        "eq:regular-area",
+        "eq:nest-area"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Abstract summary. Each mathematical conclusion is checked at its full source assertion; no separate new premise is introduced.",
+      "lean_bindings": []
+    },
+    {
+      "id": "prose:64",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          64,
+          64
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:64-64",
+      "exact_claim": "The planar $(1+N)$-body problem describes the coorbital limit of central configurations with one dominant mass~\\cite{CLN}. Its geometry and stability have been studied in~\\cite{Moeckel94,RS}; results for four satellites include the equal-mass classification~\\cite{AF,CLO}, stacked configurations~\\cite{OC}, and mass symmetries~\\cite{DHW}. For three satellites, Corbera, Cors and Llibre~\\cite{CCL} and Corbera, Cors, Llibre and Moeckel~\\cite{CCLM} describe the bifurcations of relative equilibria. In particular, \\cite[Theorem~2]{CCLM} gives convex uniqueness for every fixed positive mass ratio and sufficiently small total satellite mass.",
+      "claim_kind": "prose_assertion",
+      "status": "BACKGROUND",
+      "remaining_dependencies": [],
+      "proof_route_note": "Prior literature overview. No result in this paragraph is a proof input. The AF chamber seed actually used below is independently proved; the unrelated three-satellite classification is outside the requested substantive proof scope.",
+      "lean_bindings": []
+    },
+    {
+      "id": "prose:66",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          66,
+          66
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:66-66",
+      "exact_claim": "We prove the corresponding uniqueness statement for four satellites with a bound independent of their mass ratios. Write",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "thm:main"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Introductory restatement of the following theorem.",
+      "lean_bindings": []
+    },
+    {
+      "id": "eq:masses",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          67,
+          70
+        ],
+        "pdf_pages_from_aux_labels": [
+          1
+        ]
+      },
+      "paper_location": "eq:masses",
+      "exact_claim": "\\begin{equation}\\label{eq:masses}\n m_0=1,\\qquad m_i=\\eps\\mu_i\\quad(1\\le i\\le4),\\qquad\n \\M=\\left\\{\\mu\\in\\R_{>0}^4:\\sum_{i=1}^4\\mu_i=1\\right\\}.\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.masses",
+        "DominantFiveBody.PositiveRatio"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (ε : ℝ) (μ : DominantFiveBody.MassRatio),\n  DominantFiveBody.masses ε μ (0 : DominantFiveBody.Label) = (1 : ℝ) ∧\n    (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.masses ε μ (Fin.succ i) = ε * μ i) ∧\n      (DominantFiveBody.PositiveRatio μ ↔\n        (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) < μ i) ∧ ∑ i : DominantFiveBody.Satellite, μ i = (1 : ℝ))",
+          "lean_declaration": "DominantFiveBody.source_masses"
+        }
+      ]
+    },
+    {
+      "id": "thm:main",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          72,
+          74
+        ],
+        "pdf_pages_from_aux_labels": [
+          1
+        ]
+      },
+      "paper_location": "thm:main",
+      "exact_claim": "\\begin{theorem}\\label{thm:main}\nThere is $\\delta_0>0$ such that, for every $\\mu\\in\\M$, every $0<\\eps<\\delta_0$, and every directed counterclockwise hull order $(0,\\ell_1,\\ell_2,\\ell_3,\\ell_4)$, the masses \\eqref{eq:masses} admit exactly one strictly convex central configuration of that order, modulo translations, rotations and positive scaling. Its constrained Hessian on the six-dimensional shape space is nondegenerate.\n\\end{theorem}",
+      "claim_kind": "numbered_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "DominantFiveBody.MainUniformStatement",
+          "lean_declaration": "DominantFiveBody.main_uniform"
+        }
+      ]
+    },
+    {
+      "id": "prose:72",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          72,
+          74
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:72-74",
+      "exact_claim": "There is $\\delta_0>0$ such that, for every $\\mu\\in\\M$, every $0<\\eps<\\delta_0$, and every directed counterclockwise hull order $(0,\\ell_1,\\ell_2,\\ell_3,\\ell_4)$, the masses \\eqref{eq:masses} admit exactly one strictly convex central configuration of that order, modulo translations, rotations and positive scaling. Its constrained Hessian on the six-dimensional shape space is nondegenerate.",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "thm:main"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Same source theorem paragraph, already inventoried as thm:main.",
+      "lean_bindings": []
+    },
+    {
+      "id": "prose:76",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          76,
+          76
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:76-76",
+      "exact_claim": "Here $(\\ell_1,\\ldots,\\ell_4)$ is a permutation of $(1,2,3,4)$; reflections are not included in the equivalence relation. For unnormalized masses the condition is $\\sum_{i=1}^4m_i/m_0<\\delta_0$.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.HullOrder",
+        "DominantFiveBody.OrientedSimilar"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Positive common mass rescaling is proved for the acceleration, mass center, shape space and actual Hessian. Reflections are excluded by determinant +1 in the original definition.",
+      "lean_bindings": [
+        {
+          "lean_statement": "∃ (δ : ℝ),\n  (0 : ℝ) < δ ∧\n    ∀ (m : DominantFiveBody.MassVector),\n      DominantFiveBody.PositiveMasses m →\n        (∑ i : DominantFiveBody.Satellite, m (Fin.succ i)) / m (0 : DominantFiveBody.Label) < δ →\n          ∀ (σ : DominantFiveBody.HullOrder),\n            ∃ (x : DominantFiveBody.Configuration),\n              DominantFiveBody.StrictConvexCentralConfiguration m σ x ∧\n                (∀ (y : DominantFiveBody.Configuration),\n                    DominantFiveBody.StrictConvexCentralConfiguration m σ y → DominantFiveBody.OrientedSimilar x y) ∧\n                  ∀ (y : DominantFiveBody.Configuration),\n                    DominantFiveBody.StrictConvexCentralConfiguration m σ y →\n                      DominantFiveBody.NondegenerateCentralConfiguration m y",
+          "lean_declaration": "DominantFiveBody.main_uniform_unnormalized"
+        }
+      ]
+    },
+    {
+      "id": "prose:78",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          78,
+          78
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:78-78",
+      "exact_claim": "The proof first establishes convex coorbital uniqueness. Uniformity then requires control when some $\\mu_i$ tend to zero and satellites coalesce. Following the cluster approach of~\\cite{Moeckel}, we classify these limits, regularize their equations, and connect every small-mass convex configuration to its coorbital limit. The signed-area estimates ensure that this continuation remains convex without imposing a relation between the mass parameter and the collision scales.",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "thm:coorbital",
+        "prop:connection",
+        "eq:regular-area",
+        "eq:nest-area"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Proof roadmap referring to separately checked substantive results.",
+      "lean_bindings": []
+    },
+    {
+      "id": "prose:82",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          82,
+          82
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:82-82",
+      "exact_claim": "Put $e(t)=(\\cos t,\\sin t)$ and $e^\\perp(t)=(-\\sin t,\\cos t)$. In the standard hull order, the coorbital configurations are parametrized by",
+      "claim_kind": "prose_assertion",
+      "status": "DEFINITIONAL",
+      "definition_references": [
+        "DominantFiveBody.polarPoint",
+        "DominantFiveBody.quarterTurn"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": []
+    },
+    {
+      "id": "eq:angle-domain",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          83,
+          87
+        ],
+        "pdf_pages_from_aux_labels": [
+          2
+        ]
+      },
+      "paper_location": "eq:angle-domain",
+      "exact_claim": "\\begin{equation}\\label{eq:angle-domain}\n \\theta_1=0,\\qquad\n (\\theta_2,\\theta_3,\\theta_4)\\in\\D\n =\\{0<\\theta_2<\\theta_3<\\theta_4<\\pi\\}.\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (θ : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.CoorbitalAngleDomain θ ↔\n    θ (0 : DominantFiveBody.Satellite) = (0 : ℝ) ∧\n      (0 : ℝ) < θ (1 : DominantFiveBody.Satellite) ∧\n        θ (1 : DominantFiveBody.Satellite) < θ (2 : DominantFiveBody.Satellite) ∧\n          θ (2 : DominantFiveBody.Satellite) < θ (3 : DominantFiveBody.Satellite) ∧\n            θ (3 : DominantFiveBody.Satellite) < Real.pi",
+          "lean_declaration": "DominantFiveBody.source_angle_domain"
+        }
+      ]
+    },
+    {
+      "id": "prose:88",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          88,
+          88
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:88-88",
+      "exact_claim": "Indeed, the origin and four distinct unit-circle points form a strictly convex pentagon exactly when the points lie in an open semicircle.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "proof_route_note": "Both implications use all five labeled points. The common angular offset is free, hence this is the open-semicircle condition rather than a fixed absolute angular interval.",
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (x : DominantFiveBody.Configuration),\n  DominantFiveBody.CollisionFree x →\n    (∀ (i : DominantFiveBody.Satellite), ‖x (Fin.succ i) - x (0 : DominantFiveBody.Label)‖ = (1 : ℝ)) →\n      (DominantFiveBody.StrictConvexInOrder DominantFiveBody.standardHullOrder x ↔\n        ∃ (theta : DominantFiveBody.Satellite → ℝ),\n          DominantFiveBody.OrderedSemicircle theta ∧\n            ∀ (i : DominantFiveBody.Satellite),\n              x (Fin.succ i) - x (0 : DominantFiveBody.Label) = DominantFiveBody.polarPoint (1 : ℝ) (theta i))",
+          "lean_declaration": "DominantFiveBody.unit_satellites_strictConvex_iff_open_semicircle"
+        }
+      ]
+    },
+    {
+      "id": "prose:90",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          90,
+          90
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:90-90",
+      "exact_claim": "We use $V$ and $A$ as in~\\cite[Section~2]{CCLM}. For $0<t<\\pi$, set",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "eq:kernel"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Notation attribution and introduction to the next defining display.",
+      "lean_bindings": []
+    },
+    {
+      "id": "eq:kernel",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          91,
+          94
+        ],
+        "pdf_pages_from_aux_labels": [
+          2
+        ]
+      },
+      "paper_location": "eq:kernel",
+      "exact_claim": "\\begin{equation}\\label{eq:kernel}\n f(t)=\\sin t\\bigl((2\\sin(t/2))^{-3}-1\\bigr),\\qquad\n v(t)=\\frac1{2\\sin(t/2)}+1-\\cos t,\\qquad \\kappa=-f'=v''.\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.Coorbital.kernelF",
+        "DominantFiveBody.Coorbital.pairPotential",
+        "DominantFiveBody.Coorbital.kappa"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {t : ℝ},\n  (0 : ℝ) < t →\n    t < Real.pi →\n      deriv DominantFiveBody.Coorbital.pairPotential t = -DominantFiveBody.Coorbital.kernelF t ∧\n        deriv DominantFiveBody.Coorbital.kernelF t = -DominantFiveBody.Coorbital.kappa t ∧\n          deriv (deriv DominantFiveBody.Coorbital.pairPotential) t = DominantFiveBody.Coorbital.kappa t ∧\n            deriv DominantFiveBody.Coorbital.kappa t = DominantFiveBody.Coorbital.kappaPrime t ∧\n              DominantFiveBody.Coorbital.kappaPrime t < (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.source_scalar_derivatives"
+        }
+      ]
+    },
+    {
+      "id": "prose:95",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          95,
+          95
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:95-95",
+      "exact_claim": "Extend $f$ oddly. With $r_{ij}(\\theta)=|e(\\theta_i)-e(\\theta_j)|$, the equations are",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.coorbitalKernel",
+        "DominantFiveBody.coorbitalDistance"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (t : ℝ), DominantFiveBody.coorbitalKernel (-t) = -DominantFiveBody.coorbitalKernel t",
+          "lean_declaration": "DominantFiveBody.coorbitalKernel_neg"
+        }
+      ]
+    },
+    {
+      "id": "eq:co-equations",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          96,
+          100
+        ],
+        "pdf_pages_from_aux_labels": [
+          2
+        ]
+      },
+      "paper_location": "eq:co-equations",
+      "exact_claim": "\\begin{equation}\\label{eq:co-equations}\n E_i=\\sum_{j\\ne i}\\mu_jf(\\theta_j-\\theta_i)=0,\\qquad\n V=\\sum_{i<j}\\mu_i\\mu_j\n \\left(\\frac1{r_{ij}(\\theta)}+\\frac{r_{ij}(\\theta)^2}{2}\\right).\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "DEFINITIONAL",
+      "definition_references": [
+        "DominantFiveBody.coorbitalResidual",
+        "DominantFiveBody.coorbitalPotential",
+        "DominantFiveBody.coorbitalDistance",
+        "DominantFiveBody.satellitePairs"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": []
+    },
+    {
+      "id": "prose:101",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          101,
+          103
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:101-103",
+      "exact_claim": "Thus $E=A(\\theta)\\mu$, where $A_{ii}=0$ and\n$A_{ij}=f(\\theta_j-\\theta_i)$, and $\\partial_{\\theta_i}V=\\mu_iE_i$.\nWrite $h=\\pi/3$. Differentiation gives",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.coorbitalMatrix",
+        "DominantFiveBody.Coorbital.h"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (μ θ : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite),\n  DominantFiveBody.coorbitalResidual μ θ i =\n    ∑ j : DominantFiveBody.Satellite, μ j * DominantFiveBody.coorbitalMatrix θ i j",
+          "lean_declaration": "DominantFiveBody.coorbitalResidual_eq_matrix_sum"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.OrderedSemicircle theta →\n    ∀ (k : DominantFiveBody.Satellite),\n      (fderiv ℝ (DominantFiveBody.coorbitalPotential mass) theta : (DominantFiveBody.Satellite → ℝ) → ℝ)\n          (Pi.single k (1 : ℝ)) =\n        mass k * DominantFiveBody.coorbitalResidual mass theta k",
+          "lean_declaration": "DominantFiveBody.coorbitalPotential_coordinate_derivative"
+        }
+      ]
+    },
+    {
+      "id": "eq:kappa",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          104,
+          110
+        ],
+        "pdf_pages_from_aux_labels": [
+          2
+        ]
+      },
+      "paper_location": "eq:kappa",
+      "exact_claim": "\\begin{equation}\\label{eq:kappa}\n \\begin{split}\n \\kappa(t)&=\\frac{2-\\sin^2(t/2)}{8\\sin^3(t/2)}+\\cos t,\\\\\n \\kappa'(t)&=-\\frac{\\cos(t/2)}{16\\sin^4(t/2)}\n \\bigl(6-\\sin^2(t/2)+32\\sin^5(t/2)\\bigr)<0.\n \\end{split}\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.Coorbital.kappa",
+        "DominantFiveBody.Coorbital.kappaPrime"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {t : ℝ},\n  (0 : ℝ) < t →\n    t < Real.pi →\n      deriv DominantFiveBody.Coorbital.pairPotential t = -DominantFiveBody.Coorbital.kernelF t ∧\n        deriv DominantFiveBody.Coorbital.kernelF t = -DominantFiveBody.Coorbital.kappa t ∧\n          deriv (deriv DominantFiveBody.Coorbital.pairPotential) t = DominantFiveBody.Coorbital.kappa t ∧\n            deriv DominantFiveBody.Coorbital.kappa t = DominantFiveBody.Coorbital.kappaPrime t ∧\n              DominantFiveBody.Coorbital.kappaPrime t < (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.source_scalar_derivatives"
+        }
+      ]
+    },
+    {
+      "id": "prose:111",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          111,
+          112
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:111-112",
+      "exact_claim": "We shall use $f(h)=f(\\pi)=0$, $f>0$ on $(0,h)$, $f<0$ on $(h,\\pi)$,\n$\\kappa(h)=9/4$, $f\\ge-1$, and $tf(t)\\to\\infty$ as $t\\downarrow0$.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "DominantFiveBody.Coorbital.kernelF DominantFiveBody.Coorbital.h = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.Coorbital.kernelF_h"
+        },
+        {
+          "lean_statement": "DominantFiveBody.Coorbital.kernelF Real.pi = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.Coorbital.kernelF_pi"
+        },
+        {
+          "lean_statement": "∀ {t : ℝ}, (0 : ℝ) < t → t < DominantFiveBody.Coorbital.h → (0 : ℝ) < DominantFiveBody.Coorbital.kernelF t",
+          "lean_declaration": "DominantFiveBody.Coorbital.kernelF_pos_on_short_arc"
+        },
+        {
+          "lean_statement": "∀ {t : ℝ}, DominantFiveBody.Coorbital.h < t → t < Real.pi → DominantFiveBody.Coorbital.kernelF t < (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.Coorbital.kernelF_neg_on_long_arc"
+        },
+        {
+          "lean_statement": "DominantFiveBody.Coorbital.kappa DominantFiveBody.Coorbital.h = (9 / 4 : ℝ)",
+          "lean_declaration": "DominantFiveBody.Coorbital.kappa_h"
+        },
+        {
+          "lean_statement": "∀ {t : ℝ}, (0 : ℝ) < t → t < Real.pi → (-1 : ℝ) ≤ DominantFiveBody.Coorbital.kernelF t",
+          "lean_declaration": "DominantFiveBody.Coorbital.kernelF_ge_neg_one"
+        },
+        {
+          "lean_statement": "Filter.Tendsto (fun (t : ℝ) => t * DominantFiveBody.Coorbital.kernelF t) (𝓝[>] (0 : ℝ)) Filter.atTop",
+          "lean_declaration": "DominantFiveBody.kernelF_angle_mul_tendsto_atTop"
+        }
+      ]
+    },
+    {
+      "id": "kernel.collision_blowup",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          112,
+          112
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:112-112",
+      "exact_claim": "t f(t) tends to +∞ as t tends to zero from above.",
+      "claim_kind": "source_subclaim",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "Filter.Tendsto (fun (t : ℝ) => t * DominantFiveBody.Coorbital.kernelF t) (𝓝[>] (0 : ℝ)) Filter.atTop",
+          "lean_declaration": "DominantFiveBody.kernelF_angle_mul_tendsto_atTop"
+        }
+      ]
+    },
+    {
+      "id": "lem:cycle",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          116,
+          133
+        ],
+        "pdf_pages_from_aux_labels": [
+          2
+        ]
+      },
+      "paper_location": "lem:cycle, eq:cycle-bound",
+      "exact_claim": "\\begin{lemma}\\label{lem:cycle}\nSuppose $2\\le N\\le4$ ordered points in an open semicircle carry positive masses $w_i$ and satisfy the angular equations. Put\n\\[\n \\ell(t)=\n \\begin{cases}\n f(t)/(h-t),&t<h,\\\\\n 0,&t=h,\\\\\n f(t)/(\\pi-t),&t>h,\n \\end{cases}\n \\qquad b(t)=\\kappa(t)-\\ell(t).\n\\]\nThen $b(t)>0$, and, with $t_{ij}=\\theta_j-\\theta_i$ for $i<j$,\n\\begin{equation}\\label{eq:cycle-bound}\n \\sum_{i<j}w_iw_j\\kappa(t_{ij})(u_j-u_i)^2\n \\ge\\sum_{i<j}w_iw_jb(t_{ij})(u_j-u_i)^2.\n\\end{equation}\nIn particular, the angular Hessian has kernel $\\R\\one$.\n\\end{lemma}",
+      "claim_kind": "numbered_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "proof_route_note": "Finite explicit supported cycle decomposition proves the original estimate. The original integral identities are separately verified at display:136; equality cases are checked at display:146.",
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {n : ℕ},\n  (2 : ℕ) ≤ n →\n    n ≤ (4 : ℕ) →\n      ∀ (mass theta : Fin n → ℝ),\n        (∀ (i : Fin n), (0 : ℝ) < mass i) →\n          DominantFiveBody.OrderedSemicircle theta →\n            (∀ (i : Fin n), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n              (∀ (i j : Fin n), i < j → (0 : ℝ) < DominantFiveBody.Coorbital.positiveRemainder (theta j - theta i)) ∧\n                (∀ (u : Fin n → ℝ),\n                    DominantFiveBody.angularChordHessian mass theta u u =\n                        DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u ∧\n                      DominantFiveBody.Coorbital.coorbitalRemainderForm mass theta u ≤\n                        DominantFiveBody.angularChordHessian mass theta u u) ∧\n                  ∀ (u : Fin n → ℝ),\n                    (∀ (v : Fin n → ℝ), DominantFiveBody.angularChordHessian mass theta u v = (0 : ℝ)) ↔\n                      ∀ (i j : Fin n), u i = u j",
+          "lean_declaration": "DominantFiveBody.angular_hessian_estimate"
+        }
+      ]
+    },
+    {
+      "id": "prose:116",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          116,
+          117
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:116-117",
+      "exact_claim": "Suppose $2\\le N\\le4$ ordered points in an open semicircle carry positive masses $w_i$ and satisfy the angular equations. Put",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "lem:cycle"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Hypotheses and notation belonging to the complete numbered lemma.",
+      "lean_bindings": []
+    },
+    {
+      "id": "display:118",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          118,
+          126
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:118-126",
+      "exact_claim": "\\[\n \\ell(t)=\n \\begin{cases}\n f(t)/(h-t),&t<h,\\\\\n 0,&t=h,\\\\\n f(t)/(\\pi-t),&t>h,\n \\end{cases}\n \\qquad b(t)=\\kappa(t)-\\ell(t).\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "DEFINITIONAL",
+      "definition_references": [
+        "DominantFiveBody.Coorbital.slopeCoefficient",
+        "DominantFiveBody.Coorbital.positiveRemainder"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": []
+    },
+    {
+      "id": "prose:127",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          127,
+          127
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:127-127",
+      "exact_claim": "Then $b(t)>0$, and, with $t_{ij}=\\theta_j-\\theta_i$ for $i<j$,",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {t : ℝ}, (0 : ℝ) < t → t < Real.pi → (0 : ℝ) < DominantFiveBody.Coorbital.positiveRemainder t",
+          "lean_declaration": "DominantFiveBody.Coorbital.positiveRemainder_pos"
+        }
+      ]
+    },
+    {
+      "id": "eq:cycle-bound",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          128,
+          131
+        ],
+        "pdf_pages_from_aux_labels": [
+          2
+        ]
+      },
+      "paper_location": "eq:cycle-bound",
+      "exact_claim": "\\begin{equation}\\label{eq:cycle-bound}\n \\sum_{i<j}w_iw_j\\kappa(t_{ij})(u_j-u_i)^2\n \\ge\\sum_{i<j}w_iw_jb(t_{ij})(u_j-u_i)^2.\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {n : ℕ},\n  (2 : ℕ) ≤ n →\n    n ≤ (4 : ℕ) →\n      ∀ (mass theta u : Fin n → ℝ),\n        (∀ (i : Fin n), (0 : ℝ) < mass i) →\n          (∀ (i j : Fin n), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n            (∀ (i : Fin n), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n              DominantFiveBody.Coorbital.coorbitalRemainderForm mass theta u ≤\n                DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u",
+          "lean_declaration": "DominantFiveBody.Coorbital.coorbital_cycle_bound"
+        }
+      ]
+    },
+    {
+      "id": "prose:132",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          132,
+          135
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:132-135",
+      "exact_claim": "In particular, the angular Hessian has kernel $\\R\\one$.\nSince $\\kappa$ decreases strictly,",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {n : ℕ},\n  (2 : ℕ) ≤ n →\n    n ≤ (4 : ℕ) →\n      ∀ (mass theta u : Fin n → ℝ),\n        (∀ (i : Fin n), (0 : ℝ) < mass i) →\n          DominantFiveBody.OrderedSemicircle theta →\n            (∀ (i : Fin n), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n              ((∀ (v : Fin n → ℝ), DominantFiveBody.angularChordHessian mass theta u v = (0 : ℝ)) ↔\n                ∀ (i j : Fin n), u i = u j)",
+          "lean_declaration": "DominantFiveBody.angularChordHessian_kernel_iff"
+        },
+        {
+          "lean_statement": "StrictAntiOn DominantFiveBody.Coorbital.kappa (Set.Ioo (0 : ℝ) Real.pi)",
+          "lean_declaration": "DominantFiveBody.Coorbital.strictAntiOn_kappa"
+        }
+      ]
+    },
+    {
+      "id": "display:136",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          136,
+          139
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:136-139",
+      "exact_claim": "\\[\n f(t)=\\int_t^h\\kappa(s)\\dd s<(h-t)\\kappa(t)\\quad(t<h),\\qquad\n f(t)=\\int_t^\\pi\\kappa(s)\\dd s<(\\pi-t)\\kappa(t)\\quad(t>h).\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "proof_route_note": "Exact interval integrals and all integrability/endpoint-continuity conditions are proved. Strict comparison follows the already checked mean-value argument for the same strictly decreasing kappa.",
+      "lean_bindings": [
+        {
+          "lean_statement": "(∀ (t : ℝ),\n    (0 : ℝ) < t →\n      t < DominantFiveBody.Coorbital.h →\n        DominantFiveBody.Coorbital.kernelF t =\n            ∫ (s : ℝ) in t..DominantFiveBody.Coorbital.h, DominantFiveBody.Coorbital.kappa s ∧\n          ∫ (s : ℝ) in t..DominantFiveBody.Coorbital.h, DominantFiveBody.Coorbital.kappa s <\n            (DominantFiveBody.Coorbital.h - t) * DominantFiveBody.Coorbital.kappa t) ∧\n  ∀ (t : ℝ),\n    DominantFiveBody.Coorbital.h < t →\n      t < Real.pi →\n        DominantFiveBody.Coorbital.kernelF t = ∫ (s : ℝ) in t..Real.pi, DominantFiveBody.Coorbital.kappa s ∧\n          ∫ (s : ℝ) in t..Real.pi, DominantFiveBody.Coorbital.kappa s <\n            (Real.pi - t) * DominantFiveBody.Coorbital.kappa t",
+          "lean_declaration": "DominantFiveBody.source_integral_comparisons"
+        },
+        {
+          "lean_statement": "∀ {a b : ℝ},\n  (0 : ℝ) < a →\n    a ≤ b → b ≤ Real.pi → IntervalIntegrable DominantFiveBody.Coorbital.kappa MeasureTheory.MeasureSpace.volume a b",
+          "lean_declaration": "DominantFiveBody.Coorbital.kappa_intervalIntegrable"
+        }
+      ]
+    },
+    {
+      "id": "prose:140",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          140,
+          140
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:140-140",
+      "exact_claim": "Together with $\\kappa(h)>0$, this proves $b>0$.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "DominantFiveBody.Coorbital.kappa DominantFiveBody.Coorbital.h = (9 / 4 : ℝ)",
+          "lean_declaration": "DominantFiveBody.Coorbital.kappa_h"
+        },
+        {
+          "lean_statement": "∀ {t : ℝ}, (0 : ℝ) < t → t < Real.pi → (0 : ℝ) < DominantFiveBody.Coorbital.positiveRemainder t",
+          "lean_declaration": "DominantFiveBody.Coorbital.positiveRemainder_pos"
+        }
+      ]
+    },
+    {
+      "id": "prose:142",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          142,
+          142
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:142-142",
+      "exact_claim": "Orient an edge $i<j$ rightwards if $t_{ij}<h$ and leftwards if $t_{ij}>h$, with flow $w_iw_j|f(t_{ij})|$; omit zero edges. The equations express balance at every vertex, so the flow decomposes into positive flows on simple directed cycles. Such a cycle has at most four edges. Two leftward edges would have total length $>2h$, whereas the remaining rightward edges have total length $<2h$. Hence there is one leftward edge and $k=2$ or $3$ rightward edges.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "proof_route_note": "For four labels the five supported simple cycles are given by explicit nonnegative coefficients; their six edge equations and support signs are proved. The three- and two-label cases are separately reduced in the same physical model.",
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {n : ℕ} (mass theta : Fin n → ℝ),\n  (∀ (i : Fin n), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n    ∀ (i : Fin n), ∑ j : Fin n, DominantFiveBody.Coorbital.angularFlow mass theta i j = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.Coorbital.angularFlow_balanced"
+        },
+        {
+          "lean_statement": "∀ (mass theta : Fin (4 : ℕ) → ℝ),\n  (∀ (i : Fin (4 : ℕ)), (0 : ℝ) < mass i) →\n    (∀ (i j : Fin (4 : ℕ)), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n      (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n        ∃ (p : ℝ) (q : ℝ) (r : ℝ) (s : ℝ) (t : ℝ),\n          (0 : ℝ) ≤ p ∧\n            (0 : ℝ) ≤ q ∧\n              (0 : ℝ) ≤ r ∧\n                (0 : ℝ) ≤ s ∧\n                  (0 : ℝ) ≤ t ∧\n                    DominantFiveBody.Coorbital.angularFlow mass theta (0 : Fin (4 : ℕ)) (1 : Fin (4 : ℕ)) = p + s + t ∧\n                      DominantFiveBody.Coorbital.angularFlow mass theta (1 : Fin (4 : ℕ)) (2 : Fin (4 : ℕ)) =\n                          p + q + t ∧\n                        DominantFiveBody.Coorbital.angularFlow mass theta (2 : Fin (4 : ℕ)) (3 : Fin (4 : ℕ)) =\n                            q + r + t ∧\n                          DominantFiveBody.Coorbital.angularFlow mass theta (0 : Fin (4 : ℕ)) (2 : Fin (4 : ℕ)) =\n                              r - p ∧\n                            DominantFiveBody.Coorbital.angularFlow mass theta (1 : Fin (4 : ℕ)) (3 : Fin (4 : ℕ)) =\n                                s - q ∧\n                              DominantFiveBody.Coorbital.angularFlow mass theta (0 : Fin (4 : ℕ)) (3 : Fin (4 : ℕ)) =\n                                  -(r + s + t) ∧\n                                ((0 : ℝ) < p →\n                                    DominantFiveBody.Coorbital.angularFlow mass theta (0 : Fin (4 : ℕ))\n                                        (2 : Fin (4 : ℕ)) <\n                                      (0 : ℝ)) ∧\n                                  ((0 : ℝ) < q →\n                                      DominantFiveBody.Coorbital.angularFlow mass theta (1 : Fin (4 : ℕ))\n                                          (3 : Fin (4 : ℕ)) <\n                                        (0 : ℝ)) ∧\n                                    ((0 : ℝ) < r →\n                                        (0 : ℝ) <\n                                          DominantFiveBody.Coorbital.angularFlow mass theta (0 : Fin (4 : ℕ))\n                                            (2 : Fin (4 : ℕ))) ∧\n                                      ((0 : ℝ) < s →\n                                        (0 : ℝ) <\n                                          DominantFiveBody.Coorbital.angularFlow mass theta (1 : Fin (4 : ℕ))\n                                            (3 : Fin (4 : ℕ)))",
+          "lean_declaration": "DominantFiveBody.Coorbital.four_angular_cycle_decomposition"
+        },
+        {
+          "lean_statement": "∀ {n : ℕ} (mass theta : Fin n → ℝ),\n  (∀ (i : Fin n), (0 : ℝ) < mass i) →\n    ∀ (i j : Fin n),\n      (0 : ℝ) < theta j - theta i →\n        theta j - theta i < Real.pi →\n          ((0 : ℝ) < DominantFiveBody.Coorbital.angularFlow mass theta i j ↔\n            theta j - theta i < DominantFiveBody.Coorbital.h)",
+          "lean_declaration": "DominantFiveBody.Coorbital.angularFlow_pos_iff"
+        },
+        {
+          "lean_statement": "∀ {n : ℕ} (mass theta : Fin n → ℝ),\n  (∀ (i : Fin n), (0 : ℝ) < mass i) →\n    ∀ (i j : Fin n),\n      (0 : ℝ) < theta j - theta i →\n        theta j - theta i < Real.pi →\n          (DominantFiveBody.Coorbital.angularFlow mass theta i j < (0 : ℝ) ↔\n            DominantFiveBody.Coorbital.h < theta j - theta i)",
+          "lean_declaration": "DominantFiveBody.Coorbital.angularFlow_neg_iff"
+        },
+        {
+          "lean_statement": "∀ (mass theta : Fin (3 : ℕ) → ℝ),\n  (∀ (i : Fin (3 : ℕ)), (0 : ℝ) < mass i) →\n    (∀ (i j : Fin (3 : ℕ)), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n      (∀ (i : Fin (3 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n        theta (1 : Fin (3 : ℕ)) - theta (0 : Fin (3 : ℕ)) < DominantFiveBody.Coorbital.h ∧\n          theta (2 : Fin (3 : ℕ)) - theta (1 : Fin (3 : ℕ)) < DominantFiveBody.Coorbital.h ∧\n            DominantFiveBody.Coorbital.h < theta (2 : Fin (3 : ℕ)) - theta (0 : Fin (3 : ℕ))",
+          "lean_declaration": "DominantFiveBody.Coorbital.three_root_gaps"
+        },
+        {
+          "lean_statement": "∀ (mass theta : Fin (2 : ℕ) → ℝ),\n  (∀ (i : Fin (2 : ℕ)), (0 : ℝ) < mass i) →\n    (∀ (i j : Fin (2 : ℕ)), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n      (∀ (i : Fin (2 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n        theta (1 : Fin (2 : ℕ)) - theta (0 : Fin (2 : ℕ)) = DominantFiveBody.Coorbital.h",
+          "lean_declaration": "DominantFiveBody.Coorbital.two_root_separation"
+        }
+      ]
+    },
+    {
+      "id": "prose:144",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          144,
+          145
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:144-145",
+      "exact_claim": "Let the rightward lengths and increments be $t_r,u_r$, with\n$T=\\sum_rt_r\\in(h,\\pi)$. The contribution of this cycle to the form with coefficient $\\ell$ is its flow times",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "display:146",
+        "prose:142"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Notation for the separately checked cycle expressions.",
+      "lean_bindings": []
+    },
+    {
+      "id": "display:146",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          146,
+          151
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:146-151",
+      "exact_claim": "\\[\n \\sum_{r=1}^k\\frac{u_r^2}{h-t_r}\n -\\frac{(\\sum_ru_r)^2}{\\pi-T}\n \\ge\\frac{(\\sum_ru_r)^2}{kh-T}\n -\\frac{(\\sum_ru_r)^2}{\\pi-T}\\ge0,\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (s t u v : ℝ),\n  s < DominantFiveBody.Coorbital.h →\n    t < DominantFiveBody.Coorbital.h →\n      s + t < Real.pi →\n        (u + v) ^ (2 : ℕ) / ((2 : ℝ) * DominantFiveBody.Coorbital.h - (s + t)) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t)) ≤\n            u ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - s) + v ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - t) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t)) ∧\n          (0 : ℝ) ≤\n            (u + v) ^ (2 : ℕ) / ((2 : ℝ) * DominantFiveBody.Coorbital.h - (s + t)) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t))",
+          "lean_declaration": "DominantFiveBody.Coorbital.two_cycle_display"
+        },
+        {
+          "lean_statement": "∀ (s t r u v w : ℝ),\n  s < DominantFiveBody.Coorbital.h →\n    t < DominantFiveBody.Coorbital.h →\n      r < DominantFiveBody.Coorbital.h →\n        (u + v + w) ^ (2 : ℕ) / ((3 : ℝ) * DominantFiveBody.Coorbital.h - (s + t + r)) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r)) ≤\n            u ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - s) + v ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - t) +\n                w ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - r) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r)) ∧\n          (0 : ℝ) ≤\n            (u + v + w) ^ (2 : ℕ) / ((3 : ℝ) * DominantFiveBody.Coorbital.h - (s + t + r)) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r))",
+          "lean_declaration": "DominantFiveBody.Coorbital.three_cycle_display"
+        },
+        {
+          "lean_statement": "∀ (a b u v : ℝ),\n  (0 : ℝ) < a → (0 : ℝ) < b → ((u + v) ^ (2 : ℕ) / (a + b) = u ^ (2 : ℕ) / a + v ^ (2 : ℕ) / b ↔ b * u = a * v)",
+          "lean_declaration": "DominantFiveBody.Coorbital.two_denominator_cauchy_eq_iff"
+        },
+        {
+          "lean_statement": "∀ (s t u v : ℝ),\n  s < DominantFiveBody.Coorbital.h →\n    t < DominantFiveBody.Coorbital.h →\n      s + t < Real.pi →\n        (u ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - s) + v ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - t) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t)) =\n            (0 : ℝ) ↔\n          u = (0 : ℝ) ∧ v = (0 : ℝ))",
+          "lean_declaration": "DominantFiveBody.Coorbital.two_edge_cycle_eq_zero_iff"
+        },
+        {
+          "lean_statement": "∀ (s t r u v w : ℝ),\n  s < DominantFiveBody.Coorbital.h →\n    t < DominantFiveBody.Coorbital.h →\n      r < DominantFiveBody.Coorbital.h →\n        (u ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - s) + v ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - t) +\n                w ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - r) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r)) =\n            (0 : ℝ) ↔\n          (DominantFiveBody.Coorbital.h - t) * u = (DominantFiveBody.Coorbital.h - s) * v ∧\n            (DominantFiveBody.Coorbital.h - r) * (u + v) =\n              (DominantFiveBody.Coorbital.h - s + (DominantFiveBody.Coorbital.h - t)) * w)",
+          "lean_declaration": "DominantFiveBody.Coorbital.three_edge_cycle_eq_zero_iff"
+        }
+      ]
+    },
+    {
+      "id": "prose:152",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          152,
+          153
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:152-153",
+      "exact_claim": "because $0<kh-T\\le\\pi-T$. Summing over cycles proves \\eqref{eq:cycle-bound}. Its right side is positive for every nonconstant vector, while rotation invariance supplies the constant kernel.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (s t u v : ℝ),\n  s < DominantFiveBody.Coorbital.h →\n    t < DominantFiveBody.Coorbital.h →\n      s + t < Real.pi →\n        (u + v) ^ (2 : ℕ) / ((2 : ℝ) * DominantFiveBody.Coorbital.h - (s + t)) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t)) ≤\n            u ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - s) + v ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - t) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t)) ∧\n          (0 : ℝ) ≤\n            (u + v) ^ (2 : ℕ) / ((2 : ℝ) * DominantFiveBody.Coorbital.h - (s + t)) -\n              (u + v) ^ (2 : ℕ) / (Real.pi - (s + t))",
+          "lean_declaration": "DominantFiveBody.Coorbital.two_cycle_display"
+        },
+        {
+          "lean_statement": "∀ (s t r u v w : ℝ),\n  s < DominantFiveBody.Coorbital.h →\n    t < DominantFiveBody.Coorbital.h →\n      r < DominantFiveBody.Coorbital.h →\n        (u + v + w) ^ (2 : ℕ) / ((3 : ℝ) * DominantFiveBody.Coorbital.h - (s + t + r)) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r)) ≤\n            u ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - s) + v ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - t) +\n                w ^ (2 : ℕ) / (DominantFiveBody.Coorbital.h - r) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r)) ∧\n          (0 : ℝ) ≤\n            (u + v + w) ^ (2 : ℕ) / ((3 : ℝ) * DominantFiveBody.Coorbital.h - (s + t + r)) -\n              (u + v + w) ^ (2 : ℕ) / (Real.pi - (s + t + r))",
+          "lean_declaration": "DominantFiveBody.Coorbital.three_cycle_display"
+        },
+        {
+          "lean_statement": "∀ {n : ℕ},\n  (2 : ℕ) ≤ n →\n    n ≤ (4 : ℕ) →\n      ∀ (mass theta u : Fin n → ℝ),\n        (∀ (i : Fin n), (0 : ℝ) < mass i) →\n          (∀ (i j : Fin n), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n            (∀ (i : Fin n), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n              DominantFiveBody.Coorbital.coorbitalRemainderForm mass theta u ≤\n                DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u",
+          "lean_declaration": "DominantFiveBody.Coorbital.coorbital_cycle_bound"
+        },
+        {
+          "lean_statement": "∀ {n : ℕ},\n  (2 : ℕ) ≤ n →\n    n ≤ (4 : ℕ) →\n      ∀ (mass theta u : Fin n → ℝ),\n        (∀ (i : Fin n), (0 : ℝ) < mass i) →\n          DominantFiveBody.OrderedSemicircle theta →\n            (∀ (i : Fin n), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n              ((∀ (v : Fin n → ℝ), DominantFiveBody.angularChordHessian mass theta u v = (0 : ℝ)) ↔\n                ∀ (i j : Fin n), u i = u j)",
+          "lean_declaration": "DominantFiveBody.angularChordHessian_kernel_iff"
+        },
+        {
+          "lean_statement": "∀ {n : ℕ} (mass theta u : Fin n → ℝ) (c : ℝ),\n  (((DominantFiveBody.angularHessianMap mass theta : (Fin n → ℝ) → (Fin n → ℝ) →L[ℝ] ℝ) u : (Fin n → ℝ) → ℝ)\n      fun (x : Fin n) => c) =\n    (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.angularHessianMap_constant_right"
+        }
+      ]
+    },
+    {
+      "id": "thm:coorbital",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          155,
+          157
+        ],
+        "pdf_pages_from_aux_labels": [
+          3
+        ]
+      },
+      "paper_location": "thm:coorbital",
+      "exact_claim": "\\begin{theorem}\\label{thm:coorbital}\nFor each $\\mu\\in\\M$, equations \\eqref{eq:co-equations} have exactly one root $\\theta^0(\\mu)$ in \\eqref{eq:angle-domain}. The Hessian $D^2V$ is positive definite on the slice $\\theta_1=0$, and $\\theta^0$ depends smoothly on $\\mu$.\n\\end{theorem}",
+      "claim_kind": "numbered_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "(∀ (m : DominantFiveBody.MassRatio),\n    DominantFiveBody.PositiveRatio m →\n      ∃! theta : DominantFiveBody.Satellite → ℝ,\n        DominantFiveBody.CoorbitalAngleDomain theta ∧\n          ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual m theta i = (0 : ℝ)) ∧\n  ContDiffOn ℝ ∞ DominantFiveBody.coorbitalRootAngles\n      {m : DominantFiveBody.MassRatio | DominantFiveBody.PositiveRatio m} ∧\n    (∀ (m : DominantFiveBody.MassRatio),\n        DominantFiveBody.PositiveRatio m →\n          ∀ (u : DominantFiveBody.Satellite → ℝ),\n            u (0 : DominantFiveBody.Satellite) = (0 : ℝ) →\n              u ≠ (0 : DominantFiveBody.Satellite → ℝ) →\n                (0 : ℝ) < DominantFiveBody.coorbitalPhysicalHessian m (DominantFiveBody.coorbitalRootAngles m) u u) ∧\n      IsProperMap DominantFiveBody.coorbitalMassProjection ∧\n        IsCoveringMapOn DominantFiveBody.coorbitalMassProjection Set.univ",
+          "lean_declaration": "DominantFiveBody.coorbital_global_complete"
+        }
+      ]
+    },
+    {
+      "id": "prose:155",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          155,
+          159
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:155-159",
+      "exact_claim": "For each $\\mu\\in\\M$, equations \\eqref{eq:co-equations} have exactly one root $\\theta^0(\\mu)$ in \\eqref{eq:angle-domain}. The Hessian $D^2V$ is positive definite on the slice $\\theta_1=0$, and $\\theta^0$ depends smoothly on $\\mu$.\nThe Hessian form is the left side of \\eqref{eq:cycle-bound}, so the lemma gives positivity. We prove properness of the projection of the zero set to $\\M$. Let $a,b,c$ be the consecutive gaps and $L=a+b+c$. Summing the mass-weighted equations over the first $k$ labels gives",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "(∀ (m : DominantFiveBody.MassRatio),\n    DominantFiveBody.PositiveRatio m →\n      ∃! theta : DominantFiveBody.Satellite → ℝ,\n        DominantFiveBody.CoorbitalAngleDomain theta ∧\n          ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual m theta i = (0 : ℝ)) ∧\n  ContDiffOn ℝ ∞ DominantFiveBody.coorbitalRootAngles\n      {m : DominantFiveBody.MassRatio | DominantFiveBody.PositiveRatio m} ∧\n    (∀ (m : DominantFiveBody.MassRatio),\n        DominantFiveBody.PositiveRatio m →\n          ∀ (u : DominantFiveBody.Satellite → ℝ),\n            u (0 : DominantFiveBody.Satellite) = (0 : ℝ) →\n              u ≠ (0 : DominantFiveBody.Satellite → ℝ) →\n                (0 : ℝ) < DominantFiveBody.coorbitalPhysicalHessian m (DominantFiveBody.coorbitalRootAngles m) u u) ∧\n      IsProperMap DominantFiveBody.coorbitalMassProjection ∧\n        IsCoveringMapOn DominantFiveBody.coorbitalMassProjection Set.univ",
+          "lean_declaration": "DominantFiveBody.coorbital_global_complete"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.OrderedSemicircle theta →\n    (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n      ∀ (k : Fin (3 : ℕ)),\n        (∑ i : DominantFiveBody.Satellite,\n            ∑ j : DominantFiveBody.Satellite,\n              if (↑i : ℕ) ≤ (↑k : ℕ) ∧ (↑k : ℕ) < (↑j : ℕ) then\n                mass i * mass j * DominantFiveBody.Coorbital.kernelF (theta j - theta i)\n              else (0 : ℝ)) =\n          (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_cut"
+        },
+        {
+          "lean_statement": "∀ (mass theta u : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.OrderedSemicircle theta →\n    DominantFiveBody.coorbitalPhysicalHessian mass theta u u =\n      DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u",
+          "lean_declaration": "DominantFiveBody.coorbitalPhysicalHessian_self"
+        }
+      ]
+    },
+    {
+      "id": "eq:co-cut",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          160,
+          162
+        ],
+        "pdf_pages_from_aux_labels": [
+          3
+        ]
+      },
+      "paper_location": "eq:co-cut",
+      "exact_claim": "\\begin{equation}\\label{eq:co-cut}\n \\sum_{i\\le k<j}\\mu_i\\mu_jf(\\theta_j-\\theta_i)=0,\\qquad k=1,2,3.\n\\end{equation}",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.OrderedSemicircle theta →\n    (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n      ∀ (k : Fin (3 : ℕ)),\n        (∑ i : DominantFiveBody.Satellite,\n            ∑ j : DominantFiveBody.Satellite,\n              if (↑i : ℕ) ≤ (↑k : ℕ) ∧ (↑k : ℕ) < (↑j : ℕ) then\n                mass i * mass j * DominantFiveBody.Coorbital.kernelF (theta j - theta i)\n              else (0 : ℝ)) =\n          (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_cut"
+        }
+      ]
+    },
+    {
+      "id": "prose:163",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          163,
+          163
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:163-163",
+      "exact_claim": "The signs of $f$ imply $a,b,c<h<L$. For $\\mu$ in a compact subset of $\\M$, let $\\alpha>0$ be a common lower bound on the masses. Pairing terms in $\\sum_i\\mu_i\\theta_iE_i=0$ yields",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : Fin (4 : ℕ) → ℝ),\n  (∀ (i : Fin (4 : ℕ)), (0 : ℝ) < mass i) →\n    (∀ (i j : Fin (4 : ℕ)), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n      (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n        theta (1 : Fin (4 : ℕ)) - theta (0 : Fin (4 : ℕ)) < DominantFiveBody.Coorbital.h ∧\n          theta (2 : Fin (4 : ℕ)) - theta (1 : Fin (4 : ℕ)) < DominantFiveBody.Coorbital.h ∧\n            theta (3 : Fin (4 : ℕ)) - theta (2 : Fin (4 : ℕ)) < DominantFiveBody.Coorbital.h ∧\n              DominantFiveBody.Coorbital.h < theta (3 : Fin (4 : ℕ)) - theta (0 : Fin (4 : ℕ))",
+          "lean_declaration": "DominantFiveBody.Coorbital.four_root_gaps"
+        },
+        {
+          "lean_statement": "∀ (K : Set (DominantFiveBody.Satellite → ℝ)),\n  IsCompact K →\n    (∀ m ∈ K, ∀ (i : DominantFiveBody.Satellite), (0 : ℝ) < m i) →\n      ∃ (alpha : ℝ), (0 : ℝ) < alpha ∧ ∀ m ∈ K, ∀ (i : DominantFiveBody.Satellite), alpha ≤ m i",
+          "lean_declaration": "DominantFiveBody.compact_positive_mass_floor"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.OrderedSemicircle theta →\n    (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n      DominantFiveBody.coorbitalVirial mass theta = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbitalVirial_zero"
+        }
+      ]
+    },
+    {
+      "id": "display:164",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          164,
+          166
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:164-166",
+      "exact_claim": "\\[\n \\sum_{i<j}\\mu_i\\mu_jt_{ij}f(t_{ij})=0.\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.OrderedSemicircle theta →\n    (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n      DominantFiveBody.coorbitalVirial mass theta = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbitalVirial_zero"
+        }
+      ]
+    },
+    {
+      "id": "prose:167",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          167,
+          167
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:167-167",
+      "exact_claim": "The negative terms sum to at least $-\\pi/2$, so every consecutive gap $d$ satisfies $\\alpha^2df(d)\\le\\pi/2$. Collisions are therefore excluded. If $L\\to\\pi$, the gaps tend to $h$, and the first equation tends to $\\mu_3f(2h)=0$, a contradiction. This proves properness.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.PositiveRatio mass →\n    DominantFiveBody.OrderedSemicircle theta →\n      -Real.pi / (2 : ℝ) ≤\n        ∑ i : DominantFiveBody.Satellite,\n          ∑ j : DominantFiveBody.Satellite,\n            if i < j then\n              Min.min (mass i * mass j * (theta j - theta i) * DominantFiveBody.Coorbital.kernelF (theta j - theta i))\n                (0 : ℝ)\n            else (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_negative_terms_lower_bound"
+        },
+        {
+          "lean_statement": "∀ (alpha : ℝ),\n  (0 : ℝ) < alpha →\n    ∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n      DominantFiveBody.PositiveRatio mass →\n        (∀ (i : DominantFiveBody.Satellite), alpha ≤ mass i) →\n          DominantFiveBody.OrderedSemicircle theta →\n            (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n              ∀ (i j : DominantFiveBody.Satellite),\n                i < j →\n                  theta j - theta i < DominantFiveBody.Coorbital.h →\n                    alpha ^ (2 : ℕ) * ((theta j - theta i) * DominantFiveBody.Coorbital.kernelF (theta j - theta i)) ≤\n                      Real.pi / (2 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbitalVirial_pair_with_mass_floor"
+        },
+        {
+          "lean_statement": "∀ (alpha : ℝ),\n  (0 : ℝ) < alpha →\n    ∃ (d : ℝ),\n      (0 : ℝ) < d ∧\n        ∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n          DominantFiveBody.PositiveRatio mass →\n            (∀ (i : DominantFiveBody.Satellite), alpha ≤ mass i) →\n              DominantFiveBody.OrderedSemicircle theta →\n                (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n                  ∀ (i j : DominantFiveBody.Satellite), i < j → d ≤ theta j - theta i",
+          "lean_declaration": "DominantFiveBody.coorbital_roots_uniform_pair_separation"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) < mass i) →\n    theta (1 : DominantFiveBody.Satellite) - theta (0 : DominantFiveBody.Satellite) ≤ DominantFiveBody.Coorbital.h ∧\n        theta (2 : DominantFiveBody.Satellite) - theta (1 : DominantFiveBody.Satellite) ≤ DominantFiveBody.Coorbital.h ∧\n          theta (3 : DominantFiveBody.Satellite) - theta (2 : DominantFiveBody.Satellite) ≤\n            DominantFiveBody.Coorbital.h →\n      theta (3 : DominantFiveBody.Satellite) - theta (0 : DominantFiveBody.Satellite) = Real.pi →\n        (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) → False",
+          "lean_declaration": "DominantFiveBody.no_coorbital_root_at_semicircle_boundary"
+        },
+        {
+          "lean_statement": "IsProperMap DominantFiveBody.coorbitalMassProjection",
+          "lean_declaration": "DominantFiveBody.coorbitalMassProjection_isProperMap"
+        }
+      ]
+    },
+    {
+      "id": "thm:coorbital.mass_floor_collision_exclusion",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          167,
+          167
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:167-167",
+      "exact_claim": "On a compact interior mass set with a fixed common positive mass floor α, every actual coorbital root has all pair angles bounded below by a common d>0. The mass floor is used only in this original interior properness argument.",
+      "claim_kind": "source_subclaim",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (alpha : ℝ),\n  (0 : ℝ) < alpha →\n    ∃ (d : ℝ),\n      (0 : ℝ) < d ∧\n        ∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n          DominantFiveBody.PositiveRatio mass →\n            (∀ (i : DominantFiveBody.Satellite), alpha ≤ mass i) →\n              DominantFiveBody.OrderedSemicircle theta →\n                (∀ (i : Fin (4 : ℕ)), DominantFiveBody.Coorbital.angularEquation mass theta i = (0 : ℝ)) →\n                  ∀ (i j : DominantFiveBody.Satellite), i < j → d ≤ theta j - theta i",
+          "lean_declaration": "DominantFiveBody.coorbital_roots_uniform_pair_separation"
+        }
+      ]
+    },
+    {
+      "id": "thm:coorbital.actual_projection_proper",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          169,
+          169
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:169-169",
+      "exact_claim": "The mass projection from the true coorbital zero-set subtype to the positive mass-simplex subtype is a proper map. Its compact preimages and boundary exclusions are proved for the actual equations.",
+      "claim_kind": "source_subclaim",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "IsProperMap DominantFiveBody.coorbitalMassProjection",
+          "lean_declaration": "DominantFiveBody.coorbitalMassProjection_isProperMap"
+        }
+      ]
+    },
+    {
+      "id": "thm:coorbital.equal_mass_chamber_seed",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          172,
+          172
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:172-172",
+      "exact_claim": "For the actual normalized equal mass ratio 1/4, the anchored ordered open-semicircle angular domain has exactly one root of all four actual coorbital equations. This is the minimal seed needed for the covering argument; it does not assert the full AF three-class classification outside this chamber.",
+      "claim_kind": "source_subclaim",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∃! theta : DominantFiveBody.Satellite → ℝ,\n  DominantFiveBody.CoorbitalAngleDomain theta ∧\n    ∀ (i : DominantFiveBody.Satellite),\n      DominantFiveBody.coorbitalResidual DominantFiveBody.equalMassRatio theta i = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.equalMass_coorbital_existsUnique"
+        }
+      ]
+    },
+    {
+      "id": "prose:169",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          169,
+          171
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:169-171",
+      "exact_claim": "Since $\\sum_i\\mu_iE_i=0$, the last three equations recover the first.\nTheir Jacobian in $(\\theta_2,\\theta_3,\\theta_4)$ is invertible by the Hessian estimate. The mass projection is thus a proper local diffeomorphism. Its nonempty image is open and closed in the connected simplex, and it is a covering with finitely many sheets; cf.~\\cite[proof of Proposition~3]{CCLM}. By the classification in~\\cite[main theorem]{AF}, exactly one equal-mass configuration has its satellites in an open semicircle, and its occupied gaps are symmetric under reversal. The equal-mass fiber has one point, so every fiber has one point. Local inversion gives smoothness.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "proof_route_note": "The needed AF open-semicircle equal-mass seed and its reversal symmetry are independently proved. The full AF full-circle classification is not used as an axiom or claimed formalized.",
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (μ θ : DominantFiveBody.Satellite → ℝ),\n  ∑ i : DominantFiveBody.Satellite, μ i * DominantFiveBody.coorbitalResidual μ θ i = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_weightedResidual_zero"
+        },
+        {
+          "lean_statement": "∀ (μ θ : DominantFiveBody.Satellite → ℝ) (p : DominantFiveBody.Satellite),\n  (0 : ℝ) < μ p →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ p → DominantFiveBody.coorbitalResidual μ θ i = (0 : ℝ)) →\n      DominantFiveBody.coorbitalResidual μ θ p = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_recover_positive_mass_row"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (p q : DominantFiveBody.Satellite),\n  (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) < mass i) →\n    (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n      (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n        IsUnit (DominantFiveBody.deletedAngularJacobian mass theta p q)",
+          "lean_declaration": "DominantFiveBody.deletedAngularJacobian_isUnit_positive"
+        },
+        {
+          "lean_statement": "IsLocalHomeomorphOn DominantFiveBody.coorbitalMassProjection Set.univ",
+          "lean_declaration": "DominantFiveBody.coorbitalMassProjection_isLocalHomeomorphOn"
+        },
+        {
+          "lean_statement": "IsProperMap DominantFiveBody.coorbitalMassProjection",
+          "lean_declaration": "DominantFiveBody.coorbitalMassProjection_isProperMap"
+        },
+        {
+          "lean_statement": "∀ (m : DominantFiveBody.CoorbitalMassSpace), (DominantFiveBody.coorbitalMassProjection ⁻¹' {m}).Finite",
+          "lean_declaration": "DominantFiveBody.coorbitalMassProjection_fiber_finite"
+        },
+        {
+          "lean_statement": "IsCoveringMapOn DominantFiveBody.coorbitalMassProjection Set.univ",
+          "lean_declaration": "DominantFiveBody.coorbitalMassProjection_isCoveringMapOn"
+        },
+        {
+          "lean_statement": "∃! theta : DominantFiveBody.Satellite → ℝ,\n  DominantFiveBody.CoorbitalAngleDomain theta ∧\n    ∀ (i : DominantFiveBody.Satellite),\n      DominantFiveBody.coorbitalResidual DominantFiveBody.equalMassRatio theta i = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.equalMass_coorbital_existsUnique"
+        },
+        {
+          "lean_statement": "∀ (theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.CoorbitalAngleDomain theta →\n    (∀ (i : DominantFiveBody.Satellite),\n        DominantFiveBody.coorbitalResidual DominantFiveBody.equalMassRatio theta i = (0 : ℝ)) →\n      theta (1 : DominantFiveBody.Satellite) - theta (0 : DominantFiveBody.Satellite) =\n        theta (3 : DominantFiveBody.Satellite) - theta (2 : DominantFiveBody.Satellite)",
+          "lean_declaration": "DominantFiveBody.equalMass_root_reversal_symmetry"
+        },
+        {
+          "lean_statement": "(∀ (m : DominantFiveBody.MassRatio),\n    DominantFiveBody.PositiveRatio m →\n      ∃! theta : DominantFiveBody.Satellite → ℝ,\n        DominantFiveBody.CoorbitalAngleDomain theta ∧\n          ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual m theta i = (0 : ℝ)) ∧\n  ContDiffOn ℝ ∞ DominantFiveBody.coorbitalRootAngles\n      {m : DominantFiveBody.MassRatio | DominantFiveBody.PositiveRatio m} ∧\n    (∀ (m : DominantFiveBody.MassRatio),\n        DominantFiveBody.PositiveRatio m →\n          ∀ (u : DominantFiveBody.Satellite → ℝ),\n            u (0 : DominantFiveBody.Satellite) = (0 : ℝ) →\n              u ≠ (0 : DominantFiveBody.Satellite → ℝ) →\n                (0 : ℝ) < DominantFiveBody.coorbitalPhysicalHessian m (DominantFiveBody.coorbitalRootAngles m) u u) ∧\n      IsProperMap DominantFiveBody.coorbitalMassProjection ∧\n        IsCoveringMapOn DominantFiveBody.coorbitalMassProjection Set.univ",
+          "lean_declaration": "DominantFiveBody.coorbital_global_complete"
+        }
+      ]
+    },
+    {
+      "id": "prose:175",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          175,
+          176
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:175-176",
+      "exact_claim": "The divided equations $E_i=0$ are retained when $\\mu_i=0$.\nWe first record the two-source probe estimate used below; cf.~\\cite[Lemma~2]{DHW}.",
+      "claim_kind": "prose_assertion",
+      "status": "DEFINITIONAL",
+      "definition_references": [
+        "DominantFiveBody.coorbitalResidual"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": []
+    },
+    {
+      "id": "lem:probe",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          178,
+          184
+        ],
+        "pdf_pages_from_aux_labels": [
+          3
+        ]
+      },
+      "paper_location": "lem:probe",
+      "exact_claim": "\\begin{lemma}\\label{lem:probe}\nLet $p,q\\ge0$, $p+q=1$. If $0,h,x$ are distinct, have span less than $\\pi$, and\n$pf(x)+qf(x-h)=0$, then\n\\[\n p\\kappa(|x|)+q\\kappa(|x-h|)>0.\n\\]\n\\end{lemma}",
+      "claim_kind": "numbered_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  (0 : ℝ) ≤ p →\n    (0 : ℝ) ≤ q →\n      p + q = (1 : ℝ) →\n        x ≠ (0 : ℝ) →\n          x ≠ DominantFiveBody.Coorbital.h →\n            DominantFiveBody.twoSourceSpan x < Real.pi →\n              p * DominantFiveBody.coorbitalKernel x +\n                    q * DominantFiveBody.coorbitalKernel (x - DominantFiveBody.Coorbital.h) =\n                  (0 : ℝ) →\n                (0 : ℝ) <\n                  p * DominantFiveBody.Coorbital.kappa |x| +\n                    q * DominantFiveBody.Coorbital.kappa |x - DominantFiveBody.Coorbital.h|",
+          "lean_declaration": "DominantFiveBody.twoSourceProbe"
+        }
+      ]
+    },
+    {
+      "id": "prose:178",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          178,
+          180
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:178-180",
+      "exact_claim": "Let $p,q\\ge0$, $p+q=1$. If $0,h,x$ are distinct, have span less than $\\pi$, and\n$pf(x)+qf(x-h)=0$, then",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "lem:probe"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Exact hypotheses of the numbered lemma.",
+      "lean_bindings": []
+    },
+    {
+      "id": "display:181",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          181,
+          183
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:181-183",
+      "exact_claim": "\\[\n p\\kappa(|x|)+q\\kappa(|x-h|)>0.\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  (0 : ℝ) ≤ p →\n    (0 : ℝ) ≤ q →\n      p + q = (1 : ℝ) →\n        x ≠ (0 : ℝ) →\n          x ≠ DominantFiveBody.Coorbital.h →\n            DominantFiveBody.twoSourceSpan x < Real.pi →\n              p * DominantFiveBody.coorbitalKernel x +\n                    q * DominantFiveBody.coorbitalKernel (x - DominantFiveBody.Coorbital.h) =\n                  (0 : ℝ) →\n                (0 : ℝ) <\n                  p * DominantFiveBody.Coorbital.kappa |x| +\n                    q * DominantFiveBody.Coorbital.kappa |x - DominantFiveBody.Coorbital.h|",
+          "lean_declaration": "DominantFiveBody.twoSourceProbe"
+        }
+      ]
+    },
+    {
+      "id": "prose:184",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          184,
+          189
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:184-189",
+      "exact_claim": "For $pq>0$, put $g(x)=pf(x)+qf(x-h)$. On $(0,h)$, $g'<0$ because $\\kappa>0$ there. On $(h,\\pi)$, $\\kappa'<0$ gives $g''>0$, while $g(\\pi)=qf(\\pi-h)<0$; at a root,\n$g'(x)<g(\\pi)/(\\pi-x)<0$. Reflection $x\\mapsto h-x$ treats $(h-\\pi,0)$.\nIf $pq=0$, the claimed value is $\\kappa(h)=9/4$.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  x ≠ (0 : ℝ) →\n    x ≠ DominantFiveBody.Coorbital.h →\n      DominantFiveBody.twoSourceSpan x < Real.pi →\n        HasDerivAt\n          (fun (t : ℝ) =>\n            p * DominantFiveBody.coorbitalKernel t +\n              q * DominantFiveBody.coorbitalKernel (t - DominantFiveBody.Coorbital.h))\n          (-(p * DominantFiveBody.Coorbital.kappa |x| +\n              q * DominantFiveBody.Coorbital.kappa |x - DominantFiveBody.Coorbital.h|))\n          x",
+          "lean_declaration": "DominantFiveBody.signedProbe_hasDerivAt"
+        },
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  (0 : ℝ) ≤ p →\n    (0 : ℝ) < q →\n      (0 : ℝ) < x →\n        x < DominantFiveBody.Coorbital.h →\n          deriv\n              (fun (t : ℝ) =>\n                p * DominantFiveBody.coorbitalKernel t +\n                  q * DominantFiveBody.coorbitalKernel (t - DominantFiveBody.Coorbital.h))\n              x <\n            (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.signedProbe_inner_deriv_neg"
+        },
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  (0 : ℝ) ≤ p →\n    (0 : ℝ) < q →\n      DominantFiveBody.Coorbital.h < x →\n        x < Real.pi → (0 : ℝ) < deriv (deriv (DominantFiveBody.twoSourceFunction p q)) x",
+          "lean_declaration": "DominantFiveBody.twoSourceFunction_second_deriv_pos"
+        },
+        {
+          "lean_statement": "∀ (p q : ℝ),\n  DominantFiveBody.twoSourceFunction p q Real.pi =\n    q * DominantFiveBody.Coorbital.kernelF (Real.pi - DominantFiveBody.Coorbital.h)",
+          "lean_declaration": "DominantFiveBody.twoSourceFunction_endpoint"
+        },
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  (0 : ℝ) ≤ p →\n    (0 : ℝ) < q →\n      DominantFiveBody.Coorbital.h < x →\n        x < Real.pi →\n          DominantFiveBody.twoSourceFunction p q x = (0 : ℝ) →\n            deriv (DominantFiveBody.twoSourceFunction p q) x <\n                DominantFiveBody.twoSourceFunction p q Real.pi / (Real.pi - x) ∧\n              DominantFiveBody.twoSourceFunction p q Real.pi / (Real.pi - x) < (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.twoSourceFunction_root_strict_secant"
+        },
+        {
+          "lean_statement": "∀ (p q x : ℝ),\n  q * DominantFiveBody.coorbitalKernel (DominantFiveBody.Coorbital.h - x) +\n      p * DominantFiveBody.coorbitalKernel (DominantFiveBody.Coorbital.h - x - DominantFiveBody.Coorbital.h) =\n    -(p * DominantFiveBody.coorbitalKernel x + q * DominantFiveBody.coorbitalKernel (x - DominantFiveBody.Coorbital.h))",
+          "lean_declaration": "DominantFiveBody.signedProbe_reflection"
+        },
+        {
+          "lean_statement": "∀ {p q x : ℝ},\n  (0 : ℝ) ≤ p →\n    (0 : ℝ) ≤ q →\n      p + q = (1 : ℝ) →\n        x ≠ (0 : ℝ) →\n          x ≠ DominantFiveBody.Coorbital.h →\n            DominantFiveBody.twoSourceSpan x < Real.pi →\n              p * DominantFiveBody.coorbitalKernel x +\n                    q * DominantFiveBody.coorbitalKernel (x - DominantFiveBody.Coorbital.h) =\n                  (0 : ℝ) →\n                (0 : ℝ) <\n                  p * DominantFiveBody.Coorbital.kappa |x| +\n                    q * DominantFiveBody.Coorbital.kappa |x - DominantFiveBody.Coorbital.h|",
+          "lean_declaration": "DominantFiveBody.twoSourceProbe"
+        }
+      ]
+    },
+    {
+      "id": "prop:closed",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          191,
+          194
+        ],
+        "pdf_pages_from_aux_labels": [
+          4
+        ]
+      },
+      "paper_location": "prop:closed",
+      "exact_claim": "\\begin{proposition}\\label{prop:closed}\nSuppose $\\mu_i\\ge0$, $\\sum_i\\mu_i=1$, four distinct angles lie in an open semicircle, and all $E_i$ vanish. Then $J=D_\\theta E$ has kernel $\\R\\one$.\nDeleting a row $p$ with $\\mu_p>0$ and any column gives an invertible $3\\times3$ matrix. Its inverse is uniformly bounded on closed sets of such roots with consecutive gaps bounded below, span bounded away from $\\pi$, and $\\mu_p\\ge1/4$.\n\\end{proposition}",
+      "claim_kind": "numbered_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "(∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n    (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ mass i) →\n      ∑ i : DominantFiveBody.Satellite, mass i = (1 : ℝ) →\n        DominantFiveBody.SeparatedSemicircle theta →\n          (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n            HasFDerivAt\n                (fun (angles : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n                  DominantFiveBody.coorbitalResidual mass angles i)\n                (DominantFiveBody.angularDifferential mass theta) theta ∧\n              (∀ (u : DominantFiveBody.Satellite → ℝ),\n                  (DominantFiveBody.angularDifferential mass theta :\n                          (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n                        u =\n                      (0 : DominantFiveBody.Satellite → ℝ) ↔\n                    ∀ (i j : DominantFiveBody.Satellite), u i = u j) ∧\n                ∀ (p q : DominantFiveBody.Satellite),\n                  (0 : ℝ) < mass p → IsUnit (DominantFiveBody.deletedAngularJacobian mass theta p q)) ∧\n  ∀ (K : Set ((DominantFiveBody.Satellite → ℝ) × (DominantFiveBody.Satellite → ℝ))) (delta eta : ℝ)\n    (p q : DominantFiveBody.Satellite),\n    IsClosed K →\n      (0 : ℝ) < delta →\n        (0 : ℝ) < eta →\n          (∀ z ∈ K,\n              (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ z.1 i) ∧\n                ∑ i : DominantFiveBody.Satellite, z.1 i = (1 : ℝ) ∧\n                  z.2 (0 : DominantFiveBody.Satellite) = (0 : ℝ) ∧\n                    (∀ (i : Fin (3 : ℕ)), delta ≤ z.2 i.succ - z.2 i.castSucc) ∧\n                      z.2 (3 : DominantFiveBody.Satellite) - z.2 (0 : DominantFiveBody.Satellite) ≤ Real.pi - eta ∧\n                        (1 / 4 : ℝ) ≤ z.1 p ∧\n                          ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual z.1 z.2 i = (0 : ℝ)) →\n            ∃ (C : ℝ), (0 : ℝ) < C ∧ ∀ z ∈ K, ‖(DominantFiveBody.deletedAngularJacobian z.1 z.2 p q)⁻¹‖ ≤ C",
+          "lean_declaration": "DominantFiveBody.coorbital_closed_mass_jacobian_complete"
+        }
+      ]
+    },
+    {
+      "id": "prose:191",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          191,
+          198
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:191-198",
+      "exact_claim": "Suppose $\\mu_i\\ge0$, $\\sum_i\\mu_i=1$, four distinct angles lie in an open semicircle, and all $E_i$ vanish. Then $J=D_\\theta E$ has kernel $\\R\\one$.\nDeleting a row $p$ with $\\mu_p>0$ and any column gives an invertible $3\\times3$ matrix. Its inverse is uniformly bounded on closed sets of such roots with consecutive gaps bounded below, span bounded away from $\\pi$, and $\\mu_p\\ge1/4$.\nLet $P,Z$ be the positive and zero supports. One positive mass would allow probes only at the two angles $\\theta_p\\pm h$, so $|P|\\ge2$. Lemma~\\ref{lem:cycle} gives the constant kernel on $P$. For $k\\in Z$, set\n$D_k=\\sum_{j\\in P}\\mu_j\\kappa(|\\theta_j-\\theta_k|)$.\nIf $|P|=2$, the support separation is $h$, and Lemma~\\ref{lem:probe} gives $D_k>0$.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "(∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n    (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ mass i) →\n      ∑ i : DominantFiveBody.Satellite, mass i = (1 : ℝ) →\n        DominantFiveBody.SeparatedSemicircle theta →\n          (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n            HasFDerivAt\n                (fun (angles : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n                  DominantFiveBody.coorbitalResidual mass angles i)\n                (DominantFiveBody.angularDifferential mass theta) theta ∧\n              (∀ (u : DominantFiveBody.Satellite → ℝ),\n                  (DominantFiveBody.angularDifferential mass theta :\n                          (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n                        u =\n                      (0 : DominantFiveBody.Satellite → ℝ) ↔\n                    ∀ (i j : DominantFiveBody.Satellite), u i = u j) ∧\n                ∀ (p q : DominantFiveBody.Satellite),\n                  (0 : ℝ) < mass p → IsUnit (DominantFiveBody.deletedAngularJacobian mass theta p q)) ∧\n  ∀ (K : Set ((DominantFiveBody.Satellite → ℝ) × (DominantFiveBody.Satellite → ℝ))) (delta eta : ℝ)\n    (p q : DominantFiveBody.Satellite),\n    IsClosed K →\n      (0 : ℝ) < delta →\n        (0 : ℝ) < eta →\n          (∀ z ∈ K,\n              (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ z.1 i) ∧\n                ∑ i : DominantFiveBody.Satellite, z.1 i = (1 : ℝ) ∧\n                  z.2 (0 : DominantFiveBody.Satellite) = (0 : ℝ) ∧\n                    (∀ (i : Fin (3 : ℕ)), delta ≤ z.2 i.succ - z.2 i.castSucc) ∧\n                      z.2 (3 : DominantFiveBody.Satellite) - z.2 (0 : DominantFiveBody.Satellite) ≤ Real.pi - eta ∧\n                        (1 / 4 : ℝ) ≤ z.1 p ∧\n                          ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual z.1 z.2 i = (0 : ℝ)) →\n            ∃ (C : ℝ), (0 : ℝ) < C ∧ ∀ z ∈ K, ‖(DominantFiveBody.deletedAngularJacobian z.1 z.2 p q)⁻¹‖ ≤ C",
+          "lean_declaration": "DominantFiveBody.coorbital_closed_mass_jacobian_complete"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (p : DominantFiveBody.Satellite),\n  (0 : ℝ) < mass p →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ p → mass i = (0 : ℝ)) →\n      DominantFiveBody.SeparatedSemicircle theta →\n        (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) → False",
+          "lean_declaration": "DominantFiveBody.no_one_source_coorbital_root"
+        },
+        {
+          "lean_statement": "∀ (mass theta u : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ k → (0 : ℝ) < mass i) →\n      (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n        (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n          (DominantFiveBody.angularDifferential mass theta :\n                  (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n                u =\n              (0 : DominantFiveBody.Satellite → ℝ) →\n            ∀ (i j : Fin (3 : ℕ)), u (Fin.succAbove k i) = u (Fin.succAbove k j)",
+          "lean_declaration": "DominantFiveBody.three_source_support_kernel"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (a b : DominantFiveBody.Satellite),\n  a < b →\n    (0 : ℝ) < mass a →\n      (0 : ℝ) < mass b →\n        (∀ (j : DominantFiveBody.Satellite), j ≠ a → j ≠ b → mass j = (0 : ℝ)) →\n          (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n            (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n              theta b - theta a = DominantFiveBody.Coorbital.h",
+          "lean_declaration": "DominantFiveBody.two_source_separation"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (a b k : DominantFiveBody.Satellite),\n  a < b →\n    (0 : ℝ) < mass a →\n      (0 : ℝ) < mass b →\n        (∀ (j : DominantFiveBody.Satellite), j ≠ a → j ≠ b → mass j = (0 : ℝ)) →\n          ∑ j : DominantFiveBody.Satellite, mass j = (1 : ℝ) →\n            DominantFiveBody.SeparatedSemicircle theta →\n              (∀ (i j : DominantFiveBody.Satellite),\n                  i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n                (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n                  k ≠ a → k ≠ b → (0 : ℝ) < DominantFiveBody.angularJacobian mass theta k k",
+          "lean_declaration": "DominantFiveBody.two_source_probe_diagonal_pos"
+        }
+      ]
+    },
+    {
+      "id": "prose:200",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          200,
+          200
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:200-200",
+      "exact_claim": "If $|P|=3$, the nonzero skew matrix $A_{PP}$ has rank two. Since $A\\mu=0$, the $4\\times4$ skew matrix $A$ also has rank two. Its two-dimensional kernel cannot consist only of vectors vanishing at the unique label $k\\in Z$, since restriction would inject it into $\\ker A_{PP}$. Choose $\\nu\\in\\ker A$ with $\\nu_k>0$. For small $s>0$, $\\mu+s\\nu$ is positive and solves the same angular equations. Apply \\eqref{eq:cycle-bound} to the $k$th coordinate vector, divide by $s\\nu_k$, and let $s\\downarrow0$:",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "proof_route_note": "The literal skew-rank and restriction route constructs the perturbing kernel vector. The lower-bound proof now uses that vector, applies the actual cycle form to the coordinate indicator, cancels the proved positive mass, and takes the one-sided continuous limit.",
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ k → (0 : ℝ) < mass i) →\n      (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n        (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n          (DominantFiveBody.coorbitalSupportMatrix theta k).rank = (2 : ℕ) ∧\n            (DominantFiveBody.coorbitalMatrix theta).rank = (2 : ℕ) ∧\n              Module.finrank ℝ ↥(DominantFiveBody.coorbitalMatrix theta).mulVecLin.ker = (2 : ℕ) ∧\n                Module.finrank ℝ ↥(DominantFiveBody.coorbitalSupportMatrix theta k).mulVecLin.ker = (1 : ℕ)",
+          "lean_declaration": "DominantFiveBody.coorbital_three_source_ranks_and_kernel_dimensions"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ k → (0 : ℝ) < mass i) →\n      (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n        (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n          ∃ v ∈ (DominantFiveBody.coorbitalMatrix theta).mulVecLin.ker, v k ≠ (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_three_source_kernel_not_all_zero_at_missing_source"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ k → (0 : ℝ) < mass i) →\n      (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n        (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n          ∃ (nu : DominantFiveBody.Satellite → ℝ),\n            nu k = (1 : ℝ) ∧ ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual nu theta i = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.coorbital_three_source_kernel_vector_by_rank"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ k → (0 : ℝ) < mass i) →\n      DominantFiveBody.SeparatedSemicircle theta →\n        (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n          (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n            ∑ j ∈ Finset.univ.erase k, mass j * DominantFiveBody.Coorbital.positiveRemainder |theta j - theta k| ≤\n                DominantFiveBody.angularJacobian mass theta k k ∧\n              (0 : ℝ) <\n                ∑ j ∈ Finset.univ.erase k, mass j * DominantFiveBody.Coorbital.positiveRemainder |theta j - theta k|",
+          "lean_declaration": "DominantFiveBody.three_source_probe_remainder_lower_bound"
+        }
+      ]
+    },
+    {
+      "id": "display:201",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          201,
+          203
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:201-203",
+      "exact_claim": "\\[\n D_k\\ge\\sum_{j\\in P}\\mu_j b(|\\theta_j-\\theta_k|)>0.\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    (∀ (i : DominantFiveBody.Satellite), i ≠ k → (0 : ℝ) < mass i) →\n      DominantFiveBody.SeparatedSemicircle theta →\n        (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n          (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n            ∑ j ∈ Finset.univ.erase k, mass j * DominantFiveBody.Coorbital.positiveRemainder |theta j - theta k| ≤\n                DominantFiveBody.angularJacobian mass theta k k ∧\n              (0 : ℝ) <\n                ∑ j ∈ Finset.univ.erase k, mass j * DominantFiveBody.Coorbital.positiveRemainder |theta j - theta k|",
+          "lean_declaration": "DominantFiveBody.three_source_probe_remainder_lower_bound"
+        }
+      ]
+    },
+    {
+      "id": "prose:204",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          204,
+          204
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:204-204",
+      "exact_claim": "In support order,",
+      "claim_kind": "prose_assertion",
+      "status": "CROSS_REFERENCE",
+      "source_assertion_references": [
+        "display:205"
+      ],
+      "remaining_dependencies": [],
+      "proof_route_note": "Ordering phrase introducing the block matrix.",
+      "lean_bindings": []
+    },
+    {
+      "id": "display:205",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          205,
+          207
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:205-207",
+      "exact_claim": "\\[\n J=\\begin{pmatrix}J_{PP}&0\\\\J_{ZP}&\\diag(D_k:k\\in Z)\\end{pmatrix}.\n\\]",
+      "claim_kind": "displayed_assertion",
+      "status": "VERIFIED",
+      "definition_references": [
+        "DominantFiveBody.angularJacobian"
+      ],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.SeparatedSemicircle theta →\n    HasFDerivAt\n      (fun (angles : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n        DominantFiveBody.coorbitalResidual mass angles i)\n      (DominantFiveBody.angularDifferential mass theta) theta",
+          "lean_declaration": "DominantFiveBody.coorbitalResidual_hasFDerivAt"
+        },
+        {
+          "lean_statement": "∀ (mass theta u : DominantFiveBody.Satellite → ℝ),\n  (DominantFiveBody.angularJacobian mass theta).mulVec u =\n    (DominantFiveBody.angularDifferential mass theta :\n        (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n      u",
+          "lean_declaration": "DominantFiveBody.angularJacobian_mulVec"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (i j : DominantFiveBody.Satellite),\n  i ≠ j → mass j = (0 : ℝ) → DominantFiveBody.angularJacobian mass theta i j = (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.angularJacobian_zero_mass_column"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (k : DominantFiveBody.Satellite),\n  mass k = (0 : ℝ) →\n    DominantFiveBody.angularJacobian mass theta k k =\n      ∑ j : DominantFiveBody.Satellite with mass j ≠ (0 : ℝ),\n        mass j * DominantFiveBody.Coorbital.kappa |theta j - theta k|",
+          "lean_declaration": "DominantFiveBody.angularJacobian_zero_support_diagonal"
+        }
+      ]
+    },
+    {
+      "id": "prose:208",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          208,
+          210
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "paper_location": "TeX:208-210",
+      "exact_claim": "Every kernel vector is therefore constant. Also $\\mu^TJ=0$ and $J\\one=0$.\nIf one coordinate of a vector is zero and the retained rows annihilate it, the identity $\\mu^TJ=0$ recovers the omitted row; the vector is constant and hence zero. The inverse bound follows from compactness and continuity.",
+      "claim_kind": "prose_assertion",
+      "status": "VERIFIED",
+      "definition_references": [],
+      "remaining_dependencies": [],
+      "lean_bindings": [
+        {
+          "lean_statement": "∀ (mass theta u : DominantFiveBody.Satellite → ℝ),\n  (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ mass i) →\n    ∑ i : DominantFiveBody.Satellite, mass i = (1 : ℝ) →\n      DominantFiveBody.SeparatedSemicircle theta →\n        (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n          (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n            ((DominantFiveBody.angularDifferential mass theta :\n                    (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n                  u =\n                (0 : DominantFiveBody.Satellite → ℝ) ↔\n              ∀ (i j : DominantFiveBody.Satellite), u i = u j)",
+          "lean_declaration": "DominantFiveBody.angularDifferential_kernel_iff_nonnegative"
+        },
+        {
+          "lean_statement": "∀ (mass theta u : DominantFiveBody.Satellite → ℝ),\n  ∑ i : DominantFiveBody.Satellite,\n      mass i *\n        (DominantFiveBody.angularDifferential mass theta :\n            (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n          u i =\n    (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.angularDifferential_weighted_zero"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (c : ℝ),\n  ((DominantFiveBody.angularDifferential mass theta : (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n      fun (x : DominantFiveBody.Satellite) => c) =\n    (0 : DominantFiveBody.Satellite → ℝ)",
+          "lean_declaration": "DominantFiveBody.angularDifferential_constant"
+        },
+        {
+          "lean_statement": "∀ (mass theta u : DominantFiveBody.Satellite → ℝ) (p : DominantFiveBody.Satellite),\n  (0 : ℝ) < mass p →\n    (∀ (i : DominantFiveBody.Satellite),\n        i ≠ p →\n          (DominantFiveBody.angularDifferential mass theta :\n                (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n              u i =\n            (0 : ℝ)) →\n      (DominantFiveBody.angularDifferential mass theta :\n            (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ)\n          u p =\n        (0 : ℝ)",
+          "lean_declaration": "DominantFiveBody.angularDifferential_recover_row"
+        },
+        {
+          "lean_statement": "∀ (mass theta : DominantFiveBody.Satellite → ℝ) (p q : DominantFiveBody.Satellite),\n  (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ mass i) →\n    ∑ i : DominantFiveBody.Satellite, mass i = (1 : ℝ) →\n      (0 : ℝ) < mass p →\n        DominantFiveBody.SeparatedSemicircle theta →\n          (∀ (i j : DominantFiveBody.Satellite), i < j → (0 : ℝ) < theta j - theta i ∧ theta j - theta i < Real.pi) →\n            (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual mass theta i = (0 : ℝ)) →\n              IsUnit (DominantFiveBody.deletedAngularJacobian mass theta p q)",
+          "lean_declaration": "DominantFiveBody.deletedAngularJacobian_isUnit_nonnegative"
+        },
+        {
+          "lean_statement": "∀ (K : Set ((DominantFiveBody.Satellite → ℝ) × (DominantFiveBody.Satellite → ℝ))) (delta eta : ℝ)\n  (p q : DominantFiveBody.Satellite),\n  IsClosed K →\n    (0 : ℝ) < delta →\n      (0 : ℝ) < eta →\n        (∀ z ∈ K,\n            (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) ≤ z.1 i) ∧\n              ∑ i : DominantFiveBody.Satellite, z.1 i = (1 : ℝ) ∧\n                z.2 (0 : DominantFiveBody.Satellite) = (0 : ℝ) ∧\n                  (∀ (i : Fin (3 : ℕ)), delta ≤ z.2 i.succ - z.2 i.castSucc) ∧\n                    z.2 (3 : DominantFiveBody.Satellite) - z.2 (0 : DominantFiveBody.Satellite) ≤ Real.pi - eta ∧\n                      (1 / 4 : ℝ) ≤ z.1 p ∧\n                        ∀ (i : DominantFiveBody.Satellite), DominantFiveBody.coorbitalResidual z.1 z.2 i = (0 : ℝ)) →\n          ∃ (C : ℝ), (0 : ℝ) < C ∧ ∀ z ∈ K, ‖(DominantFiveBody.deletedAngularJacobian z.1 z.2 p q)⁻¹‖ ≤ C",
+          "lean_declaration": "DominantFiveBody.deletedAngularJacobian_inverse_uniform_on_closed_roots"
+        }
+      ]
+    }
+  ],
+  "exact_type_export": "Lean ConstantInfo.type, full names and proofs; re-elaboration required by final acceptance"
+}

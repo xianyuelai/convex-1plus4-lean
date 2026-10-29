@@ -1,0 +1,27 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+DominantFiveBody/CollisionTripleRectangle.lean:28:2: error: unsolved goals
+case e'_8
+eps s angle rho v : ℝ
+hs : 0 < s
+hsep : polarPoint s angle ≠ polarPoint rho v
+hsin : HasDerivAt (fun x => Real.sin (((fun x => angle) - id) x)) (Real.cos (((fun x => angle) - id) v) * (0 - 1)) v
+ht :
+  HasDerivAt
+    ((fun y => rho * physicalSourceAngularField s angle rho y) + fun y =>
+      rho * s * ((s ^ 3)⁻¹ - (1 + eps)⁻¹) * Real.sin (((fun x => angle) - id) y))
+    (rho * physicalSourceAngularAngularDerivative s angle rho v +
+      rho * s * ((s ^ 3)⁻¹ - (1 + eps)⁻¹) * (Real.cos (((fun x => angle) - id) v) * (0 - 1)))
+    v
+w : ℝ
+⊢ rho * physicalSourceAngularField s angle rho w + rho * s * Real.sin (angle - w) * s⁻¹ ^ 3 -
+      rho * s * Real.sin (angle - w) * (1 + eps)⁻¹ =
+    ((fun y => rho * physicalSourceAngularField s angle rho y) + fun y =>
+        rho * s * s⁻¹ ^ 3 * Real.sin (((fun x => angle) - id) y) -
+          rho * s * (1 + eps)⁻¹ * Real.sin (((fun x => angle) - id) y))
+      w
+DominantFiveBody/CollisionTripleRectangle.lean:32:4: error: `simp` made no progress

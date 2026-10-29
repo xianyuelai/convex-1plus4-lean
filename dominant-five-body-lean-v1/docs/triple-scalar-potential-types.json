@@ -1,0 +1,70 @@
+[{"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  DominantFiveBody.tripleScalarPotential alpha z =\n    DominantFiveBody.tripleD0 / 2 * ∑ i : DominantFiveBody.TripleLabel, alpha i * z i ^ 2 +\n      ∑ p ∈ DominantFiveBody.tripleScalarPairs, alpha p.1 * alpha p.2 / |z p.1 - z p.2|",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_source_formula"},
+ {"lean_statement": "IsOpen DominantFiveBody.tripleScalarChamber",
+  "lean_declaration": "DominantFiveBody.tripleScalarChamber_isOpen"},
+ {"lean_statement": "Convex ℝ DominantFiveBody.tripleScalarChamber",
+  "lean_declaration": "DominantFiveBody.tripleScalarChamber_convex"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  DominantFiveBody.TripleOrdered z →\n    DominantFiveBody.tripleScalarPotential alpha z =\n      DominantFiveBody.tripleD0 / 2 * ∑ i : DominantFiveBody.TripleLabel, alpha i * z i ^ 2 +\n        (alpha 0 * alpha 1 / (z 1 - z 0) + alpha 0 * alpha 2 / (z 2 - z 0) + alpha 1 * alpha 2 / (z 2 - z 1))",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_ordered_formula"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 ≤ alpha i) → 0 ≤ DominantFiveBody.tripleScalarPotential alpha z",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_nonneg"},
+ {"lean_statement":
+  "∀ (alpha x y : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    x ≠ y →\n      ∀ (a b : ℝ),\n        0 < a →\n          0 < b →\n            a + b = 1 →\n              DominantFiveBody.tripleQuadraticPotential alpha (a • x + b • y) <\n                a * DominantFiveBody.tripleQuadraticPotential alpha x +\n                  b * DominantFiveBody.tripleQuadraticPotential alpha y",
+  "lean_declaration": "DominantFiveBody.tripleQuadraticPotential_strictJensen"},
+ {"lean_statement":
+  "∀ (x y a b : ℝ), 0 < x → 0 < y → 0 ≤ a → 0 ≤ b → a + b = 1 → (a * x + b * y)⁻¹ ≤ a * x⁻¹ + b * y⁻¹",
+  "lean_declaration": "DominantFiveBody.inverse_positive_gap_convex"},
+ {"lean_statement":
+  "∀ (alpha : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    StrictConvexOn ℝ DominantFiveBody.tripleScalarChamber (DominantFiveBody.tripleScalarPotential alpha)",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_strictConvexOn"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  DominantFiveBody.TripleOrdered z → ContinuousAt (DominantFiveBody.tripleScalarPotential alpha) z",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_continuousAt"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    ∀ (C : ℝ),\n      0 < C →\n        DominantFiveBody.tripleScalarPotential alpha z ≤ C →\n          ∀ (i : DominantFiveBody.TripleLabel), |z i| ≤ 1 + 2 * C / (DominantFiveBody.tripleD0 * alpha i)",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_sublevel_coordinate_bounds"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    DominantFiveBody.TripleOrdered z →\n      ∀ (C : ℝ),\n        0 < C →\n          DominantFiveBody.tripleScalarPotential alpha z ≤ C →\n            ∀ (i j : DominantFiveBody.TripleLabel), i < j → alpha i * alpha j / C ≤ z j - z i",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_sublevel_gap_bounds"},
+ {"lean_statement":
+  "∀ (alpha : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    ∀ (c : ℝ),\n      IsCompact\n        {z : DominantFiveBody.TripleVector |\n          DominantFiveBody.TripleOrdered z ∧ DominantFiveBody.tripleScalarPotential alpha z ≤ c}",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_compact_sublevel"},
+ {"lean_statement":
+  "∀ (alpha : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    IsProperMap fun (z : { z : DominantFiveBody.TripleVector // DominantFiveBody.TripleOrdered z }) =>\n      DominantFiveBody.tripleScalarPotential alpha (↑z : DominantFiveBody.TripleVector)",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_isProperMap"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  DominantFiveBody.TripleOrdered z →\n    HasFDerivAt (DominantFiveBody.tripleScalarPotential alpha)\n      (DominantFiveBody.tripleScalarPotentialDerivative alpha z) z",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_hasFDerivAt"},
+ {"lean_statement":
+  "∀ (alpha z v : DominantFiveBody.TripleVector),\n  DominantFiveBody.TripleOrdered z →\n    (fderiv ℝ (DominantFiveBody.tripleScalarPotential alpha) z : DominantFiveBody.TripleVector → ℝ) v =\n      ∑ i : DominantFiveBody.TripleLabel, alpha i * DominantFiveBody.tripleScalarResidual alpha z i * v i",
+  "lean_declaration": "DominantFiveBody.tripleScalarPotential_fderiv_apply"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    DominantFiveBody.TripleOrdered z →\n      ∀ (i : DominantFiveBody.TripleLabel),\n        (fderiv ℝ (DominantFiveBody.tripleScalarPotential alpha) z : DominantFiveBody.TripleVector → ℝ)\n              (Pi.single i 1) /\n            alpha i =\n          DominantFiveBody.tripleScalarResidual alpha z i",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_divided_gradient"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    DominantFiveBody.TripleOrdered z →\n      (fderiv ℝ (DominantFiveBody.tripleScalarPotential alpha) z = 0 ↔\n        ∀ (i : DominantFiveBody.TripleLabel), DominantFiveBody.tripleScalarResidual alpha z i = 0)",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_critical_iff_root"},
+ {"lean_statement":
+  "∀ (alpha : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    ∃ (z : DominantFiveBody.TripleVector),\n      DominantFiveBody.TripleOrdered z ∧\n        IsMinOn (DominantFiveBody.tripleScalarPotential alpha) DominantFiveBody.tripleScalarChamber z",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_exists_minimizer"},
+ {"lean_statement":
+  "∀ (alpha z : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    DominantFiveBody.TripleOrdered z →\n      fderiv ℝ (DominantFiveBody.tripleScalarPotential alpha) z = 0 →\n        IsMinOn (DominantFiveBody.tripleScalarPotential alpha) DominantFiveBody.tripleScalarChamber z",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalarPotential_critical_isMinOn"},
+ {"lean_statement":
+  "∀ (alpha : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    ∃! z : DominantFiveBody.TripleVector,\n      DominantFiveBody.TripleOrdered z ∧\n        ∀ (i : DominantFiveBody.TripleLabel), DominantFiveBody.tripleScalarResidual alpha z i = 0",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalar_potential_root_existsUnique"},
+ {"lean_statement":
+  "∀ (alpha : DominantFiveBody.TripleVector),\n  (∀ (i : DominantFiveBody.TripleLabel), 0 < alpha i) →\n    ∃! z : DominantFiveBody.TripleVector,\n      DominantFiveBody.TripleOrdered z ∧\n        (∀ (i : DominantFiveBody.TripleLabel), DominantFiveBody.tripleScalarResidual alpha z i = 0) ∧\n          ∑ i : DominantFiveBody.TripleLabel, alpha i * z i = 0",
+  "lean_declaration":
+  "DominantFiveBody.tripleScalar_potential_root_existsUnique_centered"}]

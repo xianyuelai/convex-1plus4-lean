@@ -1,0 +1,41 @@
+COMMAND: lake env lean -DwarningAsError=true -DautoImplicit=false Audit/NestedSourceDetails.lean
+'DominantFiveBody.nestedBoundaryKernel_unit_hasDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedBoundaryKernel_unit_second_hasDerivAt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedBoundaryKernel_original_derivatives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChartExtendedRows_boundary_alpha_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedChartJacobian_boundary_alpha_independent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedSourceCasePermutation_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedSourceCaseTable_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedSourceCase_order_is_original' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedSource_individual_inverse_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedSource_common_balls_without_alpha_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedSource_radial_Oepsilon_from_original_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.affinePolarPoint_divided_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.affinePolarPoint_cartesian_Osquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChartPoint_cartesian_Osquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_exteriorMass_Ocube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_relativeAverage_cubic_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_relativeAverage_Ocube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_reaction_Ocube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedBoundaryDisplacement_to_triple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChartPoint_cartesian_Osquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChart_reaction_Ocube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.newtonTargetField_affinePolar_Osquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.backgroundProbeField_affinePolar_Osquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleInternalCartesian_scaling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleInternalVectorQuotient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleInternalVectorQuotient_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleInternalVectorQuotient_Olinear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleInternalCartesian_Osquare' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN_EXIT_CODE: 0
+EXIT_CODE: 0

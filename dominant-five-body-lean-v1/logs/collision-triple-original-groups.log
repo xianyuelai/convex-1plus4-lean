@@ -1,0 +1,31 @@
+DominantFiveBody/CollisionTripleOriginalGroups.lean:62:4: error: Type mismatch: After simplification, term
+  hc
+ has type
+  (mu n 0 + mu n 1 + mu n 2) / tripleLowDiameter (satellitesRelative (x n)) ^ 3 ≤ C
+but is expected to have type
+  (mu n 0 + mu n 1 + mu n 2 + mu n 3 - mu n 3) / d n ^ 3 ≤ C
+DominantFiveBody/CollisionTripleOriginalGroups.lean:88:4: error: Type mismatch: After simplification, term
+  Tendsto.comp (Continuous.tendsto (continuous_apply (Fin.castSucc i)) theta0) htt
+ has type
+  @Tendsto ℕ ℝ (fun x => theta x (Fin.castSucc i)) atTop (𝓝 (theta0 (Fin.castSucc 0)))
+but is expected to have type
+  @Tendsto ℕ ℝ (fun n => theta n (Fin.castSucc i)) atTop (𝓝 (theta0 0))
+DominantFiveBody/CollisionTripleOriginalGroups.lean:95:4: error: Type mismatch: After simplification, term
+  hb
+ has type
+  ‖polarPoint (r n (Fin.castSucc j)) (theta n (Fin.castSucc j)) -
+        polarPoint (r n (Fin.castSucc i)) (theta n (Fin.castSucc i))‖ ≤
+    tripleLowDiameter (polarSatellites (r n) (theta n))
+but is expected to have type
+  ‖polarPoint (r n (Fin.castSucc j)) (theta n (Fin.castSucc j)) -
+        polarPoint (r n (Fin.castSucc i)) (theta n (Fin.castSucc i))‖ ≤
+    d n
+DominantFiveBody/CollisionTripleOriginalGroups.lean:113:30: error: Type mismatch: After simplification, term
+  hrad
+ has type
+  ∀ (i j : TripleLabel), Tendsto (fun n => (r n (Fin.castSucc j) - r n (Fin.castSucc i)) / d n) atTop (𝓝 0)
+but is expected to have type
+  ∀ (i j : TripleLabel),
+    Tendsto
+      (fun n => (r n (Fin.castSucc j) - r n (Fin.castSucc i)) / tripleLowDiameter (polarSatellites (r n) (theta n)))
+      atTop (𝓝 0)

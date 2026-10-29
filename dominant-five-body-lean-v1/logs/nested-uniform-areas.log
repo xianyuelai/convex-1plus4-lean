@@ -1,0 +1,16 @@
+DominantFiveBody/NestedUniformAreas.lean:100:6: error: Application type mismatch: The argument
+  Metric.ball_mem_nhds (nestedParameter 0 0 0 alpha0) hdelta
+has type
+  Metric.ball (nestedParameter 0 0 0 alpha0) delta ∈ 𝓝 (nestedParameter 0 0 0 alpha0)
+but is expected to have type
+  ∀ᶠ (y : ?m.371) in 𝓝 ?m.369.1, ?m.375 y
+in the application
+  Tendsto.eventually continuousAt_fst (Metric.ball_mem_nhds (nestedParameter 0 0 0 alpha0) hdelta)
+DominantFiveBody/NestedUniformAreas.lean:105:6: error: Application type mismatch: The argument
+  Metric.ball_mem_nhds (nestedBasePoint (tau * h) omega) hr
+has type
+  Metric.ball (nestedBasePoint (tau * h) omega) r ∈ 𝓝 (nestedBasePoint (tau * h) omega)
+but is expected to have type
+  ∀ᶠ (y : ?m.424) in 𝓝 ?m.422.2, ?m.428 y
+in the application
+  Tendsto.eventually continuousAt_snd (Metric.ball_mem_nhds (nestedBasePoint (tau * h) omega) hr)

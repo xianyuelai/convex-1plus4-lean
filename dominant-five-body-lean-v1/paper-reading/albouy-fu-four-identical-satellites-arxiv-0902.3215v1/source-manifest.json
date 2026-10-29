@@ -1,0 +1,13 @@
+﻿{
+    "arxiv_id":  "0902.3215v1",
+    "eprint_url":  "https://arxiv.org/e-print/0902.3215v1",
+    "downloaded_at":  "2026-10-03T16:38:01.3210938+08:00",
+    "archive_path":  "D:\\重要软件\\gpt研究文件\\1加N\\dominant-five-body-lean\\paper-reading\\albouy-fu-four-identical-satellites-arxiv-0902.3215v1\\arxiv-0902.3215v1-eprint",
+    "source_dir":  "D:\\重要软件\\gpt研究文件\\1加N\\dominant-five-body-lean\\paper-reading\\albouy-fu-four-identical-satellites-arxiv-0902.3215v1\\source",
+    "extraction_mode":  "tar",
+    "files":  [
+                  "AlbouyFu_FourSatellites2.tex",
+                  "ccfg.eps",
+                  "f.eps"
+              ]
+}

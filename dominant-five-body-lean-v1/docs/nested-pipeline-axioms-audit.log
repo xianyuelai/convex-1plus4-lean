@@ -1,0 +1,36 @@
+'DominantFiveBody.nestedChartExtendedRows_base_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChartJacobian_boundary_isInvertible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChartJacobian_isInvertible_iff_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChart_compact_boundary_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedContinuationRoot_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedContinuationRoot_fixed_mass_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedExternalAreaQuotient_primary_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedExternalAreaQuotient_exterior_boundary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedExteriorAreas_positive_neighborhood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChart_internal_area_positive_neighborhood_of_zero_face' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedStrictConvex_of_positive_areas' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChart_convex_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedPhysicalParameters_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedVariablesFromPolar_points' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedVariablesFromPolar_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedPhysicalCoordinates_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChart_subsequence_capture_of_scaled_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedPhysical_subsequence_capture_of_scaled_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.unitStrictConvex_orderedSemicircle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.actualCoorbitalAngles_eq_fixedLabelEndpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.NestedCapturedBranches.endpoint_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.NestedCapturedBranches.toPhysicalCapturedBranches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

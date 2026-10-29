@@ -1,0 +1,27 @@
+COMMAND: lake env lean -DwarningAsError=true -DautoImplicit=false Audit/ExportRegularTripleSlowSource.lean
+'DominantFiveBody.polar_distance_sq_cos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.sqrt_cube_inverse_eq_negative_three_halves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.regularTripleScalarH_source_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.regularTripleScalarH_differentiableAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.regularTripleScalarH_fderiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.regularTripleBoundaryM_source_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleAngularDifference_boundary_eq_LM' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleAngularMean_boundary_source_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleSlowPoint_source_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedSlowPoint_source_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedBoundaryScalarPositions_source_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedBoundaryScalarPositions_weighted_center' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedSlowRootCandidate_contDiffAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedSlowRootCandidate_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_zero_face_eq_slowPoint_of_local_uniqueness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedChart_zero_face_eq_slowPoint_of_local_uniqueness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LEAN_EXIT_CODE: 0
+EXIT_CODE: 0

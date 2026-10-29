@@ -1,0 +1,6 @@
+DominantFiveBody/CollisionScaledGroups.lean:232:4: error: Type mismatch: After simplification, term
+  h (e i) (hnorm i)
+ has type
+  @Tendsto ℕ ℝ (fun n => (f n).ofLp i) atTop (𝓝 0)
+but is expected to have type
+  @Tendsto ℕ ℝ (fun i_1 => (f i_1).ofLp i) atTop (𝓝 (0 i))

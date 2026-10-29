@@ -1,0 +1,15 @@
+import DominantFiveBody.BackgroundSlow
+
+#print axioms DominantFiveBody.backgroundMatrix_characteristic_factor
+#print axioms DominantFiveBody.backgroundSlowLambda_lt_fast
+#print axioms DominantFiveBody.backgroundSlowK_eigenvector
+#print axioms DominantFiveBody.backgroundSlow_scaling
+#print axioms DominantFiveBody.backgroundAngularScale_contDiffAt
+#print axioms DominantFiveBody.backgroundProbeField_zero
+#print axioms DominantFiveBody.backgroundProbeField_hasFDerivAt
+#print axioms DominantFiveBody.backgroundOperator_coordinates
+#print axioms DominantFiveBody.backgroundSlowDirection_norm
+#print axioms DominantFiveBody.backgroundSlowDirection_eigen
+#print axioms DominantFiveBody.backgroundSlowDirection_contDiffAt
+#print axioms DominantFiveBody.backgroundSlow_polar_displacement
+#print axioms DominantFiveBody.backgroundScalarLift_vector_balance

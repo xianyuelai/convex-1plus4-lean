@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "version": "v1",
+  "title": "Dominant five-body Lean formalization",
+  "source_identity": {
+    "tex_path": "source/convex_1plus4.tex",
+    "pdf_path": "source/convex_1plus4.pdf",
+    "tex_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "pdf_sha256": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+    "pdf_page_count": 19
+  },
+  "authoritative_original_directory": "C:/Users/衔月/Desktop/1+4修改文件/提交版本",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_revision": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "dependency_lockfile": "lake-manifest.json",
+  "dependency_update_policy": "Use the existing locked environment; do not install or update dependencies as part of verification or packaging.",
+  "acceptance_receipt": "logs/PAPER_ACCEPTANCE.json",
+  "source_binding_receipt": "logs/SOURCE_BINDING.json",
+  "acceptance_rule": "Current receipt must identify v1 and this source_identity, paper_verified must be true, and every accepted file hash must still match.",
+  "freeze_policy": "Freeze v1 only after actual whole-paper acceptance and packaging; all future changes belong to an independent v2 snapshot or release and must not overwrite v1.",
+  "historical_source_files": [
+    "source/dominant_five_body_ARMA_rewritten.tex",
+    "source/dominant_five_body_ARMA_rewritten.pdf"
+  ],
+  "license_policy": "No new license is selected or added by this release."
+}

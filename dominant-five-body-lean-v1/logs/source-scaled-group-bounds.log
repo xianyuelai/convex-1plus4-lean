@@ -1,0 +1,65 @@
+DominantFiveBody/CollisionScaledGroupBounds.lean:117:2: error: linarith failed to find a contradiction
+mu : MassRatio
+hm : PositiveRatio mu
+q : SatelliteConfiguration
+hcf : RelativeCollisionFree q
+S T : Finset Satellite
+hS : S.Nonempty
+hT : T.Nonempty
+p ref : Satellite
+hpS : p ∉ S
+hpT : p ∉ T
+v : Plane
+hv : ‖v‖ = 1
+d eta C K : ℝ
+hd : 0 < d
+heta : 0 < eta
+hC : 0 < C
+hK : 0 ≤ K
+hsepS : ∀ i ∈ S, ∀ j ∈ Sᶜ.erase p, eta * d ≤ satelliteDistance q j i
+hsepT : ∀ i ∈ T, ∀ j ∈ Tᶜ.erase p, eta * d ≤ satelliteDistance q j i
+hnu : (∑ j ∈ Finset.univ.erase p, mu j) / d ^ 3 ≤ C
+hfar : ∀ i ∈ S ∪ T, |inner ℝ (newtonTargetField (q p) (q i) - newtonTargetField (q p) (q ref)) v| ≤ K * d
+hnearS :
+  |satelliteGroupScalarAverage mu S fun i => ∑ j ∈ Sᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v| ≤
+    C / eta ^ 2 * d
+hnearT :
+  |satelliteGroupScalarAverage mu T fun i => ∑ j ∈ Tᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v| ≤
+    C / eta ^ 2 * d
+A : Satellite → ℝ := fun i => inner ℝ (newtonTargetField (q p) (q i)) v
+hfarS : |satelliteGroupScalarAverage mu S A - A ref| ≤ K * d
+hfarT : |satelliteGroupScalarAverage mu T A - A ref| ≤ K * d
+hfarDiff : |satelliteGroupScalarAverage mu S A - satelliteGroupScalarAverage mu T A| ≤ 2 * K * d
+hmp : mu p ≤ 1
+hpnonneg : 0 ≤ mu p
+htriangle :
+  |((satelliteGroupScalarAverage mu S fun i => ∑ j ∈ Sᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v) -
+          satelliteGroupScalarAverage mu T fun i =>
+            ∑ j ∈ Tᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v) +
+        mu p *
+          ((satelliteGroupScalarAverage mu S fun i => inner ℝ (newtonTargetField (q p) (q i)) v) -
+            satelliteGroupScalarAverage mu T fun i => inner ℝ (newtonTargetField (q p) (q i)) v)| ≤
+    |(satelliteGroupScalarAverage mu S fun i => ∑ j ∈ Sᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v) -
+          satelliteGroupScalarAverage mu T fun i =>
+            ∑ j ∈ Tᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v| +
+      mu p *
+        |(satelliteGroupScalarAverage mu S fun i => inner ℝ (newtonTargetField (q p) (q i)) v) -
+            satelliteGroupScalarAverage mu T fun i => inner ℝ (newtonTargetField (q p) (q i)) v|
+hnearDiff :
+  |(satelliteGroupScalarAverage mu S fun i => ∑ j ∈ Sᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v) -
+        satelliteGroupScalarAverage mu T fun i => ∑ j ∈ Tᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v| ≤
+    |satelliteGroupScalarAverage mu S fun i => ∑ j ∈ Sᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v| +
+      |satelliteGroupScalarAverage mu T fun i => ∑ j ∈ Tᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v|
+hweighted : mu p * |satelliteGroupScalarAverage mu S A - satelliteGroupScalarAverage mu T A| ≤ mu p * (2 * K * d)
+hweighted2 : mu p * (2 * K * d) ≤ 1 * (2 * K * d)
+halgebra : ∀ (X Y Z W : ℝ), X + mu p * Z - (Y + mu p * W) = X - Y + mu p * (Z - W)
+a✝ :
+  (2 * C / eta ^ 2 + 2 * K) * d <
+    |((satelliteGroupScalarAverage mu S fun i => ∑ j ∈ Sᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v) -
+          satelliteGroupScalarAverage mu T fun i =>
+            ∑ j ∈ Tᶜ.erase p, mu j * inner ℝ (newtonTargetField (q j) (q i)) v) +
+        mu p *
+          ((satelliteGroupScalarAverage mu S fun i => inner ℝ (newtonTargetField (q p) (q i)) v) -
+            satelliteGroupScalarAverage mu T fun i => inner ℝ (newtonTargetField (q p) (q i)) v)|
+⊢ False
+failed

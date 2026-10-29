@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "version": "v1",
+  "review_kind": "Independent source correspondence and source-integrity review before final acceptance",
+  "generated_at_utc": "2026-10-29T08:35:53.780011+00:00",
+  "frozen_before_final_acceptance": true,
+  "source_identity": {
+    "tex_path": "source/convex_1plus4.tex",
+    "pdf_path": "source/convex_1plus4.pdf",
+    "tex_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "pdf_sha256": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+    "pdf_page_count": 19
+  },
+  "facts": {
+    "assertion_rows": 349,
+    "legacy_assertion_rows": 343,
+    "new_assertion_rows": 6,
+    "source_inventory_units": 330,
+    "unit_kinds": {
+      "prose": 200,
+      "display": 116,
+      "numbered": 14
+    },
+    "status_counts": {
+      "CROSS_REFERENCE": 48,
+      "BACKGROUND": 1,
+      "VERIFIED": 282,
+      "DEFINITIONAL": 13,
+      "NON_MATHEMATICAL": 5
+    },
+    "open_rows": 0,
+    "source_body_tex_lines": [
+      53,
+      1004
+    ],
+    "all_row_text_ranges_hashes_match": true,
+    "non_subclaim_exact_source_quotes": 320,
+    "historical_subclaims_with_preserved_exact_claim": 29,
+    "distinct_lean_declarations": 622,
+    "lean_binding_occurrences": 856,
+    "blank_lean_types": 0,
+    "definition_records": 57,
+    "all_definition_types_and_values_present": false,
+    "diff_blocks": 28,
+    "diff_records_exact_in_all_six_fields": true,
+    "diff_old_new_hashes_match": true,
+    "formal_result_statements": 14,
+    "formal_result_statements_raw_identical": true,
+    "unchanged_baseline_mathematical_modules_independently_byte_checked": 277,
+    "main_and_specification_independently_byte_checked": true
+  },
+  "direct_line_union_uncovered_structural_lines": [
+    {
+      "line": 56,
+      "text": "\\section{Introduction}\\label{sec:intro}"
+    },
+    {
+      "line": 74,
+      "text": "\\section{Convex coorbital configurations}\\label{sec:coorbital}"
+    },
+    {
+      "line": 224,
+      "text": "\\section{Full equations and local continuation}\\label{sec:variation}"
+    }
+  ],
+  "formal_statement_map": [
+    {
+      "label": "thm:main",
+      "old_lines": [
+        72,
+        74
+      ],
+      "new_lines": [
+        66,
+        68
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "lem:cycle",
+      "old_lines": [
+        116,
+        133
+      ],
+      "new_lines": [
+        130,
+        147
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "thm:coorbital",
+      "old_lines": [
+        155,
+        157
+      ],
+      "new_lines": [
+        169,
+        171
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "lem:probe",
+      "old_lines": [
+        178,
+        184
+      ],
+      "new_lines": [
+        190,
+        196
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:closed",
+      "old_lines": [
+        191,
+        194
+      ],
+      "new_lines": [
+        203,
+        206
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "lem:hessian",
+      "old_lines": [
+        275,
+        277
+      ],
+      "new_lines": [
+        287,
+        289
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "lem:product",
+      "old_lines": [
+        295,
+        300
+      ],
+      "new_lines": [
+        307,
+        312
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:local",
+      "old_lines": [
+        305,
+        309
+      ],
+      "new_lines": [
+        317,
+        321
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:uniform",
+      "old_lines": [
+        323,
+        331
+      ],
+      "new_lines": [
+        334,
+        342
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:pair-scale",
+      "old_lines": [
+        370,
+        382
+      ],
+      "new_lines": [
+        380,
+        392
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:triple-scale",
+      "old_lines": [
+        429,
+        438
+      ],
+      "new_lines": [
+        438,
+        447
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:nested-scale",
+      "old_lines": [
+        471,
+        478
+      ],
+      "new_lines": [
+        479,
+        486
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:chart-interface",
+      "old_lines": [
+        928,
+        931
+      ],
+      "new_lines": [
+        942,
+        945
+      ],
+      "raw_statement_identical": true
+    },
+    {
+      "label": "prop:connection",
+      "old_lines": [
+        949,
+        955
+      ],
+      "new_lines": [
+        963,
+        969
+      ],
+      "raw_statement_identical": true
+    }
+  ],
+  "mathematical_correspondence_checks": [
+    {
+      "source_lines": [
+        90,
+        97
+      ],
+      "ledger_id": "eq:co-equations",
+      "rating": "A",
+      "finding": "The added angular-pair potential equality is bound to coorbitalPotential_eq_angularPotential; original residual, distance, potential and pair definitions remain referenced."
+    },
+    {
+      "source_lines": [
+        111,
+        128
+      ],
+      "ledger_ids": [
+        "v1:hessian.coordinates",
+        "v1:hessian.entries",
+        "v1:hessian.quadratic",
+        "v1:hessian.slice"
+      ],
+      "rating": "A",
+      "finding": "Actual physical second fderiv, both matrix entry cases, matrix quadratic expressions, the actual Fin 3 restricted potential and two-level derivative pullback are proved. OrderedSemicircle is the original open angular domain up to the anchor. No equilibrium or positive-mass premise was added. Lean index 0 is manuscript index 1.",
+      "lean_evidence": [
+        "DominantFiveBody/V1CoorbitalCoordinates.lean:21-123",
+        "DominantFiveBody/V1CoorbitalCoordinates.lean:126-262"
+      ]
+    },
+    {
+      "source_lines": [
+        371,
+        371
+      ],
+      "ledger_id": "prose:360",
+      "rating": "A",
+      "finding": "Explicit strict-convex/standard-order scope is cross-referenced to the three scale propositions. Actual pair/triple/nested scale and capture statements already carry hconv and OrderedSemicircle; no unconditional collision theorem is claimed."
+    },
+    {
+      "source_lines": [
+        495,
+        496
+      ],
+      "ledger_id": "prose:487",
+      "rating": "A",
+      "finding": "The exact display bound with C=1536 and its RHS uniform o(1) are covered on both actual endpoint pair rectangles, with no mass-share lower bound. Existing individual near/exterior uniform limits remain. The proof route explicitly discloses use of independently established later scale results; baseline scale modules do not import this new bridge.",
+      "lean_evidence": [
+        "DominantFiveBody/V1NestedNearBound.lean:21-103",
+        "DominantFiveBody/V1NestedNearBound.lean:107-197",
+        "DominantFiveBody/V1NestedNearBound.lean:202-366"
+      ]
+    },
+    {
+      "source_lines": [
+        837,
+        846
+      ],
+      "ledger_ids": [
+        "prose:833",
+        "v1:boundary.off_solution_projection"
+      ],
+      "rating": "A",
+      "finding": "Actual off-solution corrected vector residual F+epsilon(Y-cX), radial identity, epsilon-multiplied tangent identity and epsilon-nonzero division version are bound. No satellite mass is divided out. The genuine Y-cX has an exact t^3 factor on fixed-exterior paths and a continuous coefficient, specialized to actual regular/nested/slow paths. Older reaction_Ocube statements remain only for their distinct old reaction claim.",
+      "lean_evidence": [
+        "DominantFiveBody/V1BoundaryIdentities.lean:24-181",
+        "DominantFiveBody/V1BoundaryIdentities.lean:183-267",
+        "DominantFiveBody/TripleSlowExterior.lean:152-271",
+        "DominantFiveBody/TripleSlowBoundary.lean:100-236"
+      ]
+    }
+  ],
+  "required_changed_record_bindings": [
+    "eq:co-equations",
+    "prose:487",
+    "prose:833",
+    "v1:boundary.off_solution_projection",
+    "v1:hessian.coordinates",
+    "v1:hessian.entries",
+    "v1:hessian.quadratic",
+    "v1:hessian.slice"
+  ],
+  "semantic_binding_review": "Current required new theorem and defining-object bindings are faithful. Neither the old deletedAngularJacobian nor the old reaction_Ocube is used as a substitute for the new physical Hessian/slice or Y-cX assertions.",
+  "resolved_during_review": [
+    {
+      "issue": "Version downgrade could bypass v1 checks",
+      "evidence": "Static review of the earlier conditional gate; current missing/unsupported-version and downgrade-plus-tampering controls are rejected."
+    },
+    {
+      "issue": "Self-selected body scope or source_subclaim exemption",
+      "evidence": "Static review identified both bypasses; current independently derived body boundaries and hashed historical exemption rules reject the adversarial controls."
+    },
+    {
+      "issue": "Unreferenced legacy obligation could disappear",
+      "evidence": "An in-memory deletion of kernel.collision_blowup was observed accepted with 348 rows before the identity-set gate was added. Current control rejects it."
+    },
+    {
+      "issue": "New proof bindings could disappear while old nonempty bindings remained",
+      "evidence": "In-memory removal of offDiagonal, near_display estimates, and new fieldDefect bindings was observed accepted before the fixed REVIEWED_V1_REQUIREMENTS gate. Current controls reject all three, as well as deletion of the new physical matrix, slice potential, and corrected-residual definitions."
+    }
+  ],
+  "negative_controls": {
+    "report": "logs/V1_SOURCE_NEGATIVE_CONTROLS.json",
+    "control_count": 35,
+    "rejected_as_expected": 35,
+    "disk_inputs_unchanged": true,
+    "passed": true,
+    "report_sha256_at_review": "9CD5BFA659881CC5F21879B78F2C8ED26CBF3AEE59DED406DC5F52E47ACB3BA4"
+  },
+  "review_scope_limits": [
+    "This is a source-correspondence review with explicit manual semantic judgement, not a formal parser proof translating English or TeX into Lean.",
+    "All 349 source text/range/hash records were checked; the changed mathematical assertions were reviewed against real objects and hypotheses. The internal proofs of every unchanged legacy module were not re-audited from scratch.",
+    "The source_units grouping was checked for this supplied TeX corpus; it is not a completeness theorem for arbitrary future TeX syntax.",
+    "This record does not certify the final clean build, all exact-type elaboration, all definition-value checks, axiom audit, fresh kernel replay, PDF rendering, final receipt, or release archive. Those require the separate final acceptance workflow.",
+    "The negative-control log can be regenerated by final verification; it is not part of the frozen mathematical assertions."
+  ],
+  "unresolved_correspondence_findings": [],
+  "whole_paper_acceptance_asserted": false,
+  "input_sha256": {
+    "source/convex_1plus4.tex": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "source/convex_1plus4.pdf": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+    "source/dominant_five_body_ARMA_rewritten.tex": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+    "docs/FULL_ASSERTIONS.json": "0809068E7F99F9021CB6FE71E8B5E6D204A6BFE28FF076FACA70D21801448B7D",
+    "docs/DEFINITION_BINDINGS.json": "D69417C9CE2F3546D949E49667BF59014570A083ABAE3ABBB93D8BE548E06FAF",
+    "docs/V1_COVERAGE_PATCH.json": "2F71864CCDE1300429BBB8FE4E0906EB9260E5072E5CBEAB9D258D167096EE91",
+    "docs/V1_SOURCE_CHANGE_REVIEW.json": "27206DEA034882B2F448334059DF67BD80649F2881C16DF42245D6D32449DE6A",
+    "docs/V1_CORE_PRESERVATION.json": "C91EF1647D109618706E404921FAED903D7FEBCD9E2957C713E0A2314776994D",
+    "logs/history/pre-v1/FULL_ASSERTIONS.json": "1C79C6FEAC176FF520B9623DC2273C1EA42E057E73F2C67110C06FBFFB3850A5",
+    "VERSION.json": "4095603D9DF0D641E8EFDB54CE986DDFF5F22DB79433C62541AB8E27D82013C7",
+    "scripts/migrate_v1_source.py": "A27A7CE3D886B41FCAE18D328ED994AFB9024B1EE954F34EB71083EB4D82B3AA",
+    "scripts/bind_v1_assertions.py": "40D5E571F3D2AE0624D12EAA4D88E1C510F240A4AEFB0C15FCB68A57DCD6377D",
+    "scripts/paper_coverage.py": "E1BE9B85FF96E27E49BE06AFDD9D296154B7332F4B952B73626DC54DBADF9C9D",
+    "scripts/v1_source_negative_controls.py": "A2AE253E685A72F42729CCC9E075930B6748EBBA5A7CFF0BE5B205E346632C9E",
+    "DominantFiveBody/V1CoorbitalCoordinates.lean": "0811418A4A91D5592E11CD326568550688A9B9D79347917C098DD1BD0AE6A5A9",
+    "DominantFiveBody/V1BoundaryIdentities.lean": "2A007348DA8ABC3B2AAD8401710F6D7DCEA83ADA239FEF986F8E182493BDF7A8",
+    "DominantFiveBody/V1NestedNearBound.lean": "BD7D7DFA9B5A8F976CD1658293B59643CCCDFF822A526FAC3102E8988C7BD75D"
+  }
+}

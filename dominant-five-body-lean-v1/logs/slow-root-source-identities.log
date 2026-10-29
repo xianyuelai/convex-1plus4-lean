@@ -1,0 +1,3 @@
+COMMAND: lake env lean -DwarningAsError=true -DautoImplicit=false -o .lake/build/lib/lean/DominantFiveBody/SlowRootSourceIdentities.olean DominantFiveBody/SlowRootSourceIdentities.lean
+LEAN_EXIT_CODE: 0
+EXIT_CODE: 0

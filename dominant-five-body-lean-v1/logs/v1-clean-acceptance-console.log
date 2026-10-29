@@ -1,0 +1,10 @@
+PASS: python -I -X utf8 scripts/paper_coverage.py --generate
+PASS: python -I -X utf8 scripts/v1_source_negative_controls.py
+PASS: pwsh -NoProfile -File scripts/update_audit.ps1
+PASS: pwsh -NoProfile -File scripts/verify.ps1 -Clean
+PASS: lake build PaperAcceptance
+PASS: lake env lean -DwarningAsError=true -DautoImplicit=false PaperAcceptance/Main.lean
+PASS: lake env lean -DwarningAsError=true -DautoImplicit=false PaperAcceptance/Coverage.lean
+PASS: lake env c:\Users\衔月\.elan\toolchains\leanprover--lean4---v4.33.1\bin\leanchecker.exe --fresh PaperAcceptance
+WHOLE PAPER VERIFIED
+EXIT_CODE: 0

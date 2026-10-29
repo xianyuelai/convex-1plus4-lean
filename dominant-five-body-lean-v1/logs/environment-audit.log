@@ -1,0 +1,3 @@
+ENVIRONMENT_AUDIT_PASS: 280 modules; 4996 project constants; 4231 project theorems; 54755 reachable constants; 2135169 edges; axioms [Quot.sound,
+ Classical.choice,
+ propext]

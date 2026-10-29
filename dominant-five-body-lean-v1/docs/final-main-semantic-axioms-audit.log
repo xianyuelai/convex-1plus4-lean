@@ -1,0 +1,29 @@
+2026-10-03 strict final-Main semantic audit
+Command: lake env lean -DwarningAsError=true -o .lake/build/lib/lean/Audit/FinalMainSemantic.olean Audit/FinalMainSemantic.lean
+LEAN_NUM_THREADS=2
+Session: 43601
+EXIT_CODE: 0
+
+DominantFiveBody.main_uniform : MainUniformStatement
+theorem DominantFiveBody.main_uniform : MainUniformStatement :=
+main_of_orderedSlice_connection orderedSlice_connection
+'DominantFiveBody.main_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_smooth_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_smooth_connection_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.fixedAngleDeletedJacobian_isInvertible_iff_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.coorbital_compact_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_fixedParameterLocalExistence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_localContinuationUniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_uniqueness_to_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_nondegeneracy_to_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.geometric_nondegeneracy_of_gauged_normalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.finrank_shapeSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.physicalHessian_comp_at_normalizedCC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.Audit.main_semantic_positive_parameter_witness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

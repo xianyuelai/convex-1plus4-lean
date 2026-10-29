@@ -1,0 +1,219 @@
+COMMAND: lake env lean -DwarningAsError=true -DautoImplicit=false Audit/SourceDefinitions.lean
+def DominantFiveBody.Coorbital.h : ℝ :=
+Real.pi / 3
+'DominantFiveBody.Coorbital.h' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.Coorbital.kappa : ℝ → ℝ :=
+fun t => (2 - Real.sin (t / 2) ^ 2) / (8 * Real.sin (t / 2) ^ 3) + Real.cos t
+'DominantFiveBody.Coorbital.kappa' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.Coorbital.kappaPrime : ℝ → ℝ :=
+fun t => -Real.cos (t / 2) / (16 * Real.sin (t / 2) ^ 4) * (6 - Real.sin (t / 2) ^ 2 + 32 * Real.sin (t / 2) ^ 5)
+'DominantFiveBody.Coorbital.kappaPrime' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.Coorbital.kernelF : ℝ → ℝ :=
+fun t => Real.sin t * ((2 * Real.sin (t / 2))⁻¹ ^ 3 - 1)
+'DominantFiveBody.Coorbital.kernelF' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.Coorbital.pairPotential : ℝ → ℝ :=
+fun t => (2 * Real.sin (t / 2))⁻¹ + 1 - Real.cos t
+'DominantFiveBody.Coorbital.pairPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.Coorbital.positiveRemainder : ℝ → ℝ :=
+fun t => DominantFiveBody.Coorbital.kappa t - DominantFiveBody.Coorbital.slopeCoefficient t
+'DominantFiveBody.Coorbital.positiveRemainder' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.Coorbital.slopeCoefficient : ℝ → ℝ :=
+fun t =>
+  if t < DominantFiveBody.Coorbital.h then DominantFiveBody.Coorbital.kernelF t / (DominantFiveBody.Coorbital.h - t)
+  else if t = DominantFiveBody.Coorbital.h then 0 else DominantFiveBody.Coorbital.kernelF t / (Real.pi - t)
+'DominantFiveBody.Coorbital.slopeCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+structure DominantFiveBody.HullOrder : Type
+number of parameters: 0
+fields:
+  DominantFiveBody.HullOrder.labels : Equiv.Perm DominantFiveBody.Label
+  DominantFiveBody.HullOrder.primary_first : self.labels 0 = 0
+constructor:
+  DominantFiveBody.HullOrder.mk (labels : Equiv.Perm DominantFiveBody.Label) (primary_first : labels 0 = 0) :
+    DominantFiveBody.HullOrder
+'DominantFiveBody.HullOrder' depends on axioms: [propext, Quot.sound]
+def DominantFiveBody.NormalizedCentralConfiguration : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → Prop :=
+fun m x =>
+  DominantFiveBody.CollisionFree x ∧
+    DominantFiveBody.weightedPosition m x = 0 ∧
+      ∀ (i : DominantFiveBody.Label), DominantFiveBody.acceleration m x i = -x i
+'DominantFiveBody.NormalizedCentralConfiguration' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.OrientedSimilar : DominantFiveBody.Configuration → DominantFiveBody.Configuration → Prop :=
+fun x y => ∃ b a R, 0 < a ∧ LinearMap.det ↑R.toLinearEquiv = 1 ∧ ∀ (i : DominantFiveBody.Label), y i = b + a • R (x i)
+'DominantFiveBody.OrientedSimilar' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.PositiveRatio : DominantFiveBody.MassRatio → Prop :=
+fun μ => (∀ (i : DominantFiveBody.Satellite), 0 < μ i) ∧ ∑ i, μ i = 1
+'DominantFiveBody.PositiveRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.acceleration : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → DominantFiveBody.Label → DominantFiveBody.Plane :=
+fun m x i => ∑ j ∈ Finset.univ.erase i, (m j / DominantFiveBody.pairDistance x i j ^ 3) • (x j - x i)
+'DominantFiveBody.acceleration' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.angularJacobian : (DominantFiveBody.Satellite → ℝ) →
+  (DominantFiveBody.Satellite → ℝ) → Matrix DominantFiveBody.Satellite DominantFiveBody.Satellite ℝ :=
+fun mass theta i j =>
+  if i = j then ∑ k ∈ Finset.univ.erase i, mass k * DominantFiveBody.Coorbital.kappa |theta k - theta i|
+  else -mass j * DominantFiveBody.Coorbital.kappa |theta j - theta i|
+'DominantFiveBody.angularJacobian' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.angularResidual : ℝ →
+  (DominantFiveBody.Satellite → ℝ) →
+    (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ :=
+fun ε μ r θ i =>
+  ∑ j ∈ Finset.univ.erase i,
+    μ j * r i * r j * Real.sin (θ j - θ i) *
+      ((DominantFiveBody.satelliteDistance (DominantFiveBody.polarSatellites r θ) i j ^ 3)⁻¹ - (1 + ε)⁻¹)
+'DominantFiveBody.angularResidual' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.augmentedPotential : DominantFiveBody.MassVector → ℝ → DominantFiveBody.Configuration → ℝ :=
+fun m lam x => DominantFiveBody.potential m x + lam / 2 * DominantFiveBody.inertia m x
+'DominantFiveBody.augmentedPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.branchEqualitySet : ℝ →
+  (ℝ → DominantFiveBody.SliceCoordinates) → (ℝ → DominantFiveBody.SliceCoordinates) → Set ℝ :=
+fun radius first second => {s | s ∈ Set.Ico 0 radius ∧ first s = second s}
+'DominantFiveBody.branchEqualitySet' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.centeredFromRelative : ℝ →
+  DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Configuration :=
+fun ε μ q i => DominantFiveBody.liftRelative q i - (ε / (1 + ε)) • DominantFiveBody.relativeAverage μ q
+'DominantFiveBody.centeredFromRelative' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.centeredVariationSpace : DominantFiveBody.MassVector →
+  Submodule ℝ DominantFiveBody.Configuration :=
+fun m => (DominantFiveBody.weightedPositionLinear m).ker
+'DominantFiveBody.centeredVariationSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.coorbitalDistance : (DominantFiveBody.Satellite → ℝ) →
+  DominantFiveBody.Satellite → DominantFiveBody.Satellite → ℝ :=
+fun θ i j =>
+  ‖DominantFiveBody.point (Real.cos (θ i)) (Real.sin (θ i)) - DominantFiveBody.point (Real.cos (θ j)) (Real.sin (θ j))‖
+'DominantFiveBody.coorbitalDistance' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.coorbitalKernel : ℝ → ℝ :=
+fun t => if 0 ≤ t then DominantFiveBody.Coorbital.kernelF t else -DominantFiveBody.Coorbital.kernelF (-t)
+'DominantFiveBody.coorbitalKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.coorbitalMatrix : (DominantFiveBody.Satellite → ℝ) →
+  Matrix DominantFiveBody.Satellite DominantFiveBody.Satellite ℝ :=
+fun θ i j => if i = j then 0 else DominantFiveBody.coorbitalKernel (θ j - θ i)
+'DominantFiveBody.coorbitalMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.coorbitalPotential : (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → ℝ :=
+fun μ θ =>
+  ∑ p ∈ DominantFiveBody.satellitePairs,
+    μ p.1 * μ p.2 *
+      ((DominantFiveBody.coorbitalDistance θ p.1 p.2)⁻¹ + DominantFiveBody.coorbitalDistance θ p.1 p.2 ^ 2 / 2)
+'DominantFiveBody.coorbitalPotential' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.coorbitalResidual : (DominantFiveBody.Satellite → ℝ) →
+  (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ :=
+fun μ θ i => ∑ j ∈ Finset.univ.erase i, μ j * DominantFiveBody.coorbitalKernel (θ j - θ i)
+'DominantFiveBody.coorbitalResidual' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.inertia : DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ :=
+fun m x => ∑ i, m i * ‖x i‖ ^ 2
+'DominantFiveBody.inertia' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.inertiaTangentSpace : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → Submodule ℝ DominantFiveBody.Configuration :=
+fun m x => DominantFiveBody.centeredVariationSpace m ⊓ (DominantFiveBody.massInnerRight m x).ker
+'DominantFiveBody.inertiaTangentSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.liftRelative : DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Configuration :=
+fun q i => Fin.cases 0 q i
+'DominantFiveBody.liftRelative' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.masses : ℝ → DominantFiveBody.MassRatio → DominantFiveBody.MassVector :=
+fun ε μ i => Fin.cases 1 (fun i => ε * μ i) i
+'DominantFiveBody.masses' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.orderedPolarSlice : DominantFiveBody.HullOrder →
+  (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.SliceCoordinates :=
+fun sigma r theta =>
+  have e := DominantFiveBody.hullSatellitePermutation sigma;
+  DominantFiveBody.polarSlice (r ∘ ⇑e) fun i => theta (e i) - theta (e 0)
+'DominantFiveBody.orderedPolarSlice' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.orderedSliceRoot : DominantFiveBody.PositiveMassRatio →
+  ℝ → DominantFiveBody.SliceCoordinates → Prop :=
+fun mu eps y =>
+  DominantFiveBody.SliceRegular (eps, ↑mu) y ∧
+    DominantFiveBody.OrderedSemicircle (DominantFiveBody.sliceAngles y) ∧
+      DominantFiveBody.StrictConvexInOrder DominantFiveBody.standardHullOrder
+          (DominantFiveBody.slicePhysicalConfiguration (eps, ↑mu) y) ∧
+        DominantFiveBody.reducedResidual (eps, ↑mu) y = 0
+'DominantFiveBody.orderedSliceRoot' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.pairDistance : DominantFiveBody.Configuration →
+  DominantFiveBody.Label → DominantFiveBody.Label → ℝ :=
+fun x i j => ‖x i - x j‖
+'DominantFiveBody.pairDistance' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.pairs : Finset (DominantFiveBody.Label × DominantFiveBody.Label) :=
+{p | p.1 < p.2}
+'DominantFiveBody.pairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.polarPoint : ℝ → ℝ → DominantFiveBody.Plane :=
+fun r θ => DominantFiveBody.point (r * Real.cos θ) (r * Real.sin θ)
+'DominantFiveBody.polarPoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.polarSatellites : (DominantFiveBody.Satellite → ℝ) →
+  (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.SatelliteConfiguration :=
+fun r θ i => DominantFiveBody.polarPoint (r i) (θ i)
+'DominantFiveBody.polarSatellites' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.potential : DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ :=
+fun m x => ∑ p ∈ DominantFiveBody.pairs, m p.1 * m p.2 / DominantFiveBody.pairDistance x p.1 p.2
+'DominantFiveBody.potential' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.quarterTurn : DominantFiveBody.Plane → DominantFiveBody.Plane :=
+fun v => DominantFiveBody.point (-v.ofLp 1) (v.ofLp 0)
+'DominantFiveBody.quarterTurn' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.radialResidual : ℝ →
+  (DominantFiveBody.Satellite → ℝ) →
+    (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ :=
+fun ε μ r θ i =>
+  r i - (r i ^ 2)⁻¹ -
+      ε *
+        ∑ j ∈ Finset.univ.erase i,
+          μ j * (r i - r j * Real.cos (θ j - θ i)) /
+            DominantFiveBody.satelliteDistance (DominantFiveBody.polarSatellites r θ) i j ^ 3 -
+    ε / (1 + ε) *
+      inner ℝ (DominantFiveBody.relativeAverage μ (DominantFiveBody.polarSatellites r θ))
+        (DominantFiveBody.polarPoint 1 (θ i))
+'DominantFiveBody.radialResidual' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.relativeAction : ℝ → DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → ℝ :=
+fun eps mu q =>
+  ∑ i, mu i * (‖q i‖⁻¹ + ‖q i‖ ^ 2 / 2) + eps * DominantFiveBody.relativePairPotential mu q -
+    eps / (1 + eps) / 2 * ‖DominantFiveBody.relativeAverage mu q‖ ^ 2
+'DominantFiveBody.relativeAction' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.relativeAverage : DominantFiveBody.MassRatio →
+  DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Plane :=
+fun μ q => ∑ i, μ i • q i
+'DominantFiveBody.relativeAverage' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.relativeField : DominantFiveBody.MassRatio →
+  DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Plane :=
+fun μ q => ∑ i, (μ i / ‖q i‖ ^ 3) • q i
+'DominantFiveBody.relativeField' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.satellitePairs : Finset (DominantFiveBody.Satellite × DominantFiveBody.Satellite) :=
+{p | p.1 < p.2}
+'DominantFiveBody.satellitePairs' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.satellitesRelative : DominantFiveBody.Configuration → DominantFiveBody.SatelliteConfiguration :=
+fun x i => DominantFiveBody.primaryRelative x (Fin.succ i)
+'DominantFiveBody.satellitesRelative' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.shapeSpace : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → Submodule ℝ DominantFiveBody.Configuration :=
+fun m x =>
+  (DominantFiveBody.weightedPositionLinear m).ker ⊓
+    ((DominantFiveBody.massInnerRight m (DominantFiveBody.centered m x)).ker ⊓
+      (DominantFiveBody.massInnerRight m (DominantFiveBody.rotationDirection (DominantFiveBody.centered m x))).ker)
+'DominantFiveBody.shapeSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.sliceAngles : DominantFiveBody.SliceCoordinates → DominantFiveBody.Satellite → ℝ :=
+fun y i => Fin.cases 0 (fun i => y (Fin.natAdd 4 i)) i
+'DominantFiveBody.sliceAngles' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.slicePhysicalConfiguration : DominantFiveBody.ContinuationParameter →
+  DominantFiveBody.SliceCoordinates → DominantFiveBody.Configuration :=
+fun p y => (DominantFiveBody.relativeCenteredContinuous p.1 p.2) (DominantFiveBody.sliceSatellites y)
+'DominantFiveBody.slicePhysicalConfiguration' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.sliceRadii : DominantFiveBody.SliceCoordinates → DominantFiveBody.Satellite → ℝ :=
+fun y i => y (Fin.castAdd 3 i)
+'DominantFiveBody.sliceRadii' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.tangentialResidual : (DominantFiveBody.Satellite → ℝ) →
+  (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ :=
+fun μ r θ i =>
+  ∑ j ∈ Finset.univ.erase i,
+    μ j * r j * Real.sin (θ j - θ i) *
+      ((DominantFiveBody.satelliteDistance (DominantFiveBody.polarSatellites r θ) i j ^ 3)⁻¹ - (r j ^ 3)⁻¹)
+'DominantFiveBody.tangentialResidual' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.vectorResidual : ℝ →
+  DominantFiveBody.MassRatio →
+    DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Satellite → DominantFiveBody.Plane :=
+fun ε μ q i =>
+  q i - (‖q i‖ ^ 3)⁻¹ • q i +
+      ε • ∑ j ∈ Finset.univ.erase i, (μ j / DominantFiveBody.satelliteDistance q i j ^ 3) • (q j - q i) -
+    ε • DominantFiveBody.relativeField μ q
+'DominantFiveBody.vectorResidual' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.weightedPosition : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → DominantFiveBody.Plane :=
+fun m x => ∑ i, m i • x i
+'DominantFiveBody.weightedPosition' depends on axioms: [propext, Classical.choice, Quot.sound]
+LEAN_EXIT_CODE: 0
+EXIT_CODE: 0

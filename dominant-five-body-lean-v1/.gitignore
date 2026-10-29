@@ -1,0 +1,10 @@
+.lake/
+.git/
+tmp/
+.cache/
+cache/
+__pycache__/
+*.pyc
+*.pyo
+*.tmp
+logs/lean-compiler.lock

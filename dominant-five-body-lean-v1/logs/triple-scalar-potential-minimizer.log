@@ -1,0 +1,6 @@
+DominantFiveBody/TripleScalarPotentialMinimizer.lean:51:4: error: Type mismatch: After simplification, term
+  hs
+ has type
+  0 ≤ 1⁻¹ • (tripleScalarPotential alpha y -ᵥ tripleScalarPotential alpha z)
+but is expected to have type
+  0 ≤ tripleScalarPotential alpha y - tripleScalarPotential alpha z

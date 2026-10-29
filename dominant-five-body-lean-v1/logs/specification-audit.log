@@ -1,0 +1,84 @@
+def DominantFiveBody.MainUniformStatement : Prop :=
+∃ δ,
+  0 < δ ∧
+    ∀ (μ : DominantFiveBody.MassRatio),
+      DominantFiveBody.PositiveRatio μ →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ε < δ →
+              ∀ (σ : DominantFiveBody.HullOrder),
+                ∃ x,
+                  DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ x ∧
+                    (∀ (y : DominantFiveBody.Configuration),
+                        DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ y →
+                          DominantFiveBody.OrientedSimilar x y) ∧
+                      ∀ (y : DominantFiveBody.Configuration),
+                        DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ y →
+                          DominantFiveBody.NondegenerateCentralConfiguration (DominantFiveBody.masses ε μ) y
+def DominantFiveBody.ShapeHessianNondegenerate : DominantFiveBody.MassVector →
+  ℝ → DominantFiveBody.Configuration → Prop :=
+fun m lam x =>
+  ∀ v ∈ DominantFiveBody.shapeSpace m x,
+    (∀ w ∈ DominantFiveBody.shapeSpace m x, DominantFiveBody.physicalHessian m lam x v w = 0) → v = 0
+def DominantFiveBody.physicalHessian : DominantFiveBody.MassVector →
+  ℝ → DominantFiveBody.Configuration → DominantFiveBody.Configuration → DominantFiveBody.Configuration → ℝ :=
+fun m lam x v w => ((fderiv ℝ (fderiv ℝ (DominantFiveBody.augmentedPotential m lam)) x) v) w
+def DominantFiveBody.StrictConvexInOrder : DominantFiveBody.HullOrder → DominantFiveBody.Configuration → Prop :=
+fun σ x =>
+  ∀ (k j : DominantFiveBody.Label),
+    j ≠ k → j ≠ k + 1 → 0 < DominantFiveBody.orientedArea x (σ.labels k) (σ.labels (k + 1)) (σ.labels j)
+def DominantFiveBody.OrientedSimilar : DominantFiveBody.Configuration → DominantFiveBody.Configuration → Prop :=
+fun x y => ∃ b a R, 0 < a ∧ LinearMap.det ↑R.toLinearEquiv = 1 ∧ ∀ (i : DominantFiveBody.Label), y i = b + a • R (x i)
+DominantFiveBody.main_uniform : DominantFiveBody.MainUniformStatement
+'DominantFiveBody.main_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+DominantFiveBody.finrank_shapeSpace : ∀ (m : DominantFiveBody.MassVector),
+  DominantFiveBody.PositiveMasses m →
+    ∀ (x : DominantFiveBody.Configuration),
+      DominantFiveBody.CollisionFree x → Module.finrank ℝ ↥(DominantFiveBody.shapeSpace m x) = 6
+@DominantFiveBody.Coorbital.positiveRemainder_pos : ∀ {t : ℝ},
+  0 < t → t < Real.pi → 0 < DominantFiveBody.Coorbital.positiveRemainder t
+@DominantFiveBody.Coorbital.coorbitalKappaForm_pos_on_rotation_slice : ∀ {n : ℕ} (mass theta u : Fin n → ℝ) (p : Fin n),
+  (∀ (i : Fin n), 0 < mass i) →
+    (∀ (i j : Fin n), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi) →
+      DominantFiveBody.Coorbital.coorbitalRemainderForm mass theta u ≤
+          DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u →
+        u p = 0 → u ≠ 0 → 0 < DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u
+DominantFiveBody.coorbital_recover_positive_mass_row : ∀ (μ θ : DominantFiveBody.Satellite → ℝ)
+  (p : DominantFiveBody.Satellite),
+  0 < μ p →
+    (∀ (i : DominantFiveBody.Satellite), i ≠ p → DominantFiveBody.coorbitalResidual μ θ i = 0) →
+      DominantFiveBody.coorbitalResidual μ θ p = 0
+@DominantFiveBody.main_of_chart_facts : ∀ {P : Type u_1} {Y : Type u_2} [inst : TopologicalSpace Y] [T2Space Y]
+  {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y},
+  DominantFiveBody.FixedParameterLocalExistence root →
+    DominantFiveBody.LocalContinuationUniqueness root nondegenerate endpoint →
+      DominantFiveBody.ConnectionProperty root nondegenerate endpoint →
+        ∃ δ, 0 < δ ∧ ∀ (p : P) (ε : ℝ), 0 < ε → ε < δ → (∃! y, root p ε y) ∧ ∀ (y : Y), root p ε y → nondegenerate p ε y
+DominantFiveBody.main_of_no_bad_physical_sequences : ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalExistence →
+  ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalUniqueness →
+    ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalNondegeneracy → DominantFiveBody.MainUniformStatement
+theorem DominantFiveBody.main_of_chart_facts.{u, v} : ∀ {P : Type u} {Y : Type v} [inst : TopologicalSpace Y]
+  [T2Space Y] {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y},
+  DominantFiveBody.FixedParameterLocalExistence root →
+    DominantFiveBody.LocalContinuationUniqueness root nondegenerate endpoint →
+      DominantFiveBody.ConnectionProperty root nondegenerate endpoint →
+        ∃ δ,
+          0 < δ ∧ ∀ (p : P) (ε : ℝ), 0 < ε → ε < δ → (∃! y, root p ε y) ∧ ∀ (y : Y), root p ε y → nondegenerate p ε y :=
+⋯
+theorem DominantFiveBody.main_of_no_bad_physical_sequences : ¬DominantFiveBody.BadSequence
+      DominantFiveBody.PhysicalExistence →
+  ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalUniqueness →
+    ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalNondegeneracy → DominantFiveBody.MainUniformStatement :=
+⋯
+'DominantFiveBody.finrank_shapeSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_of_primary_differences' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orientedSimilar_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.Coorbital.positiveRemainder_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.Coorbital.coorbitalKappaForm_pos_on_rotation_slice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.coorbital_recover_positive_mass_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.uniformBelow_iff_no_badSequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.branches_eq_on_connectionInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.main_of_chart_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.main_of_no_bad_physical_sequences' depends on axioms: [propext, Classical.choice, Quot.sound]

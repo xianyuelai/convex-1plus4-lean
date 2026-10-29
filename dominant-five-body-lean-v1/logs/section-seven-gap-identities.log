@@ -1,0 +1,24 @@
+DominantFiveBody/SectionSevenGapIdentities.lean:36:6: error: linarith failed to find a contradiction
+case «0».h1
+t : ℝ
+alpha : TripleVector
+y : TripleChartVariables
+ha : ∑ i, alpha i = 1
+hsep : SeparatedSemicircle (tripleChartAngles t alpha y)
+a✝ :
+  y 4 + t * tripleChartAngularPositions alpha y 1 - (y 4 + t * tripleChartAngularPositions alpha y 0) <
+    t * tripleChartAngularGaps y 0
+⊢ False
+failed
+DominantFiveBody/SectionSevenGapIdentities.lean:39:6: error: linarith failed to find a contradiction
+case «1».h1
+t : ℝ
+alpha : TripleVector
+y : TripleChartVariables
+ha : ∑ i, alpha i = 1
+hsep : SeparatedSemicircle (tripleChartAngles t alpha y)
+a✝ :
+  y 4 + t * tripleChartAngularPositions alpha y 2 - (y 4 + t * tripleChartAngularPositions alpha y 1) <
+    t * tripleChartAngularGaps y 1
+⊢ False
+failed

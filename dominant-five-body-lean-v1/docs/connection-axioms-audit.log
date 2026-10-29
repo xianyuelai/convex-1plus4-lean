@@ -1,0 +1,25 @@
+'DominantFiveBody.fixedAngleDeletedJacobian_isInvertible_iff_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.pairChartJacobian_isInvertible_iff_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.noCollision_physical_local_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.noCollision_actual_sequence_capture_of_regular_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.slice_unit_eq_labelledCoorbitalEndpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.physicalHessian_positiveAffineConfiguration' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.shapeHessianNondegenerate_rotateConfiguration_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.strictConvexCC_existsUnique_normalized_gauged' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.geometric_oriented_uniqueness_of_gauged_normalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.geometric_nondegeneracy_of_gauged_normalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.physical_fixed_parameter_local_existence' depends on axioms: [propext, Classical.choice, Quot.sound]

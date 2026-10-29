@@ -1,0 +1,72 @@
+DominantFiveBody.main_uniform : DominantFiveBody.MainUniformStatement
+theorem DominantFiveBody.main_uniform : DominantFiveBody.MainUniformStatement :=
+DominantFiveBody.main_of_orderedSlice_connection DominantFiveBody.orderedSlice_connection
+'DominantFiveBody.main_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+def DominantFiveBody.MainUniformStatement : Prop :=
+∃ δ,
+  0 < δ ∧
+    ∀ (μ : DominantFiveBody.MassRatio),
+      DominantFiveBody.PositiveRatio μ →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ε < δ →
+              ∀ (σ : DominantFiveBody.HullOrder),
+                ∃ x,
+                  DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ x ∧
+                    (∀ (y : DominantFiveBody.Configuration),
+                        DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ y →
+                          DominantFiveBody.OrientedSimilar x y) ∧
+                      ∀ (y : DominantFiveBody.Configuration),
+                        DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ y →
+                          DominantFiveBody.NondegenerateCentralConfiguration (DominantFiveBody.masses ε μ) y
+def DominantFiveBody.PositiveRatio : DominantFiveBody.MassRatio → Prop :=
+fun μ => (∀ (i : DominantFiveBody.Satellite), 0 < μ i) ∧ ∑ i, μ i = 1
+def DominantFiveBody.masses : ℝ → DominantFiveBody.MassRatio → DominantFiveBody.MassVector :=
+fun ε μ i => Fin.cases 1 (fun i => ε * μ i) i
+structure DominantFiveBody.HullOrder : Type
+number of parameters: 0
+fields:
+  DominantFiveBody.HullOrder.labels : Equiv.Perm DominantFiveBody.Label
+  DominantFiveBody.HullOrder.primary_first : self.labels 0 = 0
+constructor:
+  DominantFiveBody.HullOrder.mk (labels : Equiv.Perm DominantFiveBody.Label) (primary_first : labels 0 = 0) :
+    DominantFiveBody.HullOrder
+def DominantFiveBody.StrictConvexInOrder : DominantFiveBody.HullOrder → DominantFiveBody.Configuration → Prop :=
+fun σ x =>
+  ∀ (k j : DominantFiveBody.Label),
+    j ≠ k → j ≠ k + 1 → 0 < DominantFiveBody.orientedArea x (σ.labels k) (σ.labels (k + 1)) (σ.labels j)
+def DominantFiveBody.OrientedSimilar : DominantFiveBody.Configuration → DominantFiveBody.Configuration → Prop :=
+fun x y => ∃ b a R, 0 < a ∧ LinearMap.det ↑R.toLinearEquiv = 1 ∧ ∀ (i : DominantFiveBody.Label), y i = b + a • R (x i)
+def DominantFiveBody.NondegenerateCentralConfiguration : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → Prop :=
+fun m x =>
+  DominantFiveBody.CollisionFree x ∧
+    ∃ lam,
+      0 < lam ∧
+        DominantFiveBody.MultiplierEquation m x lam ∧
+          Module.finrank ℝ ↥(DominantFiveBody.shapeSpace m x) = 6 ∧ DominantFiveBody.ShapeHessianNondegenerate m lam x
+def DominantFiveBody.shapeSpace : DominantFiveBody.MassVector →
+  DominantFiveBody.Configuration → Submodule ℝ DominantFiveBody.Configuration :=
+fun m x =>
+  (DominantFiveBody.weightedPositionLinear m).ker ⊓
+    ((DominantFiveBody.massInnerRight m (DominantFiveBody.centered m x)).ker ⊓
+      (DominantFiveBody.massInnerRight m (DominantFiveBody.rotationDirection (DominantFiveBody.centered m x))).ker)
+def DominantFiveBody.ShapeHessianNondegenerate : DominantFiveBody.MassVector →
+  ℝ → DominantFiveBody.Configuration → Prop :=
+fun m lam x =>
+  ∀ v ∈ DominantFiveBody.shapeSpace m x,
+    (∀ w ∈ DominantFiveBody.shapeSpace m x, DominantFiveBody.physicalHessian m lam x v w = 0) → v = 0
+def DominantFiveBody.physicalHessian : DominantFiveBody.MassVector →
+  ℝ → DominantFiveBody.Configuration → DominantFiveBody.Configuration → DominantFiveBody.Configuration → ℝ :=
+fun m lam x v w => ((fderiv ℝ (fderiv ℝ (DominantFiveBody.augmentedPotential m lam)) x) v) w
+def DominantFiveBody.augmentedPotential : DominantFiveBody.MassVector → ℝ → DominantFiveBody.Configuration → ℝ :=
+fun m lam x => DominantFiveBody.potential m x + lam / 2 * DominantFiveBody.inertia m x
+def DominantFiveBody.potential : DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ :=
+fun m x => ∑ p ∈ DominantFiveBody.pairs, m p.1 * m p.2 / DominantFiveBody.pairDistance x p.1 p.2
+def DominantFiveBody.inertia : DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ :=
+fun m x => ∑ i, m i * ‖x i‖ ^ 2
+def DominantFiveBody.CentralConfiguration : DominantFiveBody.MassVector → DominantFiveBody.Configuration → Prop :=
+fun m x => DominantFiveBody.CollisionFree x ∧ ∃ lam, 0 < lam ∧ DominantFiveBody.MultiplierEquation m x lam
+def DominantFiveBody.MultiplierEquation : DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ → Prop :=
+fun m x lam =>
+  ∀ (i : DominantFiveBody.Label), DominantFiveBody.acceleration m x i = -lam • (x i - DominantFiveBody.massCenter m x)

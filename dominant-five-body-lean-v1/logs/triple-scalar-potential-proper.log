@@ -1,0 +1,39 @@
+DominantFiveBody/TripleScalarPotentialProper.lean:17:73: error: Application type mismatch: The argument
+  hz i j hij
+has type
+  z i < z j
+but is expected to have type
+  z i - z j < 0
+in the application
+  ne_of_lt (hz i j hij)
+DominantFiveBody/TripleScalarPotentialProper.lean:19:4: error: `fun_prop` was unable to prove `ContinuousAt (fun w => tripleD0 / 2 * ∑ i, alpha i * w i ^ 2) z`
+
+Issues:
+  No theorems found for `Finset.sum` in order to prove `ContinuousAt (fun x4 => Finset.univ.sum x4) fun i => alpha i * z i ^ 2`
+  No theorems found for `Finset.sum` in order to prove `ContinuousAt (fun x => ∑ i, alpha i * x i ^ 2) z`
+DominantFiveBody/TripleScalarPotentialProper.lean:27:73: error: unsolved goals
+alpha z : TripleVector
+ha : ∀ (i : TripleLabel), 0 ≤ alpha i
+i : TripleLabel
+hsum : alpha i * z i ^ 2 ≤ ∑ j, alpha j * z j ^ 2
+⊢ 0 ≤ ?m.127
+DominantFiveBody/TripleScalarPotentialProper.lean:24:64: error: unsolved goals
+alpha z : TripleVector
+ha : ∀ (i : TripleLabel), 0 ≤ alpha i
+i : TripleLabel
+hsum : alpha i * z i ^ 2 ≤ ∑ j, alpha j * z j ^ 2
+⊢ tripleD0 / 2 * (alpha i * z i ^ 2) ≤ tripleScalarPotential alpha z
+DominantFiveBody/TripleScalarPotentialProper.lean:83:61: error: Application type mismatch: The argument
+  continuous_apply i
+has type
+  Continuous[Pi.topologicalSpace, ?m.57 i] fun p => p i
+but is expected to have type
+  Continuous[Pi.topologicalSpace, ?m.46 j] ?m.54
+in the application
+  Continuous.sub (continuous_apply j) (continuous_apply i)
+DominantFiveBody/TripleScalarPotentialProper.lean:84:4: error: Type mismatch: After simplification, term
+  isClosed_univ
+ has type
+  IsClosed univ
+but is expected to have type
+  IsClosed (⋂ (_ : False), {x | alpha i * alpha j / C ≤ x j - x i})

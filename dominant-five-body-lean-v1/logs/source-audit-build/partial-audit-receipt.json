@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2026-10-03T11:27:11.197459+00:00",
+  "command": [
+    "C:/Users/衔月/.elan/bin/lake.exe",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-DautoImplicit=false",
+    "logs/source-audit-build/AssertionCoveragePartial.lean"
+  ],
+  "environment": {
+    "LEAN_NUM_THREADS": "2"
+  },
+  "exit_code": 0,
+  "assertion_count": 341,
+  "status_counts": {
+    "VERIFIED": 48,
+    "OPEN": 293,
+    "CONDITIONAL": 0
+  },
+  "scope": "partial typed assertion coverage; not whole-paper acceptance",
+  "whole_paper_acceptance": false,
+  "hashes": {
+    "source/dominant_five_body_ARMA_rewritten.tex": "9b080f2516c79f16b3ee1097a2c853d3fe50c9674c309c5bd7826453a52fb5e2",
+    "docs/FULL_ASSERTIONS.json": "6011173e92e2fe5181c9a58419d22f4eff880d62ef4938360926fb39218ab59f",
+    "docs/FULL_ASSERTIONS.md": "01f5375fcbb4984969868ef0fa8d85787992122f4a40498e1da85f76971bfa77",
+    "logs/source-audit-build/AssertionCoveragePartial.lean": "1831f4c06deb1be1400828d0aee95a31b6c9fd1eee77c881b65c30e21b8e8416",
+    "logs/source-audit-build/generate_assertions.py": "10dcc4647d8d8a9fd40e2695eef1fc3bb1da0344d576686354bdb60ed824978a",
+    "DominantFiveBody/CollisionScales.lean": "24f2a35b2be4ba9abcc3e93953645eea4ec5d179e1692c759f19a38151bcdb86",
+    "DominantFiveBody/CollisionPairScales.lean": "89d8bac787de8656d7beca6008dbb202d222ca9e0953799aa32725bad1ca62b9",
+    "DominantFiveBody/PairActualCapture.lean": "81b4de0f1dc540f72cb637ecf045963ad054a7ddb2a4ec99ada1b8d0c195db04",
+    "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+    "lake-manifest.json": "577b2c6402c0e56ce140b6ba044a2622da1fef86a7969fd804a6c1b6b61b9c87"
+  },
+  "axiom_output_sha256": "2f36ac67d6c146fd3018163d9dde5167c66b664046547786dfa3258ec00fd0c2",
+  "axiom_output_path": "logs/source-audit-build/partial-audit.log"
+}

@@ -1,0 +1,19 @@
+'DominantFiveBody.orderedSliceContinuationRoot_actual_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_localContinuationUniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orientedIsometry_polar_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedPolarSlice_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedPolarSlice_physical_eq_rotation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.polarStrictConvex_orderedSemicircle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedPolarSlice_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedPolarSlice_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedPolarSlice_root_of_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedPolarSlice_nondegenerate_of_normalized' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedOrderedSlice_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.NestedCapturedBranches.orderedSlice_endpoint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.NestedCapturedBranches.toOrderedSliceCapturedBranches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

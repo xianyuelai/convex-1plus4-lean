@@ -1,0 +1,486 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+entering extended mode
+(./convex_1plus4.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/size11.clo))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/lmodern.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty)))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amscls/amsthm.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/tools/calc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/microtype.cfg))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.st
+y) (d:/latex/2025/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestrin
+g.sty (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+)) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/url/url.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.
+sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.
+sty))) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/xurl/xurl.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+)
+No file convex_1plus4.aux.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+(d:/latex/2025/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)))) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+
+LaTeX Warning: Citation `CLN' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `Moeckel94' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `RS' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `AF' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `CLO' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `OC' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `DHW' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `CCL' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `CCLM' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Citation `CCLM' on page 1 undefined on input line 58.
+
+
+LaTeX Warning: Reference `eq:masses' on page 1 undefined on input line 67.
+
+
+LaTeX Warning: Citation `Moeckel' on page 1 undefined on input line 72.
+
+[1{d:/latex/2025/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/
+latex/2025/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{d:/latex/2025/
+texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/latex/2025/texlive/202
+4/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{d:/latex/2025/texlive/2024/texmf
+-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{d:/latex/2025/texlive/2024/texmf-dist/f
+onts/enc/dvips/lm/lm-mathex.enc}]
+
+LaTeX Warning: Citation `CCLM' on page 2 undefined on input line 84.
+
+[2]
+
+LaTeX Warning: Reference `eq:cycle-bound' on page 3 undefined on input line 166
+.
+
+
+LaTeX Warning: Reference `eq:co-equations' on page 3 undefined on input line 17
+0.
+
+
+LaTeX Warning: Reference `eq:angle-domain' on page 3 undefined on input line 17
+0.
+
+
+LaTeX Warning: Reference `eq:cycle-bound' on page 3 undefined on input line 173
+.
+
+
+LaTeX Warning: Citation `CCLM' on page 3 undefined on input line 184.
+
+
+LaTeX Warning: Citation `AF' on page 3 undefined on input line 184.
+
+
+LaTeX Warning: Citation `DHW' on page 3 undefined on input line 188.
+
+[3]
+
+LaTeX Warning: Reference `lem:cycle' on page 4 undefined on input line 208.
+
+
+LaTeX Warning: Reference `lem:probe' on page 4 undefined on input line 210.
+
+
+LaTeX Warning: Reference `eq:cycle-bound' on page 4 undefined on input line 212
+.
+
+
+LaTeX Warning: Citation `CCLM' on page 4 undefined on input line 226.
+
+[4]
+
+LaTeX Warning: Reference `eq:cc' on page 5 undefined on input line 250.
+
+
+LaTeX Warning: Reference `eq:cc' on page 5 undefined on input line 277.
+
+
+LaTeX Warning: Reference `eq:G' on page 5 undefined on input line 279.
+
+
+LaTeX Warning: Reference `eq:polar-gradient' on page 5 undefined on input line 
+291.
+
+
+LaTeX Warning: Citation `MoeckelCC' on page 5 undefined on input line 296.
+
+[5]
+
+LaTeX Warning: Citation `CCLM' on page 6 undefined on input line 323.
+
+
+LaTeX Warning: Reference `thm:coorbital' on page 6 undefined on input line 324.
+
+
+
+LaTeX Warning: Reference `lem:product' on page 6 undefined on input line 324.
+
+
+LaTeX Warning: Reference `lem:hessian' on page 6 undefined on input line 324.
+
+
+LaTeX Warning: Reference `eq:G' on page 6 undefined on input line 358.
+
+[6]
+
+LaTeX Warning: Reference `eq:full-cut' on page 7 undefined on input line 368.
+
+
+LaTeX Warning: Reference `eq:span' on page 7 undefined on input line 368.
+
+
+LaTeX Warning: Reference `eq:Q' on page 7 undefined on input line 400.
+
+[7]
+
+LaTeX Warning: Reference `eq:pair-qdiff' on page 8 undefined on input line 426.
+
+
+
+LaTeX Warning: Reference `eq:pair-prebound' on page 8 undefined on input line 4
+28.
+
+
+LaTeX Warning: Reference `eq:pair-vdiff' on page 8 undefined on input line 428.
+
+
+
+LaTeX Warning: Reference `eq:pair-qdiff' on page 8 undefined on input line 435.
+
+
+
+LaTeX Warning: Reference `lem:probe' on page 8 undefined on input line 435.
+
+
+LaTeX Warning: Reference `eq:span' on page 8 undefined on input line 454.
+
+
+LaTeX Warning: Reference `eq:support' on page 8 undefined on input line 458.
+
+
+LaTeX Warning: Reference `eq:triple-J' on page 8 undefined on input line 458.
+
+
+LaTeX Warning: Reference `eq:G' on page 8 undefined on input line 470.
+
+
+LaTeX Warning: Reference `eq:distance' on page 8 undefined on input line 474.
+
+[8]
+
+LaTeX Warning: Reference `eq:triple-J' on page 9 undefined on input line 476.
+
+
+LaTeX Warning: Reference `prop:triple-scale' on page 9 undefined on input line 
+480.
+
+
+LaTeX Warning: Reference `eq:pair-vdiff' on page 9 undefined on input line 501.
+
+
+
+LaTeX Warning: Reference `eq:nested-derivatives' on page 9 undefined on input l
+ine 501.
+
+
+LaTeX Warning: Reference `eq:pair-qdiff' on page 9 undefined on input line 501.
+
+
+
+LaTeX Warning: Reference `eq:midpoint' on page 9 undefined on input line 505.
+
+
+LaTeX Warning: Reference `eq:nested-derivatives' on page 9 undefined on input l
+ine 511.
+
+
+LaTeX Warning: Reference `prop:pair-scale' on page 9 undefined on input line 51
+4.
+
+
+LaTeX Warning: Reference `eq:R' on page 9 undefined on input line 518.
+
+
+LaTeX Warning: Reference `eq:T' on page 9 undefined on input line 518.
+
+[9]
+
+LaTeX Warning: Reference `eq:hadamard' on page 10 undefined on input line 546.
+
+
+LaTeX Warning: Reference `prop:closed' on page 10 undefined on input line 552.
+
+
+LaTeX Warning: Reference `lem:product' on page 10 undefined on input line 552.
+
+
+LaTeX Warning: Reference `lem:hessian' on page 10 undefined on input line 552.
+
+
+LaTeX Warning: Reference `eq:polar-gradient' on page 10 undefined on input line
+ 552.
+
+
+LaTeX Warning: Reference `prop:pair-scale' on page 10 undefined on input line 5
+54.
+
+[10]
+
+LaTeX Warning: Reference `eq:regular-int' on page 11 undefined on input line 57
+3.
+
+
+LaTeX Warning: Reference `eq:hadamard' on page 11 undefined on input line 573.
+
+
+LaTeX Warning: Reference `lem:product' on page 11 undefined on input line 588.
+
+
+LaTeX Warning: Reference `lem:hessian' on page 11 undefined on input line 595.
+
+
+LaTeX Warning: Reference `prop:pair-scale' on page 11 undefined on input line 5
+95.
+
+[11]
+
+LaTeX Warning: Reference `eq:regular-int' on page 12 undefined on input line 63
+0.
+
+
+LaTeX Warning: Reference `eq:internal' on page 12 undefined on input line 642.
+
+
+LaTeX Warning: Reference `lem:product' on page 12 undefined on input line 646.
+
+
+LaTeX Warning: Reference `lem:hessian' on page 12 undefined on input line 646.
+
+
+LaTeX Warning: Reference `sec:convexity' on page 12 undefined on input line 646
+.
+
+
+LaTeX Warning: Reference `prop:triple-scale' on page 12 undefined on input line
+ 648.
+
+
+LaTeX Warning: Reference `eq:internal' on page 12 undefined on input line 648.
+
+[12]
+
+LaTeX Warning: Reference `eq:hadamard' on page 13 undefined on input line 706.
+
+
+LaTeX Warning: Reference `eq:nest-kernel-difference' on page 13 undefined on in
+put line 738.
+
+
+LaTeX Warning: Reference `eq:Hzero' on page 13 undefined on input line 750.
+
+[13]
+
+LaTeX Warning: Reference `lem:product' on page 14 undefined on input line 771.
+
+
+LaTeX Warning: Reference `lem:hessian' on page 14 undefined on input line 771.
+
+
+LaTeX Warning: Reference `prop:nested-scale' on page 14 undefined on input line
+ 773.
+
+
+LaTeX Warning: Reference `tab:nested' on page 14 undefined on input line 779.
+
+
+LaTeX Warning: Reference `sec:convexity' on page 14 undefined on input line 794
+.
+
+[14]
+
+LaTeX Warning: Reference `eq:vector-slow' on page 15 undefined on input line 83
+9.
+
+
+LaTeX Warning: Reference `eq:vector-slow' on page 15 undefined on input line 84
+6.
+
+
+LaTeX Warning: Reference `sec:charts' on page 15 undefined on input line 846.
+
+
+LaTeX Warning: Reference `eq:scalar-slow' on page 15 undefined on input line 84
+9.
+
+
+LaTeX Warning: Reference `eq:scalar-slow' on page 15 undefined on input line 86
+6.
+
+[15]
+
+LaTeX Warning: Reference `eq:regular-parallel' on page 16 undefined on input li
+ne 889.
+
+
+LaTeX Warning: Reference `eq:circle-area' on page 16 undefined on input line 89
+5.
+
+
+LaTeX Warning: Reference `eq:circle-area' on page 16 undefined on input line 91
+8.
+
+
+LaTeX Warning: Reference `tab:areas' on page 16 undefined on input line 923.
+
+
+LaTeX Warning: Reference `sec:charts' on page 16 undefined on input line 947.
+
+[16]
+
+LaTeX Warning: Reference `prop:uniform' on page 17 undefined on input line 971.
+
+
+
+LaTeX Warning: Reference `prop:pair-scale' on page 17 undefined on input line 9
+72.
+
+
+LaTeX Warning: Reference `prop:chart-interface' on page 17 undefined on input l
+ine 975.
+
+
+LaTeX Warning: Reference `thm:main' on page 17 undefined on input line 979.
+
+
+LaTeX Warning: Reference `prop:local' on page 17 undefined on input line 980.
+
+
+LaTeX Warning: Reference `thm:coorbital' on page 17 undefined on input line 982
+.
+
+
+LaTeX Warning: Reference `prop:connection' on page 17 undefined on input line 9
+82.
+
+
+LaTeX Warning: Reference `prop:connection' on page 17 undefined on input line 9
+86.
+
+
+LaTeX Warning: Reference `prop:connection' on page 17 undefined on input line 9
+89.
+
+[17]
+
+LaTeX Warning: Reference `lem:hessian' on page 18 undefined on input line 995.
+
+
+LaTeX Warning: Reference `prop:connection' on page 18 undefined on input line 9
+98.
+
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd) [18] [19]
+(./convex_1plus4.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `convex_1plus4.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )<d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><d:/l
+atex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><d:/latex/20
+25/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb><d:/latex/2025/texl
+ive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><d:/latex/2025/texlive/202
+4/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><d:/latex/2025/texlive/2024/texmf-
+dist/fonts/type1/public/lm/lmmi8.pfb><d:/latex/2025/texlive/2024/texmf-dist/fon
+ts/type1/public/lm/lmr10.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1
+/public/lm/lmr12.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/
+lm/lmr17.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.
+pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb><d:/l
+atex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb><d:/latex/20
+25/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><d:/latex/2025/texl
+ive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><d:/latex/2025/texlive/2024
+/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><d:/latex/2025/texlive/2024/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><d:/latex/2025/texlive/2024
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on convex_1plus4.pdf (19 pages, 401211 bytes).
+Transcript written on convex_1plus4.log.

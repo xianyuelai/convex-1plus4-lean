@@ -1,0 +1,47 @@
+DominantFiveBody/CollisionTripleScaledCompact.lean:67:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖q (phi n) 0 - q (phi n) 1‖
+in the target expression
+  1 =
+    max ‖q (phi n) (Fin.castSucc 0) - q (phi n) (Fin.castSucc 1)‖
+        (max ‖q (phi n) (Fin.castSucc 0) - q (phi n) (Fin.castSucc 2)‖
+          ‖q (phi n) (Fin.castSucc 1) - q (phi n) (Fin.castSucc 2)‖) /
+      d (phi n)
+
+case e'_3
+q : ℕ → SatelliteConfiguration
+hcf : ∀ (n : ℕ), RelativeCollisionFree (q n)
+d : ℕ → ℝ := fun n => tripleLowDiameter (q n)
+hd : ∀ (n : ℕ), 0 < d n
+U : ℕ → Satellite → Plane := fun n i => if i = 3 then 0 else (d n)⁻¹ • (q n i - q n 0)
+hlowNe : ∀ (i : TripleLabel), Fin.castSucc i ≠ 3
+hnorm : ∀ (n : ℕ) (i : TripleLabel), ‖(d n)⁻¹ • (q n (Fin.castSucc i) - q n 0)‖ ≤ 1
+hclosed : ∀ (n : ℕ), U n ∈ Metric.closedBall 0 1
+z : Satellite → Plane
+left✝ : z ∈ Metric.closedBall 0 1
+phi : ℕ → ℕ
+hphi : StrictMono phi
+hlim : Tendsto (U ∘ phi) atTop (𝓝 z)
+hz :
+  ∀ (i : TripleLabel),
+    Tendsto (fun n => (d (phi n))⁻¹ • (q (phi n) (Fin.castSucc i) - q (phi n) 0)) atTop (𝓝 (z (Fin.castSucc i)))
+hz0 : z 0 = 0
+hdist :
+  ∀ (i j : TripleLabel),
+    Tendsto (fun n => satelliteDistance (q (phi n)) (Fin.castSucc i) (Fin.castSucc j) / d (phi n)) atTop
+      (𝓝 ‖z (Fin.castSucc i) - z (Fin.castSucc j)‖)
+hmax :
+  Tendsto
+    (fun b =>
+      max (satelliteDistance (q (phi b)) (Fin.castSucc 0) (Fin.castSucc 1) / d (phi b))
+        (max (satelliteDistance (q (phi b)) (Fin.castSucc 0) (Fin.castSucc 2) / d (phi b))
+          (satelliteDistance (q (phi b)) (Fin.castSucc 1) (Fin.castSucc 2) / d (phi b))))
+    atTop
+    (𝓝
+      (max ‖z (Fin.castSucc 0) - z (Fin.castSucc 1)‖
+        (max ‖z (Fin.castSucc 0) - z (Fin.castSucc 2)‖ ‖z (Fin.castSucc 1) - z (Fin.castSucc 2)‖)))
+n : ℕ
+⊢ 1 =
+    max ‖q (phi n) (Fin.castSucc 0) - q (phi n) (Fin.castSucc 1)‖
+        (max ‖q (phi n) (Fin.castSucc 0) - q (phi n) (Fin.castSucc 2)‖
+          ‖q (phi n) (Fin.castSucc 1) - q (phi n) (Fin.castSucc 2)‖) /
+      d (phi n)

@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-10-03T22:53:06.1816876+08:00",
+  "paper_verified": false,
+  "acceptance_target": "PaperAcceptance",
+  "commands_executed": [
+    {
+      "command": "python -I -X utf8 scripts/paper_coverage.py --generate",
+      "exit_code": 0,
+      "log": "logs/paper-coverage-metadata.log",
+      "started_at": "2026-10-03T22:53:06.2157022+08:00",
+      "elapsed_seconds": 0.1395242
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/update_audit.ps1",
+      "exit_code": 0,
+      "log": "logs/paper-inventory.log",
+      "started_at": "2026-10-03T22:53:06.3805227+08:00",
+      "elapsed_seconds": 14.0599679
+    },
+    {
+      "command": "pwsh -NoProfile -File scripts/verify.ps1 -Clean",
+      "exit_code": 1,
+      "log": "logs/paper-development-verification.log",
+      "started_at": "2026-10-03T22:53:20.7265957+08:00",
+      "elapsed_seconds": 3713.6296609
+    }
+  ],
+  "failure": "Failed: pwsh -NoProfile -File scripts/verify.ps1 -Clean"
+}

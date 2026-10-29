@@ -1,0 +1,488 @@
+ℹ [3274/3703] Replayed DominantFiveBody.PairDirections
+info: DominantFiveBody/PairDirections.lean:28:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/PairDirections.lean:30:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3538/3703] Replayed DominantFiveBody.PolarGaugeTransport
+info: DominantFiveBody/PolarGaugeTransport.lean:145:66: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/PolarGaugeTransport.lean:145:66: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3541/3703] Replayed DominantFiveBody.OrderedSliceReflection
+info: DominantFiveBody/OrderedSliceReflection.lean:149:52: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/OrderedSliceReflection.lean:149:52: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3545/3703] Replayed DominantFiveBody.TripleSlowExterior
+info: DominantFiveBody/TripleSlowExterior.lean:129:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3551/3703] Replayed DominantFiveBody.CollisionNestedScales
+info: DominantFiveBody/CollisionNestedScales.lean:145:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:150:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:159:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:184:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:192:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:205:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:295:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:375:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedScales.lean:452:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3559/3703] Replayed DominantFiveBody.CollisionNestedGeometry
+info: DominantFiveBody/CollisionNestedGeometry.lean:52:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedGeometry.lean:171:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedGeometry.lean:271:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedGeometry.lean:370:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedGeometry.lean:387:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3561/3703] Replayed DominantFiveBody.CollisionNestedPairSecant
+info: DominantFiveBody/CollisionNestedPairSecant.lean:154:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedPairSecant.lean:247:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedPairSecant.lean:401:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3562/3703] Replayed DominantFiveBody.CollisionNestedPreciseScales
+info: DominantFiveBody/CollisionNestedPreciseScales.lean:64:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedPreciseScales.lean:85:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedPreciseScales.lean:89:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedPreciseScales.lean:94:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3563/3703] Replayed DominantFiveBody.CollisionNestedUnselected
+info: DominantFiveBody/CollisionNestedUnselected.lean:145:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3594/3703] Replayed DominantFiveBody.SlowTaylorOrders
+info: DominantFiveBody/SlowTaylorOrders.lean:47:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3630/3708] Replayed DominantFiveBody.NestedActualCaptureLimits
+info: DominantFiveBody/NestedActualCaptureLimits.lean:100:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/NestedActualCaptureLimits.lean:104:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/NestedActualCaptureLimits.lean:123:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/NestedActualCaptureLimits.lean:128:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3632/3708] Replayed DominantFiveBody.CollisionNestedDirections
+info: DominantFiveBody/CollisionNestedDirections.lean:110:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3634/3708] Replayed DominantFiveBody.CollisionTripleNestedScale
+info: DominantFiveBody/CollisionTripleNestedScale.lean:60:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3646/3708] Replayed DominantFiveBody.CollisionNestedRectangle
+info: DominantFiveBody/CollisionNestedRectangle.lean:136:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedRectangle.lean:140:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedRectangle.lean:144:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3649/3708] Replayed DominantFiveBody.CollisionNestedRectangleContributions
+info: DominantFiveBody/CollisionNestedRectangleContributions.lean:50:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedRectangleContributions.lean:54:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedRectangleContributions.lean:58:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3650/3708] Replayed DominantFiveBody.CollisionNestedRectangleGeometry
+info: DominantFiveBody/CollisionNestedRectangleGeometry.lean:36:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedRectangleGeometry.lean:40:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/CollisionNestedRectangleGeometry.lean:44:8: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3663/3708] Replayed DominantFiveBody.CollisionScaledAngularGroups
+info: DominantFiveBody/CollisionScaledAngularGroups.lean:26:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3664/3708] Replayed DominantFiveBody.CollisionScaledAngularLimits
+info: DominantFiveBody/CollisionScaledAngularLimits.lean:21:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3681/3708] Replayed DominantFiveBody.NestedActualCaptureAudit
+info: DominantFiveBody/NestedActualCaptureAudit.lean:5:0: 'DominantFiveBody.normalized_complete_lower_triple_nested_radial_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:6:0: 'DominantFiveBody.normalized_complete_lower_triple_nested_width_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:7:0: 'DominantFiveBody.normalized_complete_lower_triple_nested_directions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:8:0: 'DominantFiveBody.normalized_complete_lower_triple_nested_macro_mass_cube_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:9:0: 'DominantFiveBody.normalized_complete_lower_triple_nested_precise_scales' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:10:0: 'DominantFiveBody.nestedVariablesFromPolar_tendsto_of_cubic_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:11:0: 'DominantFiveBody.nestedPhysical_actual_capture_of_cubic_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:12:0: 'DominantFiveBody.nested_original_ordered_capture_of_cubic_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:13:0: 'DominantFiveBody.normalized_complete_lower_triple_nested_original_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/NestedActualCaptureAudit.lean:14:0: 'DominantFiveBody.orderedSlice_lower_nested_triple_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3683/3708] Replayed DominantFiveBody.NestedSourceCaptureDetails
+info: DominantFiveBody/NestedSourceCaptureDetails.lean:94:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/NestedSourceCaptureDetails.lean:98:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/NestedSourceCaptureDetails.lean:117:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: DominantFiveBody/NestedSourceCaptureDetails.lean:122:6: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+ℹ [3697/3708] Replayed DominantFiveBody.SmoothCapturedBranchesAudit
+info: DominantFiveBody/SmoothCapturedBranchesAudit.lean:5:0: 'DominantFiveBody.orderedSlice_contDiffOn_of_continuationRoots' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/SmoothCapturedBranchesAudit.lean:6:0: 'DominantFiveBody.CapturedBranches.orderedSlice_contDiffOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: DominantFiveBody/SmoothCapturedBranchesAudit.lean:7:0: 'DominantFiveBody.orderedSlice_smooth_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: DominantFiveBody/SmoothCapturedBranchesAudit.lean:8:0: 'DominantFiveBody.orderedSlice_smooth_connection_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3700/3708] Replayed DominantFiveBody.TripleProofAudit
+info: DominantFiveBody/TripleProofAudit.lean:7:0: 'DominantFiveBody.normalized_complete_lower_triple_initial_scales' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:8:0: 'DominantFiveBody.normalized_complete_lower_triple_regular_radial_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:9:0: 'DominantFiveBody.normalized_complete_lower_triple_regular_width_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:10:0: 'DominantFiveBody.normalized_complete_lower_triple_regular_mass_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:11:0: 'DominantFiveBody.triple_actual_inverse_coordinates_compact_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:12:0: 'DominantFiveBody.tripleScalar_seed_of_regular_scaled_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:13:0: 'DominantFiveBody.normalized_complete_lower_triple_regular_actual_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:14:0: 'DominantFiveBody.tripleChart_convex_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:15:0: 'DominantFiveBody.TripleCapturedBranches.fixedLabelEndpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:16:0: 'DominantFiveBody.triplePhysical_actual_capture_of_scale_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:17:0: 'DominantFiveBody.normalized_complete_upper_triple_regular_actual_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:18:0: 'DominantFiveBody.orderedSlice_lower_regular_triple_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: DominantFiveBody/TripleProofAudit.lean:19:0: 'DominantFiveBody.orderedSlice_upper_regular_triple_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+✖ [3702/3708] Building Audit.AllTheorems (600ms)
+trace: .> LEAN_PATH=D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\Cli\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\batteries\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\Qq\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\aesop\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\importGraph\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\plausible\.lake\build\lib\lean;D:\重要软件\AGENT研究\lean-paper-verification\.lake\packages\mathlib\.lake\build\lib\lean;D:\重要软件\gpt研究文件\1加N\dominant-five-body-lean\.lake\build\lib\lean c:\Users\衔月\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\重要软件\gpt研究文件\1加N\dominant-five-body-lean\Audit\AllTheorems.lean -o D:\重要软件\gpt研究文件\1加N\dominant-five-body-lean\.lake\build\lib\lean\Audit\AllTheorems.olean -i D:\重要软件\gpt研究文件\1加N\dominant-five-body-lean\.lake\build\lib\lean\Audit\AllTheorems.ilean -c D:\重要软件\gpt研究文件\1加N\dominant-five-body-lean\.lake\build\ir\Audit\AllTheorems.c --setup D:\重要软件\gpt研究文件\1加N\dominant-five-body-lean\.lake\build\ir\Audit\AllTheorems.setup.json --json
+error: Audit/AllTheorems.lean:2:0: invalid 'import' command, it must be used in the beginning of the file
+error: Lean exited with code 1
+✔ [3703/3708] Built DominantFiveBody (9.0s)
+ℹ [3705/3708] Built Audit.Environment (16s)
+info: Audit/Environment.lean:284:0: ENVIRONMENT_AUDIT_PASS: 277 modules; 4898 project constants; 4144 project theorems; 54647 reachable constants; 2125057 edges; axioms [Quot.sound,
+ Classical.choice,
+ propext]
+ℹ [3706/3708] Built Audit.Main (8.0s)
+info: Audit/Main.lean:11:0: def DominantFiveBody.MainUniformStatement : Prop :=
+∃ δ,
+  0 < δ ∧
+    ∀ (μ : DominantFiveBody.MassRatio),
+      DominantFiveBody.PositiveRatio μ →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ε < δ →
+              ∀ (σ : DominantFiveBody.HullOrder),
+                ∃ x,
+                  DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ x ∧
+                    (∀ (y : DominantFiveBody.Configuration),
+                        DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ y →
+                          DominantFiveBody.OrientedSimilar x y) ∧
+                      ∀ (y : DominantFiveBody.Configuration),
+                        DominantFiveBody.StrictConvexCentralConfiguration (DominantFiveBody.masses ε μ) σ y →
+                          DominantFiveBody.NondegenerateCentralConfiguration (DominantFiveBody.masses ε μ) y
+info: Audit/Main.lean:12:0: def DominantFiveBody.ShapeHessianNondegenerate : DominantFiveBody.MassVector →
+  ℝ → DominantFiveBody.Configuration → Prop :=
+fun m lam x =>
+  ∀ v ∈ DominantFiveBody.shapeSpace m x,
+    (∀ w ∈ DominantFiveBody.shapeSpace m x, DominantFiveBody.physicalHessian m lam x v w = 0) → v = 0
+info: Audit/Main.lean:13:0: def DominantFiveBody.physicalHessian : DominantFiveBody.MassVector →
+  ℝ → DominantFiveBody.Configuration → DominantFiveBody.Configuration → DominantFiveBody.Configuration → ℝ :=
+fun m lam x v w => ((fderiv ℝ (fderiv ℝ (DominantFiveBody.augmentedPotential m lam)) x) v) w
+info: Audit/Main.lean:14:0: def DominantFiveBody.StrictConvexInOrder : DominantFiveBody.HullOrder → DominantFiveBody.Configuration → Prop :=
+fun σ x =>
+  ∀ (k j : DominantFiveBody.Label),
+    j ≠ k → j ≠ k + 1 → 0 < DominantFiveBody.orientedArea x (σ.labels k) (σ.labels (k + 1)) (σ.labels j)
+info: Audit/Main.lean:15:0: def DominantFiveBody.OrientedSimilar : DominantFiveBody.Configuration → DominantFiveBody.Configuration → Prop :=
+fun x y => ∃ b a R, 0 < a ∧ LinearMap.det ↑R.toLinearEquiv = 1 ∧ ∀ (i : DominantFiveBody.Label), y i = b + a • R (x i)
+info: Audit/Main.lean:17:0: DominantFiveBody.main_uniform : DominantFiveBody.MainUniformStatement
+info: Audit/Main.lean:18:0: 'DominantFiveBody.main_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:19:0: DominantFiveBody.finrank_shapeSpace : ∀ (m : DominantFiveBody.MassVector),
+  DominantFiveBody.PositiveMasses m →
+    ∀ (x : DominantFiveBody.Configuration),
+      DominantFiveBody.CollisionFree x → Module.finrank ℝ ↥(DominantFiveBody.shapeSpace m x) = 6
+info: Audit/Main.lean:20:0: @DominantFiveBody.Coorbital.positiveRemainder_pos : ∀ {t : ℝ},
+  0 < t → t < Real.pi → 0 < DominantFiveBody.Coorbital.positiveRemainder t
+info: Audit/Main.lean:21:0: @DominantFiveBody.Coorbital.coorbitalKappaForm_pos_on_rotation_slice : ∀ {n : ℕ} (mass theta u : Fin n → ℝ) (p : Fin n),
+  (∀ (i : Fin n), 0 < mass i) →
+    (∀ (i j : Fin n), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi) →
+      DominantFiveBody.Coorbital.coorbitalRemainderForm mass theta u ≤
+          DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u →
+        u p = 0 → u ≠ 0 → 0 < DominantFiveBody.Coorbital.coorbitalKappaForm mass theta u
+info: Audit/Main.lean:22:0: DominantFiveBody.coorbital_recover_positive_mass_row : ∀ (μ θ : DominantFiveBody.Satellite → ℝ)
+  (p : DominantFiveBody.Satellite),
+  0 < μ p →
+    (∀ (i : DominantFiveBody.Satellite), i ≠ p → DominantFiveBody.coorbitalResidual μ θ i = 0) →
+      DominantFiveBody.coorbitalResidual μ θ p = 0
+info: Audit/Main.lean:23:0: @DominantFiveBody.main_of_chart_facts : ∀ {P : Type u_1} {Y : Type u_2} [inst : TopologicalSpace Y] [T2Space Y]
+  {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y},
+  DominantFiveBody.FixedParameterLocalExistence root →
+    DominantFiveBody.LocalContinuationUniqueness root nondegenerate endpoint →
+      DominantFiveBody.ConnectionProperty root nondegenerate endpoint →
+        ∃ δ, 0 < δ ∧ ∀ (p : P) (ε : ℝ), 0 < ε → ε < δ → (∃! y, root p ε y) ∧ ∀ (y : Y), root p ε y → nondegenerate p ε y
+info: Audit/Main.lean:24:0: DominantFiveBody.main_of_no_bad_physical_sequences : ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalExistence →
+  ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalUniqueness →
+    ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalNondegeneracy → DominantFiveBody.MainUniformStatement
+info: Audit/Main.lean:25:0: theorem DominantFiveBody.main_of_chart_facts.{u, v} : ∀ {P : Type u} {Y : Type v} [inst : TopologicalSpace Y]
+  [T2Space Y] {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y},
+  DominantFiveBody.FixedParameterLocalExistence root →
+    DominantFiveBody.LocalContinuationUniqueness root nondegenerate endpoint →
+      DominantFiveBody.ConnectionProperty root nondegenerate endpoint →
+        ∃ δ,
+          0 < δ ∧ ∀ (p : P) (ε : ℝ), 0 < ε → ε < δ → (∃! y, root p ε y) ∧ ∀ (y : Y), root p ε y → nondegenerate p ε y :=
+⋯
+info: Audit/Main.lean:26:0: theorem DominantFiveBody.main_of_no_bad_physical_sequences : ¬DominantFiveBody.BadSequence
+      DominantFiveBody.PhysicalExistence →
+  ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalUniqueness →
+    ¬DominantFiveBody.BadSequence DominantFiveBody.PhysicalNondegeneracy → DominantFiveBody.MainUniformStatement :=
+⋯
+info: Audit/Main.lean:28:0: 'DominantFiveBody.finrank_shapeSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:29:0: 'DominantFiveBody.normalized_of_primary_differences' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:30:0: 'DominantFiveBody.orientedSimilar_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:31:0: 'DominantFiveBody.Coorbital.positiveRemainder_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:32:0: 'DominantFiveBody.Coorbital.coorbitalKappaForm_pos_on_rotation_slice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Audit/Main.lean:33:0: 'DominantFiveBody.coorbital_recover_positive_mass_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:34:0: 'DominantFiveBody.uniformBelow_iff_no_badSequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:35:0: 'DominantFiveBody.branches_eq_on_connectionInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:36:0: 'DominantFiveBody.main_of_chart_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Audit/Main.lean:37:0: 'DominantFiveBody.main_of_no_bad_physical_sequences' depends on axioms: [propext, Classical.choice, Quot.sound]
+Some required targets logged failures:
+- Audit.AllTheorems
+error: build failed

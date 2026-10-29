@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "scope": "Independent binding of the original rank/restriction subclaims in TeX prose:200; the full source paragraph also contains perturbation and cycle-bound limits, owned by the root agent.",
+  "source_sha256": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+  "audit": {
+    "source_compile_session": 76860,
+    "source_compile_exit_code": 0,
+    "strict_session": 98431,
+    "exit_code": 0,
+    "file": "Audit/CoorbitalSkewRankAndSlice.lean",
+    "log": "docs/coorbital-skew-rank-and-slice-axioms-audit.log",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "assertions": [
+    {
+      "id": "prose:200",
+      "source_location": {
+        "tex_path": "source/dominant_five_body_ARMA_rewritten.tex",
+        "tex_lines": [
+          200,
+          200
+        ],
+        "pdf_pages_from_aux_labels": []
+      },
+      "exact_claim": "If $|P|=3$, the nonzero skew matrix $A_{PP}$ has rank two. Since $A\\mu=0$, the $4\\times4$ skew matrix $A$ also has rank two. Its two-dimensional kernel cannot consist only of vectors vanishing at the unique label $k\\in Z$, since restriction would inject it into $\\ker A_{PP}$. Choose $\\nu\\in\\ker A$ with $\\nu_k>0$. For small $s>0$, $\\mu+s\\nu$ is positive and solves the same angular equations. Apply \\eqref{eq:cycle-bound} to the $k$th coordinate vector, divide by $s\\nu_k$, and let $s\\downarrow0$:",
+      "claim_kind": "prose_assertion",
+      "status": "PARTIAL",
+      "lean_bindings": [
+        {
+          "lean_declaration": "DominantFiveBody.coorbital_three_source_ranks_and_kernel_dimensions",
+          "lean_statement": "DominantFiveBody.coorbital_three_source_ranks_and_kernel_dimensions (mass theta : Satellite → ℝ) (k : Satellite)\n  (hzero : mass k = 0) (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)\n  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)\n  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) :\n  (coorbitalSupportMatrix theta k).rank = 2 ∧\n    (coorbitalMatrix theta).rank = 2 ∧\n      Module.finrank ℝ ↥(coorbitalMatrix theta).mulVecLin.ker = 2 ∧\n        Module.finrank ℝ ↥(coorbitalSupportMatrix theta k).mulVecLin.ker = 1",
+          "subclaim": "Actual nonzero support A_PP has rank 2, full signed A has rank 2, full kernel finrank is 2, and the support kernel finrank is 1."
+        },
+        {
+          "lean_declaration": "DominantFiveBody.coorbital_three_source_kernel_not_all_zero_at_missing_source",
+          "lean_statement": "DominantFiveBody.coorbital_three_source_kernel_not_all_zero_at_missing_source (mass theta : Satellite → ℝ)\n  (k : Satellite) (hzero : mass k = 0) (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)\n  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)\n  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) : ∃ v ∈ (coorbitalMatrix theta).mulVecLin.ker, v k ≠ 0",
+          "subclaim": "The explicit linear restriction map would inject the full kernel into the support kernel if every vector vanished at the missing source, contradicting 2<=1."
+        },
+        {
+          "lean_declaration": "DominantFiveBody.coorbital_three_source_kernel_vector_by_rank",
+          "lean_statement": "DominantFiveBody.coorbital_three_source_kernel_vector_by_rank (mass theta : Satellite → ℝ) (k : Satellite)\n  (hzero : mass k = 0) (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)\n  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)\n  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) :\n  ∃ nu, nu k = 1 ∧ ∀ (i : Satellite), coorbitalResidual nu theta i = 0",
+          "subclaim": "The original rank-and-restriction route supplies an actual signed matrix kernel vector with missing-source coordinate 1, hence positive."
+        }
+      ],
+      "remaining_dependencies": [
+        "The small-s positive perturbation and the cycle-bound divide-and-limit estimates are distinct subclaims; this rank-only patch does not certify them. The root agent owns their exact binding."
+      ]
+    }
+  ]
+}
+

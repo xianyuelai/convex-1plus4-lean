@@ -1,0 +1,105 @@
+DominantFiveBody/NestedAngularMatrix.lean:180:14: error: Type mismatch: After simplification, term
+  hm
+ has type
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 → v 2 = 0 → v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 4 = tripleD0 * v 4
+but is expected to have type
+  (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) ![0, 0, 0, 0, 1, 0, 0] 4 = tripleD0
+DominantFiveBody/NestedAngularMatrix.lean:180:14: error: Type mismatch: After simplification, term
+  hm
+ has type
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 → v 2 = 0 → v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 4 = tripleD0 * v 4
+but is expected to have type
+  (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) ![0, 0, 0, 0, 0, 1, 0] 4 = 0
+DominantFiveBody/NestedAngularMatrix.lean:180:14: error: Type mismatch: After simplification, term
+  hm
+ has type
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 → v 2 = 0 → v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 4 = tripleD0 * v 4
+but is expected to have type
+  (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) ![0, 0, 0, 0, 0, 0, 1] 4 = 0
+DominantFiveBody/NestedAngularMatrix.lean:136:58: error: unsolved goals
+case «1»
+alpha psi omega : ℝ
+hangle : |psi| = h
+hw : |omega| = 1
+Z : ℝ := omega * pairBoundaryScale tripleD0
+z : ℝ := pairBoundaryScale (3 * tripleD0)
+C : ℝ := -(27 / 4) * Real.sin psi
+hpsi : psi ≠ 0
+hpi : |psi| < Real.pi
+left✝ : coorbitalKernel psi = 0
+hD : kappa |psi| = tripleD0
+hreg : NestedChartRegular 0 0 0 alpha (nestedBasePoint psi omega)
+hZ : Z ≠ 0
+hz : z ≠ 0
+hZscale : 2 / |omega * pairBoundaryScale tripleD0| ^ 3 = 2 * tripleD0
+hzscale : 2 / |pairBoundaryScale (3 * tripleD0)| ^ 3 = 6 * tripleD0
+hcoef : 6 / (|Z| ^ 3 * Z) = 6 * tripleD0 / Z
+hm :
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 → v 2 = 0 → v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 4 = tripleD0 * v 4
+ho :
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 →
+        v 2 = 0 →
+          v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 5 = C * Z * v 4 + 3 * tripleD0 * v 5
+hi :
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 →
+        v 2 = 0 →
+          v 3 = 0 →
+            (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 6 =
+              C * z * v 4 - 6 * tripleD0 * z / Z * v 5 + 9 * tripleD0 * v 6
+j : Fin 3
+⊢ nestedAngularBoundaryMatrix alpha psi omega ((fun i => i) ⟨1, ⋯⟩) j =
+    ![![tripleD0, 0, 0], ![C * Z, 3 * tripleD0, 0], ![C * z, -6 * tripleD0 * z / Z, 9 * tripleD0]] ((fun i => i) ⟨1, ⋯⟩)
+      j
+
+case «2»
+alpha psi omega : ℝ
+hangle : |psi| = h
+hw : |omega| = 1
+Z : ℝ := omega * pairBoundaryScale tripleD0
+z : ℝ := pairBoundaryScale (3 * tripleD0)
+C : ℝ := -(27 / 4) * Real.sin psi
+hpsi : psi ≠ 0
+hpi : |psi| < Real.pi
+left✝ : coorbitalKernel psi = 0
+hD : kappa |psi| = tripleD0
+hreg : NestedChartRegular 0 0 0 alpha (nestedBasePoint psi omega)
+hZ : Z ≠ 0
+hz : z ≠ 0
+hZscale : 2 / |omega * pairBoundaryScale tripleD0| ^ 3 = 2 * tripleD0
+hzscale : 2 / |pairBoundaryScale (3 * tripleD0)| ^ 3 = 6 * tripleD0
+hcoef : 6 / (|Z| ^ 3 * Z) = 6 * tripleD0 / Z
+hm :
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 → v 2 = 0 → v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 4 = tripleD0 * v 4
+ho :
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 →
+        v 2 = 0 →
+          v 3 = 0 → (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 5 = C * Z * v 4 + 3 * tripleD0 * v 5
+hi :
+  ∀ (v : NestedChartVariables),
+    v 0 = 0 →
+      v 1 = 0 →
+        v 2 = 0 →
+          v 3 = 0 →
+            (nestedChartJacobian 0 0 0 alpha (nestedBasePoint psi omega)) v 6 =
+              C * z * v 4 - 6 * tripleD0 * z / Z * v 5 + 9 * tripleD0 * v 6
+j : Fin 3
+⊢ nestedAngularBoundaryMatrix alpha psi omega ((fun i => i) ⟨2, ⋯⟩) j =
+    ![![tripleD0, 0, 0], ![C * Z, 3 * tripleD0, 0], ![C * z, -6 * tripleD0 * z / Z, 9 * tripleD0]] ((fun i => i) ⟨2, ⋯⟩)
+      j
+DominantFiveBody/NestedAngularMatrix.lean:181:9: error: unexpected token '_'; expected command

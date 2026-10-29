@@ -1,0 +1,8 @@
+{
+  "version": "v1",
+  "checked_at_utc": "2026-10-29T08:31:37.630429+00:00",
+  "is_git_repository": false,
+  "identity_policy": "The prepared source directory is identified by VERSION.json and accepted per-file SHA256; no remote repository, push, commit or tag is created by this packaging task.",
+  "head": null,
+  "status": "not a Git checkout"
+}

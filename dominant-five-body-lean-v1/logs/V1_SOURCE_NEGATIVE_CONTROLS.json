@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "version": "v1",
+  "generated_at_utc": "2026-10-29T08:36:30.630533+00:00",
+  "invocation": "python -B scripts/v1_source_negative_controls.py",
+  "method": "Actual checked_ledger with deep-copied in-memory ledger mutations; all other reads use real current files.",
+  "baseline": {
+    "accepted": true,
+    "rows": 349,
+    "open_rows": 0
+  },
+  "control_count": 35,
+  "rejected_as_expected": 35,
+  "controls": [
+    {
+      "name": "missing_complete_flag",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Incomplete source inventory",
+      "passed": true
+    },
+    {
+      "name": "false_complete_flag",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Incomplete source inventory",
+      "passed": true
+    },
+    {
+      "name": "missing_v1_version",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Version identity differs",
+      "passed": true
+    },
+    {
+      "name": "unsupported_version",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Version identity differs",
+      "passed": true
+    },
+    {
+      "name": "scope_version_mismatch",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Version identity differs",
+      "passed": true
+    },
+    {
+      "name": "wrong_row_source_path",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Wrong source path: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "invalid_zero_row_interval",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Bad source interval: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "stale_row_interval",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Stale source text/range: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "stale_row_text",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Stale source text/range: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "stale_row_hash",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Stale row source hash: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "exact_claim_not_source",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Claim quote differs from current source: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "missing_inventory_unit_while_complete_true",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Incomplete or stale display/prose/statement inventory",
+      "passed": true
+    },
+    {
+      "name": "missing_new_formula_row",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "A reviewed legacy or new v1 assertion was dropped or invented",
+      "passed": true
+    },
+    {
+      "name": "missing_new_formula_row_and_inventory_while_complete_true",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "A reviewed legacy or new v1 assertion was dropped or invented",
+      "passed": true
+    },
+    {
+      "name": "empty_block_covering_assertions",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Unknown or empty block binding",
+      "passed": true
+    },
+    {
+      "name": "unknown_block_covering_assertion",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Unknown or empty block binding",
+      "passed": true
+    },
+    {
+      "name": "duplicate_row_id",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Empty or duplicate assertion IDs",
+      "passed": true
+    },
+    {
+      "name": "truncated_body_hides_new_formulas",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "A reviewed legacy or new v1 assertion was dropped or invented",
+      "passed": true
+    },
+    {
+      "name": "self_selected_subclaim_exemption",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Changed reviewed v1 assertion kind: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "changed_legacy_subclaim_quote",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Changed legacy mathematical subclaim: kernel.collision_blowup",
+      "passed": true
+    },
+    {
+      "name": "missing_unreferenced_legacy_subclaim",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "A reviewed legacy or new v1 assertion was dropped or invented",
+      "passed": true
+    },
+    {
+      "name": "missing_new_formula_bindings",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 formula binding: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "blank_exact_lean_type",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Incomplete explicit theorem type: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "open_new_formula",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Changed reviewed v1 assertion status: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "dropped_off_diagonal_binding_with_other_binding_retained",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 formula binding: v1:hessian.entries",
+      "passed": true
+    },
+    {
+      "name": "new_near_bound_replaced_by_old_uniform_limits",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 formula binding: prose:487",
+      "passed": true
+    },
+    {
+      "name": "new_field_defect_replaced_by_old_reaction_Ocube",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 formula binding: prose:833",
+      "passed": true
+    },
+    {
+      "name": "dropped_original_proof_binding",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Dropped original proof obligation binding: prose:833",
+      "passed": true
+    },
+    {
+      "name": "dropped_original_definition_binding",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Dropped original defining object: eq:co-equations",
+      "passed": true
+    },
+    {
+      "name": "downgraded_legacy_assertion_status",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Changed or downgraded reviewed assertion status: kernel.collision_blowup",
+      "passed": true
+    },
+    {
+      "name": "changed_legacy_assertion_kind",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Changed reviewed assertion kind: kernel.collision_blowup",
+      "passed": true
+    },
+    {
+      "name": "dropped_new_physical_hessian_matrix_definition",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 defining object: v1:hessian.coordinates",
+      "passed": true
+    },
+    {
+      "name": "dropped_new_actual_slice_potential_definition",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 defining object: v1:hessian.slice",
+      "passed": true
+    },
+    {
+      "name": "dropped_new_corrected_vector_residual_definition",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Missing reviewed v1 defining object: v1:boundary.off_solution_projection",
+      "passed": true
+    },
+    {
+      "name": "version_downgrade_cannot_skip_text_inventory_checks",
+      "expected": "rejected",
+      "accepted": false,
+      "exception": "AssertionError",
+      "reason": "Version identity differs",
+      "passed": true
+    }
+  ],
+  "disk_inputs_unchanged": true,
+  "input_sha256": {
+    "source\\convex_1plus4.tex": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "source\\convex_1plus4.pdf": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+    "source\\dominant_five_body_ARMA_rewritten.tex": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+    "docs\\FULL_ASSERTIONS.json": "0809068E7F99F9021CB6FE71E8B5E6D204A6BFE28FF076FACA70D21801448B7D",
+    "logs\\history\\pre-v1\\FULL_ASSERTIONS.json": "1C79C6FEAC176FF520B9623DC2273C1EA42E057E73F2C67110C06FBFFB3850A5",
+    "docs\\V1_SOURCE_CHANGE_REVIEW.json": "27206DEA034882B2F448334059DF67BD80649F2881C16DF42245D6D32449DE6A",
+    "VERSION.json": "4095603D9DF0D641E8EFDB54CE986DDFF5F22DB79433C62541AB8E27D82013C7",
+    "scripts\\migrate_v1_source.py": "A27A7CE3D886B41FCAE18D328ED994AFB9024B1EE954F34EB71083EB4D82B3AA",
+    "scripts\\bind_v1_assertions.py": "40D5E571F3D2AE0624D12EAA4D88E1C510F240A4AEFB0C15FCB68A57DCD6377D",
+    "scripts\\paper_coverage.py": "E1BE9B85FF96E27E49BE06AFDD9D296154B7332F4B952B73626DC54DBADF9C9D",
+    "scripts\\v1_source_negative_controls.py": "A2AE253E685A72F42729CCC9E075930B6748EBBA5A7CFF0BE5B205E346632C9E"
+  },
+  "negative_controls_passed": true,
+  "scope_limit": "Source/metadata integrity negative controls only. They do not prove natural-language-to-Lean semantic equivalence, definition values, a clean Lean build, axiom audit, fresh kernel replay, PDF rendering, or whole-paper acceptance."
+}

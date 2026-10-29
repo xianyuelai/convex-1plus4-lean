@@ -1,0 +1,116 @@
+DominantFiveBody.pairChart_compact_physical_continuation : ∀ (p psi : ℝ) (keepD : Bool),
+  0 ≤ p →
+    p ≤ 1 →
+      (if keepD = true then 0 < p else p < 1) →
+        psi ≠ 0 →
+          psi ≠ DominantFiveBody.Coorbital.h →
+            DominantFiveBody.twoSourceSpan psi < Real.pi →
+              p * DominantFiveBody.coorbitalKernel psi +
+                    (1 - p) * DominantFiveBody.coorbitalKernel (psi - DominantFiveBody.Coorbital.h) =
+                  0 →
+                ∀ (tau : ℝ),
+                  0 < tau →
+                    have y0 :=
+                      DominantFiveBody.pairUnitPoint DominantFiveBody.Coorbital.h psi
+                        (DominantFiveBody.pairBoundaryScale
+                          (DominantFiveBody.pairProbeDerivative p DominantFiveBody.Coorbital.h psi));
+                    ∃ eta r C,
+                      0 < eta ∧
+                        0 < r ∧
+                          0 < C ∧
+                            r ≤ tau ∧
+                              eta ≤ r ∧
+                                ∀ alpha ∈ Set.Icc 0 1,
+                                  ∃ branch,
+                                    branch ![0, 0, p, alpha] = y0 ∧
+                                      ContDiffOn ℝ (↑⊤) branch (Metric.ball ![0, 0, p, alpha] eta) ∧
+                                        ∀ (q : Fin (Nat.succ 0).succ.succ.succ → ℝ),
+                                          dist q ![0, 0, p, alpha] < eta →
+                                            dist (branch q) y0 < r / 2 ∧
+                                              DominantFiveBody.PairChartRegular (q 0) (q 1) (q 3) (branch q) ∧
+                                                (q, branch q) ∈
+                                                    DominantFiveBody.pairPhysicalSafeSet
+                                                      (DominantFiveBody.pairBoundaryHullOrder psi) ∧
+                                                  (DominantFiveBody.pairChartJacobian (q 0) (q 1) (q 2) (q 3) keepD
+                                                        (branch q)).IsInvertible ∧
+                                                    ‖(DominantFiveBody.pairChartJacobian (q 0) (q 1) (q 2) (q 3) keepD
+                                                              (branch q)).inverse‖ ≤
+                                                        C ∧
+                                                      DominantFiveBody.pairChartParameterRows keepD q (branch q) = 0 ∧
+                                                        (∀ (y : DominantFiveBody.PairChartVariables),
+                                                            dist y y0 < r →
+                                                              (DominantFiveBody.pairChartParameterRows keepD q y = 0 ↔
+                                                                branch q = y)) ∧
+                                                          (0 < q 0 →
+                                                            0 < q 1 →
+                                                              DominantFiveBody.PositiveRatio
+                                                                  (DominantFiveBody.pairChartMass (q 1) (q 2) (q 3)) →
+                                                                DominantFiveBody.StrictConvexCentralConfiguration
+                                                                    (DominantFiveBody.masses (q 0)
+                                                                      (DominantFiveBody.pairChartMass (q 1) (q 2)
+                                                                        (q 3)))
+                                                                    (DominantFiveBody.pairBoundaryHullOrder psi)
+                                                                    (DominantFiveBody.pairChartConfiguration q
+                                                                      (branch q)) ∧
+                                                                  DominantFiveBody.NondegenerateCentralConfiguration
+                                                                    (DominantFiveBody.masses (q 0)
+                                                                      (DominantFiveBody.pairChartMass (q 1) (q 2)
+                                                                        (q 3)))
+                                                                    (DominantFiveBody.pairChartConfiguration q
+                                                                      (branch q)))
+DominantFiveBody.pairPhysical_sequence_capture_of_scaled_limits : ∀ (p0 psi : ℝ) (keepD : Bool),
+  0 ≤ p0 →
+    p0 ≤ 1 →
+      (if keepD = true then 0 < p0 else p0 < 1) →
+        psi ≠ 0 →
+          psi ≠ DominantFiveBody.Coorbital.h →
+            DominantFiveBody.twoSourceSpan psi < Real.pi →
+              p0 * DominantFiveBody.coorbitalKernel psi +
+                    (1 - p0) * DominantFiveBody.coorbitalKernel (psi - DominantFiveBody.Coorbital.h) =
+                  0 →
+                ∀ (eps : ℕ → ℝ) (mu : ℕ → DominantFiveBody.MassRatio) (r theta : ℕ → DominantFiveBody.Satellite → ℝ),
+                  (∀ (n : ℕ), 0 < eps n) →
+                    (∀ (n : ℕ), DominantFiveBody.PositiveRatio (mu n)) →
+                      (∀ (n : ℕ) (i : DominantFiveBody.Satellite), 0 < r n i) →
+                        (∀ (n : ℕ), theta n 2 = 0) →
+                          (∀ (n : ℕ),
+                              DominantFiveBody.RelativeCollisionFree
+                                (DominantFiveBody.polarSatellites (r n) (theta n))) →
+                            (∀ (n : ℕ),
+                                DominantFiveBody.NormalizedCentralConfiguration (DominantFiveBody.masses (eps n) (mu n))
+                                  (DominantFiveBody.centeredFromRelative (eps n) (mu n)
+                                    (DominantFiveBody.polarSatellites (r n) (theta n)))) →
+                              Filter.Tendsto eps Filter.atTop (nhds 0) →
+                                Filter.Tendsto (fun n => DominantFiveBody.pairPhysicalScale (mu n)) Filter.atTop
+                                    (nhds 0) →
+                                  Filter.Tendsto (fun n => DominantFiveBody.pairExteriorFraction (mu n)) Filter.atTop
+                                      (nhds p0) →
+                                    Filter.Tendsto
+                                        (fun n =>
+                                          DominantFiveBody.pairVariablesFromPolar
+                                            (DominantFiveBody.pairPhysicalScale (mu n))
+                                            (DominantFiveBody.pairPhysicalFraction (mu n)) (r n) (theta n))
+                                        Filter.atTop
+                                        (nhds
+                                          (DominantFiveBody.pairUnitPoint DominantFiveBody.Coorbital.h psi
+                                            (DominantFiveBody.pairBoundaryScale
+                                              (DominantFiveBody.pairProbeDerivative p0 DominantFiveBody.Coorbital.h
+                                                psi)))) →
+                                      Nonempty
+                                        (DominantFiveBody.PairCapturedBranches eps
+                                          (fun n => DominantFiveBody.pairPhysicalScale (mu n))
+                                          (fun n => DominantFiveBody.pairExteriorFraction (mu n))
+                                          (fun n => DominantFiveBody.pairPhysicalFraction (mu n))
+                                          (fun n =>
+                                            DominantFiveBody.pairVariablesFromPolar
+                                              (DominantFiveBody.pairPhysicalScale (mu n))
+                                              (DominantFiveBody.pairPhysicalFraction (mu n)) (r n) (theta n))
+                                          psi keepD)
+'DominantFiveBody.pairChart_compact_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.pairPhysical_sequence_capture_of_scaled_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.pairChartJacobian_isInvertible_iff_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.pairArea_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.pairAreaQuotient_boundary_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.pairChart_fixed_mass_zero_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]

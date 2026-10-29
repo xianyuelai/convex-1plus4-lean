@@ -1,0 +1,54 @@
+'DominantFiveBody.tripleAngularCoefficient_upper_comparable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.triple_mass_cube_lower_of_extreme_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_lower_triple_regular_mass_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.tripleLargestDistance_low_permutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_lower_triple_nested_radial_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_lower_triple_nested_width_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_upper_triple_nested_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_lower_triple_nested_macro_mass_cube_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.shapeHessianNondegenerate_planeReflection_forward' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.mirrorConfiguration_shapeHessianNondegenerate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.mirrorSlice_twice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.mirrorSlice_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSliceRoot_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSliceNondegenerate_mirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.mirrorSlice_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.CapturedBranches.mirrorOrderedSlice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.captured_mirrorOrderedSlice_undo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.complete_upper_triple_firstAngleMirror' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_mirror_sequence_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_upper_triple_mirror_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_upper_triple_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_upper_triple_complete_geometry' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.PairCapturedBranches.toOrderedSliceCapturedBranches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.PairCapturedBranches.toOriginalOrderedSlice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_pair_ordered_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.TripleCapturedBranches.toOrderedSliceCapturedBranches' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.TripleCapturedBranches.toOriginalOrderedSlice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.NestedCapturedBranches.toOriginalOrderedSlice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

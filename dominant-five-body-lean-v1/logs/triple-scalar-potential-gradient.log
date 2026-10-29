@@ -1,0 +1,122 @@
+DominantFiveBody/TripleScalarPotentialGradient.lean:26:4: error: Type mismatch: After simplification, term
+  HasFDerivAt.const_mul (HasFDerivAt.pow (hasFDerivAt_apply i z) 2) (alpha i)
+ has type
+  HasFDerivAt (fun y => alpha i * y i ^ 2) ((alpha i * (↑2 * z i ^ (2 - 1))) • ContinuousLinearMap.proj i) z
+but is expected to have type
+  HasFDerivAt (fun y => alpha i * y i ^ 2) ((alpha i * (2 * z i)) • p i) z
+DominantFiveBody/TripleScalarPotentialGradient.lean:44:47: error: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+DominantFiveBody/TripleScalarPotentialGradient.lean:45:4: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+DominantFiveBody/TripleScalarPotentialGradient.lean:45:35: error: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+DominantFiveBody/TripleScalarPotentialGradient.lean:46:35: error: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+DominantFiveBody/TripleScalarPotentialGradient.lean:48:4: error(lean.unknownIdentifier): Unknown constant `Finset.sum_univ`
+DominantFiveBody/TripleScalarPotentialGradient.lean:50:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |z 0 - z 1|
+in the target expression
+  alpha 0 * (tripleD0 * z 0 - ∑ j ∈ Finset.univ.erase 0, alpha j * ((z 0 - z j) / |z 0 - z j| ^ 3)) * v 0 +
+        alpha 1 * (tripleD0 * z 1 - ∑ j ∈ Finset.univ.erase 1, alpha j * ((z 1 - z j) / |z 1 - z j| ^ 3)) * v 1 +
+      alpha 2 * (tripleD0 * z 2 - ∑ j ∈ Finset.univ.erase 2, alpha j * ((z 2 - z j) / |z 2 - z j| ^ 3)) * v 2 =
+    tripleD0 / 2 * (alpha 0 * (2 * z 0) * v 0 + alpha 1 * (2 * z 1) * v 1 + alpha 2 * (2 * z 2) * v 2) +
+      (alpha 0 * alpha 1 * -((z 1 - z 0) ^ 2)⁻¹ * (v 1 - v 0) + alpha 0 * alpha 2 * -((z 2 - z 0) ^ 2)⁻¹ * (v 2 - v 0) +
+        alpha 1 * alpha 2 * -((z 2 - z 1) ^ 2)⁻¹ * (v 2 - v 1))
+
+case e'_12
+alpha z : TripleVector
+hz : TripleOrdered z
+p : TripleLabel → (TripleLabel → ℝ) →L[ℝ] ℝ := fun i => ContinuousLinearMap.proj i
+hQ : HasFDerivAt (fun w => tripleD0 / 2 * ∑ i, alpha i * w i ^ 2) ((tripleD0 / 2) • ∑ i, (alpha i * (2 * z i)) • p i) z
+hpair :
+  ∀ (i j : TripleLabel),
+    i < j →
+      HasFDerivAt (fun w => alpha i * alpha j / (w j - w i)) ((alpha i * alpha j * -((z j - z i) ^ 2)⁻¹) • (p j - p i))
+        z
+hd :
+  HasFDerivAt
+    ((fun w => tripleD0 / 2 * ∑ i, alpha i * w i ^ 2) +
+      (((fun w => alpha 0 * alpha 1 / (w 1 - w 0)) + fun w => alpha 0 * alpha 2 / (w 2 - w 0)) + fun w =>
+        alpha 1 * alpha 2 / (w 2 - w 1)))
+    ((tripleD0 / 2) • ∑ i, (alpha i * (2 * z i)) • p i +
+      ((alpha 0 * alpha 1 * -((z 1 - z 0) ^ 2)⁻¹) • (p 1 - p 0) +
+          (alpha 0 * alpha 2 * -((z 2 - z 0) ^ 2)⁻¹) • (p 2 - p 0) +
+        (alpha 1 * alpha 2 * -((z 2 - z 1) ^ 2)⁻¹) • (p 2 - p 1)))
+    z
+hnear : ∀ᶠ (w : TripleVector) in 𝓝 z, TripleOrdered w
+heq :
+  tripleScalarPotential alpha =ᶠ[𝓝 z] fun w =>
+    tripleD0 / 2 * ∑ i, alpha i * w i ^ 2 +
+      (alpha 0 * alpha 1 / (w 1 - w 0) + alpha 0 * alpha 2 / (w 2 - w 0) + alpha 1 * alpha 2 / (w 2 - w 1))
+e_4✝ : Pi.addCommGroup = Pi.normedAddCommGroup.toAddCommGroup
+he✝¹ : Pi.Function.module TripleLabel ℝ ℝ = Pi.normedSpace.toModule
+e_6✝ : Pi.topologicalSpace = PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+e_8✝ : Real.instAddCommGroup = Real.normedAddCommGroup.toAddCommGroup
+he✝ : Semiring.toModule = RCLike.toInnerProductSpaceReal.toModule
+v : TripleVector
+⊢ alpha 0 * (tripleD0 * z 0 - ∑ j ∈ Finset.univ.erase 0, alpha j * ((z 0 - z j) / |z 0 - z j| ^ 3)) * v 0 +
+        alpha 1 * (tripleD0 * z 1 - ∑ j ∈ Finset.univ.erase 1, alpha j * ((z 1 - z j) / |z 1 - z j| ^ 3)) * v 1 +
+      alpha 2 * (tripleD0 * z 2 - ∑ j ∈ Finset.univ.erase 2, alpha j * ((z 2 - z j) / |z 2 - z j| ^ 3)) * v 2 =
+    tripleD0 / 2 * (alpha 0 * (2 * z 0) * v 0 + alpha 1 * (2 * z 1) * v 1 + alpha 2 * (2 * z 2) * v 2) +
+      (alpha 0 * alpha 1 * -((z 1 - z 0) ^ 2)⁻¹ * (v 1 - v 0) + alpha 0 * alpha 2 * -((z 2 - z 0) ^ 2)⁻¹ * (v 2 - v 0) +
+        alpha 1 * alpha 2 * -((z 2 - z 1) ^ 2)⁻¹ * (v 2 - v 1))
+DominantFiveBody/TripleScalarPotentialGradient.lean:47:53: error: This simp argument is unused:
+  Finset.sum_erase_eq_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_univ, Fin.sum_univ_three, tripleScalarForce,
+    sub_self, abs_zero, zero_pow, div_zero, mul_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DominantFiveBody/TripleScalarPotentialGradient.lean:48:57: error: This simp argument is unused:
+  sub_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_erase_eq_sub, Finset.sum_univ,
+    Fin.sum_univ_three, tripleScalarForce, abs_zero, zero_pow, div_zero, mul_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DominantFiveBody/TripleScalarPotentialGradient.lean:48:66: error: This simp argument is unused:
+  abs_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_erase_eq_sub, Finset.sum_univ,
+    Fin.sum_univ_three, tripleScalarForce, sub_self, zero_pow, div_zero, mul_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DominantFiveBody/TripleScalarPotentialGradient.lean:48:75: error: This simp argument is unused:
+  zero_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_erase_eq_sub, Finset.sum_univ,
+    Fin.sum_univ_three, tripleScalarForce, sub_self, abs_zero, div_zero, mul_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DominantFiveBody/TripleScalarPotentialGradient.lean:49:4: error: This simp argument is unused:
+  div_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_erase_eq_sub, Finset.sum_univ,
+    Fin.sum_univ_three, tripleScalarForce, sub_self, abs_zero, zero_pow, mul_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DominantFiveBody/TripleScalarPotentialGradient.lean:49:13: error: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_erase_eq_sub, Finset.sum_univ,
+    Fin.sum_univ_three, tripleScalarForce, sub_self, abs_zero, zero_pow, div_zero, sub_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+DominantFiveBody/TripleScalarPotentialGradient.lean:49:22: error: This simp argument is unused:
+  sub_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_three, tripleScalarResidual, Finset.sum_erase_eq_sub, Finset.sum_univ,
+    Fin.sum_univ_three, tripleScalarForce, sub_self, abs_zero, zero_pow, div_zero, mul_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

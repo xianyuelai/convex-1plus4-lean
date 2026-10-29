@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-10-03T14:51:51.135841+00:00",
+  "passed": true,
+  "scope": "In-memory metadata negative controls only; not a Lean kernel check",
+  "real_ledger_was_modified": false,
+  "validated_source_rows": 343,
+  "baseline_development_open_rows": 0,
+  "checks": [
+    {
+      "name": "OPEN original assertion",
+      "rejected": true,
+      "reason": "Unclosed paper assertions:\neq:masses: OPEN: Negative-control original obligation"
+    },
+    {
+      "name": "Missing exact theorem binding",
+      "rejected": true,
+      "reason": "No exact theorem binding: eq:masses"
+    },
+    {
+      "name": "Closed context hides a remaining obligation",
+      "rejected": true,
+      "reason": "Closed assertion retains unresolved dependencies: prose:58"
+    },
+    {
+      "name": "Changed TeX source hash",
+      "rejected": true,
+      "reason": "tex source bytes differ from the reviewed inventory"
+    },
+    {
+      "name": "Duplicate assertion ID",
+      "rejected": true,
+      "reason": "Empty or duplicate assertion IDs"
+    },
+    {
+      "name": "Python optimization",
+      "rejected": true,
+      "exit_code": 1,
+      "reason": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"D:\\重要软件\\gpt研究文件\\1加N\\dominant-five-body-lean\\scripts\\paper_coverage.py\", line 13, in <module>\n    raise RuntimeError('Whole-paper coverage must run without Python optimization; validation assertions are required.')\nRuntimeError: Whole-paper coverage must run without Python optimization; validation assertions are required."
+    }
+  ]
+}

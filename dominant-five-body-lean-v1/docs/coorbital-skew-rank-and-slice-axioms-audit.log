@@ -1,0 +1,79 @@
+2026-10-03 strict original rank route and slice-injectivity audit
+Command: lake env lean -DwarningAsError=true -o .lake/build/lib/lean/Audit/CoorbitalSkewRankAndSlice.olean Audit/CoorbitalSkewRankAndSlice.lean
+LEAN_NUM_THREADS=2
+Session: 98431
+EXIT_CODE: 0
+
+DominantFiveBody.skew_matrix_two_le_rank.{u_1} {N : Type u_1} [Fintype N] (A : Matrix N N ℝ) (p q : N)
+  (hdiag : ∀ (i : N), A i i = 0) (hskew : ∀ (i j : N), A j i = -A i j) (hpivot : A p q ≠ 0) : 2 ≤ A.rank
+DominantFiveBody.matrix_three_rank_nullity (A : Matrix (Fin 3) (Fin 3) ℝ) :
+  A.rank + Module.finrank ℝ ↥A.mulVecLin.ker = 3
+DominantFiveBody.matrix_four_rank_nullity (A : Matrix (Fin 4) (Fin 4) ℝ) :
+  A.rank + Module.finrank ℝ ↥A.mulVecLin.ker = 4
+DominantFiveBody.skew3_rank_two_of_nonzero_kernel (A : Matrix (Fin 3) (Fin 3) ℝ) (v : Fin 3 → ℝ)
+  (hdiag : ∀ (i : Fin 3), A i i = 0) (hskew : ∀ (i j : Fin 3), A j i = -A i j) (hpivot : A 0 1 ≠ 0) (hv : v ≠ 0)
+  (hroot : ∀ (i : Fin 3), ∑ j, A i j * v j = 0) : A.rank = 2 ∧ Module.finrank ℝ ↥A.mulVecLin.ker = 1
+DominantFiveBody.skew4_rank_two_at_zero_source (A : Matrix (Fin 4) (Fin 4) ℝ) (mass : Fin 4 → ℝ)
+  (hdiag : ∀ (i : Fin 4), A i i = 0) (hskew : ∀ (i j : Fin 4), A j i = -A i j)
+  (hroot : ∀ (i : Fin 4), ∑ j, A i j * mass j = 0) (hzero : mass 3 = 0) (hpositive : 0 < mass 2) (hpivot : A 0 1 ≠ 0) :
+  A.rank = 2 ∧ Module.finrank ℝ ↥A.mulVecLin.ker = 2
+DominantFiveBody.coorbital_three_source_pivot (mass theta : Satellite → ℝ) (k : Satellite) (hzero : mass k = 0)
+  (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)
+  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)
+  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) :
+  coorbitalMatrix theta (Fin.succAbove k 0) (Fin.succAbove k 1) ≠ 0
+DominantFiveBody.coorbital_three_source_ranks_and_kernel_dimensions (mass theta : Satellite → ℝ) (k : Satellite)
+  (hzero : mass k = 0) (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)
+  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)
+  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) :
+  (coorbitalSupportMatrix theta k).rank = 2 ∧
+    (coorbitalMatrix theta).rank = 2 ∧
+      Module.finrank ℝ ↥(coorbitalMatrix theta).mulVecLin.ker = 2 ∧
+        Module.finrank ℝ ↥(coorbitalSupportMatrix theta k).mulVecLin.ker = 1
+DominantFiveBody.coorbital_three_source_kernel_not_all_zero_at_missing_source (mass theta : Satellite → ℝ)
+  (k : Satellite) (hzero : mass k = 0) (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)
+  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)
+  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) : ∃ v ∈ (coorbitalMatrix theta).mulVecLin.ker, v k ≠ 0
+DominantFiveBody.coorbital_three_source_kernel_vector_by_rank (mass theta : Satellite → ℝ) (k : Satellite)
+  (hzero : mass k = 0) (hmass : ∀ (i : Satellite), i ≠ k → 0 < mass i)
+  (harc : ∀ (i j : Satellite), i < j → 0 < theta j - theta i ∧ theta j - theta i < Real.pi)
+  (hroot : ∀ (i : Satellite), coorbitalResidual mass theta i = 0) :
+  ∃ nu, nu k = 1 ∧ ∀ (i : Satellite), coorbitalResidual nu theta i = 0
+DominantFiveBody.orderedSliceAngles_mem_Icc (y : SliceCoordinates) (horder : OrderedSemicircle (sliceAngles y))
+  (i : Satellite) : sliceAngles y i ∈ Set.Icc 0 Real.pi
+DominantFiveBody.ordered_slicePhysicalConfiguration_injective (p : ContinuationParameter) (y z : SliceCoordinates)
+  (hy : SliceRegular p y) (hz : SliceRegular p z) (hoy : OrderedSemicircle (sliceAngles y))
+  (hoz : OrderedSemicircle (sliceAngles z)) (heq : slicePhysicalConfiguration p y = slicePhysicalConfiguration p z) :
+  y = z
+DominantFiveBody.orderedSliceRoot_unique_coordinates_of_normalized_gauged (mu : PositiveMassRatio) (eps : ℝ)
+  (heps : 0 < eps) (x : Configuration) (hx : NormalizedCentralConfiguration (masses eps ↑mu) x)
+  (hg : FirstSatelliteGauge x) (hc : StrictConvexInOrder standardHullOrder x) :
+  ∃! y, orderedSliceRoot mu eps y ∧ slicePhysicalConfiguration (eps, ↑mu) y = x
+DominantFiveBody.orderedSliceRoot_existsUnique_orientedSimilar (mu : PositiveMassRatio) (eps : ℝ) (heps : 0 < eps)
+  (x : Configuration) (hx : StrictConvexCentralConfiguration (masses eps ↑mu) standardHullOrder x) :
+  ∃! y, orderedSliceRoot mu eps y ∧ OrientedSimilar x (slicePhysicalConfiguration (eps, ↑mu) y)
+'DominantFiveBody.skew_matrix_two_le_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.matrix_three_rank_nullity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.matrix_four_rank_nullity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.skew3_rank_two_of_nonzero_kernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.skew4_rank_two_at_zero_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbital_three_source_pivot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbital_three_source_ranks_and_kernel_dimensions' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.coorbital_three_source_kernel_not_all_zero_at_missing_source' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.coorbital_three_source_kernel_vector_by_rank' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.orderedSliceAngles_mem_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.ordered_slicePhysicalConfiguration_injective' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.orderedSliceRoot_unique_coordinates_of_normalized_gauged' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.orderedSliceRoot_existsUnique_orientedSimilar' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

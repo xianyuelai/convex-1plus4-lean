@@ -1,0 +1,22 @@
+Title:           Uniqueness of convex central configurations in the planar (1+4)-body problem
+Subject:         
+Keywords:        central configuration, dominant mass, coorbital problem, uniqueness
+Author:          Kaitai Xiao
+Creator:         LaTeX with hyperref
+Producer:        pdfTeX-1.40.26
+CreationDate:    Sat Oct  3 18:54:38 2026 �й���׼ʱ��
+ModDate:         Sat Oct  3 18:54:38 2026 �й���׼ʱ��
+Custom Metadata: yes
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           19
+Encrypted:       no
+Page size:       595.276 x 841.89 pts (A4)
+Page rot:        0
+File size:       405171 bytes
+Optimized:       no
+PDF version:     1.5

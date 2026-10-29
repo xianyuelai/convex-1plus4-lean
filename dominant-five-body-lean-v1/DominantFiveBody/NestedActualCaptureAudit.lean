@@ -1,0 +1,14 @@
+import DominantFiveBody.OrderedSliceNestedCases
+
+/-! Kernel dependencies of the actual two-scale collision and capture chain. -/
+
+#print axioms DominantFiveBody.normalized_complete_lower_triple_nested_radial_limits
+#print axioms DominantFiveBody.normalized_complete_lower_triple_nested_width_limit
+#print axioms DominantFiveBody.normalized_complete_lower_triple_nested_directions
+#print axioms DominantFiveBody.normalized_complete_lower_triple_nested_macro_mass_cube_limit
+#print axioms DominantFiveBody.normalized_complete_lower_triple_nested_precise_scales
+#print axioms DominantFiveBody.nestedVariablesFromPolar_tendsto_of_cubic_geometry
+#print axioms DominantFiveBody.nestedPhysical_actual_capture_of_cubic_geometry
+#print axioms DominantFiveBody.nested_original_ordered_capture_of_cubic_geometry
+#print axioms DominantFiveBody.normalized_complete_lower_triple_nested_original_capture
+#print axioms DominantFiveBody.orderedSlice_lower_nested_triple_capture

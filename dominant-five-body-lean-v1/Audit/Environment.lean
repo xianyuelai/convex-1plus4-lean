@@ -1,0 +1,339 @@
+import DominantFiveBody.Application
+import DominantFiveBody.BackgroundSlow
+import DominantFiveBody.BackgroundSpectrum
+import DominantFiveBody.BoundaryJacobian
+import DominantFiveBody.BoundarySourceCalculus
+import DominantFiveBody.ChartEpsilonBounds
+import DominantFiveBody.ChartExplicitDefinitions
+import DominantFiveBody.ChartFormulaCoverage
+import DominantFiveBody.ChartScalarFields
+import DominantFiveBody.ChartSourceSelections
+import DominantFiveBody.CollisionClassification
+import DominantFiveBody.CollisionExteriorDerivativeBounds
+import DominantFiveBody.CollisionGeometry
+import DominantFiveBody.CollisionNestedDirections
+import DominantFiveBody.CollisionNestedGeometry
+import DominantFiveBody.CollisionNestedPairSecant
+import DominantFiveBody.CollisionNestedPreciseScales
+import DominantFiveBody.CollisionNestedRectangle
+import DominantFiveBody.CollisionNestedRectangleContributions
+import DominantFiveBody.CollisionNestedRectangleControls
+import DominantFiveBody.CollisionNestedRectangleGeometry
+import DominantFiveBody.CollisionNestedScales
+import DominantFiveBody.CollisionNestedSegmentBounds
+import DominantFiveBody.CollisionNestedSegmentGeometry
+import DominantFiveBody.CollisionNestedSegmentVectors
+import DominantFiveBody.CollisionNestedUnselected
+import DominantFiveBody.CollisionPairScales
+import DominantFiveBody.CollisionPairSecantRadialBound
+import DominantFiveBody.CollisionReflection
+import DominantFiveBody.CollisionScaledAngularGroups
+import DominantFiveBody.CollisionScaledAngularLimits
+import DominantFiveBody.CollisionScaledGroupBounds
+import DominantFiveBody.CollisionScaledGroupGeometry
+import DominantFiveBody.CollisionScaledGroups
+import DominantFiveBody.CollisionScales
+import DominantFiveBody.CollisionSubsequence
+import DominantFiveBody.CollisionTripleBounds
+import DominantFiveBody.CollisionTripleComplete
+import DominantFiveBody.CollisionTripleCompleteUpper
+import DominantFiveBody.CollisionTripleField
+import DominantFiveBody.CollisionTripleInitialScale
+import DominantFiveBody.CollisionTripleMassLower
+import DominantFiveBody.CollisionTripleNestedComplete
+import DominantFiveBody.CollisionTripleNestedMacro
+import DominantFiveBody.CollisionTripleNestedRectangle
+import DominantFiveBody.CollisionTripleNestedScale
+import DominantFiveBody.CollisionTripleNestedWidth
+import DominantFiveBody.CollisionTripleOriginalAngular
+import DominantFiveBody.CollisionTripleOriginalGroups
+import DominantFiveBody.CollisionTripleOriginalInitialEstimates
+import DominantFiveBody.CollisionTripleOriginalLower
+import DominantFiveBody.CollisionTripleRectangle
+import DominantFiveBody.CollisionTripleRegularScale
+import DominantFiveBody.CollisionTripleScaledCompact
+import DominantFiveBody.CollisionTripleScaledGroups
+import DominantFiveBody.CollisionTripleScales
+import DominantFiveBody.CollisionTripleWidth
+import DominantFiveBody.CollisionUpperNestedComplete
+import DominantFiveBody.CollisionUpperNestedContributions
+import DominantFiveBody.CollisionUpperNestedRectangle
+import DominantFiveBody.CollisionUpperNestedWidth
+import DominantFiveBody.CollisionUpperOriginalGroups
+import DominantFiveBody.CollisionUpperRectangleGeometry
+import DominantFiveBody.CollisionUpperSegmentVectors
+import DominantFiveBody.CollisionUpperTriple
+import DominantFiveBody.CollisionUpperTripleMass
+import DominantFiveBody.CompactContinuation
+import DominantFiveBody.CompactImplicit
+import DominantFiveBody.CompactRootLipschitz
+import DominantFiveBody.ConvexContinuation
+import DominantFiveBody.Coorbital
+import DominantFiveBody.CoorbitalCompactness
+import DominantFiveBody.CoorbitalContinuation
+import DominantFiveBody.CoorbitalCovering
+import DominantFiveBody.CoorbitalDowncrossing
+import DominantFiveBody.CoorbitalEqualMass
+import DominantFiveBody.CoorbitalFiberCount
+import DominantFiveBody.CoorbitalHessian
+import DominantFiveBody.CoorbitalIntegralRepresentation
+import DominantFiveBody.CoorbitalModel
+import DominantFiveBody.CoorbitalProperness
+import DominantFiveBody.CoorbitalSemicircleGeometry
+import DominantFiveBody.CoorbitalSkewRank
+import DominantFiveBody.CoorbitalSourceBounds
+import DominantFiveBody.CoorbitalSourceCalculus
+import DominantFiveBody.Coordinates
+import DominantFiveBody.CycleDecomposition
+import DominantFiveBody.CycleEstimate
+import DominantFiveBody.Definitions
+import DominantFiveBody.DeletedAngularRows
+import DominantFiveBody.DistinctChartSource
+import DominantFiveBody.DividedNewtonField
+import DominantFiveBody.FixedAngleRows
+import DominantFiveBody.FixedLabelEndpoint
+import DominantFiveBody.ForceBalance
+import DominantFiveBody.FullAngularBoundaryDeterminant
+import DominantFiveBody.HadamardTargetDifference
+import DominantFiveBody.HessianCorrespondence
+import DominantFiveBody.HullOrderTransport
+import DominantFiveBody.JointAnalyticCharts
+import DominantFiveBody.LocalContinuation
+import DominantFiveBody.Main
+import DominantFiveBody.MassRescaling
+import DominantFiveBody.NestedActualCapture
+import DominantFiveBody.NestedActualCaptureAudit
+import DominantFiveBody.NestedActualCaptureLimits
+import DominantFiveBody.NestedAngularMatrix
+import DominantFiveBody.NestedAreaDerivative
+import DominantFiveBody.NestedAreaPositivity
+import DominantFiveBody.NestedAreas
+import DominantFiveBody.NestedBoundary
+import DominantFiveBody.NestedBoundaryDeterminant
+import DominantFiveBody.NestedChart
+import DominantFiveBody.NestedCollinearity
+import DominantFiveBody.NestedConnection
+import DominantFiveBody.NestedContinuation
+import DominantFiveBody.NestedConvexContinuation
+import DominantFiveBody.NestedConvexity
+import DominantFiveBody.NestedCoordinateDeterminant
+import DominantFiveBody.NestedDirections
+import DominantFiveBody.NestedExterior
+import DominantFiveBody.NestedHessian
+import DominantFiveBody.NestedInternal
+import DominantFiveBody.NestedInternalAreaPositivity
+import DominantFiveBody.NestedInternalRecovery
+import DominantFiveBody.NestedJacobian
+import DominantFiveBody.NestedKernelDifferences
+import DominantFiveBody.NestedKernelFormulas
+import DominantFiveBody.NestedOriginalOrderedCapture
+import DominantFiveBody.NestedPhysicalCoordinates
+import DominantFiveBody.NestedPhysicalKernels
+import DominantFiveBody.NestedRecovery
+import DominantFiveBody.NestedRegularization
+import DominantFiveBody.NestedScaledEdges
+import DominantFiveBody.NestedSequenceCapture
+import DominantFiveBody.NestedSliceConnection
+import DominantFiveBody.NestedSlowCoordinates
+import DominantFiveBody.NestedSmooth
+import DominantFiveBody.NestedSourceCaptureDetails
+import DominantFiveBody.NestedSourceDerivativeDetails
+import DominantFiveBody.NestedSourceRows
+import DominantFiveBody.NestedSourceSignTable
+import DominantFiveBody.NestedTripleBoundary
+import DominantFiveBody.NestedTripleCoordinates
+import DominantFiveBody.NestedUniformAreas
+import DominantFiveBody.NestedUnitBoundary
+import DominantFiveBody.NestedZeroFaces
+import DominantFiveBody.NestedZeroSeed
+import DominantFiveBody.NewtonScaleTransport
+import DominantFiveBody.NewtonTargetDerivative
+import DominantFiveBody.NoCollisionActualCapture
+import DominantFiveBody.NoCollisionContinuation
+import DominantFiveBody.NoCollisionSliceConnection
+import DominantFiveBody.OrderedPhysicalSequence
+import DominantFiveBody.OrderedSliceApplication
+import DominantFiveBody.OrderedSliceConnection
+import DominantFiveBody.OrderedSliceInjectivity
+import DominantFiveBody.OrderedSliceLowerTripleCapture
+import DominantFiveBody.OrderedSliceMirrorCapture
+import DominantFiveBody.OrderedSliceNestedCases
+import DominantFiveBody.OrderedSliceReflection
+import DominantFiveBody.OrderedSliceSequences
+import DominantFiveBody.OrderedSliceTripleCases
+import DominantFiveBody.OrderedSliceUpperTripleCapture
+import DominantFiveBody.OrderedSliceUpperTripleCases
+import DominantFiveBody.OriginalDividedEdges
+import DominantFiveBody.OriginalNestedIntegral
+import DominantFiveBody.OriginalNestedKernels
+import DominantFiveBody.PairActualCapture
+import DominantFiveBody.PairAreas
+import DominantFiveBody.PairBoundary
+import DominantFiveBody.PairBoundaryInvertibility
+import DominantFiveBody.PairChart
+import DominantFiveBody.PairContinuation
+import DominantFiveBody.PairConvexity
+import DominantFiveBody.PairDirections
+import DominantFiveBody.PairExterior
+import DominantFiveBody.PairExteriorNeighborhoodBounds
+import DominantFiveBody.PairHessian
+import DominantFiveBody.PairInternal
+import DominantFiveBody.PairJacobian
+import DominantFiveBody.PairOriginalOrderedCapture
+import DominantFiveBody.PairPhysicalContinuation
+import DominantFiveBody.PairPhysicalCoordinates
+import DominantFiveBody.PairRadialFactor
+import DominantFiveBody.PairRadialSourceExpansion
+import DominantFiveBody.PairRecovery
+import DominantFiveBody.PairRegularization
+import DominantFiveBody.PairSequenceCapture
+import DominantFiveBody.PairSliceConnection
+import DominantFiveBody.PairSmooth
+import DominantFiveBody.PairUnitBoundary
+import DominantFiveBody.PairZeroEndpoint
+import DominantFiveBody.PhysicalHullRelabeling
+import DominantFiveBody.PhysicalRelabeling
+import DominantFiveBody.PolarCoordinates
+import DominantFiveBody.PolarGaugeTransport
+import DominantFiveBody.PolarPointDerivative
+import DominantFiveBody.PolarSliceCoordinates
+import DominantFiveBody.PotentialDerivatives
+import DominantFiveBody.Probe
+import DominantFiveBody.ProbeOriginalDerivatives
+import DominantFiveBody.ProjectedClusterGap
+import DominantFiveBody.RadialDirectSum
+import DominantFiveBody.ReflectionHessianTransport
+import DominantFiveBody.RegularTripleSourceFormulas
+import DominantFiveBody.RelativeAction
+import DominantFiveBody.RelativeMassMetric
+import DominantFiveBody.ResidualEquivalence
+import DominantFiveBody.Residuals
+import DominantFiveBody.RotationTransport
+import DominantFiveBody.RowTransform
+import DominantFiveBody.SectionFourSourceEstimates
+import DominantFiveBody.SectionSevenEqualitySet
+import DominantFiveBody.SectionSevenGapIdentities
+import DominantFiveBody.SectionThreeIdentities
+import DominantFiveBody.SeparatedBaseContinuation
+import DominantFiveBody.ShapeDimension
+import DominantFiveBody.Similarity
+import DominantFiveBody.SimilarityNormalization
+import DominantFiveBody.SingleScaleKernel
+import DominantFiveBody.SingleScaleWeightedSums
+import DominantFiveBody.SliceConnection
+import DominantFiveBody.SlowInternalTaylor
+import DominantFiveBody.SlowNewtonTaylor
+import DominantFiveBody.SlowRootSourceIdentities
+import DominantFiveBody.SlowTaylorOrders
+import DominantFiveBody.SmoothCapturedBranches
+import DominantFiveBody.SmoothCapturedBranchesAudit
+import DominantFiveBody.SmoothOrderedSliceConnection
+import DominantFiveBody.SourceCoordinateIdentities
+import DominantFiveBody.SourceFormulaExpansions
+import DominantFiveBody.Specification
+import DominantFiveBody.TargetDifference
+import DominantFiveBody.TripleActualCapture
+import DominantFiveBody.TripleActualCaptureLimits
+import DominantFiveBody.TripleActualCompactness
+import DominantFiveBody.TripleAreaDerivative
+import DominantFiveBody.TripleAreaPositivity
+import DominantFiveBody.TripleAreas
+import DominantFiveBody.TripleBoundary
+import DominantFiveBody.TripleChart
+import DominantFiveBody.TripleCollinearity
+import DominantFiveBody.TripleContinuation
+import DominantFiveBody.TripleConvexContinuation
+import DominantFiveBody.TripleConvexity
+import DominantFiveBody.TripleDirections
+import DominantFiveBody.TripleExterior
+import DominantFiveBody.TripleFixedLabelEndpoint
+import DominantFiveBody.TripleHessian
+import DominantFiveBody.TripleIntegratedJacobian
+import DominantFiveBody.TripleInternal
+import DominantFiveBody.TripleJacobian
+import DominantFiveBody.TripleOriginalOrderedCapture
+import DominantFiveBody.TriplePhysicalCaptureGeometry
+import DominantFiveBody.TriplePhysicalContinuation
+import DominantFiveBody.TriplePhysicalCoordinates
+import DominantFiveBody.TripleProofAudit
+import DominantFiveBody.TripleRecovery
+import DominantFiveBody.TripleRegularization
+import DominantFiveBody.TripleScalar
+import DominantFiveBody.TripleScalarPotential
+import DominantFiveBody.TripleScalarPotentialConvex
+import DominantFiveBody.TripleScalarPotentialGradient
+import DominantFiveBody.TripleScalarPotentialMinimizer
+import DominantFiveBody.TripleScalarPotentialProper
+import DominantFiveBody.TripleScalarSeed
+import DominantFiveBody.TripleSequenceCapture
+import DominantFiveBody.TripleSliceConnection
+import DominantFiveBody.TripleSlowBoundary
+import DominantFiveBody.TripleSlowCoordinates
+import DominantFiveBody.TripleSlowExterior
+import DominantFiveBody.TripleSmooth
+import DominantFiveBody.TripleUpperActualCapture
+import DominantFiveBody.TripleZeroEndpoint
+import DominantFiveBody.UniformThreshold
+import DominantFiveBody.V1BoundaryIdentities
+import DominantFiveBody.V1CoorbitalCoordinates
+import DominantFiveBody.V1NestedNearBound
+import DominantFiveBody.WeightedHessian
+import Lean
+
+/-! Inspect actual constant types and proof bodies. Imported axiom-summary
+metadata is not used by this traversal. This command proves no mathematics. -/
+set_option maxHeartbeats 0
+open Lean Elab Command in
+run_cmd do
+  let env := (← getEnv).setExporting false
+  let kernelEnv := env.checked.get
+  let mut ownedModules : Array Name := #[]
+  for name in env.header.moduleNames do
+    if name.toString.startsWith "DominantFiveBody." then
+      ownedModules := ownedModules.push name
+  let mut seeds : Array Name := #[]
+  for (name, _) in kernelEnv.constants.toList do
+    if let some idx := env.getModuleIdxFor? name then
+      if ownedModules.contains env.header.moduleNames[idx]! then
+        seeds := seeds.push name
+  unless seeds.contains ``DominantFiveBody.main_uniform do
+    throwError "Unconditional main_uniform is absent from the project environment"
+  let mut todo := seeds
+  let mut seen : NameSet := {}
+  let mut axioms : NameSet := {}
+  let mut edges : Nat := 0
+  let mut theoremCount : Nat := 0
+  for name in seeds do
+    if let some (.thmInfo _) := kernelEnv.find? name then
+      theoremCount := theoremCount + 1
+  while !todo.isEmpty do
+    let name := todo.back!
+    todo := todo.pop
+    if seen.contains name then continue
+    seen := seen.insert name
+    let some info := kernelEnv.find? name
+      | throwError "Missing reachable kernel declaration: {name}"
+    if info.isUnsafe || info.isPartial then
+      throwError "Unsafe or partial reachable declaration: {name}"
+    if let .axiomInfo _ := info then
+      unless [``Classical.choice, ``propext, ``Quot.sound].contains name do
+        throwError "Disallowed reachable axiom: {name}"
+      axioms := axioms.insert name
+    let mut deps := info.type.getUsedConstants
+    if let some value := info.value? true then
+      deps := deps ++ value.getUsedConstants
+    if let .inductInfo ind := info then
+      deps := deps ++ ind.ctors.toArray
+    edges := edges + deps.size
+    todo := todo ++ deps
+  let result := Json.mkObj [
+    ("passed", toJson true),
+    ("method",toJson "Direct traversal of checked declaration types and bodies; no cached axiom summaries"),
+    ("modules",toJson (ownedModules.qsort Name.lt |>.map Name.toString)),
+    ("project_constants",toJson (seeds.qsort Name.lt |>.map Name.toString)),
+    ("project_theorem_count",toJson theoremCount),
+    ("reachable_constant_count",toJson seen.size),
+    ("dependency_edges",toJson edges),
+    ("axioms",toJson (axioms.toArray.qsort Name.lt |>.map Name.toString))]
+  liftIO <| IO.FS.writeFile "logs/ENVIRONMENT_AUDIT.json" result.pretty
+  logInfo m!"ENVIRONMENT_AUDIT_PASS: {ownedModules.size} modules; {seeds.size} project constants; {theoremCount} project theorems; {seen.size} reachable constants; {edges} edges; axioms {axioms.toArray}"

@@ -1,0 +1,12 @@
+DominantFiveBody/TripleIntegratedJacobian.lean:79:6: error: Type mismatch: After simplification, term
+  IntervalIntegrable.sum (Finset.univ.erase i) hc
+ has type
+  IntervalIntegrable
+    (∑ i_1 ∈ Finset.univ.erase i, fun s =>
+      2 * alpha i_1 / |tripleOrderedSegment x y s i - tripleOrderedSegment x y s i_1| ^ 3)
+    MeasureTheory.volume 0 1
+but is expected to have type
+  IntervalIntegrable
+    (fun s =>
+      ∑ k ∈ Finset.univ.erase i, 2 * alpha k / |tripleOrderedSegment x y s i - tripleOrderedSegment x y s k| ^ 3)
+    MeasureTheory.volume 0 1

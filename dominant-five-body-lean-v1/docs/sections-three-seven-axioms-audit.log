@@ -1,0 +1,554 @@
+2026-10-03 strict sections 3 and 7 declarations audit
+Command: lake env lean -DwarningAsError=true -o .lake/build/lib/lean/Audit/SectionsThreeSeven.olean Audit/SectionsThreeSeven.lean
+LEAN_NUM_THREADS=2
+Session: 73473
+EXIT_CODE: 0
+
+DominantFiveBody.normalized_of_vectorResidual_zero (eps : ℝ) (mu : MassRatio) (heps : -1 < eps) (hm : PositiveRatio mu)
+  (q : SatelliteConfiguration) (hq : RelativeCollisionFree q)
+  (hroot : ∀ (i : Satellite), vectorResidual eps mu q i = 0) :
+  NormalizedCentralConfiguration (masses eps mu) (centeredFromRelative eps mu q)
+DominantFiveBody.normalized_centeredFromRelative_iff_vectorRoot (eps : ℝ) (mu : MassRatio) (heps : -1 < eps)
+  (hm : PositiveRatio mu) (q : SatelliteConfiguration) (hq : RelativeCollisionFree q) :
+  NormalizedCentralConfiguration (masses eps mu) (centeredFromRelative eps mu q) ↔
+    ∀ (i : Satellite), vectorResidual eps mu q i = 0
+DominantFiveBody.relativeAction_eq_augmentedPotential_div (eps : ℝ) (mu : MassRatio) (hsum : ∑ i, mu i = 1)
+  (heps : eps ≠ 0) (hden : 1 + eps ≠ 0) (q : SatelliteConfiguration) :
+  relativeAction eps mu q = augmentedPotential (masses eps mu) 1 (centeredFromRelative eps mu q) / eps
+DominantFiveBody.inertia_centeredFromRelative (eps : ℝ) (mu : MassRatio) (hsum : ∑ i, mu i = 1) (heps : 1 + eps ≠ 0)
+  (q : SatelliteConfiguration) :
+  inertia (masses eps mu) (centeredFromRelative eps mu q) =
+    eps * ∑ i, mu i * ‖q i‖ ^ 2 - eps ^ 2 / (1 + eps) * ‖relativeAverage mu q‖ ^ 2
+DominantFiveBody.relativeActionVectorGradient_eq_CF (eps : ℝ) (mu : MassRatio) (hsum : ∑ i, mu i = 1)
+  (hden : 1 + eps ≠ 0) (q : SatelliteConfiguration) (i : Satellite) :
+  relativeActionVectorGradient eps mu q i = ∑ j, relativeMassMatrix eps mu i j • vectorResidual eps mu q j
+DominantFiveBody.relativeMassMatrix_posDef (eps : ℝ) (mu : MassRatio) (heps : -1 < eps)
+  (hm : ∀ (i : Satellite), 0 < mu i) (hsum : ∑ i, mu i = 1) : (relativeMassMatrix eps mu).PosDef
+DominantFiveBody.relativeAction_critical_iff_vectorRoot (eps : ℝ) (mu : MassRatio) (heps : -1 < eps)
+  (hm : PositiveRatio mu) (q : SatelliteConfiguration) (hq : RelativeCollisionFree q) :
+  fderiv ℝ (relativeAction eps mu) q = 0 ↔ ∀ (i : Satellite), vectorResidual eps mu q i = 0
+DominantFiveBody.polarAction_fderiv_apply (eps : ℝ) (mu : MassRatio) (p v : PolarCoordinates)
+  (hr : ∀ (i : Satellite), 0 < p.1 i) (hq : RelativeCollisionFree (polarCoordinateMap p)) :
+  (fderiv ℝ (polarAction eps mu) p) v =
+    ∑ i, mu i * radialResidual eps mu p.1 p.2 i * v.1 i + ∑ i, eps * mu i * angularResidual eps mu p.1 p.2 i * v.2 i
+DominantFiveBody.weighted_angularResidual_zero (eps : ℝ) (mu r theta : Satellite → ℝ) :
+  ∑ i, mu i * angularResidual eps mu r theta i = 0
+DominantFiveBody.angularResidual_omitted_row (eps : ℝ) (mu r theta : Satellite → ℝ) (p : Satellite) (hp : mu p ≠ 0)
+  (hrows : ∀ (i : Satellite), i ≠ p → angularResidual eps mu r theta i = 0) : angularResidual eps mu r theta p = 0
+DominantFiveBody.vectorResidual_tangential (eps : ℝ) (mu r theta : Satellite → ℝ) (hr : ∀ (i : Satellite), 0 < r i)
+  (i : Satellite) :
+  inner ℝ (vectorResidual eps mu (polarSatellites r theta) i) (quarterTurn (polarSatellites r theta i)) =
+    eps * r i * tangentialResidual mu r theta i
+DominantFiveBody.tangentialResidual_zero_of_normalized (eps : ℝ) (mu : MassRatio) (x : Configuration)
+  (hx : NormalizedCentralConfiguration (masses eps mu) x) (heps : eps ≠ 0) (r theta : Satellite → ℝ)
+  (hr : ∀ (i : Satellite), 0 < r i) (hpolar : satellitesRelative x = polarSatellites r theta) (i : Satellite) :
+  tangentialResidual mu r theta i = 0
+DominantFiveBody.relativeField_eq_scaledAverage_of_vectorRoot (eps : ℝ) (mu : MassRatio) (hsum : ∑ i, mu i = 1)
+  (hden : 1 + eps ≠ 0) (q : SatelliteConfiguration) (hroot : ∀ (i : Satellite), vectorResidual eps mu q i = 0) :
+  relativeField mu q = (1 + eps)⁻¹ • relativeAverage mu q
+DominantFiveBody.sectionThree_solution_field_and_tangential_identity (eps : ℝ) (mu : MassRatio) (x : Configuration)
+  (hx : NormalizedCentralConfiguration (masses eps mu) x) (hm : PositiveRatio mu) (heps : 0 < eps)
+  (r theta : Satellite → ℝ) (hr : ∀ (i : Satellite), 0 < r i)
+  (hpolar : satellitesRelative x = polarSatellites r theta) :
+  relativeField mu (polarSatellites r theta) = (1 + eps)⁻¹ • relativeAverage mu (polarSatellites r theta) ∧
+    ∀ (i : Satellite), angularResidual eps mu r theta i = r i * tangentialResidual mu r theta i
+DominantFiveBody.fixedAngleDeletedJacobian_isInvertible_iff_shape (p : ContinuationParameter)
+  (fixed omitted : Satellite) (y : SliceCoordinates) (hreg : SliceRegular (p.1, p.2 ∘ ⇑(fixedAnglePermutation fixed)) y)
+  (hε : 0 < p.1) (hμ : PositiveRatio p.2) (hroot : fixedAngleDeletedResidual p fixed omitted y = 0) :
+  (fderiv ℝ (fixedAngleDeletedResidual p fixed omitted) y).IsInvertible ↔
+    ShapeHessianNondegenerate (masses p.1 p.2) 1 (fixedAnglePhysicalConfiguration p fixed y)
+DominantFiveBody.coordinate_row_transform_fderiv_at_root.{u_1, u_2, u_3, u_4} {E : Type u_1} {F : Type u_2}
+  {G : Type u_3} {H : Type u_4} [NormedAddCommGroup E] [NormedSpace ℝ E] [NormedAddCommGroup F] [NormedSpace ℝ F]
+  [NormedAddCommGroup G] [NormedSpace ℝ G] [NormedAddCommGroup H] [NormedSpace ℝ H] (f : E → F) (L : E → F →L[ℝ] G)
+  (psi : H → E) (z : H) (hf : DifferentiableAt ℝ f (psi z)) (hL : DifferentiableAt ℝ L (psi z))
+  (hpsi : DifferentiableAt ℝ psi z) (hroot : f (psi z) = 0) :
+  fderiv ℝ (fun y => (L (psi y)) (f (psi y))) z = (L (psi z) ∘SL fderiv ℝ f (psi z)) ∘SL fderiv ℝ psi z
+DominantFiveBody.coordinate_row_transform_isInvertible_iff.{u_1, u_2, u_3, u_4} {E : Type u_1} {F : Type u_2}
+  {G : Type u_3} {H : Type u_4} [NormedAddCommGroup E] [NormedSpace ℝ E] [NormedAddCommGroup F] [NormedSpace ℝ F]
+  [NormedAddCommGroup G] [NormedSpace ℝ G] [NormedAddCommGroup H] [NormedSpace ℝ H] (f : E → F) (L : E → F →L[ℝ] G)
+  (psi : H → E) (z : H) (hf : DifferentiableAt ℝ f (psi z)) (hL : DifferentiableAt ℝ L (psi z))
+  (hpsi : DifferentiableAt ℝ psi z) (hroot : f (psi z) = 0) (hLi : (L (psi z)).IsInvertible)
+  (hpsii : (fderiv ℝ psi z).IsInvertible) :
+  (fderiv ℝ (fun y => (L (psi y)) (f (psi y))) z).IsInvertible ↔ (fderiv ℝ f (psi z)).IsInvertible
+DominantFiveBody.physicalHessian_radial_of_normalizedCC (m : MassVector) (x : Configuration)
+  (hx : NormalizedCentralConfiguration m x) (w : Configuration) : physicalHessian m 1 x x w = 3 * massInner m x w
+DominantFiveBody.relativeCenteredEquiv (ε : ℝ) (μ : MassRatio) (hsum : ∑ i, μ i = 1) (hden : 1 + ε ≠ 0) :
+  SatelliteConfiguration ≃L[ℝ] ↥(centeredVariationSpace (masses ε μ))
+DominantFiveBody.rotationSliceHessian_nondegenerate_iff_shape (m : MassVector) (hm : PositiveMasses m)
+  (x : Configuration) (hx : NormalizedCentralConfiguration m x) :
+  RotationSliceHessianNondegenerate m 1 x ↔ ShapeHessianNondegenerate m 1 x
+DominantFiveBody.finrank_shapeSpace (m : MassVector) (hm : PositiveMasses m) (x : Configuration)
+  (hx : CollisionFree x) : Module.finrank ℝ ↥(shapeSpace m x) = 6
+DominantFiveBody.CompactImplicit.compact_product.{u_1} {P : Type u_1} [NormedAddCommGroup P] [NormedSpace ℝ P]
+  [CompleteSpace P] {n : ℕ} (F : P → CompactImplicit.Unknown n → CompactImplicit.Unknown n)
+  (D K : Set (P × CompactImplicit.Unknown n)) (hD : IsOpen D) (hF : ContDiffOn ℝ (↑⊤) (Function.uncurry F) D)
+  (hK : IsCompact K) (hdata : ∀ a ∈ K, a ∈ D ∧ F a.1 a.2 = 0 ∧ (CompactImplicit.jacobian F a.1 a.2).IsInvertible)
+  (τ : ℝ) (hτ : 0 < τ) :
+  ∃ η r C,
+    0 < η ∧
+      0 < r ∧
+        0 < C ∧
+          r ≤ τ ∧
+            η ≤ r ∧
+              ∀ a ∈ K,
+                ∃ ψ,
+                  ψ a.1 = a.2 ∧
+                    ContDiffOn ℝ (↑⊤) ψ (Metric.ball a.1 η) ∧
+                      ∀ (q : P),
+                        dist q a.1 < η →
+                          dist (ψ q) a.2 < r / 2 ∧
+                            (q, ψ q) ∈ D ∧
+                              (CompactImplicit.jacobian F q (ψ q)).IsInvertible ∧
+                                ‖(CompactImplicit.jacobian F q (ψ q)).inverse‖ ≤ C ∧
+                                  F q (ψ q) = 0 ∧
+                                    ∀ (z : CompactImplicit.Unknown n), dist z a.2 < r → (F q z = 0 ↔ ψ q = z)
+DominantFiveBody.coorbital_compact_physical_continuation (K : Set MassRatio) (hK : IsCompact K)
+  (hpositive : ∀ μ ∈ K, PositiveRatio μ) :
+  ∃ η r C,
+    0 < η ∧
+      0 < r ∧
+        0 < C ∧
+          ∀ μ ∈ K,
+            ∃ ψ,
+              ψ (0, μ) = coorbitalBaseSlice μ ∧
+                ContDiffOn ℝ (↑⊤) ψ (Metric.ball (0, μ) η) ∧
+                  ∀ (ε : ℝ) (ν : MassRatio),
+                    |ε| < η →
+                      dist ν μ < η →
+                        StrictConvexInOrder standardHullOrder (slicePhysicalConfiguration (ε, ν) (ψ (ε, ν))) ∧
+                          dist (ψ (ε, ν)) (coorbitalBaseSlice μ) < r / 2 ∧
+                            SliceRegular (ε, ν) (ψ (ε, ν)) ∧
+                              (reducedJacobian (ε, ν) (ψ (ε, ν))).IsInvertible ∧
+                                ‖(reducedJacobian (ε, ν) (ψ (ε, ν))).inverse‖ ≤ C ∧
+                                  reducedResidual (ε, ν) (ψ (ε, ν)) = 0 ∧
+                                    (∀ (z : SliceCoordinates),
+                                        dist z (coorbitalBaseSlice μ) < r →
+                                          (reducedResidual (ε, ν) z = 0 ↔ ψ (ε, ν) = z)) ∧
+                                      (0 < ε →
+                                        PositiveRatio ν →
+                                          NormalizedCentralConfiguration (masses ε ν)
+                                              (slicePhysicalConfiguration (ε, ν) (ψ (ε, ν))) ∧
+                                            StrictConvexCentralConfiguration (masses ε ν) standardHullOrder
+                                                (slicePhysicalConfiguration (ε, ν) (ψ (ε, ν))) ∧
+                                              ShapeHessianNondegenerate (masses ε ν) 1
+                                                (slicePhysicalConfiguration (ε, ν) (ψ (ε, ν))))
+DominantFiveBody.reducedJacobian_zero_radial_block (μ : MassRatio) (y : SliceCoordinates) (hreg : SliceRegular (0, μ) y)
+  (hunit : ∀ (i : Satellite), sliceRadii y i = 1) (v : SliceCoordinates) (i : Satellite) :
+  (reducedJacobian (0, μ) y) v (Fin.castAdd 3 i) = 3 * sliceRadii v i
+DominantFiveBody.sinc_contDiff (n : WithTop ℕ∞) : ContDiff ℝ n Real.sinc
+Real.sinc_zero : Real.sinc 0 = 1
+DominantFiveBody.normalized_ordered_polar_limit_geometry (eps : ℕ → ℝ) (mu : ℕ → MassRatio) (x : ℕ → Configuration)
+  (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hm : ∀ (n : ℕ), PositiveRatio (mu n)) (hx : ∀ (n : ℕ), NormalizedCentralConfiguration (masses (eps n) (mu n)) (x n))
+  (r theta : ℕ → Satellite → ℝ) (hr : ∀ (n : ℕ) (i : Satellite), 0 < r n i)
+  (hpolar : ∀ (n : ℕ), satellitesRelative (x n) = polarSatellites (r n) (theta n))
+  (horder : ∀ (n : ℕ) (i j : Satellite), i < j → 0 < theta n j - theta n i ∧ theta n j - theta n i < Real.pi)
+  (muLimit : MassRatio) (hmt : Filter.Tendsto mu Filter.atTop (nhds muLimit)) (qLimit : SatelliteConfiguration)
+  (hqt : Filter.Tendsto (fun n => satellitesRelative (x n)) Filter.atTop (nhds qLimit)) (theta0 : Satellite → ℝ)
+  (hthetat : Filter.Tendsto theta Filter.atTop (nhds theta0)) :
+  Filter.Tendsto r Filter.atTop (nhds fun x => 1) ∧
+    (∀ (i : Satellite), qLimit i = polarPoint 1 (theta0 i)) ∧
+      Monotone theta0 ∧ 0 < theta0 3 - theta0 0 ∧ theta0 3 - theta0 0 < Real.pi
+DominantFiveBody.normalized_ordered_collision_classes_exhaustive (eps : ℕ → ℝ) (mu : ℕ → MassRatio)
+  (x : ℕ → Configuration) (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hm : ∀ (n : ℕ), PositiveRatio (mu n)) (hx : ∀ (n : ℕ), NormalizedCentralConfiguration (masses (eps n) (mu n)) (x n))
+  (hconv : ∀ (n : ℕ), StrictConvexInOrder { labels := Equiv.refl Label, primary_first := ⋯ } (x n))
+  (r theta : ℕ → Satellite → ℝ) (hr : ∀ (n : ℕ) (i : Satellite), 0 < r n i)
+  (hpolar : ∀ (n : ℕ), satellitesRelative (x n) = polarSatellites (r n) (theta n))
+  (horder : ∀ (n : ℕ) (i j : Satellite), i < j → 0 < theta n j - theta n i ∧ theta n j - theta n i < Real.pi)
+  (muLimit : MassRatio) (hmt : Filter.Tendsto mu Filter.atTop (nhds muLimit)) (qLimit : SatelliteConfiguration)
+  (hqt : Filter.Tendsto (fun n => satellitesRelative (x n)) Filter.atTop (nhds qLimit)) (theta0 : Satellite → ℝ)
+  (hthetat : Filter.Tendsto theta Filter.atTop (nhds theta0)) :
+  Function.Injective qLimit ∨
+    (∃ a b, a < b ∧ CompleteLimitingSatellitePair qLimit a b (qLimit a)) ∨
+      ∃ p, (p = 0 ∨ p = 3) ∧ ∃ c, CompleteLimitingSatelliteTriple qLimit p c
+DominantFiveBody.collision_free_triple_scale_subsequence (q : ℕ → SatelliteConfiguration) (a b c : Satellite)
+  (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c) (hq : ∀ (n : ℕ), RelativeCollisionFree (q n)) :
+  ∃ phi,
+    StrictMono phi ∧
+      (Filter.Tendsto (fun n => tripleShortestDistance (q (phi n)) a b c / tripleLargestDistance (q (phi n)) a b c)
+          Filter.atTop (nhds 0) ∨
+        ∃ k,
+          0 < k ∧
+            ∀ (n : ℕ),
+              k * tripleLargestDistance (q (phi n)) a b c ≤ satelliteDistance (q (phi n)) a b ∧
+                k * tripleLargestDistance (q (phi n)) a b c ≤ satelliteDistance (q (phi n)) a c ∧
+                  k * tripleLargestDistance (q (phi n)) a b c ≤ satelliteDistance (q (phi n)) b c)
+DominantFiveBody.triple_minimum_pair_subsequence (q : ℕ → SatelliteConfiguration) (a b c : Satellite) :
+  ∃ phi u v w,
+    StrictMono phi ∧
+      (u = a ∧ v = b ∧ w = c ∨ u = a ∧ v = c ∧ w = b ∨ u = b ∧ v = c ∧ w = a) ∧
+        ∀ (n : ℕ), satelliteDistance (q (phi n)) u v = tripleShortestDistance (q (phi n)) a b c
+DominantFiveBody.orderedSlice_connection :
+  ConnectionProperty orderedSliceRoot orderedSliceNondegenerate orderedSliceEndpoint
+DominantFiveBody.orderedSlice_smooth_connection_explicit (p : ℕ → PositiveMassRatio) (eps : ℕ → ℝ)
+  (y : ℕ → SliceCoordinates) (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hy : ∀ (n : ℕ), orderedSliceRoot (p n) (eps n) (y n)) :
+  ∃ phi radius Gamma,
+    StrictMono phi ∧
+      0 < radius ∧
+        (∀ (n : ℕ), eps (phi n) < radius) ∧
+          (∀ (n : ℕ), ContDiffOn ℝ (↑⊤) (Gamma n) (Set.Ico 0 radius)) ∧
+            (∀ (n : ℕ), Gamma n (eps (phi n)) = y (phi n)) ∧
+              (∀ (n : ℕ) (s : ℝ), 0 < s → s < radius → orderedSliceRoot (p (phi n)) s (Gamma n s)) ∧
+                (∀ (n : ℕ) (s : ℝ), 0 < s → s < radius → orderedSliceNondegenerate (p (phi n)) s (Gamma n s)) ∧
+                  ∀ (n : ℕ), Gamma n 0 = orderedSliceEndpoint (p (phi n))
+DominantFiveBody.coorbitalBaseSlice_actual_data (μ : MassRatio) (hμ : PositiveRatio μ) :
+  SliceRegular (0, μ) (coorbitalBaseSlice μ) ∧
+    reducedResidual (0, μ) (coorbitalBaseSlice μ) = 0 ∧ (reducedJacobian (0, μ) (coorbitalBaseSlice μ)).IsInvertible
+DominantFiveBody.strictConvexCC_existsUnique_normalized_gauged (m : MassVector) (hm : PositiveMasses m) (σ : HullOrder)
+  (x : Configuration) (hx : StrictConvexCentralConfiguration m σ x) :
+  ∃! y, NormalizedCentralConfiguration m y ∧ FirstSatelliteGauge y ∧ StrictConvexInOrder σ y ∧ OrientedSimilar x y
+DominantFiveBody.orderedSliceRoot_of_normalized_gauged (mu : PositiveMassRatio) (eps : ℝ) (heps : 0 < eps)
+  (x : Configuration) (hx : NormalizedCentralConfiguration (masses eps ↑mu) x) (hg : FirstSatelliteGauge x)
+  (hc : StrictConvexInOrder standardHullOrder x) :
+  ∃ y, orderedSliceRoot mu eps y ∧ slicePhysicalConfiguration (eps, ↑mu) y = x
+DominantFiveBody.orderedSliceRoot_physical (mu : PositiveMassRatio) (eps : ℝ) (heps : 0 < eps) (y : SliceCoordinates)
+  (hy : orderedSliceRoot mu eps y) :
+  NormalizedCentralConfiguration (masses eps ↑mu) (slicePhysicalConfiguration (eps, ↑mu) y) ∧
+    FirstSatelliteGauge (slicePhysicalConfiguration (eps, ↑mu) y) ∧
+      StrictConvexInOrder standardHullOrder (slicePhysicalConfiguration (eps, ↑mu) y)
+DominantFiveBody.orderedSlice_fixedParameterLocalExistence : FixedParameterLocalExistence orderedSliceRoot
+DominantFiveBody.orderedSlice_localContinuationUniqueness :
+  LocalContinuationUniqueness orderedSliceRoot orderedSliceNondegenerate orderedSliceEndpoint
+DominantFiveBody.uniform_existence_of_connection.{u, v} {P : Type u} {Y : Type v} [TopologicalSpace Y]
+  {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y} (hlocal : FixedParameterLocalExistence root)
+  (hconnection : ConnectionProperty root nondegenerate endpoint) : UniformBelow fun p ε => ∃ y, root p ε y
+DominantFiveBody.uniform_uniqueness_of_connection.{u, v} {P : Type u} {Y : Type v} [TopologicalSpace Y] [T2Space Y]
+  {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y}
+  (hlocal : LocalContinuationUniqueness root nondegenerate endpoint)
+  (hconnection : ConnectionProperty root nondegenerate endpoint) :
+  UniformBelow fun p ε => ∀ (y z : Y), root p ε y → root p ε z → y = z
+DominantFiveBody.uniform_nondegeneracy_of_connection.{u, v} {P : Type u} {Y : Type v} [TopologicalSpace Y]
+  {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y}
+  (hconnection : ConnectionProperty root nondegenerate endpoint) :
+  UniformBelow fun p ε => ∀ (y : Y), root p ε y → nondegenerate p ε y
+DominantFiveBody.main_of_chart_facts.{u, v} {P : Type u} {Y : Type v} [TopologicalSpace Y] [T2Space Y]
+  {root nondegenerate : P → ℝ → Y → Prop} {endpoint : P → Y} (hexistence : FixedParameterLocalExistence root)
+  (huniqueness : LocalContinuationUniqueness root nondegenerate endpoint)
+  (hconnection : ConnectionProperty root nondegenerate endpoint) :
+  ∃ δ, 0 < δ ∧ ∀ (p : P) (ε : ℝ), 0 < ε → ε < δ → (∃! y, root p ε y) ∧ ∀ (y : Y), root p ε y → nondegenerate p ε y
+DominantFiveBody.main_of_orderedSlice_uniform
+  (h :
+    ∃ d,
+      0 < d ∧
+        ∀ (mu : PositiveMassRatio) (eps : ℝ),
+          0 < eps →
+            eps < d →
+              (∃! y, orderedSliceRoot mu eps y) ∧
+                ∀ (y : SliceCoordinates), orderedSliceRoot mu eps y → orderedSliceNondegenerate mu eps y) :
+  MainUniformStatement
+DominantFiveBody.orderedSlice_uniqueness_to_geometric (mu : PositiveMassRatio) (eps : ℝ) (heps : 0 < eps)
+  (sigma : HullOrder)
+  (huniq :
+    ∀ (y z : SliceCoordinates),
+      orderedSliceRoot ⟨↑mu ∘ ⇑(hullSatellitePermutation sigma), ⋯⟩ eps y →
+        orderedSliceRoot ⟨↑mu ∘ ⇑(hullSatellitePermutation sigma), ⋯⟩ eps z → y = z)
+  (x y : Configuration) :
+  StrictConvexCentralConfiguration (masses eps ↑mu) sigma x →
+    StrictConvexCentralConfiguration (masses eps ↑mu) sigma y → OrientedSimilar x y
+DominantFiveBody.orderedSlice_nondegeneracy_to_geometric (mu : PositiveMassRatio) (eps : ℝ) (heps : 0 < eps)
+  (sigma : HullOrder)
+  (hnd :
+    ∀ (y : SliceCoordinates),
+      orderedSliceRoot ⟨↑mu ∘ ⇑(hullSatellitePermutation sigma), ⋯⟩ eps y →
+        orderedSliceNondegenerate ⟨↑mu ∘ ⇑(hullSatellitePermutation sigma), ⋯⟩ eps y)
+  (x : Configuration) :
+  StrictConvexCentralConfiguration (masses eps ↑mu) sigma x → NondegenerateCentralConfiguration (masses eps ↑mu) x
+DominantFiveBody.main_uniform : MainUniformStatement
+DominantFiveBody.normalized_noCollision_actual_capture (eps : ℕ → ℝ) (mu : ℕ → MassRatio) (x : ℕ → Configuration)
+  (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hm : ∀ (n : ℕ), PositiveRatio (mu n)) (hx : ∀ (n : ℕ), NormalizedCentralConfiguration (masses (eps n) (mu n)) (x n))
+  (r theta : ℕ → Satellite → ℝ) (hr : ∀ (n : ℕ) (i : Satellite), 0 < r n i)
+  (hpolar : ∀ (n : ℕ), satellitesRelative (x n) = polarSatellites (r n) (theta n))
+  (horder : ∀ (n : ℕ) (i j : Satellite), i < j → 0 < theta n j - theta n i ∧ theta n j - theta n i < Real.pi)
+  (muLimit : MassRatio) (hmt : Filter.Tendsto mu Filter.atTop (nhds muLimit)) (qLimit : SatelliteConfiguration)
+  (hqt : Filter.Tendsto (fun n => satellitesRelative (x n)) Filter.atTop (nhds qLimit)) (thetaLimit : Satellite → ℝ)
+  (htt : Filter.Tendsto theta Filter.atTop (nhds thetaLimit)) (hsep : Function.Injective qLimit) :
+  ∃ e,
+    0 < muLimit (e 0) ∧
+      Nonempty
+        (NoCollisionCapturedBranches (fun n => mu n ∘ ⇑e) eps fun n =>
+          polarSlice (r n ∘ ⇑e) fun i => theta n (e i) - theta n (e 0))
+DominantFiveBody.normalized_complete_pair_actual_capture (eps : ℕ → ℝ) (mu : ℕ → MassRatio) (x : ℕ → Configuration)
+  (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hm : ∀ (n : ℕ), PositiveRatio (mu n)) (hx : ∀ (n : ℕ), NormalizedCentralConfiguration (masses (eps n) (mu n)) (x n))
+  (hconv : ∀ (n : ℕ), StrictConvexInOrder { labels := Equiv.refl Label, primary_first := ⋯ } (x n))
+  (r theta : ℕ → Satellite → ℝ) (hr : ∀ (n : ℕ) (i : Satellite), 0 < r n i)
+  (hpolar : ∀ (n : ℕ), satellitesRelative (x n) = polarSatellites (r n) (theta n))
+  (horder : ∀ (n : ℕ) (i j : Satellite), i < j → 0 < theta n j - theta n i ∧ theta n j - theta n i < Real.pi)
+  (muLimit : MassRatio) (hmt : Filter.Tendsto mu Filter.atTop (nhds muLimit)) (qLimit : SatelliteConfiguration)
+  (hqt : Filter.Tendsto (fun n => satellitesRelative (x n)) Filter.atTop (nhds qLimit)) (a b : Satellite) (hab : a < b)
+  (c : Plane) (hpair : CompleteLimitingSatellitePair qLimit a b c) (theta0 : Satellite → ℝ)
+  (hthetat : Filter.Tendsto theta Filter.atTop (nhds theta0)) (u w : Satellite) (huw : u < w)
+  (hu : u ∈ pairExteriorLabels a b) (hw : w ∈ pairExteriorLabels a b) (e : Equiv.Perm Satellite) (he0 : e 0 = a)
+  (he1 : e 1 = b) (he2 : e 2 = u) (he3 : e 3 = w) :
+  ∃ keepD,
+    Nonempty
+      (PairCapturedBranches eps (fun n => pairPhysicalScale (mu n ∘ ⇑e)) (fun n => pairExteriorFraction (mu n ∘ ⇑e))
+        (fun n => pairPhysicalFraction (mu n ∘ ⇑e))
+        (fun n =>
+          pairVariablesFromPolar (pairPhysicalScale (mu n ∘ ⇑e)) (pairPhysicalFraction (mu n ∘ ⇑e)) (r n ∘ ⇑e) fun i =>
+            theta n (e i) - theta n u)
+        (theta0 a - theta0 u) keepD)
+DominantFiveBody.normalized_complete_lower_triple_regular_actual_capture (eps : ℕ → ℝ) (mu : ℕ → MassRatio)
+  (x : ℕ → Configuration) (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hm : ∀ (n : ℕ), PositiveRatio (mu n)) (hx : ∀ (n : ℕ), NormalizedCentralConfiguration (masses (eps n) (mu n)) (x n))
+  (hconv : ∀ (n : ℕ), StrictConvexInOrder { labels := Equiv.refl Label, primary_first := ⋯ } (x n))
+  (r theta : ℕ → Satellite → ℝ) (hr : ∀ (n : ℕ) (i : Satellite), 0 < r n i)
+  (hpolar : ∀ (n : ℕ), satellitesRelative (x n) = polarSatellites (r n) (theta n))
+  (horder : ∀ (n : ℕ) (i j : Satellite), i < j → 0 < theta n j - theta n i ∧ theta n j - theta n i < Real.pi)
+  (muLimit : MassRatio) (hmt : Filter.Tendsto mu Filter.atTop (nhds muLimit)) (qLimit : SatelliteConfiguration)
+  (hqt : Filter.Tendsto (fun n => satellitesRelative (x n)) Filter.atTop (nhds qLimit)) (theta0 : Satellite → ℝ)
+  (htheta : Filter.Tendsto theta Filter.atTop (nhds theta0)) (center : Plane)
+  (htriple : CompleteLimitingSatelliteTriple qLimit 3 center) (eta : ℝ) (heta : 0 < eta)
+  (hcomparable :
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      ∀ (i j : TripleLabel),
+        i ≠ j →
+          eta * tripleLowDiameter (satellitesRelative (x n)) ≤
+            satelliteDistance (satellitesRelative (x n)) (Fin.castSucc i) (Fin.castSucc j)) :
+  ∃ phi,
+    StrictMono phi ∧
+      Nonempty
+        (TripleCapturedBranches (eps ∘ phi) (fun n => triplePhysicalScale (mu (phi n)))
+          (fun n => triplePhysicalWeights (mu (phi n)))
+          (fun n =>
+            tripleVariablesFromPolar (triplePhysicalScale (mu (phi n))) (triplePhysicalWeights (mu (phi n))) (r (phi n))
+              fun i => theta (phi n) i - theta (phi n) 3)
+          (-1))
+DominantFiveBody.normalized_complete_lower_triple_nested_original_capture (eps : ℕ → ℝ) (mu : ℕ → MassRatio)
+  (x : ℕ → Configuration) (heps : ∀ (n : ℕ), 0 < eps n) (hepst : Filter.Tendsto eps Filter.atTop (nhds 0))
+  (hm : ∀ (n : ℕ), PositiveRatio (mu n)) (hx : ∀ (n : ℕ), NormalizedCentralConfiguration (masses (eps n) (mu n)) (x n))
+  (hconv : ∀ (n : ℕ), StrictConvexInOrder standardHullOrder (x n)) (r theta : ℕ → Satellite → ℝ)
+  (hr : ∀ (n : ℕ) (i : Satellite), 0 < r n i)
+  (hpolar : ∀ (n : ℕ), satellitesRelative (x n) = polarSatellites (r n) (theta n)) (hzero : ∀ (n : ℕ), theta n 0 = 0)
+  (horder : ∀ (n : ℕ), OrderedSemicircle (theta n)) (muLimit : MassRatio)
+  (hmt : Filter.Tendsto mu Filter.atTop (nhds muLimit)) (qLimit : SatelliteConfiguration)
+  (hqt : Filter.Tendsto (fun n => satellitesRelative (x n)) Filter.atTop (nhds qLimit)) (theta0 : Satellite → ℝ)
+  (htheta : Filter.Tendsto theta Filter.atTop (nhds theta0)) (center : Plane)
+  (htriple : CompleteLimitingSatelliteTriple qLimit 3 center) (a b c : TripleLabel) (hab : a < b) (hca : c ≠ a)
+  (hcb : c ≠ b)
+  (hpair :
+    Filter.Tendsto
+      (fun n =>
+        satelliteDistance (satellitesRelative (x n)) (Fin.castSucc a) (Fin.castSucc b) /
+          tripleLowDiameter (satellitesRelative (x n)))
+      Filter.atTop (nhds 0)) :
+  Nonempty
+    (CapturedBranches orderedSliceRoot orderedSliceNondegenerate orderedSliceEndpoint (fun n => ⟨mu n, ⋯⟩) eps fun n =>
+      polarSlice (r n) (theta n))
+DominantFiveBody.nestedChart_convex_physical_continuation (alpha0 tau omega : ℝ) (halpha0 : alpha0 ∈ Set.Icc 0 1)
+  (htau : tau = 1 ∨ tau = -1) (hw : omega = 1 ∨ omega = -1) (bound : ℝ) (hbound : 0 < bound) :
+  ∃ delta r C,
+    0 < delta ∧
+      0 < r ∧
+        0 < C ∧
+          r ≤ bound ∧
+            delta ≤ r ∧
+              ∃ branch,
+                branch (nestedParameter 0 0 0 alpha0) = nestedBasePoint (tau * Coorbital.h) omega ∧
+                  ContDiffOn ℝ (↑⊤) branch (Metric.ball (nestedParameter 0 0 0 alpha0) delta) ∧
+                    ∀ (q : NestedChartParameters),
+                      dist q (nestedParameter 0 0 0 alpha0) < delta →
+                        dist (branch q) (nestedBasePoint (tau * Coorbital.h) omega) < r / 2 ∧
+                          NestedContinuationDomain (q, branch q) ∧
+                            (nestedChartJacobian (q 0) (q 1) (q 2) (q 3) (branch q)).IsInvertible ∧
+                              ‖(nestedChartJacobian (q 0) (q 1) (q 2) (q 3) (branch q)).inverse‖ ≤ C ∧
+                                nestedChartParameterRows q (branch q) = 0 ∧
+                                  (∀ (y : NestedChartVariables),
+                                      dist y (nestedBasePoint (tau * Coorbital.h) omega) < r →
+                                        (nestedChartParameterRows q y = 0 ↔ branch q = y)) ∧
+                                    (0 < q 1 →
+                                        0 < q 2 →
+                                          q 3 ∈ Set.Icc 0 1 →
+                                            StrictConvexInOrder (nestedBoundaryHullOrder tau omega)
+                                              (liftRelative (nestedChartPoints (q 1) (q 2) (q 3) (branch q)))) ∧
+                                      (0 < q 0 →
+                                          0 < q 1 →
+                                            0 < q 2 →
+                                              q 3 ∈ Set.Icc 0 1 →
+                                                PositiveRatio (nestedChartMass (q 1) (q 2) (q 3)) →
+                                                  StrictConvexCentralConfiguration
+                                                      (masses (q 0) (nestedChartMass (q 1) (q 2) (q 3)))
+                                                      (nestedBoundaryHullOrder tau omega)
+                                                      (nestedChartConfiguration q (branch q)) ∧
+                                                    NondegenerateCentralConfiguration
+                                                      (masses (q 0) (nestedChartMass (q 1) (q 2) (q 3)))
+                                                      (nestedChartConfiguration q (branch q))) ∧
+                                        (q 0 = 0 →
+                                          0 < q 1 →
+                                            0 < q 2 →
+                                              PositiveRatio (nestedChartMass (q 1) (q 2) (q 3)) →
+                                                (∀ (i : Satellite),
+                                                    nestedChartRadii (q 1) (q 2) (q 3) (branch q) i = 1) ∧
+                                                  branch q 2 = 0 ∧
+                                                    branch q 3 = 0 ∧
+                                                      RelativeCollisionFree
+                                                          (nestedChartPoints (q 1) (q 2) (q 3) (branch q)) ∧
+                                                        SeparatedSemicircle
+                                                            (nestedChartAngles (q 1) (q 2) (q 3) (branch q)) ∧
+                                                          ∀ (i : Satellite),
+                                                            coorbitalResidual (nestedChartMass (q 1) (q 2) (q 3))
+                                                                (nestedChartAngles (q 1) (q 2) (q 3) (branch q)) i =
+                                                              0)
+DominantFiveBody.tripleChart_convex_physical_continuation (alpha z : TripleVector) (ha : TripleWeights alpha)
+  (hz : TripleOrdered z) (hscalar : ∀ (i : TripleLabel), tripleScalarResidual alpha z i = 0) (tau : ℝ)
+  (htau : tau = 1 ∨ tau = -1) (bound : ℝ) (hbound : 0 < bound) :
+  ∃ eta r C,
+    0 < eta ∧
+      0 < r ∧
+        0 < C ∧
+          r ≤ bound ∧
+            eta ≤ r ∧
+              ∃ branch,
+                branch (tripleBoundaryParameter alpha) =
+                    tripleUnitPoint (tau * Coorbital.h) (tripleGapMatrix.mulVec z) ∧
+                  ContDiffOn ℝ (↑⊤) branch (Metric.ball (tripleBoundaryParameter alpha) eta) ∧
+                    ∀ (q : TripleChartParameters),
+                      dist q (tripleBoundaryParameter alpha) < eta →
+                        dist (branch q) (tripleUnitPoint (tau * Coorbital.h) (tripleGapMatrix.mulVec z)) < r / 2 ∧
+                          TripleChartRegular (q 0) (q 1) (tripleJointAlpha q) (branch q) ∧
+                            (q, branch q) ∈ triplePhysicalRegularSet ∧
+                              (tripleChartJacobian (q 0) (q 1) (tripleJointAlpha q) (branch q)).IsInvertible ∧
+                                ‖(tripleChartJacobian (q 0) (q 1) (tripleJointAlpha q) (branch q)).inverse‖ ≤ C ∧
+                                  tripleChartParameterRows q (branch q) = 0 ∧
+                                    (∀ (y : TripleChartVariables),
+                                        dist y (tripleUnitPoint (tau * Coorbital.h) (tripleGapMatrix.mulVec z)) < r →
+                                          (tripleChartParameterRows q y = 0 ↔ branch q = y)) ∧
+                                      (0 < q 1 →
+                                          ∑ i, tripleJointAlpha q i = 1 →
+                                            StrictConvexInOrder (tripleBoundaryHullOrder tau)
+                                              (liftRelative
+                                                (tripleChartPoints (q 1) (tripleJointAlpha q) (branch q)))) ∧
+                                        (0 < q 0 →
+                                            0 < q 1 →
+                                              ∑ i, tripleJointAlpha q i = 1 →
+                                                PositiveRatio (tripleChartMass (q 1) (tripleJointAlpha q)) →
+                                                  StrictConvexCentralConfiguration
+                                                      (masses (q 0) (tripleChartMass (q 1) (tripleJointAlpha q)))
+                                                      (tripleBoundaryHullOrder tau)
+                                                      (tripleChartConfiguration q (branch q)) ∧
+                                                    NondegenerateCentralConfiguration
+                                                      (masses (q 0) (tripleChartMass (q 1) (tripleJointAlpha q)))
+                                                      (tripleChartConfiguration q (branch q))) ∧
+                                          (q 0 = 0 →
+                                            0 < q 1 →
+                                              ∑ i, tripleJointAlpha q i = 1 →
+                                                PositiveRatio (tripleChartMass (q 1) (tripleJointAlpha q)) →
+                                                  (∀ (i : Satellite),
+                                                      tripleChartRadii (q 1) (tripleJointAlpha q) (branch q) i = 1) ∧
+                                                    RelativeCollisionFree
+                                                        (tripleChartPoints (q 1) (tripleJointAlpha q) (branch q)) ∧
+                                                      SeparatedSemicircle
+                                                          (tripleChartAngles (q 1) (tripleJointAlpha q) (branch q)) ∧
+                                                        ∀ (i : Satellite),
+                                                          coorbitalResidual (tripleChartMass (q 1) (tripleJointAlpha q))
+                                                              (tripleChartAngles (q 1) (tripleJointAlpha q) (branch q))
+                                                              i =
+                                                            0)
+DominantFiveBody.pairChart_regular_root_physical (q : PairChartParameters) (keepD : Bool) (y : PairChartVariables)
+  (sigma : HullOrder) (heps : 0 < q 0) (ht : 0 < q 1) (hm : PositiveRatio (pairChartMass (q 1) (q 2) (q 3)))
+  (hreg : PairChartRegular (q 0) (q 1) (q 3) y) (hsafe : (q, y) ∈ pairPhysicalSafeSet sigma)
+  (hroot : pairChartParameterRows keepD q y = 0)
+  (hJ : (pairChartJacobian (q 0) (q 1) (q 2) (q 3) keepD y).IsInvertible) :
+  StrictConvexCentralConfiguration (masses (q 0) (pairChartMass (q 1) (q 2) (q 3))) sigma (pairChartConfiguration q y) ∧
+    NondegenerateCentralConfiguration (masses (q 0) (pairChartMass (q 1) (q 2) (q 3))) (pairChartConfiguration q y)
+DominantFiveBody.tripleChart_regular_root_physical (q : TripleChartParameters) (y : TripleChartVariables)
+  (heps : 0 < q 0) (ht : 0 < q 1) (ha : ∑ i, tripleJointAlpha q i = 1)
+  (hm : PositiveRatio (tripleChartMass (q 1) (tripleJointAlpha q)))
+  (hreg : TripleChartRegular (q 0) (q 1) (tripleJointAlpha q) y)
+  (hr : ∀ (i : Satellite), 0 < tripleChartRadii (q 1) (tripleJointAlpha q) y i)
+  (hroot : tripleChartParameterRows q y = 0)
+  (hJ : (tripleChartJacobian (q 0) (q 1) (tripleJointAlpha q) y).IsInvertible) :
+  NormalizedCentralConfiguration (masses (q 0) (tripleChartMass (q 1) (tripleJointAlpha q)))
+      (tripleChartConfiguration q y) ∧
+    NondegenerateCentralConfiguration (masses (q 0) (tripleChartMass (q 1) (tripleJointAlpha q)))
+      (tripleChartConfiguration q y)
+DominantFiveBody.nestedContinuationRoot_fixed_mass_endpoint (t eta alpha : ℝ) (y : NestedChartVariables) (ht : 0 < t)
+  (he : 0 < eta) (hm : PositiveRatio (nestedChartMass t eta alpha))
+  (hdomain : NestedContinuationDomain (![0, t, eta, alpha], y)) (hroot : nestedChartExtendedRows 0 t eta alpha y = 0) :
+  (∀ (i : Satellite), nestedChartRadii t eta alpha y i = 1) ∧
+    y 2 = 0 ∧
+      y 3 = 0 ∧
+        RelativeCollisionFree (nestedChartPoints t eta alpha y) ∧
+          SeparatedSemicircle (nestedChartAngles t eta alpha y) ∧
+            ∀ (i : Satellite), coorbitalResidual (nestedChartMass t eta alpha) (nestedChartAngles t eta alpha y) i = 0
+DominantFiveBody.reducedResidual_fixed_mass_zero_endpoint (μ : MassRatio) (y : SliceCoordinates) (hμ₀ : μ 0 ≠ 0)
+  (hreg : SliceRegular (0, μ) y) (hsep : SeparatedSemicircle (sliceAngles y)) (hroot : reducedResidual (0, μ) y = 0) :
+  (∀ (i : Satellite), sliceRadii y i = 1) ∧
+    RelativeCollisionFree (sliceSatellites y) ∧ ∀ (i : Satellite), coorbitalResidual μ (sliceAngles y) i = 0
+'DominantFiveBody.normalized_of_vectorResidual_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_centeredFromRelative_iff_vectorRoot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.relativeAction_eq_augmentedPotential_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.inertia_centeredFromRelative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeActionVectorGradient_eq_CF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeMassMatrix_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeAction_critical_iff_vectorRoot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.polarAction_fderiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.weighted_angularResidual_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.angularResidual_omitted_row' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.vectorResidual_tangential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tangentialResidual_zero_of_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeField_eq_scaledAverage_of_vectorRoot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.sectionThree_solution_field_and_tangential_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.fixedAngleDeletedJacobian_isInvertible_iff_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.coordinate_row_transform_fderiv_at_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coordinate_row_transform_isInvertible_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.physicalHessian_radial_of_normalizedCC' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeCenteredEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.rotationSliceHessian_nondegenerate_iff_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.finrank_shapeSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.CompactImplicit.compact_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbital_compact_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.reducedJacobian_zero_radial_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.sinc_contDiff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Real.sinc_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_ordered_polar_limit_geometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_ordered_collision_classes_exhaustive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.collision_free_triple_scale_subsequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.triple_minimum_pair_subsequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_smooth_connection_explicit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbitalBaseSlice_actual_data' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.strictConvexCC_existsUnique_normalized_gauged' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.orderedSliceRoot_of_normalized_gauged' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSliceRoot_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_fixedParameterLocalExistence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_localContinuationUniqueness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.uniform_existence_of_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.uniform_uniqueness_of_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.uniform_nondegeneracy_of_connection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.main_of_chart_facts' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.main_of_orderedSlice_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_uniqueness_to_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.orderedSlice_nondegeneracy_to_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.main_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_noCollision_actual_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_actual_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_lower_triple_regular_actual_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_lower_triple_nested_original_capture' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.nestedChart_convex_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_convex_physical_continuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.pairChart_regular_root_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleChart_regular_root_physical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedContinuationRoot_fixed_mass_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.reducedResidual_fixed_mass_zero_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]

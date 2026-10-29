@@ -1,0 +1,328 @@
+[{"lean_value": "Real.pi / (3 : ℝ)",
+  "lean_statement": "ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.h",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) => ((2 : ℝ) - Real.sin (t / (2 : ℝ)) ^ (2 : ℕ)) / ((8 : ℝ) * Real.sin (t / (2 : ℝ)) ^ (3 : ℕ)) + Real.cos t",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.kappa",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) =>\n  -Real.cos (t / (2 : ℝ)) / ((16 : ℝ) * Real.sin (t / (2 : ℝ)) ^ (4 : ℕ)) *\n    ((6 : ℝ) - Real.sin (t / (2 : ℝ)) ^ (2 : ℕ) + (32 : ℝ) * Real.sin (t / (2 : ℝ)) ^ (5 : ℕ))",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.kappaPrime",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) => Real.sin t * (((2 : ℝ) * Real.sin (t / (2 : ℝ)))⁻¹ ^ (3 : ℕ) - (1 : ℝ))",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.kernelF",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) => ((2 : ℝ) * Real.sin (t / (2 : ℝ)))⁻¹ + (1 : ℝ) - Real.cos t",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.pairPotential",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) => DominantFiveBody.Coorbital.kappa t - DominantFiveBody.Coorbital.slopeCoefficient t",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.positiveRemainder",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) =>\n  if t < DominantFiveBody.Coorbital.h then DominantFiveBody.Coorbital.kernelF t / (DominantFiveBody.Coorbital.h - t)\n  else if t = DominantFiveBody.Coorbital.h then (0 : ℝ) else DominantFiveBody.Coorbital.kernelF t / (Real.pi - t)",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.Coorbital.slopeCoefficient",
+  "kind": "definition"},
+ {"lean_statement": "Type",
+  "lean_declaration": "DominantFiveBody.HullOrder",
+  "kind": "inductive",
+  "constructors":
+  [{"lean_statement":
+    "(labels : Equiv.Perm DominantFiveBody.Label) →\n  (labels : DominantFiveBody.Label → DominantFiveBody.Label) (0 : DominantFiveBody.Label) =\n      (0 : DominantFiveBody.Label) →\n    DominantFiveBody.HullOrder",
+    "lean_declaration": "DominantFiveBody.HullOrder.mk"}]},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) =>\n  DominantFiveBody.CollisionFree x ∧\n    DominantFiveBody.weightedPosition m x = (0 : DominantFiveBody.Plane) ∧\n      ∀ (i : DominantFiveBody.Label), DominantFiveBody.acceleration m x i = -x i",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → Prop",
+  "lean_declaration": "DominantFiveBody.NormalizedCentralConfiguration",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (x y : DominantFiveBody.Configuration) =>\n  ∃ (b : DominantFiveBody.Plane) (a : ℝ) (R : DominantFiveBody.Plane ≃ₗᵢ[ℝ] DominantFiveBody.Plane),\n    (0 : ℝ) < a ∧\n      (LinearMap.det : (DominantFiveBody.Plane →ₗ[ℝ] DominantFiveBody.Plane) → ℝ)\n            (↑R.toLinearEquiv : DominantFiveBody.Plane →ₗ[ℝ] DominantFiveBody.Plane) =\n          (1 : ℝ) ∧\n        ∀ (i : DominantFiveBody.Label), y i = b + a • (R : DominantFiveBody.Plane → DominantFiveBody.Plane) (x i)",
+  "lean_statement":
+  "DominantFiveBody.Configuration → DominantFiveBody.Configuration → Prop",
+  "lean_declaration": "DominantFiveBody.OrientedSimilar",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (μ : DominantFiveBody.MassRatio) =>\n  (∀ (i : DominantFiveBody.Satellite), (0 : ℝ) < μ i) ∧ ∑ i : DominantFiveBody.Satellite, μ i = (1 : ℝ)",
+  "lean_statement": "DominantFiveBody.MassRatio → Prop",
+  "lean_declaration": "DominantFiveBody.PositiveRatio",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) (i : DominantFiveBody.Label) =>\n  ∑ j ∈ Finset.univ.erase i, (m j / DominantFiveBody.pairDistance x i j ^ (3 : ℕ)) • (x j - x i)",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → DominantFiveBody.Label → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.acceleration",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass theta : DominantFiveBody.Satellite → ℝ) (i j : DominantFiveBody.Satellite) =>\n  if i = j then ∑ k ∈ Finset.univ.erase i, mass k * DominantFiveBody.Coorbital.kappa |theta k - theta i|\n  else -mass j * DominantFiveBody.Coorbital.kappa |theta j - theta i|",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) →\n  (DominantFiveBody.Satellite → ℝ) → Matrix DominantFiveBody.Satellite DominantFiveBody.Satellite ℝ",
+  "lean_declaration": "DominantFiveBody.angularJacobian",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (ε : ℝ) (μ r θ : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n  ∑ j ∈ Finset.univ.erase i,\n    μ j * r i * r j * Real.sin (θ j - θ i) *\n      ((DominantFiveBody.satelliteDistance (DominantFiveBody.polarSatellites r θ) i j ^ (3 : ℕ))⁻¹ - ((1 : ℝ) + ε)⁻¹)",
+  "lean_statement":
+  "ℝ →\n  (DominantFiveBody.Satellite → ℝ) →\n    (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.angularResidual",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (lam : ℝ) (x : DominantFiveBody.Configuration) =>\n  DominantFiveBody.potential m x + lam / (2 : ℝ) * DominantFiveBody.inertia m x",
+  "lean_statement":
+  "DominantFiveBody.MassVector → ℝ → DominantFiveBody.Configuration → ℝ",
+  "lean_declaration": "DominantFiveBody.augmentedPotential",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (radius : ℝ) (first second : ℝ → DominantFiveBody.SliceCoordinates) =>\n  {s : ℝ | s ∈ Set.Ico (0 : ℝ) radius ∧ first s = second s}",
+  "lean_statement":
+  "ℝ → (ℝ → DominantFiveBody.SliceCoordinates) → (ℝ → DominantFiveBody.SliceCoordinates) → Set ℝ",
+  "lean_declaration": "DominantFiveBody.branchEqualitySet",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (ε : ℝ) (μ : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration)\n    (i : DominantFiveBody.Label) =>\n  DominantFiveBody.liftRelative q i - (ε / ((1 : ℝ) + ε)) • DominantFiveBody.relativeAverage μ q",
+  "lean_statement":
+  "ℝ → DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Configuration",
+  "lean_declaration": "DominantFiveBody.centeredFromRelative",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) => (DominantFiveBody.weightedPositionLinear m).ker",
+  "lean_statement":
+  "DominantFiveBody.MassVector → Submodule ℝ DominantFiveBody.Configuration",
+  "lean_declaration": "DominantFiveBody.centeredVariationSpace",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (θ : DominantFiveBody.Satellite → ℝ) (i j : DominantFiveBody.Satellite) =>\n  ‖DominantFiveBody.point (Real.cos (θ i)) (Real.sin (θ i)) - DominantFiveBody.point (Real.cos (θ j)) (Real.sin (θ j))‖",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalDistance",
+  "kind": "definition"},
+ {"lean_value":
+  "ContinuousLinearMap.pi fun (i : DominantFiveBody.Satellite) =>\n  Fin.cases (0 : (Fin (3 : ℕ) → ℝ) →L[ℝ] ℝ) (fun (j : Fin (3 : ℕ)) => ContinuousLinearMap.proj j) i",
+  "lean_statement": "(Fin (3 : ℕ) → ℝ) →L[ℝ] DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalFirstAngleInsertion",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass theta : DominantFiveBody.Satellite → ℝ) (i j : DominantFiveBody.Satellite) =>\n  if i < j then mass i * mass j * DominantFiveBody.Coorbital.kappa (theta j - theta i)\n  else if j < i then mass j * mass i * DominantFiveBody.Coorbital.kappa (theta i - theta j) else (0 : ℝ)",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) →\n  (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalHessianCoefficient",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass theta : DominantFiveBody.Satellite → ℝ) (i j : DominantFiveBody.Satellite) =>\n  DominantFiveBody.coorbitalPhysicalHessian mass theta (Pi.single i (1 : ℝ)) (Pi.single j (1 : ℝ))",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) →\n  (DominantFiveBody.Satellite → ℝ) → Matrix DominantFiveBody.Satellite DominantFiveBody.Satellite ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalHessianMatrix",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (t : ℝ) => if (0 : ℝ) ≤ t then DominantFiveBody.Coorbital.kernelF t else -DominantFiveBody.Coorbital.kernelF (-t)",
+  "lean_statement": "ℝ → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalKernel",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (θ : DominantFiveBody.Satellite → ℝ) (i j : DominantFiveBody.Satellite) =>\n  if i = j then (0 : ℝ) else DominantFiveBody.coorbitalKernel (θ j - θ i)",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → Matrix DominantFiveBody.Satellite DominantFiveBody.Satellite ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalMatrix",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (μ θ : DominantFiveBody.Satellite → ℝ) =>\n  ∑ p ∈ DominantFiveBody.satellitePairs,\n    μ p.1 * μ p.2 *\n      ((DominantFiveBody.coorbitalDistance θ p.1 p.2)⁻¹ +\n        DominantFiveBody.coorbitalDistance θ p.1 p.2 ^ (2 : ℕ) / (2 : ℝ))",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalPotential",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (μ θ : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n  ∑ j ∈ Finset.univ.erase i, μ j * DominantFiveBody.coorbitalKernel (θ j - θ i)",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalResidual",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass : DominantFiveBody.Satellite → ℝ) (z : Fin (3 : ℕ) → ℝ) =>\n  ((ContinuousLinearMap.compL ℝ (Fin (3 : ℕ) → ℝ) (DominantFiveBody.Satellite → ℝ) ℝ).flip :\n        ((Fin (3 : ℕ) → ℝ) →L[ℝ] DominantFiveBody.Satellite → ℝ) →\n          ((DominantFiveBody.Satellite → ℝ) →L[ℝ] ℝ) →L[ℝ] (Fin (3 : ℕ) → ℝ) →L[ℝ] ℝ)\n      DominantFiveBody.coorbitalFirstAngleInsertion ∘SL\n    DominantFiveBody.angularHessianMap mass\n        ((DominantFiveBody.coorbitalFirstAngleInsertion : (Fin (3 : ℕ) → ℝ) → DominantFiveBody.Satellite → ℝ) z) ∘SL\n      DominantFiveBody.coorbitalFirstAngleInsertion",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → (Fin (3 : ℕ) → ℝ) → (Fin (3 : ℕ) → ℝ) →L[ℝ] (Fin (3 : ℕ) → ℝ) →L[ℝ] ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalSliceHessianMap",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass : DominantFiveBody.Satellite → ℝ) (z : Fin (3 : ℕ) → ℝ) (i j : Fin (3 : ℕ)) =>\n  ((fderiv ℝ (fderiv ℝ (DominantFiveBody.coorbitalSlicePotential mass)) z :\n          (Fin (3 : ℕ) → ℝ) → (Fin (3 : ℕ) → ℝ) →L[ℝ] ℝ)\n        (Pi.single i (1 : ℝ)) :\n      (Fin (3 : ℕ) → ℝ) → ℝ)\n    (Pi.single j (1 : ℝ))",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → (Fin (3 : ℕ) → ℝ) → Matrix (Fin (3 : ℕ)) (Fin (3 : ℕ)) ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalSliceHessianMatrix",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass : DominantFiveBody.Satellite → ℝ) (z : Fin (3 : ℕ) → ℝ) =>\n  DominantFiveBody.coorbitalPotential mass\n    ((DominantFiveBody.coorbitalFirstAngleInsertion : (Fin (3 : ℕ) → ℝ) → DominantFiveBody.Satellite → ℝ) z)",
+  "lean_statement": "(DominantFiveBody.Satellite → ℝ) → (Fin (3 : ℕ) → ℝ) → ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalSlicePotential",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mass : DominantFiveBody.Satellite → ℝ) (z : Fin (3 : ℕ) → ℝ) =>\n  DominantFiveBody.angularPotentialDerivative mass\n      ((DominantFiveBody.coorbitalFirstAngleInsertion : (Fin (3 : ℕ) → ℝ) → DominantFiveBody.Satellite → ℝ) z) ∘SL\n    DominantFiveBody.coorbitalFirstAngleInsertion",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → (Fin (3 : ℕ) → ℝ) → (Fin (3 : ℕ) → ℝ) →L[ℝ] ℝ",
+  "lean_declaration": "DominantFiveBody.coorbitalSlicePotentialDerivative",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) =>\n  ∑ i : DominantFiveBody.Label, m i * ‖x i‖ ^ (2 : ℕ)",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ",
+  "lean_declaration": "DominantFiveBody.inertia",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) =>\n  DominantFiveBody.centeredVariationSpace m ⊓ (DominantFiveBody.massInnerRight m x).ker",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → Submodule ℝ DominantFiveBody.Configuration",
+  "lean_declaration": "DominantFiveBody.inertiaTangentSpace",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (q : DominantFiveBody.SatelliteConfiguration) (i : Fin ((4 : ℕ) + (1 : ℕ))) =>\n  Fin.cases (0 : DominantFiveBody.Plane) q i",
+  "lean_statement":
+  "DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Configuration",
+  "lean_declaration": "DominantFiveBody.liftRelative",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (ε : ℝ) (μ : DominantFiveBody.MassRatio) (i : Fin ((4 : ℕ) + (1 : ℕ))) =>\n  Fin.cases (1 : ℝ) (fun (i : Fin (4 : ℕ)) => ε * μ i) i",
+  "lean_statement":
+  "ℝ → DominantFiveBody.MassRatio → DominantFiveBody.MassVector",
+  "lean_declaration": "DominantFiveBody.masses",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (sigma : DominantFiveBody.HullOrder) (r theta : DominantFiveBody.Satellite → ℝ) =>\n  have e := DominantFiveBody.hullSatellitePermutation sigma;\n  DominantFiveBody.polarSlice (r ∘ (⇑e : DominantFiveBody.Satellite → DominantFiveBody.Satellite))\n    fun (i : DominantFiveBody.Satellite) =>\n    theta ((e : DominantFiveBody.Satellite → DominantFiveBody.Satellite) i) -\n      theta ((e : DominantFiveBody.Satellite → DominantFiveBody.Satellite) (0 : DominantFiveBody.Satellite))",
+  "lean_statement":
+  "DominantFiveBody.HullOrder →\n  (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.SliceCoordinates",
+  "lean_declaration": "DominantFiveBody.orderedPolarSlice",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (mu : DominantFiveBody.PositiveMassRatio) (eps : ℝ) (y : DominantFiveBody.SliceCoordinates) =>\n  DominantFiveBody.SliceRegular (eps, (↑mu : DominantFiveBody.MassRatio)) y ∧\n    DominantFiveBody.OrderedSemicircle (DominantFiveBody.sliceAngles y) ∧\n      DominantFiveBody.StrictConvexInOrder DominantFiveBody.standardHullOrder\n          (DominantFiveBody.slicePhysicalConfiguration (eps, (↑mu : DominantFiveBody.MassRatio)) y) ∧\n        DominantFiveBody.reducedResidual (eps, (↑mu : DominantFiveBody.MassRatio)) y =\n          (0 : DominantFiveBody.SliceCoordinates)",
+  "lean_statement":
+  "DominantFiveBody.PositiveMassRatio → ℝ → DominantFiveBody.SliceCoordinates → Prop",
+  "lean_declaration": "DominantFiveBody.orderedSliceRoot",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (x : DominantFiveBody.Configuration) (i j : DominantFiveBody.Label) => ‖x i - x j‖",
+  "lean_statement":
+  "DominantFiveBody.Configuration → DominantFiveBody.Label → DominantFiveBody.Label → ℝ",
+  "lean_declaration": "DominantFiveBody.pairDistance",
+  "kind": "definition"},
+ {"lean_value":
+  "{p : DominantFiveBody.Label × DominantFiveBody.Label | p.1 < p.2}",
+  "lean_statement": "Finset (DominantFiveBody.Label × DominantFiveBody.Label)",
+  "lean_declaration": "DominantFiveBody.pairs",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (r θ : ℝ) => DominantFiveBody.point (r * Real.cos θ) (r * Real.sin θ)",
+  "lean_statement": "ℝ → ℝ → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.polarPoint",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (r θ : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) => DominantFiveBody.polarPoint (r i) (θ i)",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.SatelliteConfiguration",
+  "lean_declaration": "DominantFiveBody.polarSatellites",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) =>\n  ∑ p ∈ DominantFiveBody.pairs, m p.1 * m p.2 / DominantFiveBody.pairDistance x p.1 p.2",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → ℝ",
+  "lean_declaration": "DominantFiveBody.potential",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (v : DominantFiveBody.Plane) => DominantFiveBody.point (-v.ofLp (1 : Fin (2 : ℕ))) (v.ofLp (0 : Fin (2 : ℕ)))",
+  "lean_statement": "DominantFiveBody.Plane → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.quarterTurn",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (ε : ℝ) (μ r θ : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n  r i - (r i ^ (2 : ℕ))⁻¹ -\n      ε *\n        ∑ j ∈ Finset.univ.erase i,\n          μ j * (r i - r j * Real.cos (θ j - θ i)) /\n            DominantFiveBody.satelliteDistance (DominantFiveBody.polarSatellites r θ) i j ^ (3 : ℕ) -\n    ε / ((1 : ℝ) + ε) *\n      Inner.inner ℝ (DominantFiveBody.relativeAverage μ (DominantFiveBody.polarSatellites r θ))\n        (DominantFiveBody.polarPoint (1 : ℝ) (θ i))",
+  "lean_statement":
+  "ℝ →\n  (DominantFiveBody.Satellite → ℝ) →\n    (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.radialResidual",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (eps : ℝ) (mu : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration) =>\n  ∑ i : DominantFiveBody.Satellite, mu i * (‖q i‖⁻¹ + ‖q i‖ ^ (2 : ℕ) / (2 : ℝ)) +\n      eps * DominantFiveBody.relativePairPotential mu q -\n    eps / ((1 : ℝ) + eps) / (2 : ℝ) * ‖DominantFiveBody.relativeAverage mu q‖ ^ (2 : ℕ)",
+  "lean_statement":
+  "ℝ → DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → ℝ",
+  "lean_declaration": "DominantFiveBody.relativeAction",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (μ : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration) =>\n  ∑ i : DominantFiveBody.Satellite, μ i • q i",
+  "lean_statement":
+  "DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.relativeAverage",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (μ : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration) =>\n  ∑ i : DominantFiveBody.Satellite, (μ i / ‖q i‖ ^ (3 : ℕ)) • q i",
+  "lean_statement":
+  "DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.relativeField",
+  "kind": "definition"},
+ {"lean_value":
+  "{p : DominantFiveBody.Satellite × DominantFiveBody.Satellite | p.1 < p.2}",
+  "lean_statement":
+  "Finset (DominantFiveBody.Satellite × DominantFiveBody.Satellite)",
+  "lean_declaration": "DominantFiveBody.satellitePairs",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (x : DominantFiveBody.Configuration) (i : DominantFiveBody.Satellite) =>\n  DominantFiveBody.primaryRelative x (Fin.succ i)",
+  "lean_statement":
+  "DominantFiveBody.Configuration → DominantFiveBody.SatelliteConfiguration",
+  "lean_declaration": "DominantFiveBody.satellitesRelative",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) =>\n  (DominantFiveBody.weightedPositionLinear m).ker ⊓\n    ((DominantFiveBody.massInnerRight m (DominantFiveBody.centered m x)).ker ⊓\n      (DominantFiveBody.massInnerRight m (DominantFiveBody.rotationDirection (DominantFiveBody.centered m x))).ker)",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → Submodule ℝ DominantFiveBody.Configuration",
+  "lean_declaration": "DominantFiveBody.shapeSpace",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (y : DominantFiveBody.SliceCoordinates) (i : Fin ((3 : ℕ) + (1 : ℕ))) =>\n  Fin.cases (0 : ℝ) (fun (i : Fin (3 : ℕ)) => y (Fin.natAdd (4 : ℕ) i)) i",
+  "lean_statement":
+  "DominantFiveBody.SliceCoordinates → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.sliceAngles",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (p : DominantFiveBody.ContinuationParameter) (y : DominantFiveBody.SliceCoordinates) =>\n  (DominantFiveBody.relativeCenteredContinuous p.1 p.2 :\n      DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Configuration)\n    (DominantFiveBody.sliceSatellites y)",
+  "lean_statement":
+  "DominantFiveBody.ContinuationParameter → DominantFiveBody.SliceCoordinates → DominantFiveBody.Configuration",
+  "lean_declaration": "DominantFiveBody.slicePhysicalConfiguration",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (y : DominantFiveBody.SliceCoordinates) (i : DominantFiveBody.Satellite) => y (Fin.castAdd (3 : ℕ) i)",
+  "lean_statement":
+  "DominantFiveBody.SliceCoordinates → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.sliceRadii",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (μ r θ : DominantFiveBody.Satellite → ℝ) (i : DominantFiveBody.Satellite) =>\n  ∑ j ∈ Finset.univ.erase i,\n    μ j * r j * Real.sin (θ j - θ i) *\n      ((DominantFiveBody.satelliteDistance (DominantFiveBody.polarSatellites r θ) i j ^ (3 : ℕ))⁻¹ - (r j ^ (3 : ℕ))⁻¹)",
+  "lean_statement":
+  "(DominantFiveBody.Satellite → ℝ) →\n  (DominantFiveBody.Satellite → ℝ) → (DominantFiveBody.Satellite → ℝ) → DominantFiveBody.Satellite → ℝ",
+  "lean_declaration": "DominantFiveBody.tangentialResidual",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (eps : ℝ) (mu : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration)\n    (i : DominantFiveBody.Satellite) =>\n  DominantFiveBody.vectorResidual eps mu q i + eps • DominantFiveBody.v1FieldDefect eps mu q",
+  "lean_statement":
+  "ℝ →\n  DominantFiveBody.MassRatio →\n    DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Satellite → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.v1CorrectedVectorResidual",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (eps : ℝ) (mu : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration) =>\n  DominantFiveBody.relativeField mu q - ((1 : ℝ) + eps)⁻¹ • DominantFiveBody.relativeAverage mu q",
+  "lean_statement":
+  "ℝ → DominantFiveBody.MassRatio → DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.v1FieldDefect",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (ε : ℝ) (μ : DominantFiveBody.MassRatio) (q : DominantFiveBody.SatelliteConfiguration)\n    (i : DominantFiveBody.Satellite) =>\n  q i - (‖q i‖ ^ (3 : ℕ))⁻¹ • q i +\n      ε • ∑ j ∈ Finset.univ.erase i, (μ j / DominantFiveBody.satelliteDistance q i j ^ (3 : ℕ)) • (q j - q i) -\n    ε • DominantFiveBody.relativeField μ q",
+  "lean_statement":
+  "ℝ →\n  DominantFiveBody.MassRatio →\n    DominantFiveBody.SatelliteConfiguration → DominantFiveBody.Satellite → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.vectorResidual",
+  "kind": "definition"},
+ {"lean_value":
+  "fun (m : DominantFiveBody.MassVector) (x : DominantFiveBody.Configuration) => ∑ i : DominantFiveBody.Label, m i • x i",
+  "lean_statement":
+  "DominantFiveBody.MassVector → DominantFiveBody.Configuration → DominantFiveBody.Plane",
+  "lean_declaration": "DominantFiveBody.weightedPosition",
+  "kind": "definition"}]

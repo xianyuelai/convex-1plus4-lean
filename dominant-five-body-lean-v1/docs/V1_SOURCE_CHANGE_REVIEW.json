@@ -1,0 +1,510 @@
+{
+  "version": "v1",
+  "old_tex_sha256": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+  "new_tex_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+  "changes": [
+    {
+      "number": 1,
+      "operation": "replace",
+      "old_lines": [
+        7,
+        7
+      ],
+      "new_lines": [
+        7,
+        7
+      ],
+      "old_text": "\\usepackage[a4paper,margin=28mm]{geometry}",
+      "new_text": "\\usepackage[a4paper,margin=27mm]{geometry}",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 2,
+      "operation": "delete",
+      "old_lines": [
+        37,
+        38
+      ],
+      "new_lines": [
+        37,
+        36
+      ],
+      "old_text": "% Insert the author's competing-interest statement when supplied.\n\\newcommand{\\interests}{}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 3,
+      "operation": "delete",
+      "old_lines": [
+        53,
+        56
+      ],
+      "new_lines": [
+        51,
+        50
+      ],
+      "old_text": "\\begingroup\n\\renewcommand{\\thefootnote}{}\n\\footnotetext[0]{This work is supported by Nankai Zhide Foundation.}\n\\endgroup",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 4,
+      "operation": "replace",
+      "old_lines": [
+        97,
+        99
+      ],
+      "new_lines": [
+        91,
+        96
+      ],
+      "old_text": " E_i=\\sum_{j\\ne i}\\mu_jf(\\theta_j-\\theta_i)=0,\\qquad\n V=\\sum_{i<j}\\mu_i\\mu_j\n \\left(\\frac1{r_{ij}(\\theta)}+\\frac{r_{ij}(\\theta)^2}{2}\\right).",
+      "new_text": " \\begin{aligned}\n E_i&=\\sum_{j\\ne i}\\mu_jf(\\theta_j-\\theta_i)=0,\\\\\n V&=\\sum_{i<j}\\mu_i\\mu_j\n \\left(\\frac1{r_{ij}(\\theta)}+\\frac{r_{ij}(\\theta)^2}{2}\\right)\\\\\n &=\\sum_{i<j}\\mu_i\\mu_jv(\\theta_j-\\theta_i).\n \\end{aligned}",
+      "classification": "equivalent_potential_formula",
+      "reviewed_assertion_ids": [
+        "eq:co-equations"
+      ],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 5,
+      "operation": "replace",
+      "old_lines": [
+        114,
+        114
+      ],
+      "new_lines": [
+        111,
+        128
+      ],
+      "old_text": "\\subsection{An angular Hessian estimate}",
+      "new_text": "\\[\n H=\\left(\\frac{\\partial^2V}{\\partial\\theta_i\\,\\partial\\theta_j}\\right)_{i,j=1}^4,\n \\qquad c_{ij}=c_{ji}=\\mu_i\\mu_j\\kappa(t_{ij})\\quad(i<j).\n\\]\n\\[\n H_{ii}=\\sum_{j\\ne i}c_{ij},\\qquad H_{ij}=-c_{ij}\\quad(i\\ne j).\n\\]\nConsequently, for every $u\\in\\R^4$,\n\\[\n \\begin{aligned}\n u^THu\n &=\\sum_{i<j}c_{ij}(u_i^2+u_j^2-2u_iu_j)\\\\\n &=\\sum_{i<j}\\mu_i\\mu_j\\kappa(t_{ij})(u_j-u_i)^2.\n \\end{aligned}\n\\]\nThe Hessian on the slice $\\theta_1=0$ is obtained by deleting the first\nrow and column of $H$; its quadratic form is the expression above with\n$u_1=0$.",
+      "classification": "physical_hessian_coordinate_and_slice_formulas",
+      "reviewed_assertion_ids": [
+        "v1:hessian.coordinates",
+        "v1:hessian.entries",
+        "v1:hessian.quadratic",
+        "v1:hessian.slice"
+      ],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 6,
+      "operation": "replace",
+      "old_lines": [
+        173,
+        176
+      ],
+      "new_lines": [
+        187,
+        188
+      ],
+      "old_text": "\\subsection{Zero-mass satellites at distinct positions}\n\nThe divided equations $E_i=0$ are retained when $\\mu_i=0$.\nWe first record the two-source probe estimate used below; cf.~\\cite[Lemma~2]{DHW}.",
+      "new_text": "At distinct satellite positions, we retain the divided equations $E_i=0$ when $\\mu_i=0$.\nWe first record the two-source probe estimate used below; cf.~\\cite{DHW}.",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 7,
+      "operation": "delete",
+      "old_lines": [
+        322,
+        322
+      ],
+      "new_lines": [
+        334,
+        333
+      ],
+      "old_text": "\\subsection{Uniform bounds}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 8,
+      "operation": "replace",
+      "old_lines": [
+        360,
+        360
+      ],
+      "new_lines": [
+        371,
+        371
+      ],
+      "old_text": "We shall use",
+      "new_text": "For the remainder of this section, all configurations are strictly convex in the standard directed order. We shall use",
+      "classification": "scope_assumption_explicit_already_in_lean",
+      "reviewed_assertion_ids": [
+        "prop:pair-scale",
+        "prop:triple-scale",
+        "prop:nested-scale"
+      ],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 9,
+      "operation": "delete",
+      "old_lines": [
+        369,
+        369
+      ],
+      "new_lines": [
+        380,
+        379
+      ],
+      "old_text": "\\subsection{A complete pair}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 10,
+      "operation": "delete",
+      "old_lines": [
+        428,
+        428
+      ],
+      "new_lines": [
+        438,
+        437
+      ],
+      "old_text": "\\subsection{A complete triple}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 11,
+      "operation": "delete",
+      "old_lines": [
+        470,
+        470
+      ],
+      "new_lines": [
+        479,
+        478
+      ],
+      "old_text": "\\subsection{A smaller pair inside a triple}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 12,
+      "operation": "replace",
+      "old_lines": [
+        487,
+        487
+      ],
+      "new_lines": [
+        495,
+        496
+      ],
+      "old_text": "The near source contributes $o(1)$ to $H_\\rho$ and $2\\mu_c/d^3+o(1)$ to $H_v$; the exterior contributes $-\\zeta3\\sqrt3/4$ and $D_0$. Thus",
+      "new_text": "The near-source part of $H_\\rho$ is bounded by\n$C(\\mu_c/d^3)(|\\rho-\\rho_c|/d+d)=o(1)$, while its contribution to $H_v$ is $2\\mu_c/d^3+o(1)$. The exterior contributes $-\\zeta3\\sqrt3/4$ and $D_0$, respectively. Thus",
+      "classification": "explicit_near_derivative_bound",
+      "reviewed_assertion_ids": [
+        "prose:487"
+      ],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 13,
+      "operation": "delete",
+      "old_lines": [
+        539,
+        539
+      ],
+      "new_lines": [
+        548,
+        547
+      ],
+      "old_text": "\\subsection{No collision}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 14,
+      "operation": "replace",
+      "old_lines": [
+        546,
+        548
+      ],
+      "new_lines": [
+        554,
+        554
+      ],
+      "old_text": "\\subsection{A complete pair}\n\\label{subsec:pair-chart}\nFix limiting exterior angles $0,h$, exterior mass fraction $p_0$, and pair angle $\\psi_0$ as in Proposition~\\ref{prop:pair-scale}. Let $D>0$ be the probe derivative there and $z_0=D^{-1/3}$. For independent parameters $(\\eps,t,p,\\alpha)$, put $\\beta=1-\\alpha$ and",
+      "new_text": "For a complete pair, fix limiting exterior angles $0,h$, exterior mass fraction $p_0$, and pair angle $\\psi_0$ as in Proposition~\\ref{prop:pair-scale}. Let $D>0$ be the probe derivative there and $z_0=D^{-1/3}$. For independent parameters $(\\eps,t,p,\\alpha)$, put $\\beta=1-\\alpha$ and",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 15,
+      "operation": "replace",
+      "old_lines": [
+        591,
+        593
+      ],
+      "new_lines": [
+        597,
+        597
+      ],
+      "old_text": "\\subsection{A triple with comparable distances}\n\\label{subsec:regular}\nLabel the triple $1,2,3$ in increasing angular order and its exterior $p$. Its limiting angle in the gauge $\\varphi_p=0$ is $\\tau h$, $\\tau=\\pm1$. Consider",
+      "new_text": "For a triple with comparable internal distances, label its members $1,2,3$ in increasing angular order and its exterior $p$. Its limiting angle in the gauge $\\varphi_p=0$ is $\\tau h$, $\\tau=\\pm1$. Consider",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 16,
+      "operation": "replace",
+      "old_lines": [
+        646,
+        648
+      ],
+      "new_lines": [
+        650,
+        650
+      ],
+      "old_text": "\\subsection{A nested triple}\n\\label{subsec:nested}\nLet $a<b$ be the smaller pair, $c$ the third cluster member and $p$ the exterior. Let $\\tau=\\pm1$ specify the cluster side relative to $p$, and $\\omega=\\pm1$ the side of $c$ relative to the pair. Put $\\beta=1-\\alpha$, $\\gamma=\\eta^3$, and",
+      "new_text": "For a triple containing a smaller pair, let $a<b$ denote that pair, $c$ the third cluster member and $p$ the exterior. Let $\\tau=\\pm1$ specify the cluster side relative to $p$, and $\\omega=\\pm1$ the side of $c$ relative to the pair. Put $\\beta=1-\\alpha$, $\\gamma=\\eta^3$, and",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 17,
+      "operation": "replace",
+      "old_lines": [
+        677,
+        678
+      ],
+      "new_lines": [
+        679,
+        679
+      ],
+      "old_text": "\\paragraph{Smoothness in the independent scales.}\nPut $P_a=u_1+\\beta\\eta u_2$, $P_b=u_1-\\alpha\\eta u_2$, $Q_a=z_1+\\beta\\eta z_2$, $Q_b=z_1-\\alpha\\eta z_2$. Then $r_{ab}=t\\eta W$, $r_{ic}=tV_i$ for $i=a,b$, where",
+      "new_text": "To verify joint smoothness in the independent parameters, put $P_a=u_1+\\beta\\eta u_2$, $P_b=u_1-\\alpha\\eta u_2$, $Q_a=z_1+\\beta\\eta z_2$, $Q_b=z_1-\\alpha\\eta z_2$. Then $r_{ab}=t\\eta W$, $r_{ic}=tV_i$ for $i=a,b$, where",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 18,
+      "operation": "delete",
+      "old_lines": [
+        744,
+        744
+      ],
+      "new_lines": [
+        745,
+        744
+      ],
+      "old_text": "\\paragraph{Boundary equations and continuation.}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 19,
+      "operation": "replace",
+      "old_lines": [
+        779,
+        788
+      ],
+      "new_lines": [
+        779,
+        793
+      ],
+      "old_text": "The larger-scale radial estimate gives $u_1\\to0$. The two signed angular differences from the pair to $c$, divided by $d$, tend to $\\omega$, so averaging gives $z_1\\to Z_0$. Also $\\rho_p,R\\to1$ and $\\psi\\to\\tau h$. The variables enter the common root ball without convergence of $\\alpha$. The four possibilities are\n\\[\n\\begin{array}{c|c|c|c}\nE&\\{a,b\\}&p&(\\tau,\\omega)\\\\\\hline\n\\{1,2,3\\}&\\{1,2\\}&4&(-1,+1)\\\\\n\\{1,2,3\\}&\\{2,3\\}&4&(-1,-1)\\\\\n\\{2,3,4\\}&\\{2,3\\}&1&(+1,+1)\\\\\n\\{2,3,4\\}&\\{3,4\\}&1&(+1,-1).\n\\end{array}\n\\]",
+      "new_text": "The larger-scale radial estimate gives $u_1\\to0$. The two signed angular differences from the pair to $c$, divided by $d$, tend to $\\omega$, so averaging gives $z_1\\to Z_0$. Also $\\rho_p,R\\to1$ and $\\psi\\to\\tau h$. The variables enter the common root ball without convergence of $\\alpha$. Table~\\ref{tab:nested} lists the four possibilities.\n\n\\begin{table}[htbp]\n\\centering\n\\caption{Nested triple charts in the standard directed order.}\\label{tab:nested}\n\\begin{tabular}{cccc}\n\\hline\n$E$&$\\{a,b\\}$&$p$&$(\\tau,\\omega)$\\\\\\hline\n$\\{1,2,3\\}$&$\\{1,2\\}$&$4$&$(-1,+1)$\\\\\n$\\{1,2,3\\}$&$\\{2,3\\}$&$4$&$(-1,-1)$\\\\\n$\\{2,3,4\\}$&$\\{2,3\\}$&$1$&$(+1,+1)$\\\\\n$\\{2,3,4\\}$&$\\{3,4\\}$&$1$&$(+1,-1)$\\\\\\hline\n\\end{tabular}\n\\end{table}\n",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 20,
+      "operation": "delete",
+      "old_lines": [
+        795,
+        795
+      ],
+      "new_lines": [
+        800,
+        799
+      ],
+      "old_text": "\\subsection{Collinearity at zero cluster scale}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 21,
+      "operation": "replace",
+      "old_lines": [
+        834,
+        834
+      ],
+      "new_lines": [
+        838,
+        838
+      ],
+      "old_text": "$q_i(t)=q^0+tb_i+O(t^2)$ and $\\mu_i=t^3\\omega_i$ in the Cartesian equations.",
+      "new_text": "$q_i(t)=q^0+tb_i+O(t^2)$ and $\\mu_i=t^3\\omega_i$ in the Cartesian equations, keeping $q_p=ae(0)$ fixed.",
+      "classification": "fixed_exterior_path_already_defined",
+      "reviewed_assertion_ids": [
+        "prose:833"
+      ],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 22,
+      "operation": "replace",
+      "old_lines": [
+        836,
+        836
+      ],
+      "new_lines": [
+        840,
+        845
+      ],
+      "old_text": "The boundary difference rows are its radial projections and $a/\\eps$ times its tangential projections. Basis derivatives contribute nothing because $F(q^0)=0$; the center and exterior rows vanish on the background.",
+      "new_text": "On these paths $Y-c_\\eps X=O(t^3)$, and the exact identities\n\\[\n R_i=[F_i+\\eps(Y-c_\\eps X)]\\cdot e(\\varphi_i),\\qquad\n T_i=\\frac{\\rho_i}{\\eps}[F_i+\\eps(Y-c_\\eps X)]\\cdot e^\\perp(\\varphi_i)\n\\]\nidentify the boundary difference rows with the radial projections and $a/\\eps$ times the tangential projections. Basis derivatives contribute nothing because $F(q^0)=0$; the center and exterior rows vanish on the background.",
+      "classification": "off_solution_projection_and_actual_field_defect_Ocube",
+      "reviewed_assertion_ids": [
+        "prose:833",
+        "v1:boundary.off_solution_projection"
+      ],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 23,
+      "operation": "replace",
+      "old_lines": [
+        866,
+        866
+      ],
+      "new_lines": [
+        875,
+        875
+      ],
+      "old_text": "\\subsection{Signed areas}",
+      "new_text": "We use these collinearity identities to prove strict convexity.",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 24,
+      "operation": "replace",
+      "old_lines": [
+        914,
+        924
+      ],
+      "new_lines": [
+        923,
+        938
+      ],
+      "old_text": "The other area quotients at $\\eps=t=\\eta=0$, in cyclic order, are as follows:\n\\[\n\\begin{array}{c|c|c}\n \\text{vertices}&\\text{factor}&\\text{limiting quotient}\\\\\\hline\n 0,p,\\text{one cluster member}&1&\\sin h\\\\\n 0,a,b&t\\eta&z_0\\\\\n p,a,b&t\\eta&z_0(1-\\cos h)\\\\\n 0,c,\\text{one pair member}&t&|Z_0|\\\\\n p,c,\\text{one pair member}&t&|Z_0|(1-\\cos h)\n\\end{array}\n\\]",
+      "new_text": "Table~\\ref{tab:areas} gives the other area quotients at $\\eps=t=\\eta=0$, in cyclic order.\n\n\\begin{table}[htbp]\n\\centering\n\\caption{Remaining signed-area quotients in the nested chart.}\\label{tab:areas}\n\\begin{tabular}{ccc}\n\\hline\n Vertices&Factor&Limiting quotient\\\\\\hline\n $0,p$, one cluster member&$1$&$\\sin h$\\\\\n $0,a,b$&$t\\eta$&$z_0$\\\\\n $p,a,b$&$t\\eta$&$z_0(1-\\cos h)$\\\\\n $0,c$, one pair member&$t$&$|Z_0|$\\\\\n $p,c$, one pair member&$t$&$|Z_0|(1-\\cos h)$\\\\\\hline\n\\end{tabular}\n\\end{table}\n",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 25,
+      "operation": "replace",
+      "old_lines": [
+        970,
+        971
+      ],
+      "new_lines": [
+        984,
+        984
+      ],
+      "old_text": "\\emph{Existence.}\nOtherwise choose $\\eps_n\\to0$ and $\\mu^{(n)}$ with $\\mathcal S(\\eps_n,\\mu^{(n)})$ empty.",
+      "new_text": "If there were no common existence bound, we could choose $\\eps_n\\to0$ and $\\mu^{(n)}$ with $\\mathcal S(\\eps_n,\\mu^{(n)})$ empty.",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 26,
+      "operation": "replace",
+      "old_lines": [
+        975,
+        976
+      ],
+      "new_lines": [
+        988,
+        988
+      ],
+      "old_text": "\\emph{Uniqueness.}\nOtherwise there are two distinct roots for the same $\\mu^{(n)}$ at $\\eps_n\\to0$.",
+      "new_text": "If there were no common uniqueness bound, there would be two distinct roots for the same $\\mu^{(n)}$ at $\\eps_n\\to0$.",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 27,
+      "operation": "delete",
+      "old_lines": [
+        986,
+        986
+      ],
+      "new_lines": [
+        998,
+        997
+      ],
+      "old_text": "\\emph{Nondegeneracy.}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    },
+    {
+      "number": 28,
+      "operation": "delete",
+      "old_lines": [
+        993,
+        1003
+      ],
+      "new_lines": [
+        1004,
+        1003
+      ],
+      "old_text": "\n\n\\section*{Statements and Declarations}\n\\noindent\\textbf{Funding.} This work is supported by Nankai Zhide Foundation.\n\n\\smallskip\n\\noindent\\textbf{Data availability.} All results are established by analytical proofs in this article. No datasets were generated or analysed.\n\n\\ifdefempty{\\interests}{}{%\n\\smallskip\n\\noindent\\textbf{Competing interests.} \\interests\\par}",
+      "new_text": "",
+      "classification": "editorial_or_layout_only",
+      "reviewed_assertion_ids": [],
+      "review_status": "SOURCE_REVIEWED"
+    }
+  ],
+  "retired_assertions": [],
+  "review_scope": "Complete old/new TeX diff and all 14 unchanged formal result statements. New estimates and coordinate identities require fresh Lean bridges; semantic correspondence is a documented source review, not a formal parser proof of natural language.",
+  "baseline_ledger_sha256": "1C79C6FEAC176FF520B9623DC2273C1EA42E057E73F2C67110C06FBFFB3850A5",
+  "numbered_statement_comparison": {
+    "old_count": 14,
+    "new_count": 14,
+    "all_statements_identical": true
+  },
+  "proof_route_disclosure": "The added near-source pointwise bound is direct. Its actual uniform RHS-vanishing wrappers use independently established physical scale limits from the retained core; this reorders the source estimates and does not add a hypothesis or create a dependency cycle."
+}

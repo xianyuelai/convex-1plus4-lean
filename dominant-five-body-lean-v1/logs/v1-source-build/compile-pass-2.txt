@@ -1,0 +1,106 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex)
+entering extended mode
+(./convex_1plus4.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/size11.clo))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/lmodern.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty)))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amscls/amsthm.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/tools/calc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/microtype.cfg))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.st
+y) (d:/latex/2025/texlive/2024/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestrin
+g.sty (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty)
+)) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/url/url.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/hyperref/hpdftex.def
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.
+sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/generic/uniquecounter/uniquecounter.
+sty))) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/xurl/xurl.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (./convex_1plus4.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+(d:/latex/2025/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+)))) (d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(./convex_1plus4.out) (./convex_1plus4.out)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg) [1{d:/la
+tex/2025/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/latex/20
+25/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{d:/latex/2025/texlive/
+2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{d:/latex/2025/texlive/2024/texmf-
+dist/fonts/enc/dvips/lm/lm-mathit.enc}{d:/latex/2025/texlive/2024/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}{d:/latex/2025/texlive/2024/texmf-dist/fonts/enc
+/dvips/lm/lm-mathex.enc}] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+[13] [14] [15] [16] [17]
+(d:/latex/2025/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd) [18] [19]
+(./convex_1plus4.aux) )<d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/publi
+c/lm/lmbx10.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lm
+bx12.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pf
+b><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><d:/l
+atex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><d:/latex/202
+5/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><d:/latex/2025/texliv
+e/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb><d:/latex/2025/texlive/2024/t
+exmf-dist/fonts/type1/public/lm/lmr12.pfb><d:/latex/2025/texlive/2024/texmf-dis
+t/fonts/type1/public/lm/lmr17.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/
+type1/public/lm/lmr6.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/pub
+lic/lm/lmr8.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lm
+ri10.pfb><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pf
+b><d:/latex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><d:/la
+tex/2025/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><d:/latex/202
+5/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><d:/la
+tex/2025/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+>
+Output written on convex_1plus4.pdf (19 pages, 405171 bytes).
+Transcript written on convex_1plus4.log.

@@ -1,0 +1,34 @@
+import DominantFiveBody.CoorbitalSkewRank
+import DominantFiveBody.OrderedSliceInjectivity
+
+namespace DominantFiveBody.Audit
+
+#check skew_matrix_two_le_rank
+#check matrix_three_rank_nullity
+#check matrix_four_rank_nullity
+#check skew3_rank_two_of_nonzero_kernel
+#check skew4_rank_two_at_zero_source
+#check coorbital_three_source_pivot
+#check coorbital_three_source_ranks_and_kernel_dimensions
+#check coorbital_three_source_kernel_not_all_zero_at_missing_source
+#check coorbital_three_source_kernel_vector_by_rank
+#check orderedSliceAngles_mem_Icc
+#check ordered_slicePhysicalConfiguration_injective
+#check orderedSliceRoot_unique_coordinates_of_normalized_gauged
+#check orderedSliceRoot_existsUnique_orientedSimilar
+
+#print axioms skew_matrix_two_le_rank
+#print axioms matrix_three_rank_nullity
+#print axioms matrix_four_rank_nullity
+#print axioms skew3_rank_two_of_nonzero_kernel
+#print axioms skew4_rank_two_at_zero_source
+#print axioms coorbital_three_source_pivot
+#print axioms coorbital_three_source_ranks_and_kernel_dimensions
+#print axioms coorbital_three_source_kernel_not_all_zero_at_missing_source
+#print axioms coorbital_three_source_kernel_vector_by_rank
+#print axioms orderedSliceAngles_mem_Icc
+#print axioms ordered_slicePhysicalConfiguration_injective
+#print axioms orderedSliceRoot_unique_coordinates_of_normalized_gauged
+#print axioms orderedSliceRoot_existsUnique_orientedSimilar
+
+end DominantFiveBody.Audit

@@ -1,0 +1,62 @@
+'DominantFiveBody.kernelF_angle_mul_tendsto_atTop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.angular_hessian_estimate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.Coorbital.coorbital_cycle_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbital_global_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbitalVirial_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbital_roots_uniform_pair_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbitalMassProjection_isProperMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.equalMass_coorbital_existsUnique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.twoSourceProbe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.twoSourceProbe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.coorbital_closed_mass_jacobian_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeAction_eq_augmentedPotential_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.inertia_centeredFromRelative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeMassMatrix_posDef' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.relativeAction_critical_iff_vectorRoot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.reducedJacobian_isInvertible_iff_shape' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.CompactImplicit.compact_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.dominant_uniform_geometry_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.dominant_normalized_diameter_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.dominant_primary_relative_radius_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.dominant_primary_relative_radii_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.dominant_strictConvex_uniform_polar_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.dominant_ordered_polar_gap_limsup' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.cluster_internal_force_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_cluster_virial' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.full_angular_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_strictConvex_ordered_angular_rep' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.ordered_full_angular_limit_consecutive_gap_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.full_angular_cut_limit_gap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.ordered_full_angular_limit_span_lt_pi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.ordered_full_angular_limit_span_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.polar_distance_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_scale_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_scale_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_scale_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_scale_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pairs_cannot_coexist' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.complete_pair_exterior_error_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_tangential_difference_positive' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_pair_vector_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_direction_alternative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_pair_tangential_mass_scale' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_pair_midpoint_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_radial_bound_of_tangential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.normalized_complete_pair_mass_cube_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.singleScaleChi_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_actual_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.normalized_complete_pair_actual_chart_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,14 @@
+import DominantFiveBody.PairSequenceCapture
+
+/-! Incremental axiom audit of the complete-pair local implementation.
+This does not assert completion of the physical collision classification.
+-/
+
+#check @DominantFiveBody.pairChart_compact_physical_continuation
+#check @DominantFiveBody.pairPhysical_sequence_capture_of_scaled_limits
+#print axioms DominantFiveBody.pairChart_compact_physical_continuation
+#print axioms DominantFiveBody.pairPhysical_sequence_capture_of_scaled_limits
+#print axioms DominantFiveBody.pairChartJacobian_isInvertible_iff_shape
+#print axioms DominantFiveBody.pairArea_factor
+#print axioms DominantFiveBody.pairAreaQuotient_boundary_positive
+#print axioms DominantFiveBody.pairChart_fixed_mass_zero_endpoint

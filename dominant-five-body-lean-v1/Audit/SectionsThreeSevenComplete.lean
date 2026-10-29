@@ -1,0 +1,120 @@
+import DominantFiveBody.Main
+import DominantFiveBody.RadialDirectSum
+import DominantFiveBody.SourceCoordinateIdentities
+import DominantFiveBody.OrderedSliceInjectivity
+import DominantFiveBody.SectionSevenGapIdentities
+import DominantFiveBody.SectionSevenEqualitySet
+
+namespace DominantFiveBody.Audit
+
+#check centeredFromRelative_source_formulas
+#check reducedPolarResiduals_zero_iff_vectorRoot
+#check normalizedCC_of_reducedResidual_zero
+#check sliceWeightedMetric_apply
+#check sliceMassWeights_pos
+#check sliceAction_second_fderiv
+#check sliceAction_second_fderiv_isInvertible_iff_reducedJacobian
+#check mem_inertiaTangentSpace
+#check centered_radial_tangent_direct_sum
+#check centered_radial_tangent_hessian_orthogonal
+#check reducedAngularJacobian_zero_eq
+#check reducedAngularJacobian_zero_isInvertible
+#check reducedJacobian_at_coorbital_root_isInvertible
+#check pairChart_compact_physical_continuation
+#check pairChart_compact_boundary_continuation
+#check noCollision_physical_local_continuation
+#check pairChart_fixed_mass_zero_endpoint
+#check tripleChart_fixed_mass_zero_endpoint
+#check nestedChart_fixed_mass_zero_endpoint
+#check pairChartExtendedRows_zero_iff_physical
+#check tripleChartExtendedRows_zero_iff_physical
+#check nestedChartExtendedRows_zero_iff_physical
+#check pairChartPoints_relativeCollisionFree
+#check tripleChartPoints_relativeCollisionFree
+#check nestedChartPoints_relativeCollisionFree
+#check tripleScalar_seed_of_regular_scaled_limits
+#check triplePhysical_capture_of_regular_scaled_limits
+#check nestedChart_compact_boundary_continuation
+#check orderedPolarSlice_contDiff
+#check orderedPolarSlice_physical_eq_rotation
+#check orderedPolarSlice_endpoint
+#check orderedPolarSlice_root_of_normalized
+#check orderedPolarSlice_nondegenerate_of_normalized
+#check orderedPolarSlice
+#check orderedSliceRoot_existsUnique_orientedSimilar
+#check branches_eq_of_localUniqueness
+#check pairToFixedSlice_isInvertible
+#check pairFixedRowTransform_isInvertible
+#check tripleToFixedSlice_isInvertible
+#check tripleFromFixedSlice_isInvertible
+#check nestedToFixedSlice_isInvertible
+#check nestedFromFixedSlice_isInvertible
+#check pairRows_recovery
+#check tripleRows_recovery
+#check nestedRows_recovery
+#check pairChart_endpoint_gap_nonzero
+#check tripleChart_endpoint_gaps_nonzero
+#check nestedChart_endpoint_gaps_nonzero
+#check orderedPolarSlice_angles
+#check orderedPolarSlice_radii
+#check orderedPolarSlice_reindex_undo
+#check isOpen_branch_eq_of_localUniqueness
+#check branchEqualitySet
+#check mem_branchEqualitySet
+
+#print axioms centeredFromRelative_source_formulas
+#print axioms reducedPolarResiduals_zero_iff_vectorRoot
+#print axioms normalizedCC_of_reducedResidual_zero
+#print axioms sliceWeightedMetric_apply
+#print axioms sliceMassWeights_pos
+#print axioms sliceAction_second_fderiv
+#print axioms sliceAction_second_fderiv_isInvertible_iff_reducedJacobian
+#print axioms mem_inertiaTangentSpace
+#print axioms centered_radial_tangent_direct_sum
+#print axioms centered_radial_tangent_hessian_orthogonal
+#print axioms reducedAngularJacobian_zero_eq
+#print axioms reducedAngularJacobian_zero_isInvertible
+#print axioms reducedJacobian_at_coorbital_root_isInvertible
+#print axioms pairChart_compact_physical_continuation
+#print axioms pairChart_compact_boundary_continuation
+#print axioms noCollision_physical_local_continuation
+#print axioms pairChart_fixed_mass_zero_endpoint
+#print axioms tripleChart_fixed_mass_zero_endpoint
+#print axioms nestedChart_fixed_mass_zero_endpoint
+#print axioms pairChartExtendedRows_zero_iff_physical
+#print axioms tripleChartExtendedRows_zero_iff_physical
+#print axioms nestedChartExtendedRows_zero_iff_physical
+#print axioms pairChartPoints_relativeCollisionFree
+#print axioms tripleChartPoints_relativeCollisionFree
+#print axioms nestedChartPoints_relativeCollisionFree
+#print axioms tripleScalar_seed_of_regular_scaled_limits
+#print axioms triplePhysical_capture_of_regular_scaled_limits
+#print axioms nestedChart_compact_boundary_continuation
+#print axioms orderedPolarSlice_contDiff
+#print axioms orderedPolarSlice_physical_eq_rotation
+#print axioms orderedPolarSlice_endpoint
+#print axioms orderedPolarSlice_root_of_normalized
+#print axioms orderedPolarSlice_nondegenerate_of_normalized
+#print axioms orderedPolarSlice
+#print axioms orderedSliceRoot_existsUnique_orientedSimilar
+#print axioms branches_eq_of_localUniqueness
+#print axioms pairToFixedSlice_isInvertible
+#print axioms pairFixedRowTransform_isInvertible
+#print axioms tripleToFixedSlice_isInvertible
+#print axioms tripleFromFixedSlice_isInvertible
+#print axioms nestedToFixedSlice_isInvertible
+#print axioms nestedFromFixedSlice_isInvertible
+#print axioms pairRows_recovery
+#print axioms tripleRows_recovery
+#print axioms nestedRows_recovery
+#print axioms pairChart_endpoint_gap_nonzero
+#print axioms tripleChart_endpoint_gaps_nonzero
+#print axioms nestedChart_endpoint_gaps_nonzero
+#print axioms orderedPolarSlice_angles
+#print axioms orderedPolarSlice_radii
+#print axioms orderedPolarSlice_reindex_undo
+#print axioms isOpen_branch_eq_of_localUniqueness
+#print axioms branchEqualitySet
+#print axioms mem_branchEqualitySet
+
+end DominantFiveBody.Audit

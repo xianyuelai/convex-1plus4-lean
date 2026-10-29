@@ -1,0 +1,13 @@
+import DominantFiveBody.CollisionPairScales
+import DominantFiveBody.PairSequenceCapture
+#check Real.div_rpow
+#check Real.rpow_neg
+#check Real.rpow_natCast_mul
+#check Real.rpow_mul_natCast
+#check Real.rpow_neg_one
+#check Filter.Tendsto.rpow_const
+#check Filter.Tendsto.rpow
+#check Real.zero_rpow
+#check Real.one_rpow
+#check Filter.Tendsto.pow
+#check Real.rpow_mul

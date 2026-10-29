@@ -1,0 +1,41 @@
+\documentclass[UTF8,fontset=fandol]{ctexart}
+\usepackage{amsmath,amssymb,hyperref}
+\title{Albouy--Fu 等质量共轨种子：原始来源核对}
+\author{Lean 项目的源文依赖笔记}
+\date{2026 年 10 月 3 日}
+\begin{document}
+\maketitle
+本文核对 Alain Albouy 与 Yanning Fu 的 \emph{Relative equilibria of four identical satellites}，arXiv:0902.3215v1，2009-02-18；期刊为 \emph{Proceedings of the Royal Society A} 465 (2009), 2633--2645，DOI:10.1098/rspa.2009.0115。
+
+完整原始包保存在本目录的 \texttt{arxiv-0902.3215v1-eprint}，解包源码为 \texttt{source/AlbouyFu\_FourSatellites2.tex}，下载与解包信息见 \texttt{source-manifest.json}。本文没有改写原始源码。
+
+\section*{原文结论与本项目需要的结论}
+源码第 139--144 行的主定理列出三类互异卫星共轨构型，其连续圆周间隙为
+\[
+\mathcal E_1=(\pi/3,2\pi/3,2\pi/3,\pi/3),\quad
+\mathcal E_2=(a,b,a,c),\quad
+\mathcal E_3=(\pi/2,\pi/2,\pi/2,\pi/2),
+\]
+其中 $0<b<a<\pi<c$ 且 $2a+b+c=2\pi$。只有 $\mathcal E_2$ 有大于 $\pi$ 的间隙，所以只有该类的四颗卫星能全部位于一个开放半圆。本项目需要指定有向顺序及旋转规范下的唯一零点，仍须证明标签、旋转规范和方程之间的转换。
+
+\section*{原始证明树}
+主定理的两项输入是全部构型具有反射对称，以及两种对称类型各自的分类。
+\begin{enumerate}
+\item 第 2 节证明核函数的符号、单峰、严格凹性及高阶导数性质；用弦斜率比较支撑第 3 节。
+\item Proposition 1 证明任一解具有直径对角线或两个相等的间隙；Propositions 2--3 把这两种可能性分别升级为对称性。
+\item Proposition 4 的对角线对称分类引用 Cors--Llibre--Oll\'e 的 Proposition 12。
+\item Proposition 5 对另一类对称构型作完整消元：改用 $\sigma=(b+c)/4$、$\nu=(b-c)/4$，再用有理变量 $t=\tan(\sigma/2)$；结果式含 78 次多项式。Descartes 符号变化与有理区间替换排除一个非实构型分支，留下 $\mathcal E_2$ 和正方形。
+\end{enumerate}
+原文消元多项式的中间系数采用省略号，因此不能把抄录的短式直接当作 Lean 证书。需要自行重建所有恒等式和根计数证明，或补证更小的目标。
+
+\section*{核函数约定与较小种子的实际证明路线}
+Albouy--Fu 使用 $f_{AF}(u)=\sin u(1-(2-2\cos u)^{-3/2})$，符号恰与主稿核函数 $f=-f_{AF}$ 相反。
+若从实际等质量根证明三条间隙均小于 $h=\pi/3$，并由端点方程推出第一和第三条间隙相等，则只需研究 $(a,b,a)$。
+\[
+F(a,b)=-f(a)+f(b)+f(a+b)=0,\qquad
+G(a)=f(a)+f(a+b(a))+f(2a+b(a))=0.
+\]
+在 $0<a,b<h$ 上，$F_b=-\kappa(b)-\kappa(a+b)<0$，且 $F_a=\kappa(a)-\kappa(a+b)>0$。这需要真实证明 $\kappa$ 的单调性和相应下界。若唯一连续函数 $b(a)$ 已构造，则 $a\downarrow0$ 时用 $f\ge-1$ 得 $G(a)\ge f(a)-2>0$；$a=h$ 时两项 $f(h+b)$、$f(2h+b)$ 都负，故 $G(h)<0$。实际根处的正定 Hessian 应通过 Schur 补给出 $G'<0$，再由严格向下穿越排除多个零点。
+
+\textbf{状态：}该最小路线已经在 \texttt{DominantFiveBody/CoorbitalEqualMass.lean} 和 \texttt{CoorbitalDowncrossing.lean} 中实现。最终命题 \texttt{equalMass\_coorbital\_existsUnique} 的范围是规范角域中的等质量共轨根；两模块分别经严格编译退出 0（记录 34222、36433）。它不依赖 AF 分类公理，也不宣称已经形式化 AF 全圆周上的三类分类。全文断言账本仍须将最终完整类型及公理依赖单独绑定到本次验收记录。
+\end{document}

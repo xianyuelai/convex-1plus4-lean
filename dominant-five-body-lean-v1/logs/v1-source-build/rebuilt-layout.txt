@@ -1,0 +1,1109 @@
+                 Uniqueness of convex central configurations
+                    in the planar (1 + 4)-body problem
+
+                                               Kaitai Xiao
+                     Chern Institute of Mathematics & LPMC, Nankai University
+                                     Tianjin 300071, P. R. China
+
+
+                                                 Abstract
+          We study strictly convex central configurations of the planar Newtonian five-body
+      problem with one dominant mass and four satellites of arbitrary positive masses. We
+      prove that a single positive bound on the total satellite-to-primary mass ratio guarantees
+      existence and uniqueness for every prescribed directed order of the five bodies on the convex
+      hull, up to translations, rotations and positive scaling. The bound is independent of all
+      satellite mass ratios, including ratios arbitrarily close to the boundary of the mass simplex.
+      The constrained Hessian is nondegenerate on the six-dimensional shape space. We first
+      prove uniqueness and nondegeneracy for the convex coorbital limit by an angular Hessian
+      estimate. We then classify the possible collision limits as the satellite mass ratios vary
+      and construct regularized local continuations for pairs, triples and pairs within triples. An
+      exact factorization of the signed areas preserves strict convexity on independent parameter
+      neighborhoods. These continuations connect every sufficiently small-mass configuration to
+      the unique coorbital configuration and yield the common bound.
+
+
+1     Introduction
+The planar (1 + N )-body problem describes the coorbital limit of central configurations with
+one dominant mass [2]. Its geometry and stability have been studied in [7, 11]; results for
+four satellites include the equal-mass classification [1, 5], stacked configurations [10], and mass
+symmetries [6]. For three satellites, Corbera, Cors and Llibre [3] and Corbera, Cors, Llibre
+and Moeckel [4] describe the bifurcations of relative equilibria. In particular, [4, Theorem 2]
+gives convex uniqueness for every fixed positive mass ratio and sufficiently small total satellite
+mass.
+    We prove the corresponding uniqueness statement for four satellites with a bound indepen-
+dent of their mass ratios. Write
+                                                                                  4
+                                                                   (                         )
+                                                                                  X
+             m0 = 1,        mi = εµi     (1 ≤ i ≤ 4),       M=       µ ∈ R4>0 :         µi = 1 .       (1.1)
+                                                                                  i=1
+
+Theorem 1.1. There is δ0 > 0 such that, for every µ ∈ M, every 0 < ε < δ0 , and every
+directed counterclockwise hull order (0, ℓ1 , ℓ2 , ℓ3 , ℓ4 ), the masses (1.1) admit exactly one strictly
+convex central configuration of that order, modulo translations, rotations and positive scaling.
+Its constrained Hessian on the six-dimensional shape space is nondegenerate.
+    Here (ℓ1 , . . . , ℓ4 ) is a permutation of (1, 2, 3, 4); reflections are not included in the equivalence
+relation. For unnormalized masses the condition is 4i=1 mi /m0 < δ0 .
+                                                                 P
+
+    The proof first establishes convex coorbital uniqueness. Uniformity then requires control
+when some µi tend to zero and satellites coalesce. Following the cluster approach of [8],
+we classify these limits, regularize their equations, and connect every small-mass convex
+
+                                                     1
+configuration to its coorbital limit. The signed-area estimates ensure that this continuation
+remains convex without imposing a relation between the mass parameter and the collision
+scales.
+
+
+2     Convex coorbital configurations
+Put e(t) = (cos t, sin t) and e⊥ (t) = (− sin t, cos t). In the standard hull order, the coorbital
+configurations are parametrized by
+
+                      θ1 = 0,      (θ2 , θ3 , θ4 ) ∈ D = {0 < θ2 < θ3 < θ4 < π}.                                       (2.1)
+
+Indeed, the origin and four distinct unit-circle points form a strictly convex pentagon exactly
+when the points lie in an open semicircle.
+   We use V and A as in [4, Section 2]. For 0 < t < π, set
+                                                                        1
+    f (t) = sin t (2 sin(t/2))−3 − 1 ,                                                             κ = −f ′ = v ′′ .
+                                      
+                                                     v(t) =                   + 1 − cos t,                             (2.2)
+                                                                   2 sin(t/2)
+
+Extend f oddly. With rij (θ) = |e(θi ) − e(θj )|, the equations are
+                                              X
+                                  Ei =               µj f (θj − θi ) = 0,
+                                              j̸=i
+                                                                                       !
+                                              X                      1      rij (θ)2
+                                  V =                µi µj                +                                            (2.3)
+                                              i<j
+                                                                  rij (θ)       2
+                                              X
+                                          =          µi µj v(θj − θi ).
+                                              i<j
+
+Thus E = A(θ)µ, where Aii = 0 and Aij = f (θj − θi ), and ∂θi V = µi Ei . Write h = π/3.
+Differentiation gives
+
+                              2 − sin2 (t/2)
+                      κ(t) =                 + cos t,
+                               8 sin3 (t/2)
+                                                                                                                       (2.4)
+                                  cos(t/2)
+                     κ′ (t) = −               6 − sin2 (t/2) + 32 sin5 (t/2) < 0.
+                                                                            
+                                       4
+                                16 sin (t/2)
+
+We shall use f (h) = f (π) = 0, f > 0 on (0, h), f < 0 on (h, π), κ(h) = 9/4, f ≥ −1, and
+tf (t) → ∞ as t ↓ 0.
+                                      !4
+                             ∂2V
+                    H=                               ,           cij = cji = µi µj κ(tij )     (i < j).
+                            ∂θi ∂θj       i,j=1
+                                          X
+                                Hii =            cij ,            Hij = −cij       (i ̸= j).
+                                          j̸=i
+
+Consequently, for every u ∈ R4 ,
+                                                     X
+                                  uT Hu =                      cij (u2i + u2j − 2ui uj )
+                                                         i<j
+                                                     X
+                                                 =             µi µj κ(tij )(uj − ui )2 .
+                                                         i<j
+
+The Hessian on the slice θ1 = 0 is obtained by deleting the first row and column of H; its
+quadratic form is the expression above with u1 = 0.
+
+                                                                   2
+Lemma 2.1. Suppose 2 ≤ N ≤ 4 ordered points in an open semicircle carry positive masses
+wi and satisfy the angular equations. Put
+                                   
+                                   f (t)/(h − t),         t < h,
+                                   
+                                   
+                          ℓ(t) =     0,                    t = h,           b(t) = κ(t) − ℓ(t).
+                                   
+                                   f (t)/(π − t),
+                                   
+                                                           t > h,
+
+Then b(t) > 0, and, with tij = θj − θi for i < j,
+                          X                                       X
+                                 wi wj κ(tij )(uj − ui )2 ≥             wi wj b(tij )(uj − ui )2 .                (2.5)
+                           i<j                                    i<j
+
+In particular, the angular Hessian has kernel R1.
+
+Proof. Since κ decreases strictly,
+             Z h                                                             Z π
+   f (t) =         κ(s) ds < (h − t)κ(t)        (t < h),           f (t) =          κ(s) ds < (π − t)κ(t)   (t > h).
+              t                                                                 t
+
+Together with κ(h) > 0, this proves b > 0.
+   Orient an edge i < j rightwards if tij < h and leftwards if tij > h, with flow wi wj |f (tij )|;
+omit zero edges. The equations express balance at every vertex, so the flow decomposes into
+positive flows on simple directed cycles. Such a cycle has at most four edges. Two leftward
+edges would have total length > 2h, whereas the remaining rightward edges have total length
+< 2h. Hence there is one leftward edge and k = 2 or 3 rightward edges.
+                                                                            r tr ∈ (h, π). The
+                                                                           P
+   Let the rightward lengths and increments be tr , ur , with T =
+contribution of this cycle to the form with coefficient ℓ is its flow times
+                          k
+                                u2r    ( r ur )2   ( r ur )2 ( r ur )2
+                                              P                   P                 P
+                          X
+                                     −           ≥          −          ≥ 0,
+                          r=1
+                              h − tr    π−T         kh − T    π−T
+
+because 0 < kh − T ≤ π − T . Summing over cycles proves (2.5). Its right side is positive for
+every nonconstant vector, while rotation invariance supplies the constant kernel.
+
+Theorem 2.2. For each µ ∈ M, equations (2.3) have exactly one root θ0 (µ) in (2.1). The
+Hessian D2 V is positive definite on the slice θ1 = 0, and θ0 depends smoothly on µ.
+
+Proof. The Hessian form is the left side of (2.5), so the lemma gives positivity. We prove
+properness of the projection of the zero set to M. Let a, b, c be the consecutive gaps and
+L = a + b + c. Summing the mass-weighted equations over the first k labels gives
+                                    X
+                                           µi µj f (θj − θi ) = 0,            k = 1, 2, 3.                        (2.6)
+                                   i≤k<j
+
+The signs of f imply a, b, c < h < L. For µ in a compact subset of M, let α > 0 be a common
+                                               P
+lower bound on the masses. Pairing terms in i µi θi Ei = 0 yields
+                                                X
+                                                      µi µj tij f (tij ) = 0.
+                                                i<j
+
+The negative terms sum to at least −π/2, so every consecutive gap d satisfies α2 df (d) ≤ π/2.
+Collisions are therefore excluded. If L → π, the gaps tend to h, and the first equation tends to
+µ3 f (2h) = 0, a contradiction. This proves properness.
+          P
+    Since i µi Ei = 0, the last three equations recover the first. Their Jacobian in (θ2 , θ3 , θ4 ) is
+invertible by the Hessian estimate. The mass projection is thus a proper local diffeomorphism.
+
+                                                              3
+Its nonempty image is open and closed in the connected simplex, and it is a covering with
+finitely many sheets; cf. [4, proof of Proposition 3]. By the classification in [1, main theorem],
+exactly one equal-mass configuration has its satellites in an open semicircle, and its occupied
+gaps are symmetric under reversal. The equal-mass fiber has one point, so every fiber has one
+point. Local inversion gives smoothness.
+
+     At distinct satellite positions, we retain the divided equations Ei = 0 when µi = 0. We
+first record the two-source probe estimate used below; cf. [6].
+Lemma 2.3. Let p, q ≥ 0, p + q = 1. If 0, h, x are distinct, have span less than π, and
+pf (x) + qf (x − h) = 0, then
+                              pκ(|x|) + qκ(|x − h|) > 0.
+Proof. For pq > 0, put g(x) = pf (x) + qf (x − h). On (0, h), g ′ < 0 because κ > 0 there. On
+(h, π), κ′ < 0 gives g ′′ > 0, while g(π) = qf (π − h) < 0; at a root, g ′ (x) < g(π)/(π − x) < 0.
+Reflection x 7→ h − x treats (h − π, 0). If pq = 0, the claimed value is κ(h) = 9/4.
+
+Proposition 2.4. Suppose µi ≥ 0, i µi = 1, four distinct angles lie in an open semicircle,
+                                                P
+
+and all Ei vanish. Then J = Dθ E has kernel R1. Deleting a row p with µp > 0 and any
+column gives an invertible 3 × 3 matrix. Its inverse is uniformly bounded on closed sets of such
+roots with consecutive gaps bounded below, span bounded away from π, and µp ≥ 1/4.
+Proof. Let P, Z be the positive and zero supports. One positive mass would allow probes only
+at the two angles θp ± h, so |P | ≥ 2. Lemma 2.1 gives the constant kernel on P . For k ∈ Z,
+set Dk = j∈P µj κ(|θj − θk |). If |P | = 2, the support separation is h, and Lemma 2.3 gives
+            P
+
+Dk > 0.
+    If |P | = 3, the nonzero skew matrix AP P has rank two. Since Aµ = 0, the 4 × 4 skew
+matrix A also has rank two. Its two-dimensional kernel cannot consist only of vectors vanishing
+at the unique label k ∈ Z, since restriction would inject it into ker AP P . Choose ν ∈ ker A
+with νk > 0. For small s > 0, µ + sν is positive and solves the same angular equations. Apply
+(2.5) to the kth coordinate vector, divide by sνk , and let s ↓ 0:
+                                                    X
+                                           Dk ≥           µj b(|θj − θk |) > 0.
+                                                    j∈P
+
+In support order,                                                               !
+                                                JP P             0
+                                     J=                                    .
+                                                JZP       diag(Dk : k ∈ Z)
+Every kernel vector is therefore constant. Also µT J = 0 and J1 = 0. If one coordinate of a
+vector is zero and the retained rows annihilate it, the identity µT J = 0 recovers the omitted
+row; the vector is constant and hence zero. The inverse bound follows from compactness and
+continuity.
+
+
+3     Full equations and local continuation
+We adopt the centered normalization and notation of [4, Section 2]:
+                                                           4
+                  X           xj − xi                      X
+                         mj      3    = −xi ,                    mi xi = 0,       rij = |xi − xj |,   (3.1)
+                  j̸=i
+                                rij                        i=0
+
+and
+                               X mi mj                      4
+                                                            X
+                         U=                 ,        I=           mi |xi |2 ,   G = U + 21 I.         (3.2)
+                               i<j
+                                     rij                    i=0
+
+
+                                                              4
+Thus xi = ri e(θi ) denotes a centered polar coordinate. For the collision analysis use the
+primary-relative coordinates
+                                                    4                                4
+                                                                                                            cε = (1 + ε)−1 .
+                                                    X                                X
+      qi = xi − x0 = ρi e(φi ),            X=              µ i qi ,        Y =             µi qi /ρ3i ,
+                                                    i=1                              i=1
+
+Then q0 = 0, x0 = −εcε X, xi = qi − εcε X, and rij = |qi − qj |. At ε = 0 the centered and
+relative coordinates coincide. Below, sums over satellite labels run from 1 to 4.
+    Subtracting the primary equation gives
+                                   X qj − qi                               q
+                 Fi = F0 (qi ) + ε      µj  3  − εY = 0,     F0 (q) = q − 3 .         (3.3)
+                                   j̸=i
+                                           rij                            |q|
+
+These differences recover (3.1), since all acceleration residuals are then equal and their mass-
+weighted sum is zero. In relative coordinates,
+                                                                      !
+                           G X           ρ2i                                   X µi µj             εcε
+                        Φ=   =   µi ρ−1
+                                     i +                                  +ε                   −       |X|2 .                  (3.4)
+                           ε   i
+                                         2                                     i<j
+                                                                                      rij           2
+
+Indeed I = ε i µi ρ2i − ε2 cε |X|2 . For positive masses, ∇q Φ = (C ⊗ I2 )F , where C =
+                P
+
+diag(µi ) − εcε µµT is positive definite for ε > −1. Thus F = 0 is equivalent to ∇Φ = 0.
+   Put g(ρ) = ρ − ρ−2 and ∆ij = φj − φi . The mass-divided radial and angular residuals are
+                                               X           ρi − ρj cos ∆ij
+                         Ri = g(ρi ) − ε              µj          3        − εcε X · e(φi ),                                   (3.5)
+                                               j̸=i
+                                                                 rij
+                                                           −3
+                                 X
+                          Ti =          µj ρi ρj sin ∆ij (rij − cε ).                                                          (3.6)
+                                 j̸=i
+
+They satisfy, also away from solutions,
+                                                                                       X
+                          ∂ρi Φ = µi Ri ,             ∂φi Φ = εµi Ti ,                         µi Ti = 0.                      (3.7)
+                                                                                           i
+
+For ε > 0 and positive masses, retain four radial rows on a rotation slice and omit one angular
+row. The resulting seven equations are equivalent to (3.1). Their explicit divided rows remain
+meaningful at zero masses.
+   For estimates we also use the tangential projection of (3.3):
+                                                                   −3
+                                                                      − ρ−3
+                                           X
+                                  Qi =             µj ρj sin ∆ij (rij    j ) = 0.                                              (3.8)
+                                            j̸=i
+
+                    i µi Fi = X − (1 + ε)Y = 0, so Y = cε X and Ti = ρi Qi .
+                P
+At solutions,
+Lemma 3.1. For positive masses and ε > 0, the seven-equation Jacobian on a rotation slice is
+invertible if and only if the constrained shape Hessian is nondegenerate. Invertible coordinate
+changes and row operations preserve this equivalence.
+Proof. When the omitted row and fixed angle have the same label, (3.7) identifies the slice
+Hessian of Φ with the residual Jacobian multiplied by a positive diagonal matrix. Any other
+                                            P
+positive-mass row can be omitted using i µi Ti = 0. At a root, an invertible coordinate map
+Ψ and row map L give D(L∇Φ ◦ Ψ) = L(D2 Φ)DΨ.
+   Let M = diag(m0 I2 , . . . , m4 I2 ), E = {v : i mi vi = 0}, and T = {v ∈ E : ⟨M x, v⟩ = 0}.
+                                                 P
+
+The constrained Hessian is D2 G|T modulo the rotation direction; see [9]. Homogeneity gives
+                                   D2 G(x)x = 3M x,                        E = Rx ⊕ T,
+an orthogonal splitting for D2 G with radial value 3I > 0. Relative coordinates give a linear
+isomorphism onto E, and G = εΦ. Passing to a transverse rotation slice and removing this
+nonzero radial direction leaves the six-dimensional shape Hessian.
+
+                                                                  5
+    We repeatedly use the following compact form of the implicit function theorem.
+
+Lemma 3.2. Let F (y; s, β) be smooth near {(y 0 (β), 0, β) : β ∈ K}, where K is compact,
+F (y 0 (β); 0, β) = 0, and Dy F is invertible. If the base roots and inverse matrices depend
+continuously on β, then the local roots exist uniquely on uniform independent parameter
+neighborhoods, with a common root radius and inverse bound.
+
+Proof. Apply the implicit function theorem locally and take a finite cover of the compact base
+graph.
+
+Proposition 3.3. For each K ⋐ M, the coorbital graph (1, 1, 1, 1, θ20 (µ), θ30 (µ), θ40 (µ)) has a
+unique nearby smooth solution branch for sufficiently small |ε|, uniformly for µ near K. For
+ε > 0, it is strictly convex in the same order and has nondegenerate shape Hessian.
+
+Proof. This is the continuation of [4, Proposition 1 and its proof]. At ε = 0, the radial block
+is 3I4 , its angular columns vanish, and the reduced angular block is invertible by Theorem 2.2.
+Lemma 3.2 gives compact uniformity, the limiting signed areas preserve strict convexity, and
+Lemma 3.1 gives nondegeneracy.
+
+    For the divided differences below we write s(t) = sin t/t, with its smooth value s(0) = 1.
+
+
+4    Uniform geometry and collision limits
+Throughout this section, ε → 0 along actual multiplier-one solutions with arbitrary positive
+satellite ratios. After passage to a subsequence, a complete cluster consists of all labels with
+the same limiting position. Constants may depend on the selected sequence, but not on its
+index.
+
+Proposition 4.1. Every configuration satisfies diam(x) ≤ 4(1 + ε)1/3 . For each E > 0 there
+is b(E) > 0 such that ρi ≥ b(E) whenever 0 < ε ≤ E. Uniformly over all positive ratios and
+all configurations, maxi |ρi − 1| → 0 as ε ↓ 0.
+    For strictly convex configurations in standard order, there are η0 , ε0 > 0, independent of
+the ratios, such that
+                               η0 ≤ φ4 ≤ π − η0    (0 < ε < ε0 ).                         (4.1)
+Each consecutive angular gap has limit superior at most h.
+
+Proof. Project onto a diameter direction and split the five labels across their largest consecutive
+projection gap g ≥ diam(x)/4. If the two groups have masses MA , MB , their projected centers
+are separated by
+                                                              (xj − xi ) · e   1+ε
+                  g ≤ ∆ = MA−1 + MB−1
+                                                X
+                                                        mi mj               3
+                                                                               ≤     .
+                                              i∈A,j∈B
+                                                                 |xj − xi |       g2
+
+This proves the diameter bound.
+    If satellites approached the primary with ε ≤ E, take the complete limiting cluster C
+containing it. Let d → 0 be its diameter, s its satellite mass, b its center, and IC , UC its
+internal inertia and potential. Then UC ≥ s/d and IC ≤ sd2 . The exterior acceleration A has
+a uniformly bounded derivative near C. Summing the cluster equations against mi (xi − b)
+gives                           X
+                     UC = IC +     mi (xi − b) · [A(xi ) − A(b)] ≤ (1 + L)IC .
+                                i∈C
+
+Cancellation of s contradicts d → 0 and proves the uniform lower radius bound.
+
+
+                                                  6
+   Now let C be a complete satellite cluster with nonzero limit q 0 . Average (3.3) with the
+                    P
+current weights µi / j∈C µj . Internal forces cancel, and all exterior distances stay positive.
+Since Y is bounded, the average is F0 (q 0 ) + o(1) = O(ε). Thus |q 0 | = 1; a violating sequence
+proves uniform convergence of all radii.
+   Strict convexity gives 0 = φ1 < · · · < φ4 < π. Summing the first k weighted angular
+equations gives
+                                                          −3
+                          X
+                               µi µj ρi ρj sin(φj − φi )(rij − cε ) = 0.                     (4.2)
+                                    i≤k<j
+
+A gap exceeding h by a fixed amount makes every term negative for small ε. If φ4 → π = 3h,
+all three gaps tend to h. But the skew matrix
+                                                            −3
+                                 Bij = ρi ρj sin(φj − φi )(rij − cε ),          Bii = 0,
+
+satisfies Bµ = 0, whereas its limiting determinant is f (2h)4 > 0. If φ4 → 0, all satellite
+distances vanish and every term of (4.2) is positive. These contradictions give (4.1).
+
+    For the remainder of this section, all configurations are strictly convex in the standard
+directed order. We shall use
+                                        2                                 φj − φi
+                                       rij = (ρj − ρi )2 + 4ρi ρj sin2            ,                         (4.3)
+                                                                             2
+and the strict support inequality for any adjacent hull edge a → b and any other vertex j:
+
+                                             det(qb − qa , qj − qa ) > 0.                                   (4.4)
+
+Proposition 4.2. Let {a, b} be a complete pair, a < b, and put d = |qb − qa |, ν = µa + µb ,
+σ = 1 − ν, δ = φb − φa , and ∆ρ = ρb − ρa . The pair is adjacent and
+
+                    ν → 0,             δ/d → 1,        |∆ρ| ≤ Cεσd,            ν/d3 → D > 0.                (4.5)
+
+The two exterior limits are distinct and separated by h. In the gauge placing them at 0, h, with
+limiting masses p, 1 − p and pair angle ψ,
+
+               pf (ψ) + (1 − p)f (ψ − h) = 0,                  D = pκ(|ψ|) + (1 − p)κ(|ψ − h|).
+
+Two complete pairs cannot coexist.
+Proof. Equal-angle classes are consecutive blocks. The exterior fields
+                               qj − q
+                                                                     µj ρj sin(φj − v)(|ρe(v) − qj |−3 − ρ−3
+               X                                           X
+    P (q) =              µj             ,     H(ρ, v) =                                                   j )
+              j ∈{a,b}
+                /
+                              |qj − q|3                   j ∈{a,b}
+                                                            /
+
+have first derivatives O(σ) near the pair. Subtraction of (3.8) gives
+                                                                                           !
+                                                               µa ρa + µb ρb µa µb
+                   H(ρb , φb ) − H(ρa , φa ) = sin δ                        − 2 − 2            > 0.         (4.6)
+                                                                    d3       ρa  ρb
+
+Since δ ≤ Cd, this implies
+                                                   δν/d3 ≤ Cσd.                                             (4.7)
+The vector difference is
+
+                 F0 (qb ) − F0 (qa ) + ε[P (qb ) − P (qa )] = λ(qb − qa ),            λ = εν/d3 .           (4.8)
+
+Its integral derivative bounds λ. Since DF0 → diag(3, 0) in the radial–tangential basis, a
+limiting unit pair direction is radial with λ → 3, or positively tangential with λ → 0.
+
+                                                           7
+   In a radial subsequence, δ = o(d) and |∆ρ| ∼ d. The support inequality expands as
+
+                        det(qb − qa , qj − qa ) = ∆ρ ρj sin(φj − φa ) + o(d).
+
+An interior pair would require opposite signs of ∆ρ. For a left endpoint pair it requires ∆ρ > 0,
+whereas on its polar rectangle
+
+                               µj ρj sin(φj − v)[ρ − ρj cos(φj − v)]|ρe(v) − qj |−5 ≤ −σ/C.
+                       X
+          Hρ = −3
+                    j ∈{a,b}
+                      /
+
+Thus the left side of (4.6) is at most −σ|∆ρ|/C + Cσδ < 0. At the right endpoint both radial
+signs reverse, giving the same contradiction.
+    Consequently δ/d → 1, ∆ρ/d → 0, and (4.7) yields ν/d3 ≤ Cσ, hence ν → 0. Projecting
+(4.8) onto the midpoint ray gives exactly
+
+             [g(ρb ) − g(ρa ) − λ∆ρ] cos(δ/2) = −ε[P (qb ) − P (qa )] · e((φa + φb )/2).         (4.9)
+
+Since g ′ → 3, λ → 0, and DP = O(σ), this proves the radial bound.
+   A second complete pair would also have vanishing total mass, which is impossible. The
+exterior angular equations therefore give separation h. The pair’s weighted T -average, divided
+by ν after internal cancellation, gives the probe equation. Finally divide (4.6) by δ: its radial
+contribution tends to zero, its angular derivative tends to D, and its right side is ν/d3 + o(1).
+Lemma 2.3 gives D > 0.
+
+                                                                                    i∈E µi , σ = 1 − ν,
+                                                                                 P
+Proposition 4.3. Let E be a complete triple with exterior label p, ν =
+diameter d, and angular width W . It is an endpoint block and
+
+                               ν → 0,   σ → 1,    |φp − φi | → h   (i ∈ E),
+                                                                                                (4.10)
+                max |ρi − ρj | = o(d),        W/d → 1,        0 < C −1 ≤ ν/d3 ≤ Cσ.
+               i,j∈E
+
+Proof. It suffices to treat E = {1, 2, 3}, p = 4. Put
+
+               J(ρ, v) = ρρp sin(φp − v)(|ρe(v) − qp |−3 − cε ),       Ji = J(ρi , φi ).
+
+Summing the weighted triple equations and cancelling σν gives f (φ0p − ψ) = 0 at the limiting
+center ψ. Separation and (4.1) force φ0p − ψ = h. On the triple’s polar rectangle,
+                                     √
+                           Jρ → −3 3/4,         Jv → D0 := 9/4.                        (4.11)
+
+Expanding (4.4) against the exterior gives ρj − ρi ≥ −C(φj − φi ) for adjacent, hence all
+ordered, triple pairs. The first and last angular equations give J1 < 0 < J3 . If ρ3 ≥ ρ1 ,
+integration of (4.11) yields
+
+                                  0 < J3 − J1 ≤ −(ρ3 − ρ1 )/C + CW.
+
+The opposite case uses the support bound. All intermediate radii lie between ρ1 − CW and
+ρ3 + CW , so the radial spread is O(W ) and d ≍ W .
+                                                −3
+   For internal pairs, kij = ρi ρj s(φj − φi )(rij − cε ) ≥ C −1 d−3 . Subtracting the first and last
+angular equations, each internal mass multiplies angular distances summing to W . Hence
+
+                                    νW/d3 ≤ Cσ(J3 − J1 ) ≤ CσW.
+
+Thus ν/d3 ≤ Cσ, ν → 0, and σ → 1.
+    Along any further subsequence, extract limits of (qi − q1 )/d and group equal limits. There
+are at least two groups. Average (3.3) within each group with its current normalized masses.
+
+                                                    8
+Internal forces cancel; other groups contribute at most Cν/d2 = O(d) before multiplication by
+ε. Each group has diameter o(d), while the exterior field has bounded derivative. Subtracting
+the averages gives, for representatives,
+                                    F0 (qi ) − F0 (qj ) = o(d) + O(εd).
+Since DF0 → 3e(ψ)e(ψ)T , radial differences between groups are o(d), and the same holds
+within groups. Equation (4.3) now gives W/d → 1.
+    If ν/d3 → 0, repeat these normalized averages in the angular equations. Cross-group
+interactions are O(ν/d2 ) = o(d), and each averaged J differs from its representative value
+by o(d). Subtraction, (4.11), and the radial estimate give D0 (φi − φj ) = o(d), contradicting
+distinct scaled groups. This proves the lower bound. Reflection gives the other endpoint
+block.
+Proposition 4.4. Suppose the shortest internal distance s in Proposition 4.3 satisfies s/d → 0.
+Choose fixed shortest-pair labels a < b, and let c be the third label. Put ξ = µa + µb , δ = φb − φa ,
+and ∆ρ = ρb − ρa . The pair is adjacent and
+       ξ/ν → 0,       ν/d3 → D0 ,           ξ/s3 → 3D0 ,        δ/s → 1,    |∆ρ| ≤ Cεs.        (4.12)
+These limits do not require convergence of µa /ξ.
+Proof. The shortest pair is adjacent: otherwise W = δ ≤ Cs = o(d). Let ζ = 1 for a left
+triple and −1 for a right triple, and ω = sign(φc − φa ). The distances from the pair to c are
+d(1 + o(1)); their angular differences divided by d tend to ω, and their radial differences are
+o(d). These estimates hold throughout the pair’s segment and polar rectangle.
+    Define P, H as in the pair proof, now summing over j = c, p, and put Dj = |ρe(v) − qj |,
+∆j = φj − v. Since µc /d3 ≤ C, DP = O(1). Differentiation gives
+                                      µj ρj sin ∆j (ρ − ρj cos ∆j )Dj−5 ,
+                               X
+                   Hρ = −3                                                                     (4.13)
+                              j=c,p
+
+                                  µj ρj [− cos ∆j (Dj−3 − ρ−3                 −5
+                           X
+                                                                         2
+                   Hv =                                    j ) + 3ρρj sin ∆j Dj ].
+                          j=c,p
+
+The near-source part of Hρ is bounded by C(µc /d3 )(|ρ−ρ
+                                                      √ c |/d+d) = o(1), while its contribution
+               3
+to Hv is 2µc /d + o(1). The exterior contributes −ζ3 3/4 and D0 , respectively. Thus
+              ζHρ ≤ −C −1 ,           |Hρ | + |Hv | ≤ C,      Hv = D0 + 2µc /d3 + o(1).        (4.14)
+The vector difference (4.8), with d, ν replaced by s, ξ, again has only radial or tangential
+limits. In the radial case, support against p forces sign(∆ρ) = ζ. Since δ = o(s) and |∆ρ| ∼ s,
+(4.14) makes the left side of (4.6) negative, contradicting its positive right side. Hence λ → 0,
+δ/s → 1, and ∆ρ/s → 0. The angular difference gives ξ/s3 ≤ C, whence
+                                                       3
+                                          ξ   ξ/s3        s
+                                            =                 → 0.
+                                          ν   ν/d3        d
+The midpoint identity (4.9), with DP = O(1), gives |∆ρ| ≤ Cεs.
+    Average the pair’s T equations with weights µa /ξ, µb /ξ and subtract the equation of c. Let
+K be the averaged variational kernel from the pair to c, and J0 its averaged exterior field.
+Internal cancellation gives exactly
+                                          0 = νK + σ(J0 − Jc ).                                (4.15)
+The triple estimates imply K = ωd−2 (1 + o(1)) and J0 − Jc = −D0 ωd + o(d). Division by
+ωd gives ν/d3 → D0 , hence µc /d3 → D0 . Now Hv → 3D0 in (4.14); dividing the pair angular
+difference by δ, with ∆ρ/δ = O(ε), gives ξ/s3 → 3D0 . All averages use current normalized
+masses, so the conclusions hold on the selected fixed-label sequence.
+
+                                                      9
+    Every sequence therefore has, after extraction, one of four types: no satellite collision, a
+complete pair, a triple with comparable internal distances, or a triple containing a smaller
+pair. The span bound excludes a four-member cluster, and Proposition 4.2 excludes two pairs.
+
+
+5     Regularized solution charts
+We use the residuals (3.5)–(3.6), changing only coordinates and rows. Put
+
+                        χ(t, z) = 12 tz 2 s(tz/2)2 ,              1 − cos(tz) = tχ(t, z).                  (5.1)
+
+The extensions to signed scales below are analytic extensions of the positive-scale equations.
+For a smooth target field K,
+                                                        Z 1
+              K(ρ + tu, v + tz) − K(ρ, v)
+                                          =                   (uKρ + zKv )(ρ + λtu, v + λtz) dλ.           (5.2)
+                           t                             0
+
+Here source positions and the common vector X are fixed in the target difference; subsequent
+differentiation includes their dependence on the variables.
+    One formula covers the internal terms of both single-scale charts. If µi = t3 αi , ρi = R + twi ,
+φi = ψ + tzi , set aij = wi − wj , bij = zi − zj and
+
+                     Wij2 = a2ij + ρi ρj b2ij s(tbij /2)2 ,           rij = tWij      (t > 0).
+
+The internal contributions to Ri , Ti are, respectively,
+
+                                                αj [aij + ρj χ(t, bij )]Wij−3 ,
+                                         X
+                                 − εt
+                                         j̸=i
+                                                                                                           (5.3)
+                                             αj ρi ρj bij s(tbij )(Wij−3 − t3 cε ).
+                                      X
+                                 −t
+                                      j̸=i
+
+Thus their divided differences are smooth wherever Wij > 0. Their weighted angular sum
+vanishes, and their weighted radial sum is
+
+                                         αi αj (ρi + ρj )[1 − cos(tbij )]Wij−3 .
+                                   X
+                              −ε
+                                   i<j
+
+All exterior terms are smooth target fields and use (5.2).
+    At a distinct limiting root with mass µ0 in the closed simplex, choose p with µ0p ≥ 1/4, fix
+φp = 0 and omit Tp . The seven residuals are smooth for nearby signed masses of sum one.
+Their derivative at ε = 0 has the form
+                                                                  !
+                                                      3I4 0
+                                                            ,
+                                                       ∗ K
+
+where K is the reduced derivative from Proposition 2.4. Lemma 3.2 gives a unique root on an
+independent product in ε and the mass coordinates. Convexity persists since all cyclic triple
+areas have positive limits; Lemma 3.1 gives nondegeneracy at positive masses. Convergence
+places every sequence with these limiting data in the root neighborhood. The omitted angular
+equation follows from (3.7).
+    For a complete pair, fix limiting exterior angles 0, h, exterior mass fraction p0 , and pair
+angle ψ0 as in Proposition 4.2. Let D > 0 be the probe derivative there and z0 = D−1/3 . For
+independent parameters (ε, t, p, α), put β = 1 − α and
+
+                 µa = t3 α,    µb = t3 β,          µc = (1 − t3 )p,      µd = (1 − t3 )(1 − p),            (5.4)
+    φc = 0,   φd = ω,   ρa = R − βtu,              ρb = R + αtu,        φa = ψ − βtz,        φb = ψ + αtz. (5.5)
+
+
+                                                             10
+Use variables (ρc , ρd , R, u, ω, ψ, z). For either row family L = R, T , put AL = αLa + βLb ,
+BL = (Lb − La )/t, and retain
+                                                                                    (
+                                                                                      d,      p0 ≥ 1/2,
+                    F = (Rc , Rd , AR , BR , To , AT , BT ),                o=
+                                                                                      c,      p0 < 1/2.
+The omitted exterior row has positive mass bounded away from zero. Both coordinate changes
+have determinant t; the inverse row formulas La = AL − βtBL , Lb = AL + αtBL require no
+division by a mass.
+    Here
+                         2
+                        rab = t2 W 2 ,   W 2 = u2 + ρa ρb z 2 s(tz/2)2 .              (5.6)
+Equation (5.3) and (5.2) extend every row smoothly near W = z0 > 0, uniformly for α in an
+interval containing [0, 1]. At ε = t = 0 the radial rows are g(ρc ), g(ρd ), g(R), g ′ (R)u. With
+(pc , pd ) = (p, 1 − p) and
+                                                   pj ρj sin(φj − v)(|ρe(v) − qj |−3 − 1),
+                                            X
+                       H(ρ, v) = ρ
+                                           j=c,d
+
+the cluster angular rows become
+                                                                                       R2 z
+                     AT = H(R, ψ),                   BT = Hρ u + Hv z −                             .                 (5.7)
+                                                                                  (u2 + R2 z 2 )3/2
+At y 0 = (1, 1, 1, 0, h, ψ0 , z0 ) the radial block is (3I4 , 0) and the angular block is lower triangular,
+with diagonal                                           (
+                                                          D0 p0 ,          o = d,
+                              (a0 , D, 3D),      a0 =                                                 (5.8)
+                                                          −D0 (1 − p0 ), o = c.
+Since |a0 | ≥ 9/8, the derivative is invertible. The base and derivative are independent of α, so
+Lemma 3.2 gives a common root on an independent (ε, t, p) product, uniformly in α ∈ [0, 1].
+At ε = 0 row recovery gives unit radii and u = 0; hence u = O(ε) uniformly.
+   Convexity follows from the areas containing the pair. Set q0 = 0 and Sj = det(qb −qa , qj −qa ).
+At the base point, their smooth quotients satisfy
+               (S0 /t)|0 = z0 ,            (Sj /t)|0 = z0 [1 − cos(φ0j − ψ0 )] > 0               (j = c, d).          (5.9)
+All other cyclic triple areas have positive limits. The invertible row and coordinate changes
+and Lemma 3.1 give nondegeneracy. Finally, Proposition 4.2 gives t = ν 1/3 , z = δ/t → z0 ,
+u = (ρb − ρa )/t → 0, and, after extraction, p → p0 . The actual variables therefore enter the
+common root ball, without convergence of α = µa /ν.
+    For a triple with comparable internal distances, label its members 1, 2, 3 in increasing
+angular order and its exterior p. Its limiting angle in the gauge φp = 0 is τ h, τ = ±1. Consider
+                           X            zi − z j                                                    X
+     Gi (z; α) = D0 zi −          αj               = 0,           z1 < z2 < z3 ,        αi ≥ 0,            αi = 1.   (5.10)
+                           j̸=i
+                                       |zi − zj |3                                                    i
+
+For positive weights these are the divided gradient equations of the proper, strictly convex
+function
+                                     D0 X            X αi αj
+                             V(z) =         αi zi2 +                ,
+                                      2 i            i<j
+                                                         |zi − zj |
+so there is exactly one root and its weighted center is zero. For nonnegative weights the divided
+derivative J = Dz G has entries
+                                         X         αj                               2αj
+                    Jii = D0 + 2                           3
+                                                             ,        Jij = −                  (i ̸= j).             (5.11)
+                                         j̸=i
+                                              |z i − z j |                      |zi − zj |3
+
+                                                                 11
+Strict row diagonal dominance gives ∥Jv∥∞ ≥ D0 ∥v∥∞ . The integral of J along any ordered
+segment has the same property, proving uniqueness also for nonnegative weights. Boundary
+existence is needed only at limits obtained below.
+    Set                                                               
+                                    !              −(α2 + α3 )  −α3
+                        −1 1 0
+                  L=                  ,     Bα =     α1        −α3  .             (5.12)
+                                                                      
+                         0 −1 1
+                                                      α1       α1 + α2
+Then LBα = I2 , αT Bα = 0. Fix a distinct root z 0 at α0 , put v 0 = Lz 0 , and use
+                         µi = t3 αi ,    µp = 1 − t3 ,        w = Bα u,      z = Bα v,
+                                                                                                      (5.13)
+                           ρp = r,      φp = 0,    ρi = R + twi ,      φi = ψ + tzi .
+
+For P = (P1 , P2 , P3 )T , either R or T , retain AP = αT P and BP = LP/t, together with Rp .
+The inverse P = AP 1 + tBα BP retains every probe row, including when αi = 0; Tp follows
+since µp > 0. Equation (5.3) proves smoothness on an independent (ε, t, α) neighborhood: all
+Wij are positive at z 0 .
+    At ε = t = 0 the radial rows are g(r), g(R), g ′ (R)u1 , g ′ (R)u2 . Put
+
+                        H(ρ, v; r) = −ρr sin v (ρ2 + r2 − 2ρr cos v)−3/2 − 1 .
+                                                                                        
+                                                                                                      (5.14)
+
+The angular rows are H(R, ψ; r) and LM , where
+                                                  X             αj R2 (zi − zj )
+                      Mi = H ρ w i + H v z i −                      2 + R2 (z − z )2 ]3/2
+                                                                                          .
+                                                  j̸=i
+                                                       [(w i − w j )         i   j
+
+
+At (r, R, u, ψ) = (1, 1, 0, τ h) the last rows are LG. Since αT G = D0 αT z = 0, they recover all
+of (5.10). At y 0 = (1, 1, 0, 0, τ h, v10 , v20 ) the radial block is (3I4 , 0) and the angular block has
+diagonal blocks D0 and
+                                                   K = LJBα .                                       (5.15)
+If Kξ = 0, then JBα ξ = c1 1. The identity αT J = D0 αT gives c1 = 0, hence ξ = 0. Thus
+Lemma 3.2 applies. At ε = 0 row recovery gives r = R = 1, u = 0, including t = 0 by continuity,
+so |r − 1| + |R − 1| + |u| = O(ε). Nondegeneracy follows from Lemma 3.1; convexity is proved
+in Section 6.
+    For capture, Proposition 4.3 gives t = ν 1/3 ≍ d, u → 0 and bounded positive gaps v.
+Extract α → α0 , v → v 0 with both gaps positive. The smooth difference rows limit to LG = 0,
+hence (5.10). The resulting boundary root supplies the chart, and local uniqueness captures
+the sequence.
+    For a triple containing a smaller pair, let a < b denote that pair, c the third cluster member
+and p the exterior. Let τ = ±1 specify the cluster side relative to p, and ω = ±1 the side of c
+relative to the pair. Put β = 1 − α, γ = η 3 , and
+
+                      µa = t3 γα,       µb = t3 γβ,    µc = t3 (1 − γ),     µp = 1 − t3 .             (5.16)
+
+Use y = (ρp , R, u1 , u2 , ψ, z1 , z2 ) and
+
+                           S = R − (1 − γ)tu1 , ψ0 = ψ − (1 − γ)tz1 ,
+                          ρa = S − βtηu2 ,            φa = ψ0 − βtηz2 ,
+                                                                                                      (5.17)
+                          ρb = S + αtηu2 ,            φb = ψ0 + αtηz2 ,
+                          ρc = R + γtu1 ,             φc = ψ + γtz1 ,         φp = 0.
+For either row family P = R, T , define
+
+ P0 = αPa + βPb ,       AP = γP0 + (1 − γ)Pc ,         BP = (Pc − P0 )/t,       CP = (Pb − Pa )/(tη). (5.18)
+
+                                                       12
+Retain (Rp , AR , BR , CR , AT , BT , CT ). The inverse is
+
+                            P0 = AP − (1 − γ)tBP , Pc = AP + γtBP ,
+                                                                                                    (5.19)
+                            Pa = P0 − βtηCP ,                 Pb = P0 + αtηCP .
+
+The coordinate determinant has absolute value t4 η 2 , and (1 − t3 )Tp + t3 AT = 0 recovers the
+exterior row. No row is lost at α = 0, 1.
+   To verify joint smoothness in the independent parameters, put Pa = u1 + βηu2 , Pb =
+u1 − αηu2 , Qa = z1 + βηz2 , Qb = z1 − αηz2 . Then rab = tηW , ric = tVi for i = a, b, where
+
+                 W 2 = u22 + ρa ρb z22 s(tηz2 /2)2 ,         Vi2 = Pi2 + ρi ρc Q2i s(tQi /2)2 .     (5.20)
+
+Let H, K be the exterior angular and radial fields,
+
+                    H(ρ, v) = −(1 − t3 )ρρp sin v(|ρe(v) − ρp e(0)|−3 − cε ),
+                                                   ρ − ρp cos v
+                    K(ρ, v) = g(ρ) − ε(1 − t3 )                    − εcε X · e(v).
+                                                |ρe(v) − ρp e(0)|3
+
+For target values write Hi = H(ρi , φi ), and similarly for K; index 0 denotes the average with
+weights α, β. Define
+
+            Li = ρi ρc Qi s(tQi )(Vi−3 − t3 cε ),       M = ρa ρb z2 s(tηz2 )(W −3 − t3 η 3 cε ).
+
+Exact substitution gives
+
+                         AT = γH0 + (1 − γ)Hc ,
+                         BT = (Hc − H0 )/t − L0 ,                                                   (5.21)
+                         CT = (Hb − Ha )/(tη) + (1 − γ)(Lb − La )/η − M.
+
+The field differences use (5.2). For the remaining quotient define
+
+                   L(r, P, Q) = rρc Qs(tQ)[(P 2 + rρc Q2 s(tQ/2)2 )−3/2 − t3 cε ].
+
+Along (r, P, Q) = (S + tηλu2 , u1 − ηλu2 , z1 − ηλz2 ),
+                                     Z α
+                        Lb − La
+                                =           (tu2 Lr − u2 LP − z2 LQ )(r, P, Q) dλ.                  (5.22)
+                           η           −β
+
+The substitution λ + β fixes the interval to [0, 1].
+   For the radial terms put
+
+                   Ni = (Pi − ρc χ(t, Qi ))Vi−3 ,       Oi = (Pi + ρi χ(t, Qi ))Vi−3 ,
+                   N = (u2 − ρb χ(tη, z2 ))W −3 ,           O = (u2 + ρa χ(tη, z2 ))W −3 ,
+
+and J = −εtηαβ(ρa + ρb )χ(tη, z2 )W −3 . The exact rows are
+
+                 AR = γK0 + (1 − γ)Kc + εtγ(1 − γ)(N0 − O0 ) + γJ,
+                 BR = (Kc − K0 )/t − ε[γO0 + (1 − γ)N0 ] − J/t,                                     (5.23)
+                  CR = (Kb − Ka )/(tη) + ε(1 − γ)(Nb − Na )/η − ε(αO + βN ).
+
+Here J/t is explicitly smooth. The quotient (Nb − Na )/η has formula (5.22) with
+
+                     N (r, P, Q) = (P − ρc χ(t, Q))(P 2 + rρc Q2 s(tQ/2)2 )−3/2 .
+
+
+                                                       13
+The exterior row has no internal denominator. Positive W, Va , Vb therefore give joint smoothness
+in (ε, t, η, α), including all scale faces and both zero-mass endpoints.
+    At ε = t = η = 0 the radial rows are g(ρp ), g(R), g ′ (R)u1 , g ′ (R)u2 . Put
+
+                                          R 2 z1                             R 2 z2
+                            L0 =                       ,        M0 =                      .
+                                    (u21 + R2 z12 )3/2                 (u22 + R2 z22 )3/2
+
+With H from (5.14), the angular rows are
+
+                             AT = H(R, ψ; ρp ),
+                             BT = Hρ u1 + Hv z1 − L0 ,                                                (5.24)
+                              CT = Hρ u2 + Hv z2 − u2 ∂u1 L0 − z2 ∂z1 L0 − M0 .
+
+They vanish at
+                                                                       −1/3
+                   y 0 = (1, 1, 0, 0, τ h, Z0 , z0 ),      Z0 = ωD0           ,   z0 = (3D0 )−1/3 .   (5.25)
+
+The radial block is (3I4 , 0) and the angular block is
+                                                           
+                            D0     0         0
+                          CZ0    3D0        0 ,                      C = − 27
+                                                                             4 sin(τ h).              (5.26)
+                                               
+                            Cz0 −6D0 z0 /Z0 9D0
+
+Indeed ∂z1 L0 = −2D0 , ∂z21 L0 = 6D0 /Z0 and ∂z2 M0 = −6D0 at the base. Hence det Dy F =
+2187D03 ̸= 0. The base, derivative and positive denominator bounds are independent of α.
+Lemma 3.2 supplies one root and a bounded inverse on an independent (ε, t, η) product,
+uniformly for α ∈ [0, 1]. At ε = 0 row recovery gives unit radii and u1 = u2 = 0; continuity
+covers the scale faces. Thus uj = O(ε) uniformly. At positive parameters Lemma 3.1 gives
+nondegeneracy.
+   For capture, take t = ν 1/3 , η = (ξ/ν)1/3 , α = µa /ξ. Proposition 4.4 gives
+                                  −1/3
+       t, η → 0,      d/t → D0           ,   z2 = δ/(tη) → z0 ,    u2 = (ρb − ρa )/(tη) = O(ε) → 0.
+
+The larger-scale radial estimate gives u1 → 0. The two signed angular differences from the
+pair to c, divided by d, tend to ω, so averaging gives z1 → Z0 . Also ρp , R → 1 and ψ → τ h.
+The variables enter the common root ball without convergence of α. Table 1 lists the four
+possibilities.
+
+                    Table 1: Nested triple charts in the standard directed order.
+                                     E       {a, b} p      (τ, ω)
+                                  {1, 2, 3} {1, 2} 4 (−1, +1)
+                                  {1, 2, 3} {2, 3} 4 (−1, −1)
+                                  {2, 3, 4} {2, 3} 1 (+1, +1)
+                                  {2, 3, 4} {3, 4} 1 (+1, −1)
+
+    Extracting fixed labels selects one chart. Section 6 proves strict convexity and identifies its
+fixed-mass endpoint at ε = 0.
+
+
+6    Strict convexity and fixed-mass endpoints
+The triple charts require exact collinearity at t = 0 to preserve convexity on an independent
+parameter product.
+
+                                                           14
+    Set a = (1 + ε)1/3 , e0 = e(τ h), w0 = e(0) − e0 and q 0 = ae0 . At t = 0, the exterior is
+qp = ae(0) and the probe field is
+                                                      q       qp − q      qp
+                                     F (q) = q −        3
+                                                          +ε         3
+                                                                       − ε 3.
+                                                     |q|     |qp − q|     a
+
+The equilateral background gives F (q 0 ) = 0. In the basis (e0 , e⊥
+                                                                   0 ) its derivative is
+                                                                       √      !
+                        3       T          T       3    1√ + ε/4 τ 3ε/4
+                  B=       (e0 e0 + εw0 w0 ) =                                  .                            (6.1)
+                      1+ε                        1 + ε τ 3ε/4          3ε/4
+
+Its trace is 3 and its smaller eigenvalue is
+                                                             9
+               λ = εd,         d=                           p                ,              d(0) = D0 .     (6.2)
+                                      2(1 + ε)2 1 +          1 − 3ε/(1 + ε)2
+
+All quantities below depend smoothly on small ε:
+
+                  B12                    ke0 + e⊥
+                                                0                                                 l
+          k=−            ,            n= √        ,                 l = (D0 /d)1/3 ,         b= √       .
+                 B11 − λ                   1 + k2                                              a 1 + k2
+Here Bn = λn, k(0) = 0 and l(0) = b(0) = 1. If distinct scalar positions si satisfy
+                              X            si − sj                   X                 X
+                   D0 s i −          ωj               = 0,                ωi si = 0,         ωi = 1,         (6.3)
+                              j̸=i
+                                          |si − sj |3                 i                  i
+
+then bi = lsi n satisfy
+                                                     X             bi − bj
+                                           Bbi − ε          ωj               = 0,                            (6.4)
+                                                     j̸=i
+                                                                 |bi − bj |3
+
+since dl = D0 l−2 .
+    For fixed ε ̸= 0 and, in the nested chart, η > 0, substitute qi (t) = q 0 + tbi + O(t2 ) and
+µi = t3 ωi in the Cartesian equations, keeping qp = ae(0) fixed. Their first-order terms are t
+times the left side of (6.4); the exterior mass and reaction vector change only at order t3 . On
+these paths Y − cε X = O(t3 ), and the exact identities
+                                                                          ρi
+             Ri = [Fi + ε(Y − cε X)] · e(φi ),                    Ti =       [Fi + ε(Y − cε X)] · e⊥ (φi )
+                                                                          ε
+identify the boundary difference rows with the radial projections and a/ε times the tangential
+projections. Basis derivatives contribute nothing because F (q 0 ) = 0; the center and exterior
+rows vanish on the background. Thus (6.4) solves these boundary equations. Their joint
+smooth extensions from Section 5 also give the identities at zero parameters.
+    For the regular chart take si = zi (0, 0, α) from its own root. Weighted row recovery gives
+(6.3). The resulting boundary root is
+
+                   r = R = a,                ψ = τ h,            v = bv(0, 0, α),        u = akv.            (6.5)
+
+The factor a−1 in b converts tangential to angular displacement. This candidate stays in the
+chart’s common neighborhood, so uniqueness identifies it with the root at t = 0. In particular,
+
+                                               wi = akzi            (t = 0).                                 (6.6)
+
+   For the nested chart, its root at ε = t = 0, with η > 0 fixed, gives
+
+                sa = −(1 − γ)z1 − βηz2 ,                sb = −(1 − γ)z1 + αηz2 ,             sc = γz1 ,
+
+                                                             15
+with weights (γα, γβ, 1 − γ). The angular difference rows make the three scalar residuals equal,
+and their weighted sum is zero. Hence (6.3) holds, including α = 0, 1. Set ρp = R = a, ψ = τ h,
+multiply both zj by b, and set uj = akzj . This boundary root is smooth in η, α and stays in
+the common neighborhood. Uniqueness and continuity as η ↓ 0 yield
+                                      u2 z1 − u1 z2 = 0        (t = 0)                                    (6.7)
+for every small ε and all α ∈ [0, 1].
+    We use these collinearity identities to prove strict convexity. For A < B < C < A + π,
+                                                  B−A        C −B      C −A
+           det(e(B) − e(A), e(C) − e(A)) = 4 sin         sin       sin       > 0.                         (6.8)
+                                                    2          2         2
+With the origin as third vertex, the corresponding area is sin(B − A) > 0.
+   In the regular chart, line-segment integration gives smooth divided edges
+                   qj − qi = tVij ,       Vij |t=0 = (wj − wi )e0 + R(zj − zi )e⊥
+                                                                                0.
+
+Evaluate B1 = det(V12 , V13 ) along the smooth chart root. Equation (6.6) gives B1 (ε, 0, α) = 0,
+so                                                          Z                 1
+              det(q2 − q1 , q3 − q1 ) = t3 C1 ,       C1 (ε, t, α) =              ∂t B1 (ε, st, α) ds.    (6.9)
+                                                                          0
+The derivative includes the root’s dependence on t. At ε = 0 every radius is one; writing
+v 0 = v(0, 0, α), (6.8) gives
+                                 C1 (0, 0, α) = 12 v10 v20 (v10 + v20 ) > 0.
+Thus C1 stays positive on a smaller product. Areas containing both exterior vertices have
+positive equilateral limits. Those containing two cluster members and one exterior vertex have
+a factor t; at the base their quotients are zj − zi for the origin and (zj − zi )(1 − cos h) for p,
+with cyclic order understood. They are positive.
+    In the nested chart write
+                  qb − qa = tηVab ,        qc − qa = tVac ,            B2 = det(Vab , Vac )
+along its root. At t = 0,
+               B2 = R{u2 (z1 + βηz2 ) − z2 (u1 + βηu2 )} = R(u2 z1 − u1 z2 ) = 0.
+Hence                                                            Z 1
+                det(qb − qa , qc − qa ) = t3 ηC2 ,        C2 =          ∂t B2 (ε, st, η, α) ds.          (6.10)
+                                                                   0
+Again the derivative is along the root. Equation (6.8) gives
+                                      C2 (0, 0, 0, α) = 21 z0 Z02 > 0.
+This is independent of α and positive for either sign of Z0 ; (c, a, b) and (a, b, c) are cyclic
+permutations. Table 2 gives the other area quotients at ε = t = η = 0, in cyclic order.
+    Continuity preserves all ten cyclic triple areas on a common product, uniformly for α ∈ [0, 1].
+Thus every consecutive edge has the other vertices strictly on its left, proving strict convexity
+in both triple charts.
+Proposition 6.1. After restriction to smaller independent parameter products, all four chart
+types capture their actual sequences. Their roots with positive satellite masses and ε > 0 are
+strictly convex in the prescribed order and have nondegenerate shape Hessian. Fixing any
+positive mass vector represented by a chart and varying only ε gives a smooth branch on [0, ε̄).
+At zero it has unit radii and distinct coorbital angles in the same open semicircle, for that
+same mass vector. For a captured sequence, ε̄ > 0 is independent of its index after extraction
+into one chart.
+
+                                                     16
+                Table 2: Remaining signed-area quotients in the nested chart.
+                             Vertices        Factor Limiting quotient
+                    0, p, one cluster member     1            sin h
+                               0, a, b          tη              z0
+                               p, a, b          tη       z0 (1 − cos h)
+                     0, c, one pair member       t             |Z0 |
+                     p, c, one pair member       t      |Z0 |(1 − cos h)
+
+
+Proof. Smoothness, capture and nondegeneracy follow from Section 5; convexity follows
+from the area factors above and the pair and noncollision estimates there. With positive
+mass coordinates fixed, the scale parameters t and, when present, η are positive. The row
+transformations remain invertible at ε = 0: radial recovery gives g(ρi ) = 0, hence ρi = 1, and
+the weighted angular identity recovers the omitted row. The pair gap tz, regular gaps tvi ,
+and nested gaps tηz2 , tQa , tQb remain nonzero in their prescribed order. Exterior separations
+and span < π persist. Consequently the endpoint is a noncollision coorbital root for the fixed
+positive masses. Each parameter restriction is made once about the selected base; freezing the
+mass coordinates therefore leaves a common ε interval for the captured sequence.
+
+
+7    Connection of all solutions and the common threshold
+Let S(ε, µ) consist of the strictly convex multiplier-one representatives in standard directed
+order,
+                           y = (ρ1 , ρ2 , ρ3 , ρ4 , φ2 , φ3 , φ4 ), φ1 = 0.
+Each allowed similarity class has exactly one such representative.
+Proposition 7.1. If yn ∈ S(εn , µ(n) ) and εn → 0, then a subsequence admits smooth branches
+Γn : [0, ε̄) → R7 , with ε̄ > 0 independent of n, such that Γn (εn ) = yn and
+
+                               Γn (s) ∈ S(s, µ(n) )    (0 < s < ε̄).
+
+Their shape Hessians are nondegenerate for s > 0, and their zero endpoints are distinct-angle
+coorbital roots for µ(n) in the same order.
+Proof. Proposition 4.1 gives unit-radius limits and bounds the span away from both zero and
+π. Extract limits of the angles and masses. Equal-angle blocks are consecutive; a four-member
+block is impossible, and Proposition 4.2 excludes two pairs. For a triple, extract the shortest-
+to-largest distance ratio. A positive limit gives the regular chart, after extracting a distinct
+scalar root; a zero limit gives the nested chart, after fixing the shortest pair. Together with
+noncollision and one-pair limits, these exhaust the possibilities. The charts capture each case,
+and Proposition 6.1 gives branches with their mass coordinates fixed on one common ε interval.
+The pair fractions need not converge because the corresponding charts are uniform on [0, 1].
+Subtracting the current φ1 from every angle restores the required gauge smoothly, preserves
+the equations and nondegeneracy, and returns yn at εn .
+
+Proof of Theorem 1.1. For each fixed µ ∈ M, Proposition 3.3 gives a locally unique convex
+branch from y 0 (µ) = (1, 1, 1, 1, θ20 (µ), θ30 (µ), θ40 (µ)) on 0 ≤ s < ℓ(µ). Theorem 2.2 identifies
+every endpoint in Proposition 7.1 with this point for its fixed mass vector.
+    If there were no common existence bound, we could choose εn → 0 and µ(n) with S(εn , µ(n) )
+empty. Choose 0 < sn < 21 min{εn , 1/n, ℓ(µ(n) )} and take the local root at sn . Proposition 7.1
+gives branches through these roots on a common interval containing εn for large n, a contra-
+diction. Let δ1 > 0 be a common existence bound.
+
+                                                 17
+    If there were no common uniqueness bound, there would be two distinct roots for the
+same µ(n) at εn → 0. Apply Proposition 7.1 successively to the two sequences. On a common
+subsequence their branches Γ1n , Γ2n share an interval [0, τ ). Their endpoints coincide, so fixed-
+mass local uniqueness makes the branches equal near zero. For each sufficiently large n, the
+set
+                              Qn = {s ∈ [0, τ ) : Γ1n (s) = Γ2n (s)}
+is closed and contains a neighborhood of zero. At every positive point it is open by nonde-
+generacy, Lemma 3.1 and the implicit function theorem. Connectedness gives Qn = [0, τ ),
+contradicting distinctness at εn . This yields δ2 > 0.
+    A sequence of degenerate roots with εn → 0 would be captured by Proposition 7.1,
+contradicting nondegeneracy along its positive-parameter branches. Thus there is δ3 > 0.
+    Set δ0 = min{δ1 , δ2 , δ3 }. Simultaneous relabeling of positions and masses takes each
+directed order to the standard order and maps M onto itself, so the same bound applies to
+every order. Undoing the multiplier-one normalization proves the theorem.
+
+
+References
+ [1] Albouy, A., Fu, Y.: Relative equilibria of four identical satellites. Proc. R. Soc. A 465,
+     2633–2645 (2009). https://doi.org/10.1098/rspa.2009.0115
+ [2] Casasayas, J., Llibre, J., Nunes, A.: Central configurations of the planar 1 + N body
+     problem. Celestial Mech. Dynam. Astronom. 60(2), 273–288 (1994). https://doi.org/
+     10.1007/BF00693325
+ [3] Corbera, M., Cors, J.M., Llibre, J.: On the central configurations of the planar 1 + 3
+     body problem. Celestial Mech. Dynam. Astronom. 109(1), 27–43 (2011). https://doi.
+     org/10.1007/s10569-010-9316-0
+ [4] Corbera, M., Cors, J.M., Llibre, J., Moeckel, R.: Bifurcation of relative equilibria
+     of the (1 + 3)-body problem. SIAM J. Math. Anal. 47(2), 1377–1404 (2015). https:
+     //doi.org/10.1137/140978661
+ [5] Cors, J.M., Llibre, J., Ollé, M.: Central configurations of the planar coorbital satellite
+     problem. Celestial Mech. Dynam. Astronom. 89(4), 319–342 (2004). https://doi.org/
+     10.1023/B:CELE.0000043569.25307.AB
+ [6] Deng, Y., Hampton, M., Wang, Z.: Symmetry and asymmetry in the 1 + N coorbital
+     problem. SIAM J. Appl. Dyn. Syst. 21(3), 2080–2095 (2022). https://doi.org/10.113
+     7/22M1475053
+ [7] Moeckel, R.: Linear stability of relative equilibria with a dominant mass. J. Dynam.
+     Differential Equations 6(1), 37–51 (1994). https://doi.org/10.1007/BF02219187
+ [8] Moeckel, R.: Relative equilibria with clusters of small masses. J. Dynam. Differential
+     Equations 9(4), 507–533 (1997). https://doi.org/10.1007/BF02219396
+ [9] Moeckel, R.: Central configurations. In: Central Configurations, Periodic Orbits, and
+     Hamiltonian Systems, pp. 105–167. Advanced Courses in Mathematics—CRM Barcelona.
+     Birkhäuser, Basel (2015). https://doi.org/10.1007/978-3-0348-0933-7_2
+[10] Oliveira, A., Cabral, H.: On stacked central configurations of the planar coorbital satellites
+     problem. Discrete Contin. Dyn. Syst. 32(10), 3715–3732 (2012). https://doi.org/10.3
+     934/dcds.2012.32.3715
+
+
+
+
+                                                18
+[11] Renner, S., Sicardy, B.: Stationary configurations for co-orbital satellites with small
+     arbitrary masses. Celestial Mech. Dynam. Astronom. 88(4), 397–414 (2004). https:
+     //doi.org/10.1023/B:CELE.0000023420.80881.67
+
+
+
+
+                                            19
+

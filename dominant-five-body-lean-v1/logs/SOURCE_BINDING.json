@@ -1,0 +1,183 @@
+{
+  "schema_version": 2,
+  "version": "v1",
+  "created_at": "2026-10-29T16:03:04.775726+08:00",
+  "source_identity": {
+    "tex_path": "source/convex_1plus4.tex",
+    "pdf_path": "source/convex_1plus4.pdf",
+    "tex_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "pdf_sha256": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+    "pdf_page_count": 19
+  },
+  "source_files": [
+    {
+      "kind": "tex",
+      "original_path": "C:\\Users\\衔月\\Desktop\\1+4修改文件\\提交版本\\convex_1plus4.tex",
+      "file": "source/convex_1plus4.tex",
+      "original_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+      "copy_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+      "identical": true,
+      "bytes": 61061
+    },
+    {
+      "kind": "pdf",
+      "original_path": "C:\\Users\\衔月\\Desktop\\1+4修改文件\\提交版本\\convex_1plus4.pdf",
+      "file": "source/convex_1plus4.pdf",
+      "original_sha256": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+      "copy_sha256": "E9A3B8EFBFD5264CF6C988A5276860988E237F4CFFC607F7AB989B879B12D0FF",
+      "identical": true,
+      "bytes": 405171
+    }
+  ],
+  "supplied_pdf_pages": 19,
+  "rebuilt_pdf_pages": 19,
+  "pdf_binary_identical": false,
+  "pdf_layout_extracted_text_byte_identical": true,
+  "pdf_extracted_text_sha256": "373819A9583222C6DCF7BCD7788584FB1EF06368E172C370157B01B12800E4E1",
+  "pdf_layout_normalized_text_identical": true,
+  "pdf_normalized_text_sha256": "C85F91D4619DF8E52C7ABF5AB9651721A0CEF778AE4B99C5B2E281020087F7C0",
+  "normalization": "Decode UTF-8; normalize CRLF/CR to LF and Unicode NFC; strip trailing ASCII spaces/tabs from each line and trailing EOF newlines; append one LF. Preserve page form-feeds, internal line breaks, page numbers and mathematical content.",
+  "tools": {
+    "pdflatex": {
+      "path": "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+      "sha256": "4B582D0BE712B74AE5090ABA2D7338F185082F6446CBEE7B26115E8AB6E21184",
+      "version_lines": [
+        "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2024)",
+        "kpathsea version 6.4.0"
+      ],
+      "version_command": [
+        "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    "pdftotext": {
+      "path": "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdftotext.exe",
+      "sha256": "87F9843A225E0F86B4FF636284E5E161F29BDA2EFD7212382DB575B0202EC1FD",
+      "version_lines": [
+        "pdftotext version 24.03.0",
+        "Copyright 2005-2024 The Poppler Developers - http://poppler.freedesktop.org"
+      ],
+      "version_command": [
+        "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdftotext.exe",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    "pdfinfo": {
+      "path": "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdfinfo.exe",
+      "sha256": "C1896CCE57B6947A7FD8D8868936773552E8BD950ED72D8D6091F6FCDA6F5979",
+      "version_lines": [
+        "pdfinfo version 24.03.0",
+        "Copyright 2005-2024 The Poppler Developers - http://poppler.freedesktop.org"
+      ],
+      "version_command": [
+        "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdfinfo.exe",
+        "-v"
+      ],
+      "exit_code": 0
+    }
+  },
+  "rebuild": {
+    "directory": "logs/v1-source-build",
+    "isolated_tex_sha256": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "rebuilt_pdf_sha256": "C7696E19204245653A40A6FD0D25B235E7B503686F5681B11DA731E215B7C34A",
+    "source_files_modified": false,
+    "passes": [
+      {
+        "pass_number": 1,
+        "working_directory": "logs/v1-source-build",
+        "command": [
+          "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-no-shell-escape",
+          "convex_1plus4.tex"
+        ],
+        "exit_code": 0,
+        "log": "logs/v1-source-build/compile-pass-1.txt",
+        "log_sha256": "0CBC453C8ACF1CB342908E642016D964DE0781E3CAB687EB2F12032975535EA8"
+      },
+      {
+        "pass_number": 2,
+        "working_directory": "logs/v1-source-build",
+        "command": [
+          "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdflatex.exe",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-no-shell-escape",
+          "convex_1plus4.tex"
+        ],
+        "exit_code": 0,
+        "log": "logs/v1-source-build/compile-pass-2.txt",
+        "log_sha256": "91B5619296EBE460160667A24030531AEE7EAD4ACB950F7AF7DD095F77F76557"
+      }
+    ],
+    "extraction_commands": [
+      {
+        "command": [
+          "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdftotext.exe",
+          "-layout",
+          "-enc",
+          "UTF-8",
+          "../../source/convex_1plus4.pdf",
+          "supplied-layout.txt"
+        ],
+        "working_directory": "logs/v1-source-build",
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdftotext.exe",
+          "-layout",
+          "-enc",
+          "UTF-8",
+          "convex_1plus4.pdf",
+          "rebuilt-layout.txt"
+        ],
+        "working_directory": "logs/v1-source-build",
+        "exit_code": 0
+      }
+    ],
+    "page_info_commands": [
+      {
+        "command": [
+          "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdfinfo.exe",
+          "../../source/convex_1plus4.pdf"
+        ],
+        "working_directory": "logs/v1-source-build",
+        "exit_code": 0,
+        "log": "logs/v1-source-build/supplied-pdfinfo.txt"
+      },
+      {
+        "command": [
+          "D:\\latex\\2025\\texlive\\2024\\bin\\windows\\pdfinfo.exe",
+          "convex_1plus4.pdf"
+        ],
+        "working_directory": "logs/v1-source-build",
+        "exit_code": 0,
+        "log": "logs/v1-source-build/rebuilt-pdfinfo.txt"
+      }
+    ]
+  },
+  "evidence_files_sha256": {
+    "logs/v1-source-build/compile-pass-1.txt": "0CBC453C8ACF1CB342908E642016D964DE0781E3CAB687EB2F12032975535EA8",
+    "logs/v1-source-build/compile-pass-2.txt": "91B5619296EBE460160667A24030531AEE7EAD4ACB950F7AF7DD095F77F76557",
+    "logs/v1-source-build/convex_1plus4.aux": "7DA1013491C2C22F6D32AE69FC72A307134B01C5F9F1EBB29E7A5230BA6F2C08",
+    "logs/v1-source-build/convex_1plus4.log": "6098E531468E49C7CD05FDC985BA057A4F0DB3B2396770A0B3166129D4708172",
+    "logs/v1-source-build/convex_1plus4.out": "BD0AE6A79562F505072F7CF2A415A144368E7C0A36DB1BEE5845F3C7D04155B3",
+    "logs/v1-source-build/convex_1plus4.pdf": "C7696E19204245653A40A6FD0D25B235E7B503686F5681B11DA731E215B7C34A",
+    "logs/v1-source-build/convex_1plus4.tex": "7EA6C309533C233C1BDD5B6C4BDD0BD8DB7374248699FDFD64AD63C124DD6C02",
+    "logs/v1-source-build/rebuilt-layout-normalized.txt": "C85F91D4619DF8E52C7ABF5AB9651721A0CEF778AE4B99C5B2E281020087F7C0",
+    "logs/v1-source-build/rebuilt-layout.txt": "373819A9583222C6DCF7BCD7788584FB1EF06368E172C370157B01B12800E4E1",
+    "logs/v1-source-build/rebuilt-pdfinfo.txt": "366D749F70BD097B90CF422ED7E9AF359601C81383C58345A39EF51D076692EC",
+    "logs/v1-source-build/supplied-layout-normalized.txt": "C85F91D4619DF8E52C7ABF5AB9651721A0CEF778AE4B99C5B2E281020087F7C0",
+    "logs/v1-source-build/supplied-layout.txt": "373819A9583222C6DCF7BCD7788584FB1EF06368E172C370157B01B12800E4E1",
+    "logs/v1-source-build/supplied-pdfinfo.txt": "12138469A0A51FA533FBEEC8BC499B7A2EFE1F4C5FCC6B5007199A4CD3A0434B"
+  },
+  "historical_source_files": [
+    "source/dominant_five_body_ARMA_rewritten.tex",
+    "source/dominant_five_body_ARMA_rewritten.pdf"
+  ],
+  "scope": "Read-only canonical-source correspondence audit. The supplied TeX/PDF and desktop originals were not edited. Rebuild products remain in logs/v1-source-build as evidence. Matching complete layout text and page count is not a mathematical certificate or a claim of binary PDF identity."
+}

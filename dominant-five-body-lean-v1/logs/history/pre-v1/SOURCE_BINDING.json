@@ -1,0 +1,21 @@
+{
+  "source_files": [
+    {
+      "file": "dominant_five_body_ARMA_rewritten.tex",
+      "original_sha256": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+      "copy_sha256": "9B080F2516C79F16B3EE1097A2C853D3FE50C9674C309C5BD7826453A52FB5E2",
+      "identical": true
+    },
+    {
+      "file": "dominant_five_body_ARMA_rewritten.pdf",
+      "original_sha256": "E2234C6460AD6BEA0103DC57FCB40F1E1819A1F87201CB164012F0CDC23F1796",
+      "copy_sha256": "E2234C6460AD6BEA0103DC57FCB40F1E1819A1F87201CB164012F0CDC23F1796",
+      "identical": true
+    }
+  ],
+  "supplied_pdf_pages": 19,
+  "rebuilt_pdf_pages": 19,
+  "pdf_layout_extracted_text_byte_identical": true,
+  "pdf_extracted_text_sha256": "182711E49A2730660EC44873B6986D3501A9C28791D2C88E47CE4421DC4F10B3",
+  "scope": "Source copies and layout-text comparison; not binary PDF equality or theorem certification."
+}

@@ -1,0 +1,28 @@
+COMMAND: lake env lean -DwarningAsError=true -DautoImplicit=false Audit/TripleScalarPotential.lean
+'DominantFiveBody.tripleScalarPotential_source_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarChamber_isOpen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarChamber_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_ordered_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleQuadraticPotential_strictJensen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.inverse_positive_gap_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_strictConvexOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_continuousAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_sublevel_coordinate_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DominantFiveBody.tripleScalarPotential_sublevel_gap_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_compact_sublevel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_isProperMap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_hasFDerivAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_fderiv_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_divided_gradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_critical_iff_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_exists_minimizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalarPotential_critical_isMinOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalar_potential_root_existsUnique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleScalar_potential_root_existsUnique_centered' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+LEAN_EXIT_CODE: 0
+EXIT_CODE: 0

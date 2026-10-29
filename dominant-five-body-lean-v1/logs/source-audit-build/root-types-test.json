@@ -1,0 +1,6 @@
+[{"lean_statement":
+  "∀ (ε : ℝ) (μ : DominantFiveBody.MassRatio),\n  DominantFiveBody.masses ε μ 0 = 1 ∧\n    (∀ (i : DominantFiveBody.Satellite), DominantFiveBody.masses ε μ (Fin.succ i) = ε * μ i) ∧\n      (DominantFiveBody.PositiveRatio μ ↔ (∀ (i : DominantFiveBody.Satellite), 0 < μ i) ∧ ∑ i, μ i = 1)",
+  "lean_declaration": "DominantFiveBody.source_masses"},
+ {"lean_statement":
+  "∀ (θ : DominantFiveBody.Satellite → ℝ),\n  DominantFiveBody.CoorbitalAngleDomain θ ↔ θ 0 = 0 ∧ 0 < θ 1 ∧ θ 1 < θ 2 ∧ θ 2 < θ 3 ∧ θ 3 < Real.pi",
+  "lean_declaration": "DominantFiveBody.source_angle_domain"}]

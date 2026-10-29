@@ -1,0 +1,12 @@
+'DominantFiveBody.tripleSlow_newton_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleRadialExteriorDifference_background' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleAngularExteriorDifference_background' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleRadialMean_background_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleAngularMean_background_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.tripleExteriorRadialRow_background_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedFromFixedSlice_nestedToFixedSlice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedToFixedSlice_nestedFromFixedSlice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChartDerivative_eq_fixed_transform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DominantFiveBody.nestedChartDerivative_isInvertible_iff_shape' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,13 @@
+import DominantFiveBody.TripleSlowExterior
+import DominantFiveBody.NestedHessian
+
+#print axioms DominantFiveBody.tripleSlow_newton_difference
+#print axioms DominantFiveBody.tripleRadialExteriorDifference_background
+#print axioms DominantFiveBody.tripleAngularExteriorDifference_background
+#print axioms DominantFiveBody.tripleRadialMean_background_zero
+#print axioms DominantFiveBody.tripleAngularMean_background_zero
+#print axioms DominantFiveBody.tripleExteriorRadialRow_background_zero
+#print axioms DominantFiveBody.nestedFromFixedSlice_nestedToFixedSlice
+#print axioms DominantFiveBody.nestedToFixedSlice_nestedFromFixedSlice
+#print axioms DominantFiveBody.nestedChartDerivative_eq_fixed_transform
+#print axioms DominantFiveBody.nestedChartDerivative_isInvertible_iff_shape

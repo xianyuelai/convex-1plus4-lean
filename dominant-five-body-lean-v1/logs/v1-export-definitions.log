@@ -1,0 +1,3 @@
+COMMAND: lake env lean -DwarningAsError=true -DautoImplicit=false logs/source-audit-build/ExportDefinitionValues.lean
+LEAN_EXIT_CODE: 0
+EXIT_CODE: 0
